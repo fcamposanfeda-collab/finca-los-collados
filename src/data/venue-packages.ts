@@ -124,4 +124,5 @@ export const inquirySubjects = [
   { value: 'evento', label: 'Evento privado' },
   { value: 'empresa', label: 'Empresa / teambuilding / rodaje' },
   { value: 'pack', label: 'Pack romántico, familiar o gastronómico' },
+  { value: 'caza', label: 'Caza en La Calerilla' },
 ] as const;

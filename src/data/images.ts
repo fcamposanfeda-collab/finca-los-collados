@@ -7,6 +7,7 @@ export const images = {
   hero: {
     home: '/images/hero-finca.jpg',
     laFinca: '/images/finca-paisaje.jpg',
+    laCalerilla: '/images/calerilla-hero.jpg',
     alojamiento: '/images/bungalow-interior.jpg',
     gastronomia: '/images/gastronomia.jpg',
     experiencias: '/images/campo-montiel.png',
@@ -16,7 +17,13 @@ export const images = {
     entorno: '/images/rutas-villamanrique.png',
     contacto: '/images/porche-exterior.jpg',
     reservas: '/images/bungalow-detalle.jpg',
-    noticias: '/images/slider-finca.png',
+  },
+
+  laCalerilla: {
+    hero: '/images/calerilla-hero.jpg',
+    campo: '/images/calerilla-temporada.jpg',
+    perdiz: '/images/calerilla-perdiz.png',
+    gastronomia: '/images/gastronomia.jpg',
   },
 
   laFinca: {
@@ -59,15 +66,9 @@ export const images = {
     rutas: '/images/rutas-molinos.png',
   },
 
-  noticias: {
-    'la-fauna-no-da-tregua': '/images/noticia-fauna.png',
-    'manifestacion-por-el-mundo-rural': '/images/noticia-manifestacion.png',
-    'ultimo-dia-de-temporada': '/images/noticia-temporada.jpg',
-    'exposicion-cinegetica-22': '/images/noticia-cinegetica.png',
-  },
-
   teasers: {
     '/la-finca': '/images/finca-paisaje.jpg',
+    '/la-calerilla': '/images/calerilla-hero.jpg',
     '/alojamiento': '/images/bungalow-interior.jpg',
     '/gastronomia': '/images/gastronomia.jpg',
     '/experiencias': '/images/bicicleta.jpg',

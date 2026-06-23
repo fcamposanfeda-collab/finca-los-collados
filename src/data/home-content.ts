@@ -72,30 +72,4 @@ export const homeContent = {
     id: 'contacto',
     title: 'Ponte en contacto con nosotros',
   },
-  noticias: {
-    id: 'noticias',
-    title: 'Conoce nuestras noticias más recientes',
-    posts: [
-      {
-        slug: 'la-fauna-no-da-tregua',
-        title: 'La fauna no da tregua',
-        excerpt: 'La fauna no da tregua y sigue causando daños en...',
-      },
-      {
-        slug: 'manifestacion-por-el-mundo-rural',
-        title: 'Manifestación por el mundo rural',
-        excerpt: 'Los Collados de San Miguel apoyarán la manifestación por el...',
-      },
-      {
-        slug: 'ultimo-dia-de-temporada',
-        title: 'Último día de temporada',
-        excerpt: 'Último día de temporada en Los Collados de San Miguel...',
-      },
-      {
-        slug: 'exposicion-cinegetica-22',
-        title: 'Exposición cinegética 22',
-        excerpt: 'Los Collados de San Miguel asistirá a la Expo Cinegética...',
-      },
-    ],
-  },
 } as const;

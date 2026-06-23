@@ -14,6 +14,11 @@ export const pagesMeta = {
     description:
       'Descubra Los Collados de San Miguel: finca rural con historia de más de 2.500 años, bungalows, piscina y entorno natural en Villamanrique, Ciudad Real.',
   },
+  '/la-calerilla': {
+    title: `La Calerilla | Caza de Perdiz Roja en Mano | ${brand}`,
+    description:
+      'La Calerilla: coto de caza de perdiz roja en Campos de Montiel. Caza en mano, temporada de octubre a febrero y alojamiento en Los Collados de San Miguel.',
+  },
   '/alojamiento': {
     title: `Alojamiento Rural ${location} | 8 Bungalows Pet Friendly | ${brand}`,
     description:
@@ -53,11 +58,6 @@ export const pagesMeta = {
     title: `Contacto y Reservas | ${brand}`,
     description:
       'Contacte con Finca Los Collados de San Miguel. Teléfono, email y formulario para reservas, eventos, empresas y consultas.',
-  },
-  '/noticias': {
-    title: `Noticias | ${brand}`,
-    description:
-      'Actualidad, eventos y novedades de Finca Los Collados de San Miguel en Campos de Montiel, Ciudad Real.',
   },
   '/reservas-online': {
     title: `Reservas Online | ${brand}`,

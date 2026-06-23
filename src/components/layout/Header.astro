@@ -1,7 +1,7 @@
 ---
 import { mainNav } from '../../data/navigation';
 import { site } from '../../data/site';
-import { isActiveNav } from '../../utils/nav';
+import { isActiveNav, isActiveNavItem } from '../../utils/nav';
 
 const currentPath = Astro.url.pathname;
 ---
@@ -26,16 +26,61 @@ const currentPath = Astro.url.pathname;
     <nav id="main-navigation" class="site-header__nav" aria-label="Navegación principal" data-nav-menu>
       <ul class="site-header__list">
         {
-          mainNav.map((item) => (
-            <li>
-              <a
-                href={item.href}
-                class:list={['site-header__link', { 'is-active': isActiveNav(item.href, currentPath) }]}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))
+          mainNav.map((item) =>
+            item.children ? (
+              <li class="site-header__item site-header__item--has-submenu">
+                <div class="site-header__parent">
+                  <a
+                    href={item.href}
+                    class:list={[
+                      'site-header__link',
+                      { 'is-active': isActiveNavItem(item, currentPath) },
+                    ]}
+                  >
+                    {item.label}
+                  </a>
+                  <button
+                    type="button"
+                    class="site-header__submenu-toggle"
+                    aria-expanded="false"
+                    aria-label={`Mostrar secciones de ${item.label}`}
+                    data-submenu-toggle
+                  >
+                    <span aria-hidden="true"></span>
+                  </button>
+                </div>
+                <ul class="site-header__submenu">
+                  {
+                    item.children.map((child) => (
+                      <li>
+                        <a
+                          href={child.href}
+                          class:list={[
+                            'site-header__sublink',
+                            { 'is-active': isActiveNav(child.href, currentPath) },
+                          ]}
+                        >
+                          {child.label}
+                        </a>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </li>
+            ) : (
+              <li>
+                <a
+                  href={item.href}
+                  class:list={[
+                    'site-header__link',
+                    { 'is-active': isActiveNav(item.href, currentPath) },
+                  ]}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ),
+          )
         }
       </ul>
       <a href={site.bookingUrl} class="btn site-header__cta">Reservas</a>
@@ -59,8 +104,28 @@ const currentPath = Astro.url.pathname;
     link.addEventListener('click', () => {
       toggle?.setAttribute('aria-expanded', 'false');
       toggle?.setAttribute('aria-label', 'Abrir menú');
-      menu.classList.remove('is-open');
+      menu?.classList.remove('is-open');
       document.body.classList.remove('nav-open');
+    });
+  });
+
+  document.querySelectorAll<HTMLButtonElement>('[data-submenu-toggle]').forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+      event.preventDefault();
+      const item = btn.closest('.site-header__item--has-submenu');
+      const isOpen = item?.classList.contains('is-submenu-open');
+      document
+        .querySelectorAll('.site-header__item--has-submenu.is-submenu-open')
+        .forEach((openItem) => {
+          if (openItem !== item) {
+            openItem.classList.remove('is-submenu-open');
+            openItem
+              .querySelector('[data-submenu-toggle]')
+              ?.setAttribute('aria-expanded', 'false');
+          }
+        });
+      item?.classList.toggle('is-submenu-open', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
     });
   });
 </script>
@@ -126,6 +191,17 @@ const currentPath = Astro.url.pathname;
     display: flex;
     flex-wrap: wrap;
     gap: 0.25rem 1.25rem;
+    align-items: center;
+  }
+
+  .site-header__item {
+    position: relative;
+  }
+
+  .site-header__parent {
+    display: flex;
+    align-items: center;
+    gap: 0.125rem;
   }
 
   .site-header__link {
@@ -137,6 +213,49 @@ const currentPath = Astro.url.pathname;
 
   .site-header__link:hover,
   .site-header__link.is-active {
+    color: var(--color-primary);
+  }
+
+  .site-header__submenu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0;
+    background: none;
+    border: none;
+    color: var(--color-text);
+    cursor: pointer;
+  }
+
+  .site-header__submenu-toggle span {
+    display: block;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg) translateY(-1px);
+    transition: transform var(--transition-fast);
+  }
+
+  .site-header__submenu {
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-header__sublink {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text);
+    transition: color var(--transition-fast);
+  }
+
+  .site-header__sublink:hover,
+  .site-header__sublink.is-active {
     color: var(--color-primary);
   }
 
@@ -152,6 +271,40 @@ const currentPath = Astro.url.pathname;
 
     .site-header__nav {
       display: flex;
+    }
+
+    .site-header__item--has-submenu:hover .site-header__submenu,
+    .site-header__item--has-submenu:focus-within .site-header__submenu {
+      display: block;
+    }
+
+    .site-header__submenu {
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      left: 0;
+      min-width: 11rem;
+      padding: 0.5rem 0;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 0.5rem;
+      box-shadow: 0 8px 24px rgba(44, 36, 25, 0.1);
+    }
+
+    .site-header__submenu::before {
+      content: '';
+      position: absolute;
+      top: -0.5rem;
+      left: 0;
+      right: 0;
+      height: 0.5rem;
+    }
+
+    .site-header__sublink {
+      padding: 0.5rem 1rem;
+    }
+
+    .site-header__sublink:hover {
+      background: var(--color-bg-alt);
     }
   }
 
@@ -174,11 +327,38 @@ const currentPath = Astro.url.pathname;
     .site-header__list {
       flex-direction: column;
       gap: 0;
+      align-items: stretch;
     }
 
     .site-header__link {
       display: block;
+      flex: 1;
       padding: 0.875rem 0;
+    }
+
+    .site-header__item--has-submenu .site-header__parent {
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .site-header__item:not(.site-header__item--has-submenu) .site-header__link {
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .site-header__submenu-toggle {
+      display: flex;
+    }
+
+    .site-header__item--has-submenu.is-submenu-open .site-header__submenu-toggle span {
+      transform: rotate(-135deg) translateY(1px);
+    }
+
+    .site-header__item--has-submenu.is-submenu-open .site-header__submenu {
+      display: block;
+      padding: 0 0 0.75rem 1rem;
+    }
+
+    .site-header__sublink {
+      padding: 0.625rem 0;
       border-bottom: 1px solid var(--color-border);
     }
 

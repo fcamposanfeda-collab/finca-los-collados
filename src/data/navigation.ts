@@ -1,20 +1,30 @@
 export type NavLink = { label: string; href: string };
 
-export const mainNav: NavLink[] = [
-  { label: 'La Finca', href: '/la-finca' },
-  { label: 'Alojamiento', href: '/alojamiento' },
-  { label: 'Gastronomía', href: '/gastronomia' },
-  { label: 'Experiencias', href: '/experiencias' },
+export type NavItem = NavLink & {
+  children?: NavLink[];
+};
+
+export const mainNav: NavItem[] = [
+  {
+    label: 'Alojamiento',
+    href: '/alojamiento',
+    children: [
+      { label: 'La Finca', href: '/la-finca' },
+      { label: 'La Calerilla', href: '/la-calerilla' },
+      { label: 'Gastronomía', href: '/gastronomia' },
+      { label: 'Experiencias', href: '/experiencias' },
+      { label: 'Entorno', href: '/entorno' },
+    ],
+  },
   { label: 'Empresas', href: '/empresas' },
   { label: 'Eventos', href: '/eventos' },
   { label: 'Packs', href: '/packs' },
-  { label: 'Entorno', href: '/entorno' },
-  { label: 'Noticias', href: '/noticias' },
   { label: 'Contacto', href: '/contacto' },
 ];
 
 export const footerNav: NavLink[] = [
   { label: 'La Finca', href: '/la-finca' },
+  { label: 'La Calerilla', href: '/la-calerilla' },
   { label: 'Alojamiento', href: '/alojamiento' },
   { label: 'Gastronomía', href: '/gastronomia' },
   { label: 'Experiencias', href: '/experiencias' },
@@ -22,7 +32,6 @@ export const footerNav: NavLink[] = [
   { label: 'Eventos', href: '/eventos' },
   { label: 'Packs', href: '/packs' },
   { label: 'Entorno', href: '/entorno' },
-  { label: 'Noticias', href: '/noticias' },
   { label: 'Contacto', href: '/contacto' },
   { label: 'Reservas', href: '/reservas-online' },
 ];

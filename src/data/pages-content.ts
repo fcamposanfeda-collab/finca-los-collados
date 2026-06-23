@@ -43,10 +43,77 @@ export const laFincaContent = {
     { title: 'Piscina y jardines', description: 'Espacios exteriores para descansar y disfrutar del entorno.' },
     { title: 'Salón biblioteca', description: 'Zona acogedora con chimenea para reuniones íntimas o relax.' },
     { title: 'Pet friendly', description: 'Su mascota es bienvenida. Consulte condiciones al reservar.' },
+    { title: 'La Calerilla', description: 'Coto de caza de perdiz roja en mano. Temporada de octubre a febrero.' },
   ] satisfies FeatureCard[],
   cta: {
     title: 'Descubra La Mancha desde Los Collados',
     text: 'Reserve su estancia o solicite información sobre disponibilidad y actividades.',
+  },
+} as const;
+
+export const laCalerillaContent = {
+  hero: {
+    eyebrow: 'Caza · Campos de Montiel',
+    title: 'La Calerilla',
+    subtitle:
+      'Zona cinegética de Los Collados de San Miguel: tradición de la perdiz roja en mano, en pleno corazón de La Mancha.',
+  },
+  intro:
+    'La Calerilla es uno de los cotos de caza de la finca, junto a La Porrosa, en un entorno natural de Campos de Montiel donde la perdiz roja (Alectoris rufa) encuentra el hábitat ideal entre monte bajo, olivares y campos de cereal.',
+  blocks: [
+    {
+      title: 'Tradición cinegética en La Mancha',
+      paragraphs: [
+        'Desde octubre hasta febrero disfrutamos de jornadas de caza en unos parajes perfectos para mantener la tradición de la perdiz en sus distintas modalidades, con especial dedicación a la caza en mano.',
+        'Nuestras fincas La Calerilla y La Porrosa ofrecen el escenario idóneo para quienes buscan autenticidad, respeto por el entorno y la calidad de piezas que sorprenden por la majestuosidad y verticalidad de su vuelo.',
+      ],
+    },
+    {
+      title: 'Caza en mano y modalidades',
+      paragraphs: [
+        'La caza en mano permite recorrer el terreno con calma, acompañado de perros de muestra, en un ritmo propio del campo manchego. Una forma de entender la caza ligada al paisaje, a la compañía y al conocimiento del terreno.',
+        'Si desea reservar un día de caza, le recomendamos contactar con la mayor antelación posible: las fechas de temporada son muy solicitadas. Podemos combinar la jornada con alojamiento en bungalows y con nuestra gastronomía tradicional.',
+      ],
+    },
+    {
+      title: 'Gastronomía, confort y naturaleza',
+      paragraphs: [
+        'Tras la jornada en el campo, la finca acoge al cazador con el confort de sus instalaciones: restauración con platos como la ensalada de perdiz en escabeche, migas manchegas y producto de la tierra.',
+        'El entorno es rico en fauna y flora autóctona. Quien visita La Calerilla no solo vive la caza: descubre un paisaje vivo en el que conviven turismo rural, el mundo agrícola y la cultura cinegética de Castilla-La Mancha.',
+      ],
+    },
+  ] satisfies ContentBlock[],
+  features: [
+    {
+      title: 'Perdiz roja',
+      description: 'Especie estrella de La Calerilla, con piezas de gran calidad y vuelo vertical.',
+    },
+    {
+      title: 'Caza en mano',
+      description: 'Modalidad tradicional al ritmo del campo, con respeto por el terreno y la fauna.',
+    },
+    {
+      title: 'Temporada oct.–feb.',
+      description: 'Jornadas de octubre a febrero. Reserve con antelación por alta demanda.',
+    },
+    {
+      title: 'Alojamiento y mesa',
+      description: 'Combine la cacería con bungalows, restauración manchega y entorno privado.',
+    },
+  ] satisfies FeatureCard[],
+  season: {
+    title: 'Información de temporada',
+    items: [
+      'Temporada habitual: de octubre a febrero',
+      'Reserva de días de caza: contacte lo antes posible',
+      'Posibilidad de combinar con alojamiento y restauración en la finca',
+      'Gestión a través de Alectoris Ibérica SL',
+    ],
+  },
+  cta: {
+    title: 'Reserve su jornada de caza',
+    text: 'Solicite disponibilidad para La Calerilla o consulte fechas, modalidades y combinación con alojamiento.',
+    buttonLabel: 'Solicitar información',
   },
 } as const;
 
@@ -329,6 +396,11 @@ export const homeTeasers = [
     title: 'La Finca',
     description: 'Historia, naturaleza y servicios en Campos de Montiel.',
     href: '/la-finca',
+  },
+  {
+    title: 'La Calerilla',
+    description: 'Caza de perdiz roja en mano en Campos de Montiel.',
+    href: '/la-calerilla',
   },
   {
     title: 'Alojamiento',

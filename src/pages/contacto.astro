@@ -19,6 +19,7 @@ const validMotivos = [
   'evento',
   'empresa',
   'pack',
+  'caza',
 ] as const;
 const defaultSubject = validMotivos.includes(motivo as (typeof validMotivos)[number])
   ? motivo
