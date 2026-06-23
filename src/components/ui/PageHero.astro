@@ -4,12 +4,17 @@ interface Props {
   subtitle?: string;
   eyebrow?: string;
   compact?: boolean;
+  imageSrc?: string;
 }
 
-const { title, subtitle, eyebrow, compact = false } = Astro.props;
+const { title, subtitle, eyebrow, compact = false, imageSrc } = Astro.props;
 ---
 
-<section class:list={['page-hero', { 'page-hero--compact': compact }]} aria-labelledby="page-hero-title">
+<section
+  class:list={['page-hero', { 'page-hero--compact': compact, 'page-hero--photo': Boolean(imageSrc) }]}
+  style={imageSrc ? `--page-hero-image: url('${imageSrc}')` : undefined}
+  aria-labelledby="page-hero-title"
+>
   <div class="page-hero__overlay"></div>
   <div class="container page-hero__content">
     {eyebrow && <p class="page-hero__eyebrow">{eyebrow}</p>}
@@ -70,5 +75,11 @@ const { title, subtitle, eyebrow, compact = false } = Astro.props;
     font-size: clamp(1rem, 2vw, 1.125rem);
     color: rgba(255, 255, 255, 0.9);
     line-height: 1.6;
+  }
+
+  .page-hero--photo {
+    background:
+      linear-gradient(135deg, rgba(44, 36, 25, 0.82), rgba(74, 103, 65, 0.72)),
+      var(--page-hero-image) center / cover no-repeat;
   }
 </style>

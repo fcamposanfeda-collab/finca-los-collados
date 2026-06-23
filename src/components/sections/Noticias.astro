@@ -1,7 +1,13 @@
 ---
 import { homeContent } from '../../data/home-content';
+import { images } from '../../data/images';
+import ContentImage from '../ui/ContentImage.astro';
 
 const { noticias } = homeContent;
+
+function getPostImage(slug: string) {
+  return images.noticias[slug as keyof typeof images.noticias] ?? images.hero.noticias;
+}
 ---
 
 <section id={noticias.id} class="section section--alt">
@@ -10,13 +16,16 @@ const { noticias } = homeContent;
     <div class="noticias__grid">
       {
         noticias.posts.map((post) => (
-          <article class="noticias__card">
-            <h3>
-              <a href={`/noticias/${post.slug}`}>{post.title}</a>
-            </h3>
-            <p>{post.excerpt}</p>
-            <a href={`/noticias/${post.slug}`} class="noticias__link">
-              Leer más
+          <article class="noticias__card noticias__card--media">
+            <a href={`/noticias/${post.slug}`} class="noticias__card-link">
+              <div class="card-media">
+                <ContentImage src={getPostImage(post.slug)} alt={post.title} aspect="wide" />
+              </div>
+              <div class="card-body">
+                <h3>{post.title}</h3>
+                <p>{post.excerpt}</p>
+                <span class="noticias__link">Leer más</span>
+              </div>
             </a>
           </article>
         ))
@@ -35,23 +44,25 @@ const { noticias } = homeContent;
   }
 
   .noticias__card {
-    padding: 1.5rem;
     background: var(--color-bg);
     border: 1px solid var(--color-border);
     border-radius: 0.5rem;
+    overflow: hidden;
+  }
+
+  .noticias__card-link {
+    display: block;
+    color: inherit;
   }
 
   .noticias__card h3 {
     margin: 0 0 0.75rem;
     font-size: 1.125rem;
-  }
-
-  .noticias__card h3 a {
     color: var(--color-secondary);
     transition: color var(--transition-fast);
   }
 
-  .noticias__card h3 a:hover {
+  .noticias__card-link:hover h3 {
     color: var(--color-primary);
   }
 

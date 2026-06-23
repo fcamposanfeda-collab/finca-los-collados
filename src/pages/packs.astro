@@ -1,10 +1,16 @@
 ---
 import ContentPage from '../components/ui/ContentPage.astro';
+import ContentImage from '../components/ui/ContentImage.astro';
 import { getPageMeta } from '../data/pages-meta';
 import { packsContent } from '../data/pages-content';
+import { images } from '../data/images';
 
 const meta = getPageMeta('/packs');
 const { hero, intro, packs, cta } = packsContent;
+
+function getPackImage(slug: string) {
+  return images.packs[slug as keyof typeof images.packs] ?? images.hero.packs;
+}
 ---
 
 <ContentPage
@@ -13,6 +19,7 @@ const { hero, intro, packs, cta } = packsContent;
   heroTitle={hero.title}
   heroSubtitle={hero.subtitle}
   heroEyebrow={hero.eyebrow}
+  heroImage={images.hero.packs}
   ctaTitle={cta.title}
   ctaText={cta.text}
 >
@@ -22,12 +29,17 @@ const { hero, intro, packs, cta } = packsContent;
       <div class="packs-grid">
         {
           packs.map((pack) => (
-            <article class="packs-grid__card">
-              <h3>{pack.title}</h3>
-              <p>{pack.description}</p>
-              <ul class="packs-grid__highlights">
-                {pack.highlights.map((item) => <li>{item}</li>)}
-              </ul>
+            <article class="packs-grid__card packs-grid__card--media">
+              <div class="card-media">
+                <ContentImage src={getPackImage(pack.slug)} alt={pack.title} />
+              </div>
+              <div class="card-body">
+                <h3>{pack.title}</h3>
+                <p>{pack.description}</p>
+                <ul class="packs-grid__highlights">
+                  {pack.highlights.map((item) => <li>{item}</li>)}
+                </ul>
+              </div>
             </article>
           ))
         }

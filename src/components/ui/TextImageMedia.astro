@@ -1,0 +1,14 @@
+---
+import ContentImage from './ContentImage.astro';
+
+interface Props {
+  src: string;
+  alt: string;
+}
+
+const { src, alt } = Astro.props;
+---
+
+<div class="text-image__media">
+  <ContentImage src={src} alt={alt} loading="lazy" />
+</div>

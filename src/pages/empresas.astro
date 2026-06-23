@@ -1,12 +1,15 @@
 ---
 import ContentPage from '../components/ui/ContentPage.astro';
+import TextImageMedia from '../components/ui/TextImageMedia.astro';
 import { getPageMeta } from '../data/pages-meta';
 import { empresasContent } from '../data/pages-content';
+import { images } from '../data/images';
 import VenuePackages from '../components/venue/VenuePackages.astro';
 import ContactForm from '../components/forms/ContactForm.astro';
 
 const meta = getPageMeta('/empresas');
 const { hero, intro, blocks, features, cta } = empresasContent;
+const blockImages = [images.empresas.teambuilding, images.empresas.rodajes];
 ---
 
 <ContentPage
@@ -15,6 +18,7 @@ const { hero, intro, blocks, features, cta } = empresasContent;
   heroTitle={hero.title}
   heroSubtitle={hero.subtitle}
   heroEyebrow={hero.eyebrow}
+  heroImage={images.hero.empresas}
   ctaTitle={cta.title}
   ctaText={cta.text}
   ctaButtonLabel={cta.buttonLabel}
@@ -34,7 +38,7 @@ const { hero, intro, blocks, features, cta } = empresasContent;
             <h2>{block.title}</h2>
             {block.paragraphs.map((p) => <p>{p}</p>)}
           </div>
-          <div class="text-image__media" aria-hidden="true">Imagen — {block.title}</div>
+          <TextImageMedia src={blockImages[index] ?? images.empresas.teambuilding} alt={block.title} />
         </div>
       </section>
     ))

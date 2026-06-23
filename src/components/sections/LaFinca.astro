@@ -1,6 +1,8 @@
 ---
 import { homeContent } from '../../data/home-content';
 import { site } from '../../data/site';
+import { images } from '../../data/images';
+import ContentImage from '../ui/ContentImage.astro';
 
 const { finca } = homeContent;
 ---
@@ -13,8 +15,8 @@ const { finca } = homeContent;
         {finca.paragraphs.map((p) => <p>{p}</p>)}
         <a href={site.bookingUrl} class="btn">Reservar</a>
       </div>
-      <div class="finca__media" aria-hidden="true">
-        <div class="finca__placeholder">Imagen de la finca</div>
+      <div class="finca__media">
+        <ContentImage src={images.hero.laFinca} alt="Paisaje de la finca Los Collados" />
       </div>
     </div>
   </div>
@@ -36,16 +38,9 @@ const { finca } = homeContent;
     margin-top: 0.5rem;
   }
 
-  .finca__placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 18rem;
-    background: var(--color-bg-alt);
-    border: 1px dashed var(--color-border);
+  .finca__media :global(.content-image) {
     border-radius: 0.5rem;
-    color: var(--color-muted);
-    font-size: 0.9375rem;
+    min-height: 18rem;
   }
 
   @media (min-width: 768px) {

@@ -5,6 +5,8 @@ import {
   buildVenueWhatsAppUrl,
   type VenuePackageId,
 } from '../../data/venue-packages';
+import { images } from '../../data/images';
+import ContentImage from '../ui/ContentImage.astro';
 ---
 
 <section class="venue-packages section section--alt" aria-labelledby="venue-packages-title">
@@ -19,6 +21,13 @@ import {
       {
         venuePackages.map((pkg) => (
           <article class="venue-packages__card">
+            <div class="venue-packages__card-image">
+              <ContentImage
+                src={pkg.id === 'finca-espacios' ? images.venue.espacios : images.venue.completa}
+                alt={pkg.title}
+                aspect="wide"
+              />
+            </div>
             <p class="venue-packages__eyebrow">{pkg.subtitle}</p>
             <h3>{pkg.title}</h3>
             <p class="venue-packages__desc">{pkg.description}</p>

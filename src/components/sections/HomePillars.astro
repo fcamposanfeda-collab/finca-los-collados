@@ -1,5 +1,14 @@
 ---
 import { homePillars } from '../../data/pages-content';
+import { images } from '../../data/images';
+import ContentImage from '../ui/ContentImage.astro';
+
+const pillarImages = [
+  images.pillars.turismo,
+  images.pillars.empresas,
+  images.pillars.eventos,
+  images.pillars.petFriendly,
+];
 ---
 
 <section class="section home-pillars" aria-label="Propuesta de valor">
@@ -7,10 +16,15 @@ import { homePillars } from '../../data/pages-content';
     <h2 class="section__title">Una finca, muchas experiencias</h2>
     <div class="home-pillars__grid">
       {
-        homePillars.map((pillar) => (
+        homePillars.map((pillar, index) => (
           <article class="home-pillars__card">
-            <h3>{pillar.title}</h3>
-            <p>{pillar.description}</p>
+            <div class="card-media">
+              <ContentImage src={pillarImages[index]} alt={pillar.title} />
+            </div>
+            <div class="card-body">
+              <h3>{pillar.title}</h3>
+              <p>{pillar.description}</p>
+            </div>
           </article>
         ))
       }
@@ -25,11 +39,19 @@ import { homePillars } from '../../data/pages-content';
   }
 
   .home-pillars__card {
-    padding: 1.5rem;
-    text-align: center;
+    overflow: hidden;
     background: var(--color-bg-alt);
     border: 1px solid var(--color-border);
     border-radius: 0.5rem;
+  }
+
+  .home-pillars__card .card-media {
+    aspect-ratio: 16 / 10;
+  }
+
+  .home-pillars__card .card-body {
+    padding: 1.25rem 1.5rem 1.5rem;
+    text-align: center;
   }
 
   .home-pillars__card h3 {

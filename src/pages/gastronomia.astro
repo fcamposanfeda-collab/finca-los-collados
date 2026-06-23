@@ -1,7 +1,9 @@
 ---
 import ContentPage from '../components/ui/ContentPage.astro';
+import ContentImage from '../components/ui/ContentImage.astro';
 import { getPageMeta } from '../data/pages-meta';
 import { gastronomiaContent } from '../data/pages-content';
+import { images } from '../data/images';
 
 const meta = getPageMeta('/gastronomia');
 const { hero, lead, subtitle, description, dishes, quote, features, cta } = gastronomiaContent;
@@ -13,11 +15,15 @@ const { hero, lead, subtitle, description, dishes, quote, features, cta } = gast
   heroTitle={hero.title}
   heroSubtitle={hero.subtitle}
   heroEyebrow={hero.eyebrow}
+  heroImage={images.hero.gastronomia}
   ctaTitle={cta.title}
   ctaText={cta.text}
 >
   <section class="page-content">
     <div class="container page-content__inner" style="margin-inline: auto; text-align: center;">
+      <div class="page-banner-image">
+        <ContentImage src={images.experiencias.gastronomia} alt="Gastronomía manchega en Los Collados" aspect="wide" />
+      </div>
       <p class="page-content__lead">{lead}</p>
       <p style="font-style: italic; color: var(--color-accent); margin-bottom: 1.5rem;">{subtitle}</p>
       <p>{description}</p>

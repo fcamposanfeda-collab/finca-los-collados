@@ -1,6 +1,8 @@
 ---
 import { homeContent } from '../../data/home-content';
 import { site } from '../../data/site';
+import { images } from '../../data/images';
+import ContentImage from '../ui/ContentImage.astro';
 
 const { alojamiento } = homeContent;
 const mid = Math.ceil(alojamiento.amenities.length / 2);
@@ -26,8 +28,8 @@ const col2 = alojamiento.amenities.slice(mid);
         </div>
         <a href={site.bookingUrl} class="btn">Reservar</a>
       </div>
-      <div class="alojamiento__media" aria-hidden="true">
-        <div class="alojamiento__placeholder">Galería de bungalows</div>
+      <div class="alojamiento__media">
+        <ContentImage src={images.hero.alojamiento} alt="Interior de bungalow rural" />
       </div>
     </div>
   </div>
@@ -62,15 +64,9 @@ const col2 = alojamiento.amenities.slice(mid);
     color: var(--color-muted);
   }
 
-  .alojamiento__placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 20rem;
-    background: var(--color-bg);
-    border: 1px dashed var(--color-border);
+  .alojamiento__media :global(.content-image) {
     border-radius: 0.5rem;
-    color: var(--color-muted);
+    min-height: 20rem;
   }
 
   @media (min-width: 768px) {

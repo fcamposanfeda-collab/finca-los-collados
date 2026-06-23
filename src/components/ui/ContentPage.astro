@@ -9,6 +9,7 @@ interface Props {
   heroTitle: string;
   heroSubtitle?: string;
   heroEyebrow?: string;
+  heroImage?: string;
   ctaTitle?: string;
   ctaText?: string;
   ctaButtonLabel?: string;
@@ -21,6 +22,7 @@ const {
   heroTitle,
   heroSubtitle,
   heroEyebrow,
+  heroImage,
   ctaTitle,
   ctaText,
   ctaButtonLabel,
@@ -29,7 +31,7 @@ const {
 ---
 
 <BaseLayout title={title} description={description}>
-  <PageHero title={heroTitle} subtitle={heroSubtitle} eyebrow={heroEyebrow} />
+  <PageHero title={heroTitle} subtitle={heroSubtitle} eyebrow={heroEyebrow} imageSrc={heroImage} />
   <slot />
   {
     ctaTitle && ctaText && (

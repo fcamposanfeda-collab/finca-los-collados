@@ -74,18 +74,62 @@
 
 .text-image__media {
   min-height: 16rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-bg-alt);
-  border: 1px dashed var(--color-border);
   border-radius: 0.5rem;
-  color: var(--color-muted);
-  font-size: 0.9375rem;
+  overflow: hidden;
 }
 
-.section--alt .text-image__media {
-  background: var(--color-bg);
+.text-image__media :global(.content-image) {
+  min-height: 16rem;
+  height: 100%;
+  border-radius: 0.5rem;
+}
+
+.feature-grid__card--media,
+.packs-grid__card--media,
+.noticias__card--media {
+  overflow: hidden;
+  padding: 0;
+}
+
+.card-media {
+  aspect-ratio: 16 / 10;
+}
+
+.card-media :global(.content-image),
+.card-media :global(.content-image img) {
+  height: 100%;
+  min-height: 0;
+  border-radius: 0;
+}
+
+.card-media + .card-body,
+.feature-grid__card--media .card-body,
+.packs-grid__card--media .card-body,
+.noticias__card--media .card-body {
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.home-teasers__card {
+  overflow: hidden;
+  padding: 0;
+}
+
+.home-teasers__card .card-body {
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.venue-packages__card-image {
+  margin: -1.75rem -1.75rem 1.25rem;
+}
+
+.venue-packages__card-image :global(.content-image) {
+  border-radius: 0.5rem 0.5rem 0 0;
+  min-height: 12rem;
+}
+
+.page-banner-image {
+  max-width: 48rem;
+  margin: 0 auto 2rem;
 }
 
 .amenities-list {

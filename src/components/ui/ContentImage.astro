@@ -1,0 +1,44 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+  aspect?: 'landscape' | 'square' | 'wide';
+}
+
+const { src, alt, class: className, loading = 'lazy', aspect = 'landscape' } = Astro.props;
+---
+
+<div class:list={['content-image', `content-image--${aspect}`, className]}>
+  <img src={src} alt={alt} loading={loading} decoding="async" />
+</div>
+
+<style>
+  .content-image {
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background: var(--color-bg-alt);
+  }
+
+  .content-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .content-image--landscape {
+    min-height: 16rem;
+    aspect-ratio: 4 / 3;
+  }
+
+  .content-image--wide {
+    min-height: 14rem;
+    aspect-ratio: 16 / 9;
+  }
+
+  .content-image--square {
+    aspect-ratio: 1;
+  }
+</style>

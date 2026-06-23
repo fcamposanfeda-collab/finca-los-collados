@@ -1,7 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContentImage from '../../components/ui/ContentImage.astro';
 import { site } from '../../data/site';
 import { homeContent } from '../../data/home-content';
+import { images } from '../../data/images';
 
 export function getStaticPaths() {
   return homeContent.noticias.posts.map((post) => ({
@@ -15,14 +17,16 @@ interface Props {
 }
 
 const { post } = Astro.props;
+const image =
+  images.noticias[post.slug as keyof typeof images.noticias] ?? images.hero.noticias;
 ---
 
-<BaseLayout
-  title={`${post.title} | ${site.name}`}
-  description={post.excerpt}
->
-  <section class="section page-placeholder">
-    <div class="container">
+<BaseLayout title={`${post.title} | ${site.name}`} description={post.excerpt} ogImage={image}>
+  <section class="section">
+    <div class="container" style="max-width: 48rem;">
+      <div style="margin-bottom: 2rem;">
+        <ContentImage src={image} alt={post.title} aspect="wide" loading="eager" />
+      </div>
       <h1>{post.title}</h1>
       <p>{post.excerpt}</p>
       <p>Artículo del blog pendiente de migrar desde WordPress.</p>

@@ -1,10 +1,16 @@
 ---
 import ContentPage from '../../components/ui/ContentPage.astro';
+import ContentImage from '../../components/ui/ContentImage.astro';
 import { getPageMeta } from '../../data/pages-meta';
 import { homeContent } from '../../data/home-content';
+import { images } from '../../data/images';
 
 const meta = getPageMeta('/noticias');
 const { noticias } = homeContent;
+
+function getPostImage(slug: string) {
+  return images.noticias[slug as keyof typeof images.noticias] ?? images.hero.noticias;
+}
 ---
 
 <ContentPage
@@ -13,19 +19,23 @@ const { noticias } = homeContent;
   heroTitle="Noticias"
   heroSubtitle="Actualidad, eventos y novedades de Los Collados de San Miguel."
   heroEyebrow="Blog"
+  heroImage={images.hero.noticias}
 >
   <section class="page-content">
     <div class="container page-content__inner page-content__inner--wide">
       <div class="feature-grid">
         {
           noticias.posts.map((post) => (
-            <article class="feature-grid__card">
-              <h3>
-                <a href={`/noticias/${post.slug}`} style="color: inherit;">{post.title}</a>
-              </h3>
-              <p>{post.excerpt}</p>
-              <a href={`/noticias/${post.slug}`} style="font-size: 0.875rem; font-weight: 600; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.04em;">
-                Leer más
+            <article class="feature-grid__card feature-grid__card--media">
+              <a href={`/noticias/${post.slug}`} class="noticias__card-link">
+                <div class="card-media">
+                  <ContentImage src={getPostImage(post.slug)} alt={post.title} aspect="wide" />
+                </div>
+                <div class="card-body">
+                  <h3>{post.title}</h3>
+                  <p>{post.excerpt}</p>
+                  <span class="noticias__link">Leer más</span>
+                </div>
               </a>
             </article>
           ))
@@ -34,3 +44,29 @@ const { noticias } = homeContent;
     </div>
   </section>
 </ContentPage>
+
+<style>
+  .noticias__card-link {
+    display: block;
+    color: inherit;
+  }
+
+  .noticias__card-link h3 {
+    margin: 0 0 0.75rem;
+    font-size: 1.125rem;
+    color: var(--color-secondary);
+  }
+
+  .noticias__card-link p {
+    margin: 0 0 1rem;
+    color: var(--color-muted);
+  }
+
+  .noticias__link {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+</style>
