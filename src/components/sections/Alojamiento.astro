@@ -1,0 +1,85 @@
+---
+import { homeContent } from '../../data/home-content';
+import { site } from '../../data/site';
+
+const { alojamiento } = homeContent;
+const mid = Math.ceil(alojamiento.amenities.length / 2);
+const col1 = alojamiento.amenities.slice(0, mid);
+const col2 = alojamiento.amenities.slice(mid);
+---
+
+<section id={alojamiento.id} class="section section--alt">
+  <div class="container">
+    <h2 class="section__title">{alojamiento.title}</h2>
+    <p class="section__lead">{alojamiento.intro}</p>
+
+    <div class="alojamiento__grid">
+      <div class="alojamiento__amenities">
+        <h3 class="alojamiento__subtitle">Servicios incluidos</h3>
+        <div class="alojamiento__lists">
+          <ul>
+            {col1.map((item) => <li>{item}</li>)}
+          </ul>
+          <ul>
+            {col2.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+        <a href={site.bookingUrl} class="btn">Reservar</a>
+      </div>
+      <div class="alojamiento__media" aria-hidden="true">
+        <div class="alojamiento__placeholder">Galería de bungalows</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .alojamiento__grid {
+    display: grid;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  .alojamiento__subtitle {
+    margin: 0 0 1rem;
+    font-size: 1.125rem;
+    color: var(--color-secondary);
+  }
+
+  .alojamiento__lists {
+    display: grid;
+    gap: 0.5rem 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .alojamiento__lists ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+  }
+
+  .alojamiento__lists li {
+    margin-bottom: 0.375rem;
+    color: var(--color-muted);
+  }
+
+  .alojamiento__placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 20rem;
+    background: var(--color-bg);
+    border: 1px dashed var(--color-border);
+    border-radius: 0.5rem;
+    color: var(--color-muted);
+  }
+
+  @media (min-width: 768px) {
+    .alojamiento__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .alojamiento__lists {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

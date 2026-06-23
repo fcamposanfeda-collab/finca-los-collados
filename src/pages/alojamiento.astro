@@ -1,0 +1,44 @@
+---
+import ContentPage from '../components/ui/ContentPage.astro';
+import { getPageMeta } from '../data/pages-meta';
+import { alojamientoContent } from '../data/pages-content';
+
+const meta = getPageMeta('/alojamiento');
+const { hero, intro, capacity, amenities, cta } = alojamientoContent;
+const mid = Math.ceil(amenities.length / 2);
+const col1 = amenities.slice(0, mid);
+const col2 = amenities.slice(mid);
+---
+
+<ContentPage
+  title={meta.title}
+  description={meta.description}
+  heroTitle={hero.title}
+  heroSubtitle={hero.subtitle}
+  heroEyebrow={hero.eyebrow}
+  ctaTitle={cta.title}
+  ctaText={cta.text}
+>
+  <section class="page-content">
+    <div class="container text-image">
+      <div class="page-content__inner">
+        <p class="page-content__lead">{intro}</p>
+        <h2>{capacity.title}</h2>
+        <ul class="capacity-list">
+          {capacity.items.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+      <div class="text-image__media" aria-hidden="true">Galería de bungalows</div>
+    </div>
+  </section>
+
+  <section class="page-content page-content--alt section--alt">
+    <div class="container">
+      <h2 class="section__title">Servicios incluidos</h2>
+      <div class="amenities-list">
+        <ul>{col1.map((item) => <li>{item}</li>)}</ul>
+        <ul>{col2.map((item) => <li>{item}</li>)}</ul>
+      </div>
+    </div>
+  </section>
+</ContentPage>

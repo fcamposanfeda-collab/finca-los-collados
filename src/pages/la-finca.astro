@@ -1,0 +1,48 @@
+---
+import ContentPage from '../components/ui/ContentPage.astro';
+import { getPageMeta } from '../data/pages-meta';
+import { laFincaContent } from '../data/pages-content';
+
+const meta = getPageMeta('/la-finca');
+const { hero, blocks, features, cta } = laFincaContent;
+---
+
+<ContentPage
+  title={meta.title}
+  description={meta.description}
+  heroTitle={hero.title}
+  heroSubtitle={hero.subtitle}
+  heroEyebrow={hero.eyebrow}
+  ctaTitle={cta.title}
+  ctaText={cta.text}
+>
+  {
+    blocks.map((block, index) => (
+      <section class:list={['page-content', { 'page-content--alt section--alt': index % 2 === 1 }]}>
+        <div class="container text-image">
+          <div class="page-content__inner">
+            <h2>{block.title}</h2>
+            {block.paragraphs.map((p) => <p>{p}</p>)}
+          </div>
+          <div class="text-image__media" aria-hidden="true">
+            Imagen — {block.title}
+          </div>
+        </div>
+      </section>
+    ))
+  }
+
+  <section class="page-content page-content--alt section--alt">
+    <div class="container page-content__inner page-content__inner--wide">
+      <h2 class="section__title">Destacados</h2>
+      <div class="feature-grid feature-grid--4">
+        {features.map((feature) => (
+          <article class="feature-grid__card">
+            <h3>{feature.title}</h3>
+            <p>{feature.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</ContentPage>

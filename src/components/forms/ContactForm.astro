@@ -1,0 +1,259 @@
+---
+import { inquirySubjects } from '../../data/venue-packages';
+import { forms, isEmailFormConfigured } from '../../data/forms';
+import { contact } from '../../data/contact';
+
+interface Props {
+  title?: string;
+  intro?: string;
+  showPhone?: boolean;
+  showDates?: boolean;
+  showGuests?: boolean;
+  defaultSubject?: string;
+  formId?: string;
+}
+
+const {
+  title = 'Escríbanos',
+  intro = 'Le respondemos por email lo antes posible. Para urgencias, use WhatsApp o teléfono.',
+  showPhone = true,
+  showDates = false,
+  showGuests = false,
+  defaultSubject = 'general',
+  formId = 'contact',
+} = Astro.props;
+
+const idPrefix = formId;
+const configured = isEmailFormConfigured();
+---
+
+<section class="contact-form section" aria-labelledby={`${idPrefix}-form-title`}>
+  <div class="container">
+    {title && <h2 id={`${idPrefix}-form-title`} class="section__title">{title}</h2>}
+    {intro && <p class="contact-form__intro">{intro}</p>}
+
+    <form class="contact-form__form" data-contact-form={formId} novalidate>
+      <div class="contact-form__grid">
+        <div class="contact-form__field">
+          <label for={`${idPrefix}-nombre`}>Nombre</label>
+          <input id={`${idPrefix}-nombre`} name="name" type="text" required autocomplete="name" />
+        </div>
+        <div class="contact-form__field">
+          <label for={`${idPrefix}-email`}>Email</label>
+          <input id={`${idPrefix}-email`} name="email" type="email" required autocomplete="email" />
+        </div>
+        {
+          showPhone && (
+            <div class="contact-form__field">
+              <label for={`${idPrefix}-telefono`}>Teléfono</label>
+              <input id={`${idPrefix}-telefono`} name="phone" type="tel" autocomplete="tel" />
+            </div>
+          )
+        }
+        <div class="contact-form__field">
+          <label for={`${idPrefix}-motivo`}>Motivo</label>
+          <select id={`${idPrefix}-motivo`} name="subject" required>
+            {
+              inquirySubjects.map((item) => (
+                <option value={item.label} data-package-id={item.value} selected={item.value === defaultSubject}>
+                  {item.label}
+                </option>
+              ))
+            }
+          </select>
+        </div>
+        {
+          showDates && (
+            <>
+              <div class="contact-form__field">
+                <label for={`${idPrefix}-entrada`}>Fecha de entrada / evento</label>
+                <input id={`${idPrefix}-entrada`} name="checkIn" type="date" />
+              </div>
+              <div class="contact-form__field">
+                <label for={`${idPrefix}-salida`}>Fecha de salida</label>
+                <input id={`${idPrefix}-salida`} name="checkOut" type="date" />
+              </div>
+            </>
+          )
+        }
+        {
+          showGuests && (
+            <div class="contact-form__field">
+              <label for={`${idPrefix}-invitados`}>Número de invitados / adultos</label>
+              <input id={`${idPrefix}-invitados`} name="guests" type="number" min="1" max="50" />
+            </div>
+          )
+        }
+      </div>
+
+      <div class="contact-form__field">
+        <label for={`${idPrefix}-mensaje`}>Mensaje</label>
+        <textarea id={`${idPrefix}-mensaje`} name="message" rows="5" required />
+      </div>
+
+      <button type="submit" class="btn">Enviar solicitud</button>
+      <p class="contact-form__note" data-form-status hidden></p>
+      <p class="contact-form__note">
+        {
+          configured
+            ? `Sus datos se enviarán a ${contact.email}. También puede escribir a `
+            : 'Para activar el envío automático, configure Web3Forms (gratuito). Mientras tanto, el formulario abrirá su cliente de email. También: '
+        }
+        <a href={`mailto:${contact.email}`}>{contact.email}</a>
+        {configured ? '.' : '.'}
+      </p>
+    </form>
+  </div>
+</section>
+
+<script define:vars={{ formId, endpoint: forms.endpoint, accessKey: forms.web3formsAccessKey, recipientEmail: forms.recipientEmail, configured }}>
+  const form = document.querySelector(`[data-contact-form="${formId}"]`);
+  const statusEl = form?.querySelector('[data-form-status]');
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!(form instanceof HTMLFormElement) || !form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const data = new FormData(form);
+    const payload = {
+      name: String(data.get('name') ?? ''),
+      email: String(data.get('email') ?? ''),
+      phone: String(data.get('phone') ?? ''),
+      subject: String(data.get('subject') ?? 'Consulta web'),
+      message: String(data.get('message') ?? ''),
+      checkIn: String(data.get('checkIn') ?? ''),
+      checkOut: String(data.get('checkOut') ?? ''),
+      guests: String(data.get('guests') ?? ''),
+    };
+
+    const fullMessage = [
+      payload.message,
+      payload.phone ? `\nTeléfono: ${payload.phone}` : '',
+      payload.checkIn ? `\nFecha entrada/evento: ${payload.checkIn}` : '',
+      payload.checkOut ? `\nFecha salida: ${payload.checkOut}` : '',
+      payload.guests ? `\nInvitados/adultos: ${payload.guests}` : '',
+    ]
+      .filter(Boolean)
+      .join('');
+
+    if (statusEl) {
+      statusEl.hidden = false;
+      statusEl.textContent = 'Enviando…';
+      statusEl.classList.remove('is-error', 'is-success');
+    }
+
+    if (!configured) {
+      const params = new URLSearchParams({
+        subject: payload.subject,
+        body: `Nombre: ${payload.name}\nEmail: ${payload.email}\n${fullMessage}`,
+      });
+      window.location.href = `mailto:${recipientEmail}?${params.toString()}`;
+      if (statusEl) statusEl.textContent = 'Se ha abierto su cliente de email.';
+      return;
+    }
+
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: `[Web Los Collados] ${payload.subject}`,
+          name: payload.name,
+          email: payload.email,
+          message: fullMessage,
+        }),
+      });
+
+      const result = await response.json();
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Error al enviar');
+      }
+
+      form.reset();
+      if (statusEl) {
+        statusEl.textContent = 'Mensaje enviado correctamente. Le responderemos pronto.';
+        statusEl.classList.add('is-success');
+      }
+    } catch {
+      if (statusEl) {
+        statusEl.textContent = 'No se pudo enviar. Escríbanos a ' + recipientEmail + ' o por WhatsApp.';
+        statusEl.classList.add('is-error');
+      }
+    }
+  });
+</script>
+
+<style>
+  .contact-form__intro {
+    max-width: 42rem;
+    margin: 0 auto 2rem;
+    text-align: center;
+    color: var(--color-muted);
+  }
+
+  .contact-form__form {
+    max-width: 40rem;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-form__grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .contact-form__field label {
+    display: block;
+    margin-bottom: 0.375rem;
+    font-weight: 500;
+    font-size: 0.9375rem;
+  }
+
+  .contact-form__field input,
+  .contact-form__field textarea,
+  .contact-form__field select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+    background: var(--color-bg);
+    color: var(--color-text);
+  }
+
+  .contact-form__note {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+  }
+
+  .contact-form__note.is-success {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .contact-form__note.is-error {
+    color: #9a4a3a;
+    font-weight: 600;
+  }
+
+  .contact-form__note a {
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  @media (min-width: 768px) {
+    .contact-form__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-form__field:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+    }
+  }
+</style>

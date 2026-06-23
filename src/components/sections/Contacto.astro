@@ -1,0 +1,132 @@
+---
+import { homeContent } from '../../data/home-content';
+import { contact } from '../../data/contact';
+
+const { contacto } = homeContent;
+---
+
+<section id={contacto.id} class="section">
+  <div class="container">
+    <h2 class="section__title">{contacto.title}</h2>
+
+    <div class="contacto__grid">
+      <form class="contacto__form" method="post" action="#" data-contact-form>
+        <div class="contacto__field">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" type="text" required autocomplete="name" />
+        </div>
+        <div class="contacto__field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required autocomplete="email" />
+        </div>
+        <div class="contacto__field">
+          <label for="asunto">Asunto</label>
+          <input id="asunto" name="asunto" type="text" required />
+        </div>
+        <div class="contacto__field">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn">Enviar</button>
+        <p class="contacto__note">Formulario pendiente de integración (Hostinger / servicio de email).</p>
+      </form>
+
+      <div class="contacto__info">
+        <h3>Finca Los Collados de San Miguel</h3>
+        <address>
+          {contact.address}<br />
+          {contact.city}
+        </address>
+        <p>
+          <a href={`tel:${contact.phone}`}>{contact.phoneDisplay}</a><br />
+          <a href={`tel:${contact.phoneAlt}`}>{contact.phoneAltDisplay}</a>
+        </p>
+        <p><a href={`mailto:${contact.email}`}>{contact.email}</a></p>
+        <p>
+          <a href={contact.mapsUrl} target="_blank" rel="noopener noreferrer">Ver en Google Maps</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>('[data-contact-form]').forEach((form) => {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      alert('El formulario de contacto se integrará en una fase posterior.');
+    });
+  });
+</script>
+
+<style>
+  .contacto__grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .contacto__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contacto__field label {
+    display: block;
+    margin-bottom: 0.375rem;
+    font-weight: 500;
+    font-size: 0.9375rem;
+  }
+
+  .contacto__field input,
+  .contacto__field textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+    background: var(--color-bg);
+    color: var(--color-text);
+  }
+
+  .contacto__field input:focus,
+  .contacto__field textarea:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 0;
+    border-color: var(--color-primary);
+  }
+
+  .contacto__note {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+  }
+
+  .contacto__info h3 {
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+    color: var(--color-secondary);
+  }
+
+  .contacto__info address {
+    margin-bottom: 1rem;
+    font-style: normal;
+    line-height: 1.6;
+    color: var(--color-muted);
+  }
+
+  .contacto__info a {
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .contacto__info a:hover {
+    text-decoration: underline;
+  }
+
+  @media (min-width: 768px) {
+    .contacto__grid {
+      grid-template-columns: 1.2fr 1fr;
+      align-items: start;
+    }
+  }
+</style>

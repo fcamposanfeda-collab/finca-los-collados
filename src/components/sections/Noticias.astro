@@ -1,0 +1,87 @@
+---
+import { homeContent } from '../../data/home-content';
+
+const { noticias } = homeContent;
+---
+
+<section id={noticias.id} class="section section--alt">
+  <div class="container">
+    <h2 class="section__title">{noticias.title}</h2>
+    <div class="noticias__grid">
+      {
+        noticias.posts.map((post) => (
+          <article class="noticias__card">
+            <h3>
+              <a href={`/noticias/${post.slug}`}>{post.title}</a>
+            </h3>
+            <p>{post.excerpt}</p>
+            <a href={`/noticias/${post.slug}`} class="noticias__link">
+              Leer más
+            </a>
+          </article>
+        ))
+      }
+    </div>
+    <p class="noticias__more">
+      <a href="/noticias">Ver todas las noticias</a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .noticias__grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .noticias__card {
+    padding: 1.5rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+  }
+
+  .noticias__card h3 {
+    margin: 0 0 0.75rem;
+    font-size: 1.125rem;
+  }
+
+  .noticias__card h3 a {
+    color: var(--color-secondary);
+    transition: color var(--transition-fast);
+  }
+
+  .noticias__card h3 a:hover {
+    color: var(--color-primary);
+  }
+
+  .noticias__card p {
+    margin: 0 0 1rem;
+    color: var(--color-muted);
+    font-size: 0.9375rem;
+  }
+
+  .noticias__link {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .noticias__more {
+    margin: 2rem 0 0;
+    text-align: center;
+  }
+
+  .noticias__more a {
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  @media (min-width: 768px) {
+    .noticias__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

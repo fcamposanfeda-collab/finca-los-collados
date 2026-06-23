@@ -1,0 +1,30 @@
+---
+import { booking } from '../../data/booking';
+---
+
+<section class="booking-sync section section--alt" aria-labelledby="booking-sync-title">
+  <div class="container booking-sync__inner">
+    <h2 id="booking-sync-title">{booking.sync.title}</h2>
+    {booking.sync.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+  </div>
+</section>
+
+<style>
+  .booking-sync__inner {
+    max-width: 48rem;
+    margin-inline: auto;
+  }
+
+  .booking-sync__inner h2 {
+    margin: 0 0 1rem;
+    font-size: clamp(1.375rem, 3vw, 1.75rem);
+    color: var(--color-secondary);
+    text-align: center;
+  }
+
+  .booking-sync__inner p {
+    margin: 0 0 1rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+</style>

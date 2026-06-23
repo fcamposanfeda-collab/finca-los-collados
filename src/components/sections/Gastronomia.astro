@@ -1,0 +1,69 @@
+---
+import { homeContent } from '../../data/home-content';
+import { site } from '../../data/site';
+
+const { gastronomia } = homeContent;
+---
+
+<section id={gastronomia.id} class="section">
+  <div class="container gastronomia">
+    <h2 class="section__title">{gastronomia.title}</h2>
+    <p class="gastronomia__lead">{gastronomia.lead}</p>
+    <p class="gastronomia__subtitle">{gastronomia.subtitle}</p>
+    <p class="gastronomia__desc">{gastronomia.description}</p>
+    <p class="gastronomia__dishes">{gastronomia.dishes}</p>
+    <blockquote class="gastronomia__quote">{gastronomia.quote}</blockquote>
+    <div class="gastronomia__cta">
+      <a href={site.bookingUrl} class="btn">Reserva</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .gastronomia {
+    max-width: 48rem;
+    text-align: center;
+  }
+
+  .gastronomia__lead {
+    margin: 0 0 1rem;
+    font-family: var(--font-heading);
+    font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+    color: var(--color-secondary);
+  }
+
+  .gastronomia__subtitle {
+    margin: 0 0 1.5rem;
+    font-style: italic;
+    color: var(--color-accent);
+    font-size: 1.0625rem;
+  }
+
+  .gastronomia__desc,
+  .gastronomia__dishes {
+    margin: 0 0 1rem;
+    color: var(--color-muted);
+  }
+
+  .gastronomia__dishes {
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  .gastronomia__quote {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    font-family: var(--font-heading);
+    font-size: 1.0625rem;
+    font-style: italic;
+    color: var(--color-secondary);
+    background: var(--color-bg-alt);
+    border-left: 3px solid var(--color-accent);
+    border-radius: 0 0.5rem 0.5rem 0;
+    text-align: left;
+  }
+
+  .gastronomia__cta {
+    margin-top: 2rem;
+  }
+</style>

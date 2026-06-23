@@ -1,0 +1,39 @@
+---
+import ContentPage from '../components/ui/ContentPage.astro';
+import { getPageMeta } from '../data/pages-meta';
+import { booking, isWidgetConfigured, buildWhatsAppUrl } from '../data/booking';
+import BookingSearch from '../components/booking/BookingSearch.astro';
+import BookingWidget from '../components/booking/BookingWidget.astro';
+import BookingAlternatives from '../components/booking/BookingAlternatives.astro';
+import BookingSyncInfo from '../components/booking/BookingSyncInfo.astro';
+import ContactForm from '../components/forms/ContactForm.astro';
+
+const meta = getPageMeta('/reservas-online');
+const { heroTitle, heroSubtitle, heroEyebrow } = booking.page;
+---
+
+<ContentPage
+  title={meta.title}
+  description={meta.description}
+  heroTitle={heroTitle}
+  heroSubtitle={heroSubtitle}
+  heroEyebrow={heroEyebrow}
+  ctaTitle="¿Prefiere hablar con nosotros?"
+  ctaText="Para packs, eventos, empresas o reservas de varios bungalows, escríbanos por WhatsApp."
+  ctaButtonLabel="WhatsApp"
+  ctaButtonHref={buildWhatsAppUrl({})}
+>
+  <BookingSearch />
+  {isWidgetConfigured() && <BookingWidget />}
+  <BookingAlternatives />
+  <BookingSyncInfo />
+  <ContactForm
+    title="Consulta por email"
+    intro="Para alojamiento, packs o dudas generales. Respondemos en 24–48 h laborables."
+    showPhone={true}
+    showDates={true}
+    showGuests={false}
+    defaultSubject="alojamiento"
+    formId="reservas"
+  />
+</ContentPage>

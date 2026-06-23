@@ -1,0 +1,85 @@
+---
+import { homeContent } from '../../data/home-content';
+import { site } from '../../data/site';
+
+const { hero } = homeContent;
+---
+
+<section class="hero" aria-label="Presentación">
+  <div class="hero__overlay"></div>
+  <div class="container hero__content">
+    <p class="hero__eyebrow">Campos de Montiel · Ciudad Real</p>
+    <h1 class="hero__title">{hero.title}</h1>
+    <p class="hero__subtitle">{hero.subtitle}</p>
+    <div class="hero__actions">
+      <a href={site.bookingUrl} class="btn">{hero.cta}</a>
+      <a href="/la-finca" class="btn btn--outline">Descubrir la finca</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: clamp(28rem, 70vh, 40rem);
+    background:
+      linear-gradient(135deg, rgba(44, 36, 25, 0.75), rgba(74, 103, 65, 0.65)),
+      radial-gradient(ellipse at 70% 30%, rgba(201, 169, 110, 0.25), transparent 50%),
+      var(--color-secondary);
+    color: var(--color-on-primary);
+  }
+
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(44, 36, 25, 0.4), transparent 60%);
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 40rem;
+    padding-block: 4rem;
+  }
+
+  .hero__eyebrow {
+    margin: 0 0 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .hero__title {
+    margin: 0 0 1rem;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    color: var(--color-on-primary);
+    line-height: 1.15;
+  }
+
+  .hero__subtitle {
+    margin: 0 0 2rem;
+    font-size: clamp(1.0625rem, 2vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .hero__actions .btn--outline {
+    color: var(--color-on-primary);
+    border-color: var(--color-on-primary);
+  }
+
+  .hero__actions .btn--outline:hover {
+    color: var(--color-text);
+    background: var(--color-on-primary);
+    border-color: var(--color-on-primary);
+  }
+</style>

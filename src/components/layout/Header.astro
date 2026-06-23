@@ -1,0 +1,194 @@
+---
+import { mainNav } from '../../data/navigation';
+import { site } from '../../data/site';
+import { isActiveNav } from '../../utils/nav';
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/" class="site-header__brand" aria-label={`${site.name} — Inicio`}>
+      <span class="site-header__logo-text">{site.shortName}</span>
+    </a>
+
+    <button
+      type="button"
+      class="site-header__toggle"
+      aria-expanded="false"
+      aria-controls="main-navigation"
+      aria-label="Abrir menú"
+      data-nav-toggle
+    >
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="main-navigation" class="site-header__nav" aria-label="Navegación principal" data-nav-menu>
+      <ul class="site-header__list">
+        {
+          mainNav.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class:list={['site-header__link', { 'is-active': isActiveNav(item.href, currentPath) }]}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <a href={site.bookingUrl} class="btn site-header__cta">Reservas</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');
+  const menu = document.querySelector<HTMLElement>('[data-nav-menu]');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+    toggle.setAttribute('aria-label', isOpen ? 'Abrir menú' : 'Cerrar menú');
+    menu?.classList.toggle('is-open', !isOpen);
+    document.body.classList.toggle('nav-open', !isOpen);
+  });
+
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      toggle?.setAttribute('aria-expanded', 'false');
+      toggle?.setAttribute('aria-label', 'Abrir menú');
+      menu.classList.remove('is-open');
+      document.body.classList.remove('nav-open');
+    });
+  });
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: var(--header-height);
+    background: rgba(250, 248, 245, 0.95);
+    border-bottom: 1px solid var(--color-border);
+    backdrop-filter: blur(8px);
+  }
+
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    gap: 1rem;
+  }
+
+  .site-header__brand {
+    flex-shrink: 0;
+  }
+
+  .site-header__logo-text {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    letter-spacing: 0.02em;
+  }
+
+  .site-header__toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    background: none;
+    border: none;
+  }
+
+  .site-header__toggle span {
+    display: block;
+    width: 1.5rem;
+    height: 2px;
+    background: var(--color-text);
+    transition: transform var(--transition-fast);
+  }
+
+  .site-header__nav {
+    display: none;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .site-header__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+  }
+
+  .site-header__link {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-text);
+    transition: color var(--transition-fast);
+  }
+
+  .site-header__link:hover,
+  .site-header__link.is-active {
+    color: var(--color-primary);
+  }
+
+  .site-header__cta {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.8125rem;
+  }
+
+  @media (min-width: 1024px) {
+    .site-header__toggle {
+      display: none;
+    }
+
+    .site-header__nav {
+      display: flex;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .site-header__nav {
+      position: fixed;
+      inset: var(--header-height) 0 0 0;
+      flex-direction: column;
+      align-items: stretch;
+      padding: 2rem 1.5rem;
+      background: var(--color-bg);
+      border-top: 1px solid var(--color-border);
+      overflow-y: auto;
+    }
+
+    .site-header__nav.is-open {
+      display: flex;
+    }
+
+    .site-header__list {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .site-header__link {
+      display: block;
+      padding: 0.875rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .site-header__cta {
+      margin-top: 1rem;
+      width: 100%;
+    }
+  }
+
+  :global(body.nav-open) {
+    overflow: hidden;
+  }
+</style>

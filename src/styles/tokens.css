@@ -1,0 +1,31 @@
+:root {
+  /* Colores — paleta rural / La Mancha */
+  --color-text: #2c2419;
+  --color-primary: #4a6741;
+  --color-primary-dark: #3a5234;
+  --color-secondary: #6b4c35;
+  --color-accent: #c9a96e;
+  --color-bg: #faf8f5;
+  --color-bg-alt: #f0ebe3;
+  --color-on-primary: #ffffff;
+  --color-border: #e0d8cc;
+  --color-muted: #6b6358;
+  --color-footer-bg: #2c2419;
+
+  /* Tipografía */
+  --font-primary: 'Source Sans 3', system-ui, sans-serif;
+  --font-heading: 'Playfair Display', Georgia, serif;
+
+  /* Layout */
+  --container-max: 1140px;
+  --section-padding-mobile: 3rem;
+  --section-padding-desktop: 5rem;
+  --header-height: 4.5rem;
+
+  /* Breakpoints (referencia) */
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+
+  /* Transiciones */
+  --transition-fast: 150ms ease;
+}

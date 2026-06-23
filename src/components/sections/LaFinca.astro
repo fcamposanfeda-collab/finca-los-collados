@@ -1,0 +1,56 @@
+---
+import { homeContent } from '../../data/home-content';
+import { site } from '../../data/site';
+
+const { finca } = homeContent;
+---
+
+<section id={finca.id} class="section">
+  <div class="container">
+    <h2 class="section__title">{finca.title}</h2>
+    <div class="finca__grid">
+      <div class="finca__text">
+        {finca.paragraphs.map((p) => <p>{p}</p>)}
+        <a href={site.bookingUrl} class="btn">Reservar</a>
+      </div>
+      <div class="finca__media" aria-hidden="true">
+        <div class="finca__placeholder">Imagen de la finca</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .finca__grid {
+    display: grid;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .finca__text p {
+    margin: 0 0 1rem;
+    color: var(--color-muted);
+  }
+
+  .finca__text .btn {
+    margin-top: 0.5rem;
+  }
+
+  .finca__placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 18rem;
+    background: var(--color-bg-alt);
+    border: 1px dashed var(--color-border);
+    border-radius: 0.5rem;
+    color: var(--color-muted);
+    font-size: 0.9375rem;
+  }
+
+  @media (min-width: 768px) {
+    .finca__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

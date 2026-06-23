@@ -1,0 +1,225 @@
+---
+import {
+  venuePackages,
+  venuePricingNote,
+  buildVenueWhatsAppUrl,
+  type VenuePackageId,
+} from '../../data/venue-packages';
+---
+
+<section class="venue-packages section section--alt" aria-labelledby="venue-packages-title">
+  <div class="container">
+    <h2 id="venue-packages-title" class="section__title">Reserva la finca completa</h2>
+    <p class="section__lead">
+      Dos modalidades de uso exclusivo: solo espacios para jornadas y rodajes, o finca íntegra con
+      alojamiento en bungalows para retiros y eventos con pernocta.
+    </p>
+
+    <div class="venue-packages__grid">
+      {
+        venuePackages.map((pkg) => (
+          <article class="venue-packages__card">
+            <p class="venue-packages__eyebrow">{pkg.subtitle}</p>
+            <h3>{pkg.title}</h3>
+            <p class="venue-packages__desc">{pkg.description}</p>
+
+            <div class="venue-packages__price">
+              <span class="venue-packages__from">Desde</span>
+              <span class="venue-packages__amount">
+                {pkg.pricing.from.toLocaleString('es-ES')} €
+              </span>
+              <span class="venue-packages__unit">{pkg.pricing.unit}</span>
+            </div>
+
+            <ul class="venue-packages__rates">
+              {pkg.pricing.halfDay && <li>{pkg.pricing.halfDay}</li>}
+              {pkg.pricing.weekday && <li>{pkg.pricing.weekday}</li>}
+              {pkg.pricing.weekend && <li>{pkg.pricing.weekend}</li>}
+            </ul>
+
+            <div class="venue-packages__cols">
+              <div>
+                <h4>Incluye</h4>
+                <ul>
+                  {pkg.includes.map((item) => <li>{item}</li>)}
+                </ul>
+              </div>
+              <div>
+                <h4>Capacidad</h4>
+                <ul>
+                  {pkg.capacity.map((item) => <li>{item}</li>)}
+                </ul>
+              </div>
+            </div>
+
+            <p class="venue-packages__ideal">
+              <strong>Ideal para:</strong> {pkg.idealFor.join(' · ')}
+            </p>
+
+            <div class="venue-packages__actions">
+              <a href="#solicitud-presupuesto" class="btn" data-select-package={pkg.id}>
+                Solicitar presupuesto
+              </a>
+              <a
+                href={buildVenueWhatsAppUrl(pkg.id as VenuePackageId)}
+                class="btn btn--outline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                WhatsApp
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <p class="venue-packages__disclaimer">{venuePricingNote}</p>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('[data-select-package]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const packageId = link.getAttribute('data-select-package');
+      const select = document.querySelector<HTMLSelectElement>('#presupuesto-motivo');
+      const option = packageId
+        ? select?.querySelector(`option[data-package-id="${packageId}"]`)
+        : null;
+      if (option instanceof HTMLOptionElement) {
+        option.selected = true;
+      }
+    });
+  });
+</script>
+
+<style>
+  .venue-packages__grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .venue-packages__card {
+    padding: 1.75rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+  }
+
+  .venue-packages__eyebrow {
+    margin: 0 0 0.5rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .venue-packages__card h3 {
+    margin: 0 0 0.75rem;
+    font-size: 1.375rem;
+    color: var(--color-secondary);
+  }
+
+  .venue-packages__desc {
+    margin: 0 0 1.25rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+  }
+
+  .venue-packages__price {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.375rem 0.5rem;
+    margin-bottom: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-bg-alt);
+    border-radius: 0.375rem;
+  }
+
+  .venue-packages__from {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+
+  .venue-packages__amount {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+
+  .venue-packages__unit {
+    width: 100%;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+
+  .venue-packages__rates {
+    margin: 0 0 1.25rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .venue-packages__rates li {
+    margin-bottom: 0.25rem;
+    font-size: 0.9375rem;
+    color: var(--color-text);
+  }
+
+  .venue-packages__cols {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .venue-packages__cols h4 {
+    margin: 0 0 0.5rem;
+    font-size: 0.9375rem;
+    color: var(--color-secondary);
+  }
+
+  .venue-packages__cols ul {
+    margin: 0;
+    padding-left: 1.125rem;
+  }
+
+  .venue-packages__cols li {
+    margin-bottom: 0.25rem;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+
+  .venue-packages__ideal {
+    margin: 0 0 1.25rem;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+
+  .venue-packages__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .venue-packages__disclaimer {
+    max-width: 48rem;
+    margin: 2rem auto 0;
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    line-height: 1.6;
+  }
+
+  @media (min-width: 900px) {
+    .venue-packages__grid {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: start;
+    }
+
+    .venue-packages__cols {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

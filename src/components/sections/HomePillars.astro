@@ -1,0 +1,58 @@
+---
+import { homePillars } from '../../data/pages-content';
+---
+
+<section class="section home-pillars" aria-label="Propuesta de valor">
+  <div class="container">
+    <h2 class="section__title">Una finca, muchas experiencias</h2>
+    <div class="home-pillars__grid">
+      {
+        homePillars.map((pillar) => (
+          <article class="home-pillars__card">
+            <h3>{pillar.title}</h3>
+            <p>{pillar.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .home-pillars__grid {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .home-pillars__card {
+    padding: 1.5rem;
+    text-align: center;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+  }
+
+  .home-pillars__card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.125rem;
+    color: var(--color-secondary);
+  }
+
+  .home-pillars__card p {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+
+  @media (min-width: 768px) {
+    .home-pillars__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .home-pillars__grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>

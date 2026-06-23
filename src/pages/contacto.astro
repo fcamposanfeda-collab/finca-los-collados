@@ -1,0 +1,84 @@
+---
+import ContentPage from '../components/ui/ContentPage.astro';
+import { getPageMeta } from '../data/pages-meta';
+import { contactoContent } from '../data/pages-content';
+import ContactForm from '../components/forms/ContactForm.astro';
+import { contact } from '../data/contact';
+
+const meta = getPageMeta('/contacto');
+const { hero } = contactoContent;
+
+const motivo = Astro.url.searchParams.get('motivo') ?? 'general';
+const validMotivos = [
+  'general',
+  'alojamiento',
+  'finca-espacios',
+  'finca-completa',
+  'evento',
+  'empresa',
+  'pack',
+] as const;
+const defaultSubject = validMotivos.includes(motivo as (typeof validMotivos)[number])
+  ? motivo
+  : 'general';
+---
+
+<ContentPage
+  title={meta.title}
+  description={meta.description}
+  heroTitle={hero.title}
+  heroSubtitle={hero.subtitle}
+  heroEyebrow={hero.eyebrow}
+>
+  <section class="page-content">
+    <div class="container contacto-info">
+      <div class="contacto-info__grid">
+        <div>
+          <h2>Finca Los Collados de San Miguel</h2>
+          <address>
+            {contact.address}<br />
+            {contact.city}
+          </address>
+          <p>
+            <a href={`tel:${contact.phone}`}>{contact.phoneDisplay}</a><br />
+            <a href={`tel:${contact.phoneAlt}`}>{contact.phoneAltDisplay}</a>
+          </p>
+          <p><a href={`mailto:${contact.email}`}>{contact.email}</a></p>
+          <p>
+            <a href={contact.mapsUrl} target="_blank" rel="noopener noreferrer">Ver en Google Maps</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <ContactForm
+    title="Ponte en contacto con nosotros"
+    intro="Reservas, presupuestos de finca completa, eventos y consultas generales."
+    showPhone={true}
+    showDates={true}
+    showGuests={true}
+    defaultSubject={defaultSubject}
+    formId="presupuesto"
+  />
+</ContentPage>
+
+<style>
+  .contacto-info h2 {
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+    color: var(--color-secondary);
+  }
+
+  .contacto-info address {
+    margin-bottom: 1rem;
+    font-style: normal;
+    line-height: 1.6;
+    color: var(--color-muted);
+  }
+
+  .contacto-info a {
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+</style>

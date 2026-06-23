@@ -1,0 +1,74 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  eyebrow?: string;
+  compact?: boolean;
+}
+
+const { title, subtitle, eyebrow, compact = false } = Astro.props;
+---
+
+<section class:list={['page-hero', { 'page-hero--compact': compact }]} aria-labelledby="page-hero-title">
+  <div class="page-hero__overlay"></div>
+  <div class="container page-hero__content">
+    {eyebrow && <p class="page-hero__eyebrow">{eyebrow}</p>}
+    <h1 id="page-hero-title" class="page-hero__title">{title}</h1>
+    {subtitle && <p class="page-hero__subtitle">{subtitle}</p>}
+  </div>
+</section>
+
+<style>
+  .page-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: clamp(16rem, 40vh, 22rem);
+    background:
+      linear-gradient(135deg, rgba(44, 36, 25, 0.82), rgba(74, 103, 65, 0.72)),
+      radial-gradient(ellipse at 80% 20%, rgba(201, 169, 110, 0.2), transparent 55%),
+      var(--color-secondary);
+    color: var(--color-on-primary);
+  }
+
+  .page-hero--compact {
+    min-height: clamp(14rem, 32vh, 18rem);
+  }
+
+  .page-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(44, 36, 25, 0.35), transparent 65%);
+  }
+
+  .page-hero__content {
+    position: relative;
+    z-index: 1;
+    max-width: 48rem;
+    padding-block: 3rem;
+  }
+
+  .page-hero__eyebrow {
+    margin: 0 0 0.75rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .page-hero__title {
+    margin: 0 0 0.75rem;
+    font-size: clamp(1.875rem, 4vw, 2.75rem);
+    color: var(--color-on-primary);
+    line-height: 1.15;
+  }
+
+  .page-hero__subtitle {
+    margin: 0;
+    max-width: 40rem;
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+  }
+</style>

@@ -1,0 +1,79 @@
+---
+import { booking, isWidgetConfigured } from '../../data/booking';
+---
+
+<section class="booking-widget section section--alt" data-booking-widget aria-labelledby="booking-widget-title">
+  <div class="container">
+    <h2 id="booking-widget-title" class="section__title">Motor de reservas directo</h2>
+
+    {
+      booking.provider === 'iframe' && booking.widget.iframeUrl ? (
+        <div class="booking-widget__frame-wrap">
+          <iframe
+            src={booking.widget.iframeUrl}
+            title={booking.widget.iframeTitle}
+            class="booking-widget__iframe"
+            style={`min-height: ${booking.widget.iframeHeight}`}
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          />
+        </div>
+      ) : booking.provider === 'script' && booking.widget.scriptUrl ? (
+        <div class="booking-widget__script-wrap" id="booking-widget-root">
+          <script is:inline src={booking.widget.scriptUrl} defer />
+        </div>
+      ) : (
+        <div class="booking-widget__pending">
+          <p>
+            <strong>Reserva directa en preparación.</strong> Use el buscador de fechas superior, Booking.com,
+            WhatsApp o teléfono. En cuanto conectemos el calendario sincronizado con Booking.com, el motor
+            aparecerá aquí automáticamente.
+          </p>
+        </div>
+      )
+    }
+  </div>
+</section>
+
+<style>
+  .booking-widget__frame-wrap {
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    background: var(--color-bg);
+  }
+
+  .booking-widget__iframe {
+    display: block;
+    width: 100%;
+    border: 0;
+  }
+
+  .booking-widget__script-wrap {
+    min-height: 24rem;
+  }
+
+  .booking-widget__pending {
+    max-width: 40rem;
+    margin-inline: auto;
+    padding: 1.5rem;
+    background: var(--color-bg);
+    border: 1px dashed var(--color-border);
+    border-radius: 0.5rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+
+  .booking-widget__pending strong {
+    color: var(--color-secondary);
+  }
+
+  .booking-widget__pending pre {
+    margin: 1rem 0;
+    padding: 0.875rem 1rem;
+    overflow-x: auto;
+    font-size: 0.875rem;
+    background: var(--color-bg-alt);
+    border-radius: 0.25rem;
+  }
+</style>

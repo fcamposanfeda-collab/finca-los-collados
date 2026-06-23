@@ -1,0 +1,37 @@
+---
+import ContentPage from '../components/ui/ContentPage.astro';
+import { getPageMeta } from '../data/pages-meta';
+import { experienciasContent } from '../data/pages-content';
+
+const meta = getPageMeta('/experiencias');
+const { hero, intro, detail, note, cards, activities, cta } = experienciasContent;
+---
+
+<ContentPage
+  title={meta.title}
+  description={meta.description}
+  heroTitle={hero.title}
+  heroSubtitle={hero.subtitle}
+  heroEyebrow={hero.eyebrow}
+  ctaTitle={cta.title}
+  ctaText={cta.text}
+>
+  <section class="page-content">
+    <div class="container">
+      <p class="page-content__lead">{intro}</p>
+      <p class="page-content__lead">{detail}</p>
+      <div class="feature-grid">
+        {cards.map((card) => (
+          <article class="feature-grid__card">
+            <h3>{card.title}</h3>
+            <p>{card.description}</p>
+          </article>
+        ))}
+      </div>
+      <ul class="activities-tags" aria-label="Actividades disponibles">
+        {activities.map((activity) => <li>{activity}</li>)}
+      </ul>
+      <p class="page-content__lead" style="font-style: italic;">{note}</p>
+    </div>
+  </section>
+</ContentPage>

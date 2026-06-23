@@ -1,0 +1,102 @@
+---
+import { booking, buildWhatsAppUrl } from '../../data/booking';
+import { contact } from '../../data/contact';
+---
+
+<section class="booking-alternatives section" aria-labelledby="booking-alt-title">
+  <div class="container">
+    <h2 id="booking-alt-title" class="section__title">Reservar también por</h2>
+
+    <div class="booking-alternatives__grid">
+      {
+        booking.bookingCom.enabled && (
+          <article class="booking-alternatives__card">
+            <h3>Booking.com</h3>
+            <p>
+              Reserva alojamiento con disponibilidad y pago seguro en nuestra
+              <a href={booking.bookingCom.propertyUrl} target="_blank" rel="noopener noreferrer">ficha oficial</a>.
+            </p>
+            <a
+              href={booking.bookingCom.propertyUrl}
+              class="btn btn--outline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {booking.bookingCom.label}
+            </a>
+          </article>
+        )
+      }
+
+      {
+        booking.whatsapp.enabled && (
+          <article class="booking-alternatives__card">
+            <h3>WhatsApp</h3>
+            <p>Packs, eventos, empresas o reservar varios bungalows. Le respondemos lo antes posible.</p>
+            <a
+              href={buildWhatsAppUrl({})}
+              class="btn btn--outline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Escribir por WhatsApp
+            </a>
+          </article>
+        )
+      }
+
+      <article class="booking-alternatives__card">
+        <h3>Teléfono</h3>
+        <p>Llámenos para reservas, grupos, empresas o eventos.</p>
+        <p class="booking-alternatives__phones">
+          <a href={`tel:${contact.phone}`}>{contact.phoneDisplay}</a>
+          <a href={`tel:${contact.phoneAlt}`}>{contact.phoneAltDisplay}</a>
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .booking-alternatives__grid {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .booking-alternatives__card {
+    padding: 1.5rem;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    text-align: center;
+  }
+
+  .booking-alternatives__card h3 {
+    margin: 0 0 0.75rem;
+    font-size: 1.125rem;
+    color: var(--color-secondary);
+  }
+
+  .booking-alternatives__card p {
+    margin: 0 0 1.25rem;
+    color: var(--color-muted);
+    font-size: 0.9375rem;
+  }
+
+  .booking-alternatives__phones {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .booking-alternatives__phones a {
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  @media (min-width: 768px) {
+    .booking-alternatives__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

@@ -1,0 +1,36 @@
+---
+import ContentPage from '../../components/ui/ContentPage.astro';
+import { getPageMeta } from '../../data/pages-meta';
+import { homeContent } from '../../data/home-content';
+
+const meta = getPageMeta('/noticias');
+const { noticias } = homeContent;
+---
+
+<ContentPage
+  title={meta.title}
+  description={meta.description}
+  heroTitle="Noticias"
+  heroSubtitle="Actualidad, eventos y novedades de Los Collados de San Miguel."
+  heroEyebrow="Blog"
+>
+  <section class="page-content">
+    <div class="container page-content__inner page-content__inner--wide">
+      <div class="feature-grid">
+        {
+          noticias.posts.map((post) => (
+            <article class="feature-grid__card">
+              <h3>
+                <a href={`/noticias/${post.slug}`} style="color: inherit;">{post.title}</a>
+              </h3>
+              <p>{post.excerpt}</p>
+              <a href={`/noticias/${post.slug}`} style="font-size: 0.875rem; font-weight: 600; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.04em;">
+                Leer más
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</ContentPage>

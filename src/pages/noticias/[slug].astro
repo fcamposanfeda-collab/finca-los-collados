@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
+import { homeContent } from '../../data/home-content';
+
+export function getStaticPaths() {
+  return homeContent.noticias.posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+interface Props {
+  post: (typeof homeContent.noticias.posts)[number];
+}
+
+const { post } = Astro.props;
+---
+
+<BaseLayout
+  title={`${post.title} | ${site.name}`}
+  description={post.excerpt}
+>
+  <section class="section page-placeholder">
+    <div class="container">
+      <h1>{post.title}</h1>
+      <p>{post.excerpt}</p>
+      <p>Artículo del blog pendiente de migrar desde WordPress.</p>
+      <a href="/noticias" class="btn">Volver a noticias</a>
+    </div>
+  </section>
+</BaseLayout>

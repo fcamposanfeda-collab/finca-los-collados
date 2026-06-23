@@ -1,0 +1,27 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-text);
+}
+
+h1 {
+  font-weight: 700;
+}
+
+p {
+  line-height: 1.7;
+}
+
+.text-heading {
+  font-family: var(--font-heading);
+}
+
+.text-muted {
+  color: var(--color-muted);
+}
