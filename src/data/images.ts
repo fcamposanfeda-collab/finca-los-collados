@@ -86,11 +86,11 @@ export const images = {
   },
 
   videos: {
-    bungalowInterior: '/videos/IMG_0728.MOV',
-    bungalowAmenities: '/videos/IMG_0736.MOV',
-    bungalowClosing: '/videos/IMG_0723.MOV',
-    empresasShowcase: '/videos/IMG_0717.MOV',
-    fincaShowcase: '/videos/IMG_0658.MOV',
+    bungalowInterior: '/videos/IMG_0728.mp4',
+    bungalowAmenities: '/videos/IMG_0736.mp4',
+    bungalowClosing: '/videos/IMG_0723.mp4',
+    empresasShowcase: '/videos/IMG_0717.mp4',
+    fincaShowcase: '/videos/IMG_0658.mp4',
   },
 
   og: '/images/hero-finca.jpg',
