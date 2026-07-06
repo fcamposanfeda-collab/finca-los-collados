@@ -1,14 +1,24 @@
 ---
 import ContentImage from './ContentImage.astro';
+import ContentVideo from './ContentVideo.astro';
 
 interface Props {
-  src: string;
   alt: string;
+  src?: string;
+  video?: string;
+  poster?: string;
+  aspect?: 'landscape' | 'square' | 'wide';
 }
 
-const { src, alt } = Astro.props;
+const { src, alt, video, poster, aspect } = Astro.props;
 ---
 
 <div class="text-image__media">
-  <ContentImage src={src} alt={alt} loading="lazy" />
+  {
+    video ? (
+      <ContentVideo src={video} alt={alt} poster={poster} aspect={aspect} />
+    ) : (
+      <ContentImage src={src!} alt={alt} loading="lazy" aspect={aspect} />
+    )
+  }
 </div>

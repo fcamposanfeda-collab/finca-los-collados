@@ -1,0 +1,53 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  class?: string;
+  aspect?: 'landscape' | 'square' | 'wide';
+  poster?: string;
+}
+
+const { src, alt, class: className, aspect = 'landscape', poster } = Astro.props;
+---
+
+<div class:list={['content-video', `content-video--${aspect}`, className]}>
+  <video
+    src={src}
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    poster={poster}
+    aria-label={alt}
+  ></video>
+</div>
+
+<style>
+  .content-video {
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background: var(--color-bg-alt);
+  }
+
+  .content-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .content-video--landscape {
+    min-height: 16rem;
+    aspect-ratio: 4 / 3;
+  }
+
+  .content-video--wide {
+    min-height: 14rem;
+    aspect-ratio: 16 / 9;
+  }
+
+  .content-video--square {
+    aspect-ratio: 1;
+  }
+</style>

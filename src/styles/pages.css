@@ -15,6 +15,10 @@
   max-width: none;
 }
 
+.page-content__intro {
+  text-align: center;
+}
+
 .page-content h2 {
   margin: 0 0 1rem;
   font-size: clamp(1.375rem, 3vw, 1.75rem);
@@ -78,7 +82,8 @@
   overflow: hidden;
 }
 
-.text-image__media :global(.content-image) {
+.text-image__media :global(.content-image),
+.text-image__media :global(.content-video) {
   min-height: 16rem;
   height: 100%;
   border-radius: 0.5rem;
@@ -130,6 +135,12 @@
 .page-banner-image {
   max-width: 48rem;
   margin: 0 auto 2rem;
+  background: var(--color-bg);
+}
+
+.page-banner-image :global(.content-image) {
+  background: var(--color-bg);
+  border-radius: 0;
 }
 
 .amenities-list {
@@ -253,6 +264,10 @@
 
   .text-image {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .text-image--media-left .text-image__media {
+    order: -1;
   }
 
   .amenities-list {

@@ -1,0 +1,36 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  objectPosition?: string;
+}
+
+const { src, alt, objectPosition = 'center center' } = Astro.props;
+---
+
+<section class="full-width-video" aria-label={alt}>
+  <video
+    src={src}
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    style={`object-position: ${objectPosition}`}
+  ></video>
+</section>
+
+<style>
+  .full-width-video {
+    width: 100%;
+    overflow: hidden;
+    background: var(--color-secondary);
+  }
+
+  .full-width-video video {
+    display: block;
+    width: 100%;
+    height: clamp(10rem, 24vw, 18rem);
+    object-fit: cover;
+  }
+</style>

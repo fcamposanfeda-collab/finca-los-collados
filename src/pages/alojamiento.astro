@@ -21,6 +21,9 @@ const col2 = amenities.slice(mid);
   heroImage={images.hero.alojamiento}
   ctaTitle={cta.title}
   ctaText={cta.text}
+  closingVideo={images.videos.bungalowClosing}
+  closingVideoAlt="Vistas del alojamiento rural en Los Collados de San Miguel"
+  closingVideoPosition="center 58%"
 >
   <section class="page-content">
     <div class="container text-image">
@@ -31,12 +34,12 @@ const col2 = amenities.slice(mid);
           {capacity.items.map((item) => <li>{item}</li>)}
         </ul>
       </div>
-      <TextImageMedia src={images.laFinca.bungalows} alt="Interior de bungalow en Los Collados" />
+      <TextImageMedia video={images.videos.bungalowInterior} alt="Interior de bungalow en Los Collados" />
     </div>
   </section>
 
   <section class="page-content page-content--alt section--alt">
-    <div class="container text-image">
+    <div class="container text-image text-image--media-left">
       <div>
         <h2 class="section__title">Servicios incluidos</h2>
         <div class="amenities-list">
@@ -44,7 +47,11 @@ const col2 = amenities.slice(mid);
           <ul>{col2.map((item) => <li>{item}</li>)}</ul>
         </div>
       </div>
-      <TextImageMedia src={images.hero.reservas} alt="Detalle de alojamiento rural" />
+      <TextImageMedia
+        video={images.videos.bungalowAmenities}
+        alt="Detalle de alojamiento rural en Los Collados"
+        aspect="wide"
+      />
     </div>
   </section>
 </ContentPage>

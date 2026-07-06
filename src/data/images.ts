@@ -82,7 +82,15 @@ export const images = {
     turismo: '/images/bungalow-interior.jpg',
     empresas: '/images/empresa-teambuilding.jpg',
     eventos: '/images/evento-celebracion.jpg',
-    petFriendly: '/images/paseo-caballo.jpg',
+    petFriendly: '/images/pet-friendly.png',
+  },
+
+  videos: {
+    bungalowInterior: '/videos/IMG_0728.MOV',
+    bungalowAmenities: '/videos/IMG_0736.MOV',
+    bungalowClosing: '/videos/IMG_0723.MOV',
+    empresasShowcase: '/videos/IMG_0717.MOV',
+    fincaShowcase: '/videos/IMG_0658.MOV',
   },
 
   og: '/images/hero-finca.jpg',

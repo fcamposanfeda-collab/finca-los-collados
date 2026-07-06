@@ -4,7 +4,7 @@ interface Props {
   alt: string;
   class?: string;
   loading?: 'lazy' | 'eager';
-  aspect?: 'landscape' | 'square' | 'wide';
+  aspect?: 'landscape' | 'square' | 'wide' | 'natural';
 }
 
 const { src, alt, class: className, loading = 'lazy', aspect = 'landscape' } = Astro.props;
@@ -40,5 +40,15 @@ const { src, alt, class: className, loading = 'lazy', aspect = 'landscape' } = A
 
   .content-image--square {
     aspect-ratio: 1;
+  }
+
+  .content-image--natural {
+    aspect-ratio: auto;
+    min-height: 0;
+  }
+
+  .content-image--natural img {
+    height: auto;
+    object-fit: unset;
   }
 </style>
