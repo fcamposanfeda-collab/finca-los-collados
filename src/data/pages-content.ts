@@ -328,6 +328,34 @@ export const packsContent = {
       description: 'Alojamiento + ruta a medida por Campos de Montiel y alrededores culturales.',
       highlights: ['Ruta personalizada', 'Naturaleza y patrimonio', 'Asesoramiento del equipo'],
     },
+    {
+      slug: 'caza',
+      title: 'Pack caza y campo (La Calerilla)',
+      description:
+        'Jornada de caza en mano en nuestro coto de perdiz roja, con alojamiento y gastronomía manchega al regreso.',
+      highlights: ['La Calerilla · temporada oct.–feb.', 'Caza en mano tradicional', 'Alojamiento y cena en finca'],
+    },
+    {
+      slug: 'quijote',
+      title: 'Pack Quijote y patrimonio',
+      description:
+        'Escapada cultural por La Mancha: Villanueva de los Infantes, Montizón, Torre de Juan Abad y rutas cervantinas.',
+      highlights: ['Itinerario a medida', 'Patrimonio y literatura', 'Base en Los Collados'],
+    },
+    {
+      slug: 'celebracion',
+      title: 'Pack celebración íntima',
+      description:
+        'Cumpleaños, aniversarios o reuniones familiares en un entorno rural exclusivo, con menú y espacios al aire libre.',
+      highlights: ['Hasta 30 int. / 50 ext.', 'Menú personalizado', 'Jardines y porche de la finca'],
+    },
+    {
+      slug: 'retiro',
+      title: 'Pack retiro de bienestar',
+      description:
+        'Yoga, mindfulness y talleres de autocuidado en plena naturaleza: un espacio tranquilo para reconectar cuerpo y mente en grupo reducido.',
+      highlights: ['Sesiones de yoga al aire libre', 'Talleres de bienestar y autoestima', 'Alojamiento y entorno de desconexión'],
+    },
   ] satisfies PackCard[],
   cta: {
     title: '¿Le interesa algún pack?',

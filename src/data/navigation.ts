@@ -19,7 +19,11 @@ export const mainNav: NavItem[] = [
   { label: 'Empresas', href: '/empresas' },
   { label: 'Eventos', href: '/eventos' },
   { label: 'Packs', href: '/packs' },
-  { label: 'Contacto', href: '/contacto' },
+  {
+    label: 'Reservas',
+    href: '/reservas-online',
+    children: [{ label: 'Contacto', href: '/contacto' }],
+  },
 ];
 
 export const footerNav: NavLink[] = [

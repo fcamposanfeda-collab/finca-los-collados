@@ -12,7 +12,7 @@ export const pagesMeta = {
   '/la-finca': {
     title: `La Finca | Turismo Rural en Campos de Montiel | ${brand}`,
     description:
-      'Descubra Los Collados de San Miguel: finca rural con historia de más de 2.500 años, bungalows, piscina y entorno natural en Villamanrique, Ciudad Real.',
+      'Descubre Los Collados de San Miguel: finca rural con historia de más de 2.500 años, bungalows, piscina y entorno natural en Villamanrique, Ciudad Real.',
   },
   '/la-calerilla': {
     title: `La Calerilla | Caza de Perdiz Roja en Mano | ${brand}`,

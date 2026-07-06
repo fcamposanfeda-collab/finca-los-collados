@@ -14,7 +14,7 @@ export const images = {
     empresas: '/images/empresa-teambuilding.jpg',
     eventos: '/images/evento-celebracion.jpg',
     packs: '/images/evento-jardines.jpg',
-    entorno: '/images/rutas-villamanrique.png',
+    entorno: '/images/entorno-hero.jpg',
     contacto: '/images/porche-exterior.jpg',
     reservas: '/images/bungalow-detalle.jpg',
   },
@@ -52,18 +52,25 @@ export const images = {
 
   entorno: {
     'Campos de Montiel': '/images/campo-montiel.png',
-    Villamanrique: '/images/rutas-villamanrique.png',
-    'Torre de Juan Abad y alrededores': '/images/rutas-molinos.png',
-    'Villanueva de los Infantes': '/images/rutas-vino.png',
-    'Patrimonio íbero y ruinas': '/images/finca-paisaje.jpg',
-    'Lagunas y naturaleza': '/images/paseo-caballo.jpg',
+    // CC BY-SA 4.0 — 19Tarrestnom65 / Wikimedia Commons (Iglesia de San Andrés, Villamanrique)
+    Villamanrique: '/images/villamanrique-iglesia.jpg',
+    'Torre de Juan Abad y alrededores': '/images/torre-juan-abad.jpg',
+    'Villanueva de los Infantes': '/images/villanueva-infantes.jpg',
+    // CC BY 2.0 — Miguel Angel Masegosa Martínez / Wikimedia Commons (Castillo de Montizón, Villamanrique)
+    'Patrimonio íbero y ruinas': '/images/castillo-montizon.jpg',
+    'Lagunas y naturaleza': '/images/lagunas-ruidera2.jpg',
   },
 
   packs: {
     romantico: '/images/salon-biblioteca.jpg',
-    familiar: '/images/evento-jardines.jpg',
+    // PD — NPS / Wikimedia Commons (familia en ruta por pradera abierta)
+    familiar: '/images/pack-familiar.jpg',
     gastronomia: '/images/gastronomia.jpg',
-    rutas: '/images/rutas-molinos.png',
+    rutas: '/images/castillo-montizon.jpg',
+    caza: '/images/calerilla-hero.jpg',
+    quijote: '/images/villanueva-infantes.jpg',
+    celebracion: '/images/evento-celebracion.jpg',
+    retiro: '/images/evento-jardines.jpg',
   },
 
   teasers: {
