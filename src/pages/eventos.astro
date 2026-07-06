@@ -5,10 +5,18 @@ import { getPageMeta } from '../data/pages-meta';
 import { eventosContent } from '../data/pages-content';
 import { images } from '../data/images';
 import VenuePackages from '../components/venue/VenuePackages.astro';
+import AzureaCatering from '../components/venue/AzureaCatering.astro';
 import ContactForm from '../components/forms/ContactForm.astro';
 
 const meta = getPageMeta('/eventos');
-const { hero, intro, capacity, blocks, cta } = eventosContent;
+const { hero, intro, capacity, eventTypes, blocks, venuePackages, cta } = eventosContent;
+
+const eventVenuePackageIds = [
+  'finca-espacios',
+  'finca-completa',
+  'finca-fin-semana',
+  'sesiones-fotograficas',
+] as const;
 ---
 
 <ContentPage
@@ -36,9 +44,26 @@ const { hero, intro, capacity, blocks, cta } = eventosContent;
     </div>
   </section>
 
+  <section class="page-content page-content--alt section--alt">
+    <div class="container page-content__inner page-content__inner--wide">
+      <h2 class="section__title">{eventTypes.title}</h2>
+      <p class="page-content__lead">{eventTypes.lead}</p>
+      <div class="feature-grid feature-grid--3">
+        {
+          eventTypes.items.map((item) => (
+            <article class="feature-grid__card">
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
   {
-    blocks.map((block, index) => (
-      <section class:list={['page-content', { 'page-content--alt section--alt': index % 2 === 0 }]}>
+    blocks.map((block) => (
+      <section class="page-content">
         <div class="container page-content__inner" style="margin-inline: auto;">
           <h2>{block.title}</h2>
           {block.paragraphs.map((p) => <p>{p}</p>)}
@@ -47,12 +72,18 @@ const { hero, intro, capacity, blocks, cta } = eventosContent;
     ))
   }
 
-  <VenuePackages />
+  <VenuePackages
+    packageIds={[...eventVenuePackageIds]}
+    title={venuePackages.title}
+    lead={venuePackages.lead}
+  />
+
+  <AzureaCatering />
 
   <div id="solicitud-presupuesto">
     <ContactForm
       title="Planifique su evento"
-      intro="Celebraciones familiares, aniversarios o encuentros privados. Sin bodas ni grandes banquetes."
+      intro="Bodas, comuniones, cumpleaños, empresas, shootings o sesiones fotográficas. Indique fechas, invitados y tipo de celebración."
       showPhone={true}
       showDates={true}
       showGuests={true}

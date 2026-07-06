@@ -43,7 +43,6 @@ export const laFincaContent = {
     { title: 'Piscina y jardines', description: 'Espacios exteriores para descansar y disfrutar del entorno.' },
     { title: 'Salón biblioteca', description: 'Zona acogedora con chimenea para reuniones íntimas o relax.' },
     { title: 'Pet friendly', description: 'Su mascota es bienvenida. Consulte condiciones al reservar.' },
-    { title: 'La Calerilla', description: 'Coto de caza de perdiz roja en mano. Temporada de octubre a febrero.' },
   ] satisfies FeatureCard[],
   cta: {
     title: 'Descubra La Mancha desde Los Collados',
@@ -254,13 +253,13 @@ export const empresasContent = {
 
 export const eventosContent = {
   hero: {
-    eyebrow: 'Celebraciones íntimas',
+    eyebrow: 'Celebraciones a medida',
     title: 'Eventos',
     subtitle:
-      'Pequeños eventos en un entorno rural exclusivo. Sin bodas ni grandes banquetes: sí celebraciones con encanto y medida.',
+      'Bodas, comuniones, cumpleaños, empresas y celebraciones con encanto en un entorno rural exclusivo de Campos de Montiel.',
   },
   intro:
-    'Organizamos eventos pequeños y personalizados en Los Collados: cumpleaños, aniversarios, reuniones familiares, presentaciones o encuentros privados en un marco natural único.',
+    'En Los Collados de San Miguel organizamos todo tipo de eventos con carácter íntimo y personalizado: desde bodas de hasta 50 invitados hasta reuniones de directivos, shootings o sesiones fotográficas en un marco natural único.',
   capacity: {
     title: 'Capacidades',
     items: [
@@ -269,23 +268,84 @@ export const eventosContent = {
       'Evento en interior: hasta 30 personas',
     ],
   },
+  eventTypes: {
+    title: 'Tipos de eventos que realizamos',
+    lead: 'Cada celebración se adapta a su grupo, fechas y estilo. Estas son las modalidades más habituales en la finca:',
+    items: [
+      {
+        title: 'Bodas',
+        description: 'Ceremonias y banquetes de hasta 50 invitados en jardines, porche y salones con privacidad total.',
+      },
+      {
+        title: 'Bodas de oro y de plata',
+        description: 'Aniversarios especiales con menú, montaje y ambiente cuidado para familias y amigos.',
+      },
+      {
+        title: 'Cumpleaños',
+        description: 'Celebraciones familiares o entre amigos, en interior o al aire libre, con catering a medida.',
+      },
+      {
+        title: 'Comuniones',
+        description: 'Encuentros íntimos tras la ceremonia, con espacio para niños y menú adaptado al grupo.',
+      },
+      {
+        title: 'Presentaciones de productos',
+        description: 'Lanzamientos, showcookings y encuentros con prensa o clientes en un entorno diferente.',
+      },
+      {
+        title: 'Empresas',
+        description: 'Convenciones, incentivos, teambuilding y jornadas de equipo con alojamiento opcional.',
+      },
+      {
+        title: 'Shootings',
+        description: 'Campañas publicitarias, moda y producto con múltiples escenarios en la misma finca.',
+      },
+      {
+        title: 'Reuniones de directivos',
+        description: 'Encuentros estratégicos en un entorno reservado, con salas y zonas de trabajo.',
+      },
+      {
+        title: 'Sesiones fotográficas',
+        description: 'Books, retratos y contenido visual en interiores y exteriores con luz natural.',
+      },
+    ],
+  } satisfies { title: string; lead: string; items: FeatureCard[] },
   blocks: [
     {
       title: 'Qué ofrecemos',
       paragraphs: [
         'Espacios exteriores con porche, jardines y piscina para celebraciones al aire libre.',
-        'Salón biblioteca y zonas interiores para encuentros más íntimos.',
-        'Servicio de restauración y menús adaptados al tipo de evento.',
-      ],
-    },
-    {
-      title: 'Qué no hacemos',
-      paragraphs: [
-        'No celebramos bodas ni grandes banquetes nupciales.',
-        'Nuestro enfoque son eventos pequeños y personalizados, con atención al detalle.',
+        'Salón biblioteca, comedor y zonas interiores para encuentros más íntimos o climatizados.',
+        'Alojamiento en bungalows para invitados que pernoctan y uso exclusivo de la finca bajo reserva.',
+        'Coordinación con Azurea Catering para menús, montaje y servicio de sala en su evento.',
       ],
     },
   ] satisfies ContentBlock[],
+  azurea: {
+    eyebrow: 'Gastronomía en su evento',
+    title: 'Azurea Catering',
+    paragraphs: [
+      'Para bodas, comuniones, cumpleaños y celebraciones en la finca trabajamos con Azurea Catering, empresa de Ciudad Real especializada en reinterpretar la cocina tradicional manchega con un enfoque actual, creativo y de alta calidad.',
+      'Azurea diseña menús exclusivos y adaptables a cada ocasión —desde cócteles y banquetes hasta servicio para empresas— con producto de proximidad y un equipo profesional que conoce perfectamente los espacios de Los Collados de San Miguel.',
+      'El catering se presupuesta de forma independiente al alquiler de la finca. Les asesoramos para coordinar fechas, montaje y logística con el equipo de Azurea.',
+    ],
+    website: 'https://azureacatering.com/',
+    websiteLabel: 'Visitar web de Azurea Catering',
+    instagram: 'https://www.instagram.com/azurea_catering/',
+    instagramLabel: '@azurea_catering',
+    email: 'comercial@azureacatering.com',
+    phone: '+34 635 197 898',
+    services: [
+      'Bodas y banquetes',
+      'Comuniones y bautizos',
+      'Cumpleaños y celebraciones privadas',
+      'Catering corporativo',
+    ],
+  },
+  venuePackages: {
+    title: 'Modalidades de reserva',
+    lead: 'Elija la fórmula que mejor encaje con su evento. Los precios de alquiler son orientativos; el catering con Azurea se cotiza aparte.',
+  },
   cta: {
     title: 'Planifique su evento',
     text: 'Cuéntenos fechas, número de invitados y tipo de celebración. Le asesoraremos sin compromiso.',

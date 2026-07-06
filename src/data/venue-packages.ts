@@ -1,7 +1,11 @@
 import { buildWhatsAppUrl } from './booking';
 import { contact } from './contact';
 
-export type VenuePackageId = 'finca-espacios' | 'finca-completa';
+export type VenuePackageId =
+  | 'finca-espacios'
+  | 'finca-completa'
+  | 'finca-fin-semana'
+  | 'sesiones-fotograficas';
 
 export type VenuePackage = {
   id: VenuePackageId;
@@ -11,8 +15,10 @@ export type VenuePackage = {
   includes: string[];
   capacity: string[];
   pricing: {
-    from: number;
+    from?: number;
     unit: string;
+    priceOnRequest?: boolean;
+    priceNote?: string;
     weekday?: string;
     weekend?: string;
     halfDay?: string;
@@ -92,6 +98,70 @@ export const venuePackages: VenuePackage[] = [
     ],
     inquirySubject: 'Presupuesto: finca completa con alojamiento',
   },
+  {
+    id: 'finca-fin-semana',
+    title: 'Finca completa — fin de semana',
+    subtitle: 'Viernes a domingo · uso exclusivo y alojamiento',
+    description:
+      'Reserve la finca íntegramente de viernes a domingo: celebración, evento o retiro con pernocta en los 8 bungalows y uso privado de jardines, porche, piscina (según temporada) y salones durante todo el fin de semana.',
+    includes: [
+      '2 noches de alojamiento (vie–dom) en 8 bungalows',
+      'Uso exclusivo de la finca durante todo el fin de semana',
+      'Hasta 50 personas en exterior / 30 en interior para el evento',
+      'Espacios interiores y exteriores sin compartir con otros huéspedes',
+    ],
+    capacity: [
+      'Alojamiento: hasta 16 adultos (+ niños según reserva)',
+      'Evento exterior: hasta 50 personas',
+      'Evento interior: hasta 30 personas',
+    ],
+    pricing: {
+      from: 2790,
+      unit: '€ / fin de semana (vie–dom, 2 noches)',
+      weekday: 'Incluye alojamiento y uso exclusivo de espacios',
+      weekend: 'Gastronomía y montaje con Azurea Catering bajo presupuesto aparte',
+    },
+    idealFor: [
+      'Bodas hasta 50 invitados',
+      'Bodas de oro y de plata',
+      'Comuniones y cumpleaños con pernocta',
+      'Retiros y celebraciones familiares',
+    ],
+    inquirySubject: 'Presupuesto: finca completa fin de semana',
+  },
+  {
+    id: 'sesiones-fotograficas',
+    title: 'Creación de contenido para empresas',
+    subtitle: 'Alquiler por horas en la finca',
+    description:
+      'Alquiler de la finca por horas para sesiones fotográficas, shootings de moda o producto, grabación de contenido y rodajes. Entornos interiores y exteriores con privacidad total y múltiples escenarios en un mismo enclave.',
+    includes: [
+      'Alquiler por horas de espacios acordados (interior y/o exterior)',
+      'Jardines, porche, salón biblioteca y zonas rurales de la finca',
+      'Flexibilidad de horario según producción',
+      'Apoyo logístico básico del equipo de la finca',
+    ],
+    capacity: [
+      'Equipos reducidos o producciones medianas',
+      'Mínimo y duración según tipo de sesión o rodaje',
+      'Sin pernocta en bungalows (salvo contratación aparte)',
+    ],
+    pricing: {
+      priceOnRequest: true,
+      unit: 'Alquiler por horas',
+      halfDay: 'Bloques de horas, medio día o jornada completa',
+      weekday: 'Presupuesto personalizado tras consulta de fechas y espacios',
+      priceNote:
+        '* Valoramos cada proyecto de forma individual. En algunos casos podemos estudiar colaboración o intercambio; por eso el precio se cotiza tras conocer su propuesta.',
+    },
+    idealFor: [
+      'Sesiones fotográficas y book',
+      'Shootings y campañas publicitarias',
+      'Rodajes y grabación de vídeo',
+      'Contenido para marcas y redes sociales',
+    ],
+    inquirySubject: 'Presupuesto: sesiones fotográficas / shootings (por horas)',
+  },
 ];
 
 export const venuePricingNote =
@@ -105,9 +175,13 @@ export function buildVenueWhatsAppUrl(packageId: VenuePackageId): string {
   const pkg = getVenuePackage(packageId);
   if (!pkg) return buildWhatsAppUrl({});
 
+  const priceLine = pkg.pricing.priceOnRequest
+    ? 'Precio a consultar según fechas y necesidades.'
+    : `Referencia orientativa: desde ${pkg.pricing.from} ${pkg.pricing.unit}.`;
+
   const message = [
     `Hola, me interesa solicitar presupuesto para: ${pkg.title}.`,
-    `Referencia orientativa: desde ${pkg.pricing.from} ${pkg.pricing.unit}.`,
+    priceLine,
     'Fechas previstas:',
     'Número de invitados:',
   ].join('\n');
@@ -121,6 +195,8 @@ export const inquirySubjects = [
   { value: 'alojamiento', label: 'Alojamiento / bungalows' },
   { value: 'finca-espacios', label: 'Finca completa — solo espacios' },
   { value: 'finca-completa', label: 'Finca completa — con alojamiento' },
+  { value: 'finca-fin-semana', label: 'Finca completa — fin de semana' },
+  { value: 'sesiones-fotograficas', label: 'Sesiones fotográficas / shootings' },
   { value: 'evento', label: 'Evento privado' },
   { value: 'empresa', label: 'Empresa / teambuilding / rodaje' },
   { value: 'pack', label: 'Pack romántico, familiar o gastronómico' },

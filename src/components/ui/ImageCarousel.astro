@@ -1,0 +1,216 @@
+---
+export type CarouselSlide = {
+  src: string;
+  alt: string;
+};
+
+interface Props {
+  slides: CarouselSlide[];
+  aspect?: 'landscape' | 'wide';
+  id?: string;
+}
+
+const { slides, aspect = 'landscape', id = 'finca-gallery' } = Astro.props;
+---
+
+<div
+  class:list={['image-carousel', `image-carousel--${aspect}`]}
+  data-carousel={id}
+  tabindex="0"
+  aria-roledescription="carrusel"
+  aria-label="Galería de imágenes"
+>
+  <div class="image-carousel__viewport">
+    {
+      slides.map((slide, index) => (
+        <figure
+          class:list={['image-carousel__slide', { 'is-active': index === 0 }]}
+          data-slide={index}
+          hidden={index !== 0}
+        >
+          <img
+            src={slide.src}
+            alt={slide.alt}
+            loading={index === 0 ? 'eager' : 'lazy'}
+            decoding="async"
+          />
+        </figure>
+      ))
+    }
+  </div>
+
+  <button type="button" class="image-carousel__btn image-carousel__btn--prev" data-carousel-prev aria-label="Imagen anterior">
+    <span aria-hidden="true">‹</span>
+  </button>
+  <button type="button" class="image-carousel__btn image-carousel__btn--next" data-carousel-next aria-label="Imagen siguiente">
+    <span aria-hidden="true">›</span>
+  </button>
+
+  <div class="image-carousel__dots" data-carousel-dots role="tablist" aria-label="Seleccionar imagen">
+    {
+      slides.map((_, index) => (
+        <button
+          type="button"
+          class:list={['image-carousel__dot', { 'is-active': index === 0 }]}
+          data-carousel-dot={index}
+          role="tab"
+          aria-label={`Imagen ${index + 1}`}
+          aria-selected={index === 0 ? 'true' : 'false'}
+        />
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('[data-carousel]').forEach((carousel) => {
+    const slides = [...carousel.querySelectorAll<HTMLElement>('[data-slide]')];
+    if (slides.length <= 1) return;
+
+    const prevBtn = carousel.querySelector<HTMLButtonElement>('[data-carousel-prev]');
+    const nextBtn = carousel.querySelector<HTMLButtonElement>('[data-carousel-next]');
+    const dots = [...carousel.querySelectorAll<HTMLButtonElement>('[data-carousel-dot]')];
+    let current = 0;
+
+    const show = (index: number) => {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        const active = i === current;
+        slide.hidden = !active;
+        slide.classList.toggle('is-active', active);
+      });
+      dots.forEach((dot, i) => {
+        const active = i === current;
+        dot.classList.toggle('is-active', active);
+        dot.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+    };
+
+    prevBtn?.addEventListener('click', () => show(current - 1));
+    nextBtn?.addEventListener('click', () => show(current + 1));
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const index = Number(dot.getAttribute('data-carousel-dot'));
+        if (!Number.isNaN(index)) show(index);
+      });
+    });
+
+    carousel.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        show(current - 1);
+      }
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        show(current + 1);
+      }
+    });
+  });
+</script>
+
+<style>
+  .image-carousel {
+    position: relative;
+    width: 100%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background: var(--color-bg-alt);
+  }
+
+  .image-carousel__viewport {
+    position: relative;
+    width: 100%;
+  }
+
+  .image-carousel--landscape .image-carousel__viewport {
+    aspect-ratio: 4 / 3;
+    min-height: 16rem;
+  }
+
+  .image-carousel--wide .image-carousel__viewport {
+    aspect-ratio: 16 / 9;
+    min-height: 14rem;
+  }
+
+  .image-carousel__slide {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .image-carousel__slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .image-carousel__btn {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgb(255 255 255 / 0.92);
+    color: var(--color-secondary);
+    font-size: 1.75rem;
+    line-height: 1;
+    cursor: pointer;
+    transform: translateY(-50%);
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.12);
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .image-carousel__btn:hover {
+    background: #fff;
+    transform: translateY(-50%) scale(1.05);
+  }
+
+  .image-carousel__btn--prev {
+    left: 0.75rem;
+  }
+
+  .image-carousel__btn--next {
+    right: 0.75rem;
+  }
+
+  .image-carousel__dots {
+    position: absolute;
+    left: 50%;
+    bottom: 0.875rem;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transform: translateX(-50%);
+    padding: 0.375rem 0.625rem;
+    border-radius: 999px;
+    background: rgb(0 0 0 / 0.35);
+  }
+
+  .image-carousel__dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgb(255 255 255 / 0.55);
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+
+  .image-carousel__dot.is-active {
+    background: #fff;
+    transform: scale(1.2);
+  }
+
+  .image-carousel__dot:hover {
+    background: rgb(255 255 255 / 0.85);
+  }
+</style>

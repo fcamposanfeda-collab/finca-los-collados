@@ -30,7 +30,16 @@ export const images = {
     culturas: '/images/finca-paisaje.jpg',
     espacios: '/images/evento-jardines.jpg',
     bungalows: '/images/bungalow-interior.jpg',
-    piscina: '/images/piscina-jardines.jpg',
+    piscina: '/images/evento-jardines.jpg',
+    gallery: [
+      { src: '/images/evento-jardines.jpg', alt: 'Jardines y exteriores de la finca' },
+      { src: '/images/porche-exterior.jpg', alt: 'Porche exterior de Los Collados' },
+      { src: '/images/salon-biblioteca.jpg', alt: 'Salón biblioteca con chimenea' },
+      { src: '/images/hero-finca.jpg', alt: 'Entrada principal de la finca' },
+      { src: '/images/finca-paisaje.jpg', alt: 'Paisaje y entorno de Campos de Montiel' },
+      { src: '/images/IMG_0031.JPG', alt: 'Vista de la finca y sus edificaciones' },
+      { src: '/images/IMG_0035.JPG', alt: 'Salón con vistas al olivar' },
+    ],
   },
 
   empresas: {
@@ -41,6 +50,14 @@ export const images = {
   venue: {
     espacios: '/images/evento-jardines.jpg',
     completa: '/images/bungalow-detalle.jpg',
+    finSemana: '/images/evento-celebracion.jpg',
+    sesiones: '/images/rodaje-finca.jpg',
+  },
+
+  eventos: {
+    // azureacatering.com — galería Azurea Catering
+    azurea: '/images/azurea-catering-1.jpg',
+    celebracion: '/images/azurea-catering-2.jpg',
   },
 
   experiencias: {

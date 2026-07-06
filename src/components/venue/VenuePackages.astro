@@ -7,23 +7,41 @@ import {
 } from '../../data/venue-packages';
 import { images } from '../../data/images';
 import ContentImage from '../ui/ContentImage.astro';
+
+interface Props {
+  packageIds?: VenuePackageId[];
+  title?: string;
+  lead?: string;
+}
+
+const {
+  packageIds = ['finca-espacios', 'finca-completa'],
+  title = 'Reserva la finca completa',
+  lead = 'Dos modalidades de uso exclusivo: solo espacios para jornadas y rodajes, o finca íntegra con alojamiento en bungalows para retiros y eventos con pernocta.',
+} = Astro.props;
+
+const packageImages: Record<VenuePackageId, string> = {
+  'finca-espacios': images.venue.espacios,
+  'finca-completa': images.venue.completa,
+  'finca-fin-semana': images.venue.finSemana,
+  'sesiones-fotograficas': images.venue.sesiones,
+};
+
+const packages = venuePackages.filter((pkg) => packageIds.includes(pkg.id));
 ---
 
 <section class="venue-packages section section--alt" aria-labelledby="venue-packages-title">
   <div class="container">
-    <h2 id="venue-packages-title" class="section__title">Reserva la finca completa</h2>
-    <p class="section__lead">
-      Dos modalidades de uso exclusivo: solo espacios para jornadas y rodajes, o finca íntegra con
-      alojamiento en bungalows para retiros y eventos con pernocta.
-    </p>
+    <h2 id="venue-packages-title" class="section__title">{title}</h2>
+    <p class="section__lead">{lead}</p>
 
     <div class="venue-packages__grid">
       {
-        venuePackages.map((pkg) => (
+        packages.map((pkg) => (
           <article class="venue-packages__card">
             <div class="venue-packages__card-image">
               <ContentImage
-                src={pkg.id === 'finca-espacios' ? images.venue.espacios : images.venue.completa}
+                src={packageImages[pkg.id]}
                 alt={pkg.title}
                 aspect="wide"
               />
@@ -33,11 +51,22 @@ import ContentImage from '../ui/ContentImage.astro';
             <p class="venue-packages__desc">{pkg.description}</p>
 
             <div class="venue-packages__price">
-              <span class="venue-packages__from">Desde</span>
-              <span class="venue-packages__amount">
-                {pkg.pricing.from.toLocaleString('es-ES')} €
-              </span>
-              <span class="venue-packages__unit">{pkg.pricing.unit}</span>
+              {pkg.pricing.priceOnRequest ? (
+                <>
+                  <span class="venue-packages__amount venue-packages__amount--consult">
+                    Precio a consultar{pkg.pricing.priceNote ? '*' : ''}
+                  </span>
+                  <span class="venue-packages__unit">{pkg.pricing.unit}</span>
+                </>
+              ) : (
+                <>
+                  <span class="venue-packages__from">Desde</span>
+                  <span class="venue-packages__amount">
+                    {pkg.pricing.from?.toLocaleString('es-ES')} €
+                  </span>
+                  <span class="venue-packages__unit">{pkg.pricing.unit}</span>
+                </>
+              )}
             </div>
 
             <ul class="venue-packages__rates">
@@ -45,6 +74,10 @@ import ContentImage from '../ui/ContentImage.astro';
               {pkg.pricing.weekday && <li>{pkg.pricing.weekday}</li>}
               {pkg.pricing.weekend && <li>{pkg.pricing.weekend}</li>}
             </ul>
+
+            {pkg.pricing.priceNote && (
+              <p class="venue-packages__footnote">{pkg.pricing.priceNote}</p>
+            )}
 
             <div class="venue-packages__cols">
               <div>
@@ -70,7 +103,7 @@ import ContentImage from '../ui/ContentImage.astro';
                 Solicitar presupuesto
               </a>
               <a
-                href={buildVenueWhatsAppUrl(pkg.id as VenuePackageId)}
+                href={buildVenueWhatsAppUrl(pkg.id)}
                 class="btn btn--outline"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -159,6 +192,10 @@ import ContentImage from '../ui/ContentImage.astro';
     color: var(--color-primary);
   }
 
+  .venue-packages__amount--consult {
+    font-size: 1.375rem;
+  }
+
   .venue-packages__unit {
     width: 100%;
     font-size: 0.875rem;
@@ -175,6 +212,13 @@ import ContentImage from '../ui/ContentImage.astro';
     margin-bottom: 0.25rem;
     font-size: 0.9375rem;
     color: var(--color-text);
+  }
+
+  .venue-packages__footnote {
+    margin: -0.5rem 0 1.25rem;
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    color: var(--color-muted);
   }
 
   .venue-packages__cols {

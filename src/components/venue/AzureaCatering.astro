@@ -1,0 +1,167 @@
+---
+import { eventosContent } from '../../data/pages-content';
+import { images } from '../../data/images';
+import ContentImage from '../ui/ContentImage.astro';
+
+const { azurea } = eventosContent;
+---
+
+<section class="azurea section" aria-labelledby="azurea-title">
+  <div class="container">
+    <div class="azurea__layout">
+      <div class="azurea__media">
+        <ContentImage
+          src={images.eventos.azurea}
+          alt="Personal de Azurea Catering sirviendo en evento"
+          aspect="landscape"
+        />
+        <ContentImage
+          src={images.eventos.celebracion}
+          alt="Presentación gastronómica de Azurea Catering"
+          aspect="landscape"
+          class="azurea__media-secondary"
+        />
+      </div>
+
+      <div class="azurea__content">
+        <p class="azurea__eyebrow">{azurea.eyebrow}</p>
+        <h2 id="azurea-title" class="section__title azurea__title">{azurea.title}</h2>
+        {azurea.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+
+        <ul class="azurea__services">
+          {azurea.services.map((service) => (
+            <li>{service}</li>
+          ))}
+        </ul>
+
+        <div class="azurea__contact">
+          <a href={`mailto:${azurea.email}`} class="azurea__contact-link">{azurea.email}</a>
+          <a href={`tel:${azurea.phone.replace(/\s/g, '')}`} class="azurea__contact-link">
+            {azurea.phone}
+          </a>
+        </div>
+
+        <div class="azurea__actions">
+          <a
+            href={azurea.website}
+            class="btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {azurea.websiteLabel}
+          </a>
+          <a
+            href={azurea.instagram}
+            class="btn btn--outline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {azurea.instagramLabel}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .azurea__layout {
+    display: grid;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .azurea__media {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .azurea__media :global(.content-image) {
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+
+  .azurea__eyebrow {
+    margin: 0 0 0.5rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .azurea__title {
+    margin-bottom: 1.25rem;
+    text-align: left;
+  }
+
+  .azurea__content p {
+    margin: 0 0 1rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+
+  .azurea__services {
+    display: grid;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+    padding: 1.25rem 1.5rem;
+    list-style: none;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+  }
+
+  .azurea__services li {
+    position: relative;
+    padding-left: 1.25rem;
+    font-size: 0.9375rem;
+    color: var(--color-text);
+  }
+
+  .azurea__services li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+  }
+
+  .azurea__contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .azurea__contact-link {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .azurea__contact-link:hover {
+    text-decoration: underline;
+  }
+
+  .azurea__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  @media (min-width: 900px) {
+    .azurea__layout {
+      grid-template-columns: 1fr 1.05fr;
+    }
+
+    .azurea__media-secondary {
+      max-width: 85%;
+      margin-left: auto;
+    }
+  }
+</style>

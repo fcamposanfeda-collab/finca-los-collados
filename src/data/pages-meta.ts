@@ -40,9 +40,9 @@ export const pagesMeta = {
       'Espacio rural para teambuilding, retiros de empresa, shootings, rodajes y grabación de contenido en Castilla-La Mancha. PYME y equipos.',
   },
   '/eventos': {
-    title: `Eventos Pequeños en Finca Rural | ${location} | ${brand}`,
+    title: `Bodas, Eventos y Celebraciones en Finca Rural | ${location} | ${brand}`,
     description:
-      'Eventos privados en finca rural: hasta 50 personas al aire libre, 30 en interior y alojamiento para 16 adultos. Villamanrique, Ciudad Real.',
+      'Bodas hasta 50 invitados, comuniones, cumpleaños, empresas y shootings en finca rural exclusiva. Catering con Azurea. Villamanrique, Ciudad Real.',
   },
   '/packs': {
     title: `Packs Romántico, Familiar y Gastronómico | ${brand}`,

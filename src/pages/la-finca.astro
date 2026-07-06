@@ -1,6 +1,7 @@
 ---
 import ContentPage from '../components/ui/ContentPage.astro';
 import TextImageMedia from '../components/ui/TextImageMedia.astro';
+import ImageCarousel from '../components/ui/ImageCarousel.astro';
 import FullWidthVideo from '../components/ui/FullWidthVideo.astro';
 import { getPageMeta } from '../data/pages-meta';
 import { laFincaContent } from '../data/pages-content';
@@ -8,7 +9,7 @@ import { images } from '../data/images';
 
 const meta = getPageMeta('/la-finca');
 const { hero, blocks, features, cta } = laFincaContent;
-const blockImages = [images.laFinca.culturas, images.laFinca.piscina];
+const blockImages = [images.laFinca.culturas];
 ---
 
 <ContentPage
@@ -29,7 +30,15 @@ const blockImages = [images.laFinca.culturas, images.laFinca.piscina];
             <h2>{block.title}</h2>
             {block.paragraphs.map((p) => <p>{p}</p>)}
           </div>
-          <TextImageMedia src={blockImages[index] ?? images.laFinca.culturas} alt={block.title} />
+          {
+            index === 1 ? (
+              <div class="text-image__media">
+                <ImageCarousel slides={images.laFinca.gallery} id="la-finca-espacios" />
+              </div>
+            ) : (
+              <TextImageMedia src={blockImages[index] ?? images.laFinca.culturas} alt={block.title} />
+            )
+          }
         </div>
       </section>
     ))
