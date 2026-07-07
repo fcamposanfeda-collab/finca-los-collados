@@ -19,7 +19,17 @@ const pillarImages = [
         homePillars.map((pillar, index) => (
           <article class="home-pillars__card">
             <div class="card-media">
-              <ContentImage src={pillarImages[index]} alt={pillar.title} />
+              <ContentImage
+                src={pillarImages[index]}
+                alt={pillar.title}
+                class={
+                  index === 2
+                    ? 'content-image--pillar-zoom'
+                    : index === 3
+                      ? 'content-image--pillar-pet'
+                      : undefined
+                }
+              />
             </div>
             <div class="card-body">
               <h3>{pillar.title}</h3>
@@ -47,6 +57,34 @@ const pillarImages = [
 
   .home-pillars__card .card-media {
     aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+
+  .home-pillars__card .card-media :global(.content-image) {
+    height: 100%;
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: auto;
+    border-radius: 0.5rem 0.5rem 0 0;
+    overflow: hidden;
+  }
+
+  .home-pillars__card .card-media :global(.content-image img) {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+
+  .home-pillars__card .card-media :global(.content-image--pillar-pet img) {
+    object-position: center 40%;
+  }
+
+  .home-pillars__card .card-media :global(.content-image--pillar-zoom img) {
+    object-position: center 42%;
+    transform: scale(1.15);
   }
 
   .home-pillars__card .card-body {

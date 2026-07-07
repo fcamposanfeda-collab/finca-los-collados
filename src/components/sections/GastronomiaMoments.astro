@@ -1,0 +1,117 @@
+---
+import { gastronomiaContent } from '../../data/pages-content';
+import { images } from '../../data/images';
+import ContentImage from '../ui/ContentImage.astro';
+import FullWidthVideo from '../ui/FullWidthVideo.astro';
+
+const { moments } = gastronomiaContent;
+---
+
+<section class="section gastronomia-moments" aria-labelledby="gastronomia-moments-title">
+  <div class="container">
+    <h2 id="gastronomia-moments-title" class="section__title">{moments.title}</h2>
+    <p class="section__lead">{moments.lead}</p>
+
+    <div class="gastronomia-moments__layout">
+      <div class="gastronomia-moments__copy">
+        {moments.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+        <p class="gastronomia-moments__links">
+          <a href="/eventos">Eventos</a>
+          <span aria-hidden="true">·</span>
+          <a href="/packs">Packs</a>
+          <span aria-hidden="true">·</span>
+          <a href="/la-finca">La finca</a>
+        </p>
+      </div>
+
+      <div class="gastronomia-moments__gallery">
+        <ContentImage
+          src={images.gastronomiaMoments.mesaDetalle}
+          alt="Mesa servida con detalle en Los Collados de San Miguel"
+          aspect="square"
+        />
+        <ContentImage
+          src={images.gastronomiaMoments.postre}
+          alt="Postre de autor con sello de la finca"
+          aspect="square"
+          class="content-image--postre-flipped"
+        />
+      </div>
+    </div>
+  </div>
+
+  <FullWidthVideo
+    src={images.videos.gastronomiaMomentos}
+    alt={moments.videoAlt}
+    objectPosition="center 52%"
+    playbackRate={0.45}
+  />
+</section>
+
+<style>
+  .gastronomia-moments__layout {
+    display: grid;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .gastronomia-moments__copy p {
+    margin: 0 0 1rem;
+    color: var(--color-muted);
+    line-height: 1.75;
+  }
+
+  .gastronomia-moments__copy p:last-of-type {
+    margin-bottom: 1.5rem;
+  }
+
+  .gastronomia-moments__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.75rem;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .gastronomia-moments__links a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .gastronomia-moments__links a:hover {
+    text-decoration: underline;
+  }
+
+  .gastronomia-moments__links span {
+    color: var(--color-border);
+  }
+
+  .gastronomia-moments__gallery {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 22rem;
+  }
+
+  .gastronomia-moments__gallery :global(.content-image--postre-flipped img) {
+    transform: rotate(180deg);
+  }
+
+  .gastronomia-moments :global(.full-width-video) {
+    margin-top: 2.5rem;
+  }
+
+  .gastronomia-moments :global(.full-width-video video) {
+    height: clamp(12rem, 32vw, 24rem);
+  }
+
+  @media (min-width: 900px) {
+    .gastronomia-moments__layout {
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 2.5rem;
+    }
+  }
+</style>

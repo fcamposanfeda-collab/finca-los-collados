@@ -51,22 +51,10 @@ const packages = venuePackages.filter((pkg) => packageIds.includes(pkg.id));
             <p class="venue-packages__desc">{pkg.description}</p>
 
             <div class="venue-packages__price">
-              {pkg.pricing.priceOnRequest ? (
-                <>
-                  <span class="venue-packages__amount venue-packages__amount--consult">
-                    Precio a consultar{pkg.pricing.priceNote ? '*' : ''}
-                  </span>
-                  <span class="venue-packages__unit">{pkg.pricing.unit}</span>
-                </>
-              ) : (
-                <>
-                  <span class="venue-packages__from">Desde</span>
-                  <span class="venue-packages__amount">
-                    {pkg.pricing.from?.toLocaleString('es-ES')} €
-                  </span>
-                  <span class="venue-packages__unit">{pkg.pricing.unit}</span>
-                </>
-              )}
+              <span class="venue-packages__amount venue-packages__amount--consult">
+                Precio a consultar{pkg.pricing.priceNote ? '*' : ''}
+              </span>
+              <span class="venue-packages__unit">{pkg.pricing.unit}</span>
             </div>
 
             <ul class="venue-packages__rates">

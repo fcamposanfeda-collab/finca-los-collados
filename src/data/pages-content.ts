@@ -169,10 +169,20 @@ export const gastronomiaContent = {
     'Ensalada de perdiz en escabeche, migas, pisto, sopa de ajo, caldereta de cordero, conejo al ajillo, pan de calatrava...',
   quote:
     '«Qué de migas, qué de natas, qué de guirnaldas y qué de zarandajas pastoriles, que, puesto que no me granjeen fama de discreto, no dejarán de granjearme la de ingenioso!» (Don Quijote, Cap. LXVII. Parte II)',
+  moments: {
+    title: 'Momentos que se quedan',
+    lead:
+      'Entre olivos centenarios, luz de atardecer y una mesa que habla de La Mancha, la finca invita a bajar el ritmo y disfrutar de lo esencial.',
+    paragraphs: [
+      'LA Finca Los Collados de San Miguelno es solo un lugar donde pernoctar: es un refugio en los Campos de Montiel donde el silencio tiene sabor a campo, las noches huelen a leña y cada rincón está pensado para que se sienta acogido desde el primer minuto.',
+      'En la mesa recuperamos la cocina manchega con producto de proximidad, temporada y un cuidado que se nota en cada detalle —la vajilla, la presentación, el postre de autor— con el sello de la finca, nuestro partner gastronómico en la finca.',
+      'Por la mañana, un paseo entre olivos; al mediodía, sombra en el porche; al atardecer, una copa con vistas al horizonte manchego. Ya venga en pareja, en familia, con su empresa o con su mascota, aquí encontrará espacio para desconectar sin renunciar a lo bien hecho.',
+    ],
+    videoAlt: 'Ambiente y gastronomía en Finca Los Collados de San Miguel',
+  },
   features: [
     { title: 'Producto local', description: 'Ingredientes de la tierra manchega y recetas de tradición.' },
     { title: 'Menús a medida', description: 'Opciones para grupos, eventos y packs gastronómicos.' },
-    { title: 'Cocinas camperas', description: 'Espacios exteriores para disfrutar de la experiencia al aire libre.' },
   ] satisfies FeatureCard[],
   cta: {
     title: 'Saboree La Mancha en Los Collados',
@@ -298,15 +308,12 @@ export const eventosContent = {
       },
       {
         title: 'Shootings',
-        description: 'Campañas publicitarias, moda y producto con múltiples escenarios en la misma finca.',
+        description:
+          'Campañas publicitarias, moda y producto con múltiples escenarios en la misma finca. Sesiones fotográficas en interiores y exteriores.',
       },
       {
         title: 'Reuniones de directivos',
         description: 'Encuentros estratégicos en un entorno reservado, con salas y zonas de trabajo.',
-      },
-      {
-        title: 'Sesiones fotográficas',
-        description: 'Books, retratos y contenido visual en interiores y exteriores con luz natural.',
       },
     ],
   } satisfies { title: string; lead: string; items: FeatureCard[] },
@@ -344,7 +351,7 @@ export const eventosContent = {
   },
   venuePackages: {
     title: 'Modalidades de reserva',
-    lead: 'Elija la fórmula que mejor encaje con su evento. Los precios de alquiler son orientativos; el catering con Azurea se cotiza aparte.',
+    lead: 'Elija la fórmula que mejor encaje con su evento. Precio a consultar; el catering con Azurea se cotiza aparte.',
   },
   cta: {
     title: 'Planifique su evento',
@@ -380,20 +387,20 @@ export const packsContent = {
       slug: 'gastronomia',
       title: 'Pack gastronómico',
       description: 'Sabores auténticos de La Mancha: migas, guisos, producto local y experiencia sensorial.',
-      highlights: ['Menú manchego', 'Producto de proximidad', 'Maridaje opcional'],
+      highlights: ['Menú manchego', 'Producto de proximidad', 'Catering a cargo de Azurea.'],
     },
     {
       slug: 'rutas',
       title: 'Pack rutas y naturaleza',
       description: 'Alojamiento + ruta a medida por Campos de Montiel y alrededores culturales.',
-      highlights: ['Ruta personalizada', 'Naturaleza y patrimonio', 'Asesoramiento del equipo'],
+      highlights: ['Facilitamos dossier con ruta personalizada.', 'Naturaleza y patrimonio', 'Asesoramiento del equipo'],
     },
     {
       slug: 'caza',
       title: 'Pack caza y campo (La Calerilla)',
       description:
         'Jornada de caza en mano en nuestro coto de perdiz roja, con alojamiento y gastronomía manchega al regreso.',
-      highlights: ['La Calerilla · temporada oct.–feb.', 'Caza en mano tradicional', 'Alojamiento y cena en finca'],
+      highlights: ['La Calerilla · temporada oct.–feb.', 'Caza en mano tradicional', 'Taco y posible alojamiento en la finca'],
     },
     {
       slug: 'quijote',
@@ -499,11 +506,6 @@ export const homeTeasers = [
     title: 'Gastronomía',
     description: 'Tradición manchega y producto de la tierra.',
     href: '/gastronomia',
-  },
-  {
-    title: 'Experiencias',
-    description: 'Rutas a medida, deporte y cultura local.',
-    href: '/experiencias',
   },
   {
     title: 'Empresas',

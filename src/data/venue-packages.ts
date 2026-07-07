@@ -28,10 +28,7 @@ export type VenuePackage = {
 };
 
 /**
- * Precios orientativos (2026) calibrados frente a fincas rurales comparables
- * (Castilla-La Mancha / interior, no lujo urbano). Referencias: alquiler día
- * desde ~750 € en fincas similares (Venuu, fincas evento 20–50 pax).
- * Ajustar con el cliente antes de publicar tarifas definitivas.
+ * Tarifas bajo consulta. Los importes se cotizan según fechas, invitados y servicios.
  */
 export const venuePackages: VenuePackage[] = [
   {
@@ -52,11 +49,11 @@ export const venuePackages: VenuePackage[] = [
       'Sin pernocta en bungalows',
     ],
     pricing: {
-      from: 590,
-      unit: '€ / jornada completa (L–J)',
-      halfDay: 'Medio día (4 h) desde 390 €',
-      weekday: 'Jornada completa L–J desde 590 €',
-      weekend: 'Jornada completa viernes–domingo desde 790 €',
+      priceOnRequest: true,
+      unit: 'Jornada completa (L–J)',
+      halfDay: 'Medio día (4 h)',
+      weekday: 'Jornada completa L–J',
+      weekend: 'Jornada completa viernes–domingo',
     },
     idealFor: [
       'Team building de un día',
@@ -84,11 +81,11 @@ export const venuePackages: VenuePackage[] = [
       'Evento interior: hasta 30 personas',
     ],
     pricing: {
-      from: 1490,
-      unit: '€ / noche (L–J)',
-      weekday: '1 noche entre semana desde 1.490 €',
-      weekend: '1 noche en fin de semana desde 1.890 €',
-      halfDay: 'Fin de semana 2 noches (vie–dom) desde 2.790 €',
+      priceOnRequest: true,
+      unit: 'Por noche (L–J)',
+      weekday: '1 noche entre semana',
+      weekend: '1 noche en fin de semana',
+      halfDay: 'Fin de semana 2 noches (vie–dom)',
     },
     idealFor: [
       'Retiros y convenciones pequeñas',
@@ -116,8 +113,8 @@ export const venuePackages: VenuePackage[] = [
       'Evento interior: hasta 30 personas',
     ],
     pricing: {
-      from: 2790,
-      unit: '€ / fin de semana (vie–dom, 2 noches)',
+      priceOnRequest: true,
+      unit: 'Fin de semana (vie–dom, 2 noches)',
       weekday: 'Incluye alojamiento y uso exclusivo de espacios',
       weekend: 'Gastronomía y montaje con Azurea Catering bajo presupuesto aparte',
     },
@@ -165,7 +162,7 @@ export const venuePackages: VenuePackage[] = [
 ];
 
 export const venuePricingNote =
-  'Precios orientativos para 2026, sin IVA. Gastronomía, montaje, personal extra y temporada alta (Semana Santa, verano, puentes) pueden variar. Presupuesto cerrado tras consulta de fechas e invitados.';
+  'Precio a consultar según fechas, invitados y servicios. Gastronomía, montaje y temporada alta pueden variar. El catering con Azurea se cotiza aparte.';
 
 export function getVenuePackage(id: VenuePackageId): VenuePackage | undefined {
   return venuePackages.find((pkg) => pkg.id === id);
@@ -175,9 +172,7 @@ export function buildVenueWhatsAppUrl(packageId: VenuePackageId): string {
   const pkg = getVenuePackage(packageId);
   if (!pkg) return buildWhatsAppUrl({});
 
-  const priceLine = pkg.pricing.priceOnRequest
-    ? 'Precio a consultar según fechas y necesidades.'
-    : `Referencia orientativa: desde ${pkg.pricing.from} ${pkg.pricing.unit}.`;
+  const priceLine = 'Precio a consultar.';
 
   const message = [
     `Hola, me interesa solicitar presupuesto para: ${pkg.title}.`,

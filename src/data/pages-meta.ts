@@ -5,7 +5,7 @@ const location = 'Villamanrique, Ciudad Real';
 
 export const pagesMeta = {
   '/': {
-    title: `Finca Rural ${location} | Turismo Rural, Eventos y Empresas`,
+    title: brand,
     description:
       'Finca Los Collados de San Miguel: alojamiento rural en Campos de Montiel. Bungalows pet friendly, teambuilding, rodajes, eventos pequeños y packs en Castilla-La Mancha.',
   },

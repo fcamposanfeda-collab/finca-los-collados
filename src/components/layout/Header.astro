@@ -1,6 +1,7 @@
 ---
 import { mainNav } from '../../data/navigation';
 import { site } from '../../data/site';
+import { images } from '../../data/images';
 import { isActiveNav, isActiveNavItem } from '../../utils/nav';
 
 const currentPath = Astro.url.pathname;
@@ -9,7 +10,12 @@ const currentPath = Astro.url.pathname;
 <header class="site-header">
   <div class="container site-header__inner">
     <a href="/" class="site-header__brand" aria-label={`${site.name} — Inicio`}>
-      <span class="site-header__logo-text">{site.shortName}</span>
+      <img
+        src={images.brand.header}
+        alt={site.name}
+        class="site-header__logo"
+        decoding="async"
+      />
     </a>
 
     <button
@@ -151,14 +157,18 @@ const currentPath = Astro.url.pathname;
 
   .site-header__brand {
     flex-shrink: 0;
+    display: block;
+    line-height: 0;
+    text-decoration: none;
   }
 
-  .site-header__logo-text {
-    font-family: var(--font-heading);
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--color-secondary);
-    letter-spacing: 0.02em;
+  .site-header__logo {
+    display: block;
+    height: 3.25rem;
+    width: auto;
+    max-width: min(100%, 16rem);
+    object-fit: contain;
+    object-position: left center;
   }
 
   .site-header__toggle {

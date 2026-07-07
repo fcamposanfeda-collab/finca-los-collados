@@ -11,6 +11,7 @@ const { hero } = homeContent;
   style={`--hero-image: url('${images.hero.home}')`}
   aria-label="Presentación"
 >
+  <div class="hero__bg" aria-hidden="true"></div>
   <div class="hero__overlay"></div>
   <div class="container hero__content">
     <p class="hero__eyebrow">Campos de Montiel · Ciudad Real</p>
@@ -37,20 +38,49 @@ const { hero } = homeContent;
   }
 
   .hero--photo {
-    background:
-      linear-gradient(135deg, rgba(44, 36, 25, 0.72), rgba(74, 103, 65, 0.62)),
-      var(--hero-image) center / cover no-repeat;
+    overflow: hidden;
+    background: var(--color-secondary);
+  }
+
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    background: var(--hero-image) 50% 40% / cover no-repeat;
+    transform: scale(1);
+    transform-origin: 50% 38%;
+    animation: hero-zoom 5s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+
+  @keyframes hero-zoom {
+    from {
+      transform: scale(1);
+    }
+
+    to {
+      transform: scale(1.2);
+    }
   }
 
   .hero__overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(44, 36, 25, 0.4), transparent 60%);
+    z-index: 1;
+    background:
+      linear-gradient(to top, rgba(44, 36, 25, 0.4), transparent 60%),
+      linear-gradient(135deg, rgba(44, 36, 25, 0.72), rgba(74, 103, 65, 0.62));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero__bg {
+      animation: none;
+      transform: none;
+    }
   }
 
   .hero__content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     max-width: 40rem;
     padding-block: 4rem;
   }

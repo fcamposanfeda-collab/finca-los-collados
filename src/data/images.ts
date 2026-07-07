@@ -4,8 +4,14 @@
  * Sustituir por fotos propias de alta resolución cuando estén disponibles.
  */
 export const images = {
+  brand: {
+    logo: '/images/logo-finca-los-collados.png',
+    header: '/images/logo-cabecera.png',
+    emblem: '/images/logo-emblem.png',
+  },
+
   hero: {
-    home: '/images/hero-finca.jpg',
+    home: '/images/hero-entrada-atardecer.png',
     laFinca: '/images/finca-paisaje.jpg',
     laCalerilla: '/images/calerilla-hero.jpg',
     alojamiento: '/images/bungalow-interior.jpg',
@@ -91,10 +97,10 @@ export const images = {
   },
 
   teasers: {
-    '/la-finca': '/images/finca-paisaje.jpg',
+    '/la-finca': '/images/bungalow-interior.jpg',
     '/la-calerilla': '/images/calerilla-hero.jpg',
-    '/alojamiento': '/images/bungalow-interior.jpg',
-    '/gastronomia': '/images/gastronomia.jpg',
+    '/alojamiento': '/images/finca-bungalow-exterior.png',
+    '/gastronomia': '/images/gastronomia-tabla-quesos.png',
     '/experiencias': '/images/bicicleta.jpg',
     '/empresas': '/images/empresa-teambuilding.jpg',
     '/eventos': '/images/evento-celebracion.jpg',
@@ -103,10 +109,15 @@ export const images = {
   },
 
   pillars: {
-    turismo: '/images/bungalow-interior.jpg',
-    empresas: '/images/empresa-teambuilding.jpg',
-    eventos: '/images/evento-celebracion.jpg',
-    petFriendly: '/images/pet-friendly.png',
+    turismo: '/images/bungalow-exterior.png',
+    empresas: '/images/empresas-rodaje.png',
+    eventos: '/images/evento-terraza-atardecer.png',
+    petFriendly: '/images/pet-friendly.jpg',
+  },
+
+  gastronomiaMoments: {
+    mesaDetalle: '/images/gastronomia-mesa-detalle.png',
+    postre: '/images/gastronomia-postre.png',
   },
 
   videos: {
@@ -115,6 +126,7 @@ export const images = {
     bungalowClosing: '/videos/IMG_0723.mp4',
     empresasShowcase: '/videos/IMG_0717.mp4',
     fincaShowcase: '/videos/IMG_0658.mp4',
+    gastronomiaMomentos: '/videos/WhatsApp Video 2026-07-07 at 13.35.28.mp4',
   },
 
   og: '/images/hero-finca.jpg',

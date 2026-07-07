@@ -3,14 +3,15 @@ interface Props {
   src: string;
   alt: string;
   objectPosition?: string;
+  playbackRate?: number;
 }
 
-const { src, alt, objectPosition = 'center center' } = Astro.props;
+const { src, alt, objectPosition = 'center center', playbackRate = 1 } = Astro.props;
 ---
 
-<section class="full-width-video" aria-label={alt}>
+<section class="full-width-video" aria-label={alt} data-playback-rate={playbackRate}>
   <video
-    src={src}
+    src={encodeURI(src)}
     autoplay
     muted
     loop
@@ -34,3 +35,20 @@ const { src, alt, objectPosition = 'center center' } = Astro.props;
     object-fit: cover;
   }
 </style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-playback-rate]').forEach((section) => {
+    const rate = Number(section.dataset.playbackRate);
+    if (!Number.isFinite(rate) || rate === 1) return;
+
+    const video = section.querySelector('video');
+    if (!video) return;
+
+    const applyRate = () => {
+      video.playbackRate = rate;
+    };
+
+    applyRate();
+    video.addEventListener('loadedmetadata', applyRate);
+  });
+</script>
