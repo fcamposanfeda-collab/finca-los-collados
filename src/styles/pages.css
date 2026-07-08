@@ -163,6 +163,7 @@
 .amenities-list li {
   margin-bottom: 0.375rem;
   color: var(--color-muted);
+  white-space: pre-line;
 }
 
 .capacity-list {

@@ -142,7 +142,7 @@ export const alojamientoContent = {
     'Wi-Fi gratuito',
     'Minibar',
     'Ducha efecto lluvia',
-    'Carta de almohadas (bajo disponibilidad)',
+    'Carta de almohadas\n(bajo disponibilidad)',
     'Aire acondicionado',
     'Calefacción',
     'Porche exterior',
