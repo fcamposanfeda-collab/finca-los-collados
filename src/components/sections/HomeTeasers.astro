@@ -20,6 +20,7 @@ import ContentImage from '../ui/ContentImage.astro';
               <ContentImage
                 src={images.teasers[item.href as keyof typeof images.teasers]}
                 alt={item.title}
+                class={item.href === '/empresas' ? 'content-image--teaser-empresas' : undefined}
               />
             </div>
             <div class="card-body">
@@ -49,6 +50,15 @@ import ContentImage from '../ui/ContentImage.astro';
     transition:
       border-color var(--transition-fast),
       box-shadow var(--transition-fast);
+  }
+
+  .home-teasers__card .card-media {
+    overflow: hidden;
+  }
+
+  .home-teasers__card .card-media :global(.content-image--teaser-empresas img) {
+    object-position: center 72%;
+    transform: scale(1.18);
   }
 
   .home-teasers__card:hover {

@@ -43,6 +43,11 @@
   color: var(--color-muted);
 }
 
+.page-content__lead--full {
+  max-width: none;
+  width: 100%;
+}
+
 .feature-grid {
   display: grid;
   gap: 1.25rem;

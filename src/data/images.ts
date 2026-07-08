@@ -12,7 +12,7 @@ export const images = {
 
   hero: {
     home: '/images/hero-entrada-atardecer.png',
-    laFinca: '/images/finca-paisaje.jpg',
+    laFinca: '/images/hero-casa-panorama.png',
     laCalerilla: '/images/calerilla-hero.jpg',
     alojamiento: '/images/bungalow-interior.jpg',
     gastronomia: '/images/gastronomia.jpg',
@@ -56,11 +56,12 @@ export const images = {
   venue: {
     espacios: '/images/evento-jardines.jpg',
     completa: '/images/bungalow-detalle.jpg',
-    finSemana: '/images/evento-celebracion.jpg',
-    sesiones: '/images/rodaje-finca.jpg',
+    finSemana: '/images/venue-fin-semana-porche.png',
+    sesiones: '/images/empresas-rodaje-sesion.png',
   },
 
   eventos: {
+    exterior: '/images/eventos-exterior-atardecer.png',
     // azureacatering.com — galería Azurea Catering
     azurea: '/images/azurea-catering-1.jpg',
     celebracion: '/images/azurea-catering-2.jpg',
@@ -68,9 +69,9 @@ export const images = {
 
   experiencias: {
     montiel: '/images/campo-montiel.png',
-    mancha: '/images/rutas-villamanrique.png',
+    mancha: '/images/villanueva-infantes.jpg',
     gastronomia: '/images/gastronomia.jpg',
-    deporte: '/images/golf.jpg',
+    deporte: '/images/bicicleta.jpg',
   },
 
   entorno: {
@@ -102,8 +103,8 @@ export const images = {
     '/alojamiento': '/images/finca-bungalow-exterior.png',
     '/gastronomia': '/images/gastronomia-tabla-quesos.png',
     '/experiencias': '/images/bicicleta.jpg',
-    '/empresas': '/images/empresa-teambuilding.jpg',
-    '/eventos': '/images/evento-celebracion.jpg',
+    '/empresas': '/images/empresas-teambuilding-campo.png',
+    '/eventos': '/images/eventos-celebracion-campo.png',
     '/packs': '/images/evento-jardines.jpg',
     '/entorno': '/images/campo-montiel.png',
   },
@@ -118,14 +119,27 @@ export const images = {
   gastronomiaMoments: {
     mesaDetalle: '/images/gastronomia-mesa-detalle.png',
     postre: '/images/gastronomia-postre.png',
+    platos: [
+      { src: '/images/gastronomia-plato-01.webp', alt: 'Alcachofas con jamón y queso gratinado' },
+      { src: '/images/gastronomia-plato-02.webp', alt: 'Carne estofada con puré de patata' },
+      { src: '/images/gastronomia-plato-03.webp', alt: 'Pimientos del piquillo rellenos' },
+      { src: '/images/gastronomia-plato-04.webp', alt: 'Ensalada con confit y queso de cabra' },
+      { src: '/images/gastronomia-plato-05.webp', alt: 'Torrija con helado y sello de la finca', objectPosition: 'center 55%' },
+      { src: '/images/gastronomia-plato-06.webp', alt: 'Flan casero con nata montada' },
+      { src: '/images/gastronomia-plato-07.webp', alt: 'Ensalada de tomate, mango y codorniz' },
+      { src: '/images/gastronomia-plato-08.webp', alt: 'Revuelto de espárragos trigueros' },
+      { src: '/images/gastronomia-plato-09.webp', alt: 'Postre de hojaldre con sello de la finca', objectPosition: '62% 40%' },
+      { src: '/images/gastronomia-plato-10.webp', alt: 'Postre de autor con crema y aceite aromatizado' },
+    ],
   },
 
   videos: {
     bungalowInterior: '/videos/IMG_0728.mp4',
     bungalowAmenities: '/videos/IMG_0736.mp4',
-    bungalowClosing: '/videos/IMG_0723.mp4',
+    bungalowClosing: '/videos/WhatsApp Video 2026-07-08 at 11.36.47.mp4',
     empresasShowcase: '/videos/IMG_0717.mp4',
     fincaShowcase: '/videos/IMG_0658.mp4',
+    laFincaCulturas: '/videos/la-finca-culturas.mp4',
     gastronomiaMomentos: '/videos/WhatsApp Video 2026-07-07 at 13.35.28.mp4',
   },
 

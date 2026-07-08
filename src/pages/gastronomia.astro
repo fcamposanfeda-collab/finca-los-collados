@@ -1,13 +1,14 @@
 ---
 import ContentPage from '../components/ui/ContentPage.astro';
 import ContentImage from '../components/ui/ContentImage.astro';
+import FullWidthVideo from '../components/ui/FullWidthVideo.astro';
 import GastronomiaMoments from '../components/sections/GastronomiaMoments.astro';
 import { getPageMeta } from '../data/pages-meta';
 import { gastronomiaContent } from '../data/pages-content';
 import { images } from '../data/images';
 
 const meta = getPageMeta('/gastronomia');
-const { hero, lead, subtitle, description, dishes, quote, features, cta } = gastronomiaContent;
+const { hero, lead, subtitle, description, dishes, quote, features, moments, cta } = gastronomiaContent;
 ---
 
 <ContentPage
@@ -47,4 +48,19 @@ const { hero, lead, subtitle, description, dishes, quote, features, cta } = gast
       </div>
     </div>
   </section>
+
+  <div class="gastronomia-video">
+    <FullWidthVideo
+      src={images.videos.gastronomiaMomentos}
+      alt={moments.videoAlt}
+      objectPosition="center 52%"
+      playbackRate={0.45}
+    />
+  </div>
 </ContentPage>
+
+<style>
+  .gastronomia-video :global(video) {
+    height: clamp(12rem, 32vw, 24rem);
+  }
+</style>

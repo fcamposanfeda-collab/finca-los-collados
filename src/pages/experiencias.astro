@@ -27,8 +27,8 @@ const cardImages = [
 >
   <section class="page-content">
     <div class="container">
-      <p class="page-content__lead">{intro}</p>
-      <p class="page-content__lead">{detail}</p>
+      <p class="page-content__lead page-content__lead--full">{intro}</p>
+      <p class="page-content__lead page-content__lead--full">{detail}</p>
       <div class="feature-grid">
         {
           cards.map((card, index) => (
@@ -47,7 +47,13 @@ const cardImages = [
       <ul class="activities-tags" aria-label="Actividades disponibles">
         {activities.map((activity) => <li>{activity}</li>)}
       </ul>
-      <p class="page-content__lead" style="font-style: italic;">{note}</p>
+      <p class="page-content__lead page-content__lead--full experiencias-note">{note}</p>
     </div>
   </section>
 </ContentPage>
+
+<style>
+  .experiencias-note {
+    font-style: italic;
+  }
+</style>

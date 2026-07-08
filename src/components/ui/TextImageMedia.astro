@@ -8,15 +8,16 @@ interface Props {
   video?: string;
   poster?: string;
   aspect?: 'landscape' | 'square' | 'wide';
+  startTime?: number;
 }
 
-const { src, alt, video, poster, aspect } = Astro.props;
+const { src, alt, video, poster, aspect, startTime } = Astro.props;
 ---
 
 <div class="text-image__media">
   {
     video ? (
-      <ContentVideo src={video} alt={alt} poster={poster} aspect={aspect} />
+      <ContentVideo src={video} alt={alt} poster={poster} aspect={aspect} startTime={startTime} />
     ) : (
       <ContentImage src={src!} alt={alt} loading="lazy" aspect={aspect} />
     )

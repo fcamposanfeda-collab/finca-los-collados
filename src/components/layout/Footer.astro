@@ -13,6 +13,29 @@ import { contact } from '../../data/contact';
         {contact.address}<br />
         {contact.city}
       </address>
+      <div class="footer__contact">
+        <h2 class="footer__title">Contacto</h2>
+        <p>
+          <a href={`tel:${contact.phone}`}>{contact.phoneDisplay}</a>
+        </p>
+        <p>
+          <a href={`tel:${contact.phoneAlt}`}>{contact.phoneAltDisplay}</a>
+        </p>
+        <p>
+          <a href={`mailto:${contact.email}`}>{contact.email}</a>
+        </p>
+      </div>
+      <div class="footer__social-block">
+        <h2 class="footer__title">Síguenos</h2>
+        <div class="footer__social">
+          <a href={contact.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            Facebook
+          </a>
+          <a href={contact.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            Instagram
+          </a>
+        </div>
+      </div>
     </div>
 
     <div class="footer__col">
@@ -28,33 +51,6 @@ import { contact } from '../../data/contact';
       </nav>
     </div>
 
-    <div class="footer__col">
-      <h2 class="footer__title">Contacto</h2>
-      <p>
-        <a href={`tel:${contact.phone}`}>{contact.phoneDisplay}</a>
-      </p>
-      <p>
-        <a href={`tel:${contact.phoneAlt}`}>{contact.phoneAltDisplay}</a>
-      </p>
-      <p>
-        <a href={`mailto:${contact.email}`}>{contact.email}</a>
-      </p>
-      <p>
-        <a href={site.bookingUrl}>Reserva online</a>
-      </p>
-    </div>
-
-    <div class="footer__col">
-      <h2 class="footer__title">Síguenos</h2>
-      <div class="footer__social">
-        <a href={contact.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-          Facebook
-        </a>
-        <a href={contact.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          Instagram
-        </a>
-      </div>
-    </div>
   </div>
 
   <div class="footer__bottom container">
@@ -104,6 +100,18 @@ import { contact } from '../../data/contact';
     line-height: 1.6;
   }
 
+  .footer__contact {
+    margin-top: 1.5rem;
+  }
+
+  .footer__contact p {
+    margin: 0 0 0.5rem;
+  }
+
+  .footer__social-block {
+    margin-top: 1.5rem;
+  }
+
   .footer a {
     color: rgba(255, 255, 255, 0.9);
     transition: color var(--transition-fast);
@@ -130,7 +138,7 @@ import { contact } from '../../data/contact';
 
   @media (min-width: 1024px) {
     .footer__main {
-      grid-template-columns: 1.2fr 1fr 1fr 1fr;
+      grid-template-columns: 1.2fr 1fr;
     }
   }
 

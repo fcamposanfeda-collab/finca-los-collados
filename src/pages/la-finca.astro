@@ -9,7 +9,6 @@ import { images } from '../data/images';
 
 const meta = getPageMeta('/la-finca');
 const { hero, blocks, features, cta } = laFincaContent;
-const blockImages = [images.laFinca.culturas];
 ---
 
 <ContentPage
@@ -25,7 +24,7 @@ const blockImages = [images.laFinca.culturas];
   {
     blocks.map((block, index) => (
       <section class:list={['page-content', { 'page-content--alt section--alt': index % 2 === 1 }]}>
-        <div class="container text-image">
+        <div class:list={['container text-image', { 'text-image--media-left': index === 1 }]}>
           <div class="page-content__inner">
             <h2>{block.title}</h2>
             {block.paragraphs.map((p) => <p>{p}</p>)}
@@ -36,7 +35,12 @@ const blockImages = [images.laFinca.culturas];
                 <ImageCarousel slides={images.laFinca.gallery} id="la-finca-espacios" />
               </div>
             ) : (
-              <TextImageMedia src={blockImages[index] ?? images.laFinca.culturas} alt={block.title} />
+              <TextImageMedia
+                video={images.videos.laFincaCulturas}
+                alt={block.title}
+                poster={images.laFinca.culturas}
+                startTime={5}
+              />
             )
           }
         </div>

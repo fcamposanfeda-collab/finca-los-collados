@@ -2,17 +2,27 @@
 import { gastronomiaContent } from '../../data/pages-content';
 import { images } from '../../data/images';
 import ContentImage from '../ui/ContentImage.astro';
-import FullWidthVideo from '../ui/FullWidthVideo.astro';
+import ImageCarousel from '../ui/ImageCarousel.astro';
 
 const { moments } = gastronomiaContent;
 ---
 
 <section class="section gastronomia-moments" aria-labelledby="gastronomia-moments-title">
   <div class="container">
-    <h2 id="gastronomia-moments-title" class="section__title">{moments.title}</h2>
-    <p class="section__lead">{moments.lead}</p>
+    <header class="gastronomia-moments__header">
+      <h2 id="gastronomia-moments-title" class="section__title">{moments.title}</h2>
+      <p class="section__lead gastronomia-moments__lead">{moments.lead}</p>
+    </header>
 
-    <div class="gastronomia-moments__layout">
+    <div class="gastronomia-moments__intro">
+      <div class="gastronomia-moments__visual">
+        <ContentImage
+          src={images.gastronomiaMoments.mesaDetalle}
+          alt="Mesa servida con detalle en Los Collados de San Miguel"
+          aspect="portrait"
+        />
+      </div>
+
       <div class="gastronomia-moments__copy">
         {moments.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
         <p class="gastronomia-moments__links">
@@ -23,36 +33,58 @@ const { moments } = gastronomiaContent;
           <a href="/la-finca">La finca</a>
         </p>
       </div>
+    </div>
 
-      <div class="gastronomia-moments__gallery">
-        <ContentImage
-          src={images.gastronomiaMoments.mesaDetalle}
-          alt="Mesa servida con detalle en Los Collados de San Miguel"
-          aspect="square"
-        />
-        <ContentImage
-          src={images.gastronomiaMoments.postre}
-          alt="Postre de autor con sello de la finca"
-          aspect="square"
-          class="content-image--postre-flipped"
-        />
+    <div class="gastronomia-moments__platos" aria-label="Galería de platos">
+      <div class="gastronomia-moments__platos-header">
+        <p class="gastronomia-moments__eyebrow">De la cocina</p>
+        <h3 class="gastronomia-moments__platos-title">Una muestra de la mesa</h3>
       </div>
+
+      <ImageCarousel
+        slides={images.gastronomiaMoments.platos}
+        id="gastronomia-platos"
+        aspect="wide"
+        variant="gallery"
+        showCaption={true}
+        autoplayInterval={5000}
+      />
     </div>
   </div>
-
-  <FullWidthVideo
-    src={images.videos.gastronomiaMomentos}
-    alt={moments.videoAlt}
-    objectPosition="center 52%"
-    playbackRate={0.45}
-  />
 </section>
 
 <style>
-  .gastronomia-moments__layout {
+  .gastronomia-moments__header {
+    max-width: 42rem;
+    margin-inline: auto;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .gastronomia-moments__lead {
+    margin-bottom: 0;
+  }
+
+  .gastronomia-moments__intro {
     display: grid;
     gap: 2rem;
-    align-items: start;
+    align-items: stretch;
+  }
+
+  .gastronomia-moments__visual {
+    display: flex;
+    justify-content: center;
+  }
+
+  .gastronomia-moments__visual :global(.content-image--portrait) {
+    width: min(100%, 22rem);
+    height: 100%;
+  }
+
+  .gastronomia-moments__copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .gastronomia-moments__copy p {
@@ -62,7 +94,7 @@ const { moments } = gastronomiaContent;
   }
 
   .gastronomia-moments__copy p:last-of-type {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
   }
 
   .gastronomia-moments__links {
@@ -89,29 +121,67 @@ const { moments } = gastronomiaContent;
     color: var(--color-border);
   }
 
-  .gastronomia-moments__gallery {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: minmax(0, 1fr);
-    max-width: 22rem;
+  .gastronomia-moments__platos {
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--color-border);
   }
 
-  .gastronomia-moments__gallery :global(.content-image--postre-flipped img) {
-    transform: rotate(180deg);
+  .gastronomia-moments__platos-header {
+    max-width: 36rem;
+    margin: 0 auto 1.5rem;
+    text-align: center;
   }
 
-  .gastronomia-moments :global(.full-width-video) {
-    margin-top: 2.5rem;
+  .gastronomia-moments__eyebrow {
+    margin: 0 0 0.5rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
   }
 
-  .gastronomia-moments :global(.full-width-video video) {
-    height: clamp(12rem, 32vw, 24rem);
+  .gastronomia-moments__platos-title {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+    color: var(--color-secondary);
   }
 
-  @media (min-width: 900px) {
-    .gastronomia-moments__layout {
-      grid-template-columns: 1.05fr 0.95fr;
+  @media (min-width: 768px) {
+    .gastronomia-moments__intro {
+      grid-template-columns: 1fr 1fr;
       gap: 2.5rem;
+    }
+
+    .gastronomia-moments__visual {
+      justify-content: stretch;
+      align-self: stretch;
+    }
+
+    .gastronomia-moments__visual :global(.content-image--portrait) {
+      width: 100%;
+      max-width: none;
+      height: 100%;
+      aspect-ratio: auto;
+      min-height: 24rem;
+    }
+
+    .gastronomia-moments__platos {
+      margin-top: 3.5rem;
+      padding-top: 3rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .gastronomia-moments__header {
+      margin-bottom: 3rem;
+    }
+
+    .gastronomia-moments__intro {
+      gap: 3rem;
     }
   }
 </style>

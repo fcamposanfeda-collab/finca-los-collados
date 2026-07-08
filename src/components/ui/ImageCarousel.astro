@@ -2,64 +2,145 @@
 export type CarouselSlide = {
   src: string;
   alt: string;
+  objectPosition?: string;
+  rotation?: number;
+  rotationScale?: number;
 };
 
 interface Props {
   slides: CarouselSlide[];
   aspect?: 'landscape' | 'wide';
   id?: string;
+  autoplayInterval?: number;
+  variant?: 'default' | 'gallery';
+  showCaption?: boolean;
 }
 
-const { slides, aspect = 'landscape', id = 'finca-gallery' } = Astro.props;
+const {
+  slides,
+  aspect = 'landscape',
+  id = 'finca-gallery',
+  autoplayInterval,
+  variant = 'default',
+  showCaption = false,
+} = Astro.props;
+
+const isGallery = variant === 'gallery';
 ---
 
 <div
-  class:list={['image-carousel', `image-carousel--${aspect}`]}
+  class:list={['image-carousel', `image-carousel--${aspect}`, { 'image-carousel--gallery': isGallery }]}
   data-carousel={id}
+  data-autoplay-interval={autoplayInterval}
   tabindex="0"
   aria-roledescription="carrusel"
   aria-label="Galería de imágenes"
 >
-  <div class="image-carousel__viewport">
+  <div class="image-carousel__frame">
+    <div class="image-carousel__viewport">
+      {
+        slides.map((slide, index) => (
+          <figure
+            class:list={['image-carousel__slide', { 'is-active': index === 0 }]}
+            data-slide={index}
+            data-slide-alt={slide.alt}
+            hidden={index !== 0}
+          >
+            <img
+              src={slide.src}
+              alt={slide.alt}
+              loading={index === 0 ? 'eager' : 'lazy'}
+              decoding="async"
+              style={[
+                slide.objectPosition ? `object-position: ${slide.objectPosition}` : null,
+                slide.rotation
+                  ? `transform: rotate(${slide.rotation}deg) scale(${slide.rotationScale ?? 1.35})`
+                  : null,
+              ]
+                .filter(Boolean)
+                .join('; ')}
+            />
+          </figure>
+        ))
+      }
+    </div>
+
     {
-      slides.map((slide, index) => (
-        <figure
-          class:list={['image-carousel__slide', { 'is-active': index === 0 }]}
-          data-slide={index}
-          hidden={index !== 0}
-        >
-          <img
-            src={slide.src}
-            alt={slide.alt}
-            loading={index === 0 ? 'eager' : 'lazy'}
-            decoding="async"
-          />
-        </figure>
-      ))
+      slides.length > 1 && (
+        <>
+          <button
+            type="button"
+            class="image-carousel__btn image-carousel__btn--prev"
+            data-carousel-prev
+            aria-label="Imagen anterior"
+          >
+            <span aria-hidden="true">‹</span>
+          </button>
+          <button
+            type="button"
+            class="image-carousel__btn image-carousel__btn--next"
+            data-carousel-next
+            aria-label="Imagen siguiente"
+          >
+            <span aria-hidden="true">›</span>
+          </button>
+        </>
+      )
+    }
+
+    {
+      !isGallery && slides.length > 1 && (
+        <div class="image-carousel__dots" data-carousel-dots role="tablist" aria-label="Seleccionar imagen">
+          {
+            slides.map((_, index) => (
+              <button
+                type="button"
+                class:list={['image-carousel__dot', { 'is-active': index === 0 }]}
+                data-carousel-dot={index}
+                role="tab"
+                aria-label={`Imagen ${index + 1}`}
+                aria-selected={index === 0 ? 'true' : 'false'}
+              />
+            ))
+          }
+        </div>
+      )
     }
   </div>
 
-  <button type="button" class="image-carousel__btn image-carousel__btn--prev" data-carousel-prev aria-label="Imagen anterior">
-    <span aria-hidden="true">‹</span>
-  </button>
-  <button type="button" class="image-carousel__btn image-carousel__btn--next" data-carousel-next aria-label="Imagen siguiente">
-    <span aria-hidden="true">›</span>
-  </button>
-
-  <div class="image-carousel__dots" data-carousel-dots role="tablist" aria-label="Seleccionar imagen">
-    {
-      slides.map((_, index) => (
-        <button
-          type="button"
-          class:list={['image-carousel__dot', { 'is-active': index === 0 }]}
-          data-carousel-dot={index}
-          role="tab"
-          aria-label={`Imagen ${index + 1}`}
-          aria-selected={index === 0 ? 'true' : 'false'}
-        />
-      ))
-    }
-  </div>
+  {
+    isGallery && (
+      <div class="image-carousel__footer">
+        {
+          showCaption && (
+            <p class="image-carousel__caption" data-carousel-caption>
+              {slides[0]?.alt}
+            </p>
+          )
+        }
+        {
+          slides.length > 1 && (
+            <div class="image-carousel__meta">
+              <div class="image-carousel__dots" data-carousel-dots role="tablist" aria-label="Seleccionar imagen">
+                {
+                  slides.map((_, index) => (
+                    <button
+                      type="button"
+                      class:list={['image-carousel__dot', { 'is-active': index === 0 }]}
+                      data-carousel-dot={index}
+                      role="tab"
+                      aria-label={`Imagen ${index + 1}`}
+                      aria-selected={index === 0 ? 'true' : 'false'}
+                    />
+                  ))
+                }
+              </div>
+            </div>
+          )
+        }
+      </div>
+    )
+  }
 </div>
 
 <script>
@@ -70,6 +151,7 @@ const { slides, aspect = 'landscape', id = 'finca-gallery' } = Astro.props;
     const prevBtn = carousel.querySelector<HTMLButtonElement>('[data-carousel-prev]');
     const nextBtn = carousel.querySelector<HTMLButtonElement>('[data-carousel-next]');
     const dots = [...carousel.querySelectorAll<HTMLButtonElement>('[data-carousel-dot]')];
+    const caption = carousel.querySelector<HTMLElement>('[data-carousel-caption]');
     let current = 0;
 
     const show = (index: number) => {
@@ -84,6 +166,11 @@ const { slides, aspect = 'landscape', id = 'finca-gallery' } = Astro.props;
         dot.classList.toggle('is-active', active);
         dot.setAttribute('aria-selected', active ? 'true' : 'false');
       });
+
+      const activeSlide = slides[current];
+      if (caption) {
+        caption.textContent = activeSlide.getAttribute('data-slide-alt') ?? '';
+      }
     };
 
     prevBtn?.addEventListener('click', () => show(current - 1));
@@ -105,6 +192,25 @@ const { slides, aspect = 'landscape', id = 'finca-gallery' } = Astro.props;
         show(current + 1);
       }
     });
+
+    const interval = Number(carousel.getAttribute('data-autoplay-interval'));
+    if (!Number.isFinite(interval) || interval <= 0) return;
+
+    let timer = window.setInterval(() => show(current + 1), interval);
+
+    const pause = () => {
+      window.clearInterval(timer);
+    };
+
+    const resume = () => {
+      pause();
+      timer = window.setInterval(() => show(current + 1), interval);
+    };
+
+    carousel.addEventListener('mouseenter', pause);
+    carousel.addEventListener('mouseleave', resume);
+    carousel.addEventListener('focusin', pause);
+    carousel.addEventListener('focusout', resume);
   });
 </script>
 
@@ -115,6 +221,24 @@ const { slides, aspect = 'landscape', id = 'finca-gallery' } = Astro.props;
     border-radius: 0.5rem;
     overflow: hidden;
     background: var(--color-bg-alt);
+  }
+
+  .image-carousel--gallery {
+    overflow: visible;
+    background: transparent;
+    border-radius: 0;
+  }
+
+  .image-carousel__frame {
+    position: relative;
+    width: 100%;
+  }
+
+  .image-carousel--gallery .image-carousel__frame {
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background: var(--color-bg-alt);
+    box-shadow: 0 12px 40px rgba(44, 36, 25, 0.08);
   }
 
   .image-carousel__viewport {
@@ -132,6 +256,11 @@ const { slides, aspect = 'landscape', id = 'finca-gallery' } = Astro.props;
     min-height: 14rem;
   }
 
+  .image-carousel--gallery.image-carousel--wide .image-carousel__viewport {
+    aspect-ratio: 2.2 / 1;
+    min-height: 12rem;
+  }
+
   .image-carousel__slide {
     margin: 0;
     width: 100%;
@@ -143,6 +272,7 @@ const { slides, aspect = 'landscape', id = 'finca-gallery' } = Astro.props;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center 48%;
   }
 
   .image-carousel__btn {
@@ -164,6 +294,14 @@ const { slides, aspect = 'landscape', id = 'finca-gallery' } = Astro.props;
     transform: translateY(-50%);
     box-shadow: 0 2px 8px rgb(0 0 0 / 0.12);
     transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .image-carousel--gallery .image-carousel__btn {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 1.5rem;
+    background: rgb(255 255 255 / 0.88);
+    backdrop-filter: blur(4px);
   }
 
   .image-carousel__btn:hover {
@@ -212,5 +350,48 @@ const { slides, aspect = 'landscape', id = 'finca-gallery' } = Astro.props;
 
   .image-carousel__dot:hover {
     background: rgb(255 255 255 / 0.85);
+  }
+
+  .image-carousel__footer {
+    display: grid;
+    gap: 0.875rem;
+    margin-top: 1.25rem;
+  }
+
+  .image-carousel__caption {
+    margin: 0;
+    text-align: center;
+    font-size: 0.9375rem;
+    font-style: italic;
+    color: var(--color-muted);
+    line-height: 1.5;
+    min-height: 1.5em;
+  }
+
+  .image-carousel__meta {
+    display: flex;
+    justify-content: center;
+  }
+
+  .image-carousel--gallery .image-carousel__dots {
+    position: static;
+    transform: none;
+    padding: 0;
+    background: transparent;
+    flex-wrap: wrap;
+    max-width: 18rem;
+  }
+
+  .image-carousel--gallery .image-carousel__dot {
+    background: var(--color-border);
+  }
+
+  .image-carousel--gallery .image-carousel__dot.is-active {
+    background: var(--color-primary);
+    transform: scale(1.15);
+  }
+
+  .image-carousel--gallery .image-carousel__dot:hover {
+    background: var(--color-accent);
   }
 </style>

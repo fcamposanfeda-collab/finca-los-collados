@@ -5,9 +5,10 @@ interface Props {
   class?: string;
   aspect?: 'landscape' | 'square' | 'wide';
   poster?: string;
+  startTime?: number;
 }
 
-const { src, alt, class: className, aspect = 'landscape', poster } = Astro.props;
+const { src, alt, class: className, aspect = 'landscape', poster, startTime = 0 } = Astro.props;
 ---
 
 <div class:list={['content-video', `content-video--${aspect}`, className]}>
@@ -20,6 +21,7 @@ const { src, alt, class: className, aspect = 'landscape', poster } = Astro.props
     preload="metadata"
     poster={poster}
     aria-label={alt}
+    data-start-time={startTime > 0 ? startTime : undefined}
   ></video>
 </div>
 
@@ -51,3 +53,23 @@ const { src, alt, class: className, aspect = 'landscape', poster } = Astro.props
     aspect-ratio: 1;
   }
 </style>
+
+<script>
+  document.querySelectorAll<HTMLVideoElement>('video[data-start-time]').forEach((video) => {
+    const start = Number(video.dataset.startTime);
+    if (!Number.isFinite(start) || start <= 0) return;
+
+    const seekToStart = () => {
+      if (video.duration && start < video.duration) {
+        video.currentTime = start;
+      }
+    };
+
+    video.addEventListener('loadedmetadata', seekToStart);
+    video.addEventListener('timeupdate', () => {
+      if (video.duration && video.currentTime >= video.duration - 0.05) {
+        seekToStart();
+      }
+    });
+  });
+</script>

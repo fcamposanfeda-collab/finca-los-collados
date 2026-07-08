@@ -88,7 +88,7 @@ export const laCalerillaContent = {
       description: 'Especie estrella de La Calerilla, con piezas de gran calidad y vuelo vertical.',
     },
     {
-      title: 'Caza en mano',
+      title: 'Caza en mano y ojeo de perdiz',
       description: 'Modalidad tradicional al ritmo del campo, con respeto por el terreno y la fauna.',
     },
     {
@@ -136,17 +136,19 @@ export const alojamientoContent = {
   },
   amenities: [
     'Cama de matrimonio (extragrande)',
-    'Carta de almohadas (bajo disponibilidad)',
+    'Amenities',
     'Smart TV',
     'Escritorio',
     'Wi-Fi gratuito',
     'Minibar',
     'Ducha efecto lluvia',
-    'Amenities',
-    'Aire acondicionado / Calefacción',
+    'Carta de almohadas (bajo disponibilidad)',
+    'Aire acondicionado',
+    'Calefacción',
     'Porche exterior',
     'Teléfono',
-    'Servicio de restauración (consulte referencias)',
+    'Desayuno incluido',
+    'Zonas comunes y piscina',
   ],
   cta: {
     title: 'Reserve su bungalow',
@@ -174,7 +176,7 @@ export const gastronomiaContent = {
     lead:
       'Entre olivos centenarios, luz de atardecer y una mesa que habla de La Mancha, la finca invita a bajar el ritmo y disfrutar de lo esencial.',
     paragraphs: [
-      'LA Finca Los Collados de San Miguelno es solo un lugar donde pernoctar: es un refugio en los Campos de Montiel donde el silencio tiene sabor a campo, las noches huelen a leña y cada rincón está pensado para que se sienta acogido desde el primer minuto.',
+      'La Finca Los Collados de San Miguel no es solo un lugar donde pernoctar: es un refugio en los Campos de Montiel donde el silencio tiene sabor a campo, las noches huelen a leña y cada rincón está pensado para que se sienta acogido desde el primer minuto.',
       'En la mesa recuperamos la cocina manchega con producto de proximidad, temporada y un cuidado que se nota en cada detalle —la vajilla, la presentación, el postre de autor— con el sello de la finca, nuestro partner gastronómico en la finca.',
       'Por la mañana, un paseo entre olivos; al mediodía, sombra en el porche; al atardecer, una copa con vistas al horizonte manchego. Ya venga en pareja, en familia, con su empresa o con su mascota, aquí encontrará espacio para desconectar sin renunciar a lo bien hecho.',
     ],
@@ -195,7 +197,7 @@ export const experienciasContent = {
     eyebrow: 'Rutas y actividades',
     title: 'Experiencias',
     subtitle:
-      'Rutas a medida, naturaleza, deporte y cultura manchega. Diseñamos su plan según tiempo, grupo y preferencias.',
+      'Rutas a medida, naturaleza, deporte y cultura manchega.\nDiseñamos su plan según tiempo, grupo y preferencias.',
   },
   intro:
     'La riqueza cultural de la zona es consabida pero difícilmente se ha recopilado de forma que el visitante pueda exprimir al máximo cada uno de los rincones que esta maravillosa tierra ofrece.',
@@ -206,14 +208,12 @@ export const experienciasContent = {
     { title: 'Campo de Montiel', description: 'Rutas a pie por el entorno natural de La Mancha.' },
     { title: 'La Mancha auténtica', description: 'Pueblos, paisajes y patrimonio de la comarca.' },
     { title: 'Experiencia gastronómica', description: 'Sabores manchegos en un entorno único.' },
-    { title: 'Deporte y aventura', description: 'Golf, bicicleta, caballo, globo y más en los alrededores.' },
+    { title: 'Deporte y aventura', description: 'Bicicleta, senderismo, globo y más en los alrededores.' },
   ] satisfies FeatureCard[],
   activities: [
-    'Paseo a caballo',
     'Rutas en bicicleta',
     'Aventura off-road',
     'Globo aerostático',
-    'Golf',
     'Piscina y biblioteca',
   ],
   cta: {
@@ -509,7 +509,7 @@ export const homeTeasers = [
   },
   {
     title: 'Empresas',
-    description: 'Teambuilding, rodajes y contenido para PYME.',
+    description: 'Teambuilding, rodajes y contenido para empresas.',
     href: '/empresas',
   },
   {

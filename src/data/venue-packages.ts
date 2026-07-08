@@ -162,7 +162,7 @@ export const venuePackages: VenuePackage[] = [
 ];
 
 export const venuePricingNote =
-  'Precio a consultar según fechas, invitados y servicios. Gastronomía, montaje y temporada alta pueden variar. El catering con Azurea se cotiza aparte.';
+  '* Precio a consultar según fechas, invitados y servicios. Gastronomía, montaje y temporada alta pueden variar. El catering con Azurea se cotiza aparte. *';
 
 export function getVenuePackage(id: VenuePackageId): VenuePackage | undefined {
   return venuePackages.find((pkg) => pkg.id === id);
