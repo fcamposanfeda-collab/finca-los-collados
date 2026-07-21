@@ -1,13 +1,15 @@
 import type { NavItem } from '../data/navigation';
+import { stripBase } from './paths';
 
 export function isActiveNav(href: string, currentPath: string): boolean {
+  const path = stripBase(currentPath);
   if (href.startsWith('/#')) {
-    return currentPath === '/';
+    return path === '/';
   }
   if (href === '/') {
-    return currentPath === '/' || currentPath === '';
+    return path === '/' || path === '';
   }
-  return currentPath.startsWith(href);
+  return path.startsWith(href);
 }
 
 export function isActiveNavItem(item: NavItem, currentPath: string): boolean {

@@ -6,6 +6,7 @@ import FullWidthVideo from '../components/ui/FullWidthVideo.astro';
 import { getPageMeta } from '../data/pages-meta';
 import { laFincaContent } from '../data/pages-content';
 import { images } from '../data/images';
+import { withBase } from '../utils/paths';
 
 const meta = getPageMeta('/la-finca');
 const { hero, blocks, features, cta } = laFincaContent;
@@ -60,7 +61,7 @@ const { hero, blocks, features, cta } = laFincaContent;
           De octubre a febrero organizamos jornadas de caza que pueden combinarse con alojamiento en
           bungalows y con nuestra gastronomía manchega.
         </p>
-        <a href="/la-calerilla" class="btn">Descubrir La Calerilla</a>
+        <a href={withBase('/la-calerilla')} class="btn">Descubrir La Calerilla</a>
       </div>
       <TextImageMedia src={images.laCalerilla.campo} alt="Campo de caza en La Calerilla" />
     </div>

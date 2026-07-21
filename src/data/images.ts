@@ -3,7 +3,9 @@
  * Origen principal: web actual loscolladosdesanmiguel.com (WordPress).
  * Sustituir por fotos propias de alta resolución cuando estén disponibles.
  */
-export const images = {
+import { withBase } from '../utils/paths';
+
+const imagesRaw = {
   brand: {
     logo: '/images/logo-finca-los-collados.png',
     header: '/images/logo-cabecera.png',
@@ -146,6 +148,21 @@ export const images = {
   og: '/images/hero-finca.jpg',
 } as const;
 
-export type ImagePath = (typeof images)[keyof typeof images] extends string
-  ? (typeof images)[keyof typeof images]
-  : string;
+function withBaseDeep<T>(value: T): T {
+  if (typeof value === 'string') {
+    return withBase(value) as T;
+  }
+  if (Array.isArray(value)) {
+    return value.map((item) => withBaseDeep(item)) as T;
+  }
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(
+      Object.entries(value).map(([key, nested]) => [key, withBaseDeep(nested)]),
+    ) as T;
+  }
+  return value;
+}
+
+export const images = withBaseDeep(imagesRaw);
+
+export type ImagePath = string;

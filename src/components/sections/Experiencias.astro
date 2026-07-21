@@ -1,6 +1,7 @@
 ---
 import { homeContent } from '../../data/home-content';
 import { site } from '../../data/site';
+import { withBase } from '../../utils/paths';
 
 const { experiencias } = homeContent;
 ---
@@ -28,7 +29,7 @@ const { experiencias } = homeContent;
 
     <p class="experiencias__note">{experiencias.note}</p>
     <div class="experiencias__cta">
-      <a href={site.bookingUrl} class="btn">Reservar</a>
+      <a href={withBase(site.bookingUrl)} class="btn">Reservar</a>
     </div>
   </div>
 </section>

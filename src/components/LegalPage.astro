@@ -1,13 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getPageMeta } from '../data/pages-meta';
+import { stripBase } from '../utils/paths';
 
 interface Props {
   legalTitle: string;
 }
 
 const { legalTitle } = Astro.props;
-const path = (Astro.url.pathname.replace(/\/$/, '') || '/') as Parameters<typeof getPageMeta>[0];
+const path = (stripBase(Astro.url.pathname).replace(/\/$/, '') || '/') as Parameters<
+  typeof getPageMeta
+>[0];
 const meta = getPageMeta(path);
 ---
 

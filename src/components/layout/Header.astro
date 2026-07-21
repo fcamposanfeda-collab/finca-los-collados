@@ -3,13 +3,14 @@ import { mainNav } from '../../data/navigation';
 import { site } from '../../data/site';
 import { images } from '../../data/images';
 import { isActiveNav, isActiveNavItem } from '../../utils/nav';
+import { withBase } from '../../utils/paths';
 
 const currentPath = Astro.url.pathname;
 ---
 
 <header class="site-header">
   <div class="container site-header__inner">
-    <a href="/" class="site-header__brand" aria-label={`${site.name} — Inicio`}>
+    <a href={withBase('/')} class="site-header__brand" aria-label={`${site.name} — Inicio`}>
       <img
         src={images.brand.header}
         alt={site.name}
@@ -37,7 +38,7 @@ const currentPath = Astro.url.pathname;
               <li class="site-header__item site-header__item--has-submenu">
                 <div class="site-header__parent">
                   <a
-                    href={item.href}
+                    href={withBase(item.href)}
                     class:list={[
                       'site-header__link',
                       { 'is-active': isActiveNavItem(item, currentPath) },
@@ -60,7 +61,7 @@ const currentPath = Astro.url.pathname;
                     item.children.map((child) => (
                       <li>
                         <a
-                          href={child.href}
+                          href={withBase(child.href)}
                           class:list={[
                             'site-header__sublink',
                             { 'is-active': isActiveNav(child.href, currentPath) },
@@ -76,7 +77,7 @@ const currentPath = Astro.url.pathname;
             ) : (
               <li>
                 <a
-                  href={item.href}
+                  href={withBase(item.href)}
                   class:list={[
                     'site-header__link',
                     { 'is-active': isActiveNav(item.href, currentPath) },
@@ -89,7 +90,7 @@ const currentPath = Astro.url.pathname;
           )
         }
       </ul>
-      <a href={site.bookingUrl} class="btn site-header__cta">Reservas</a>
+      <a href={withBase(site.bookingUrl)} class="btn site-header__cta">Reservas</a>
     </nav>
   </div>
 </header>

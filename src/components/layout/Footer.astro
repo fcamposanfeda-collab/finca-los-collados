@@ -2,6 +2,7 @@
 import { site } from '../../data/site';
 import { legalNav, footerNav } from '../../data/navigation';
 import { contact } from '../../data/contact';
+import { withBase } from '../../utils/paths';
 ---
 
 <footer class="footer" aria-label="Pie de página">
@@ -44,7 +45,7 @@ import { contact } from '../../data/contact';
         <ul class="footer__sitemap">
           {footerNav.map((item) => (
             <li>
-              <a href={item.href}>{item.label}</a>
+              <a href={withBase(item.href)}>{item.label}</a>
             </li>
           ))}
         </ul>
@@ -60,7 +61,7 @@ import { contact } from '../../data/contact';
         {
           legalNav.map((item) => (
             <li>
-              <a href={item.href}>{item.label}</a>
+              <a href={withBase(item.href)}>{item.label}</a>
             </li>
           ))
         }

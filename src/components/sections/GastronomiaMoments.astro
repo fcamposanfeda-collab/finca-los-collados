@@ -3,6 +3,7 @@ import { gastronomiaContent } from '../../data/pages-content';
 import { images } from '../../data/images';
 import ContentImage from '../ui/ContentImage.astro';
 import ImageCarousel from '../ui/ImageCarousel.astro';
+import { withBase } from '../../utils/paths';
 
 const { moments } = gastronomiaContent;
 ---
@@ -26,11 +27,11 @@ const { moments } = gastronomiaContent;
       <div class="gastronomia-moments__copy">
         {moments.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
         <p class="gastronomia-moments__links">
-          <a href="/eventos">Eventos</a>
+          <a href={withBase('/eventos')}>Eventos</a>
           <span aria-hidden="true">·</span>
-          <a href="/packs">Packs</a>
+          <a href={withBase('/packs')}>Packs</a>
           <span aria-hidden="true">·</span>
-          <a href="/la-finca">La finca</a>
+          <a href={withBase('/la-finca')}>La finca</a>
         </p>
       </div>
     </div>

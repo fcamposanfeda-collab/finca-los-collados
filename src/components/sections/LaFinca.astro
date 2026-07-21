@@ -3,6 +3,7 @@ import { homeContent } from '../../data/home-content';
 import { site } from '../../data/site';
 import { images } from '../../data/images';
 import ContentImage from '../ui/ContentImage.astro';
+import { withBase } from '../../utils/paths';
 
 const { finca } = homeContent;
 ---
@@ -13,7 +14,7 @@ const { finca } = homeContent;
     <div class="finca__grid">
       <div class="finca__text">
         {finca.paragraphs.map((p) => <p>{p}</p>)}
-        <a href={site.bookingUrl} class="btn">Reservar</a>
+        <a href={withBase(site.bookingUrl)} class="btn">Reservar</a>
       </div>
       <div class="finca__media">
         <ContentImage src={images.hero.laFinca} alt="Paisaje de la finca Los Collados" />

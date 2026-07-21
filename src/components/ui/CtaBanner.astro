@@ -1,5 +1,6 @@
 ---
 import { site } from '../../data/site';
+import { withBase } from '../../utils/paths';
 
 interface Props {
   title: string;
@@ -23,8 +24,8 @@ const {
       <p class="cta-banner__desc">{text}</p>
     </div>
     <div class="cta-banner__actions">
-      <a href={buttonHref} class="btn">{buttonLabel}</a>
-      <a href="/contacto" class="btn btn--outline cta-banner__outline">Contactar</a>
+      <a href={withBase(buttonHref)} class="btn">{buttonLabel}</a>
+      <a href={withBase('/contacto')} class="btn btn--outline cta-banner__outline">Contactar</a>
     </div>
   </div>
 </section>

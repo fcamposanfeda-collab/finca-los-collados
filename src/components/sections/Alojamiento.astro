@@ -3,6 +3,7 @@ import { homeContent } from '../../data/home-content';
 import { site } from '../../data/site';
 import { images } from '../../data/images';
 import ContentImage from '../ui/ContentImage.astro';
+import { withBase } from '../../utils/paths';
 
 const { alojamiento } = homeContent;
 const mid = Math.ceil(alojamiento.amenities.length / 2);
@@ -26,7 +27,7 @@ const col2 = alojamiento.amenities.slice(mid);
             {col2.map((item) => <li>{item}</li>)}
           </ul>
         </div>
-        <a href={site.bookingUrl} class="btn">Reservar</a>
+        <a href={withBase(site.bookingUrl)} class="btn">Reservar</a>
       </div>
       <div class="alojamiento__media">
         <ContentImage src={images.hero.alojamiento} alt="Interior de bungalow rural" />

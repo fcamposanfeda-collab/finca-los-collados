@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://loscolladosdesanmiguel.com/sitemap-index.xml
+Sitemap: https://fcamposanfeda-collab.github.io/finca-los-collados/sitemap-index.xml

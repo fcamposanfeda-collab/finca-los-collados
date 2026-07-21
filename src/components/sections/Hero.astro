@@ -2,6 +2,7 @@
 import { homeContent } from '../../data/home-content';
 import { site } from '../../data/site';
 import { images } from '../../data/images';
+import { withBase } from '../../utils/paths';
 
 const { hero } = homeContent;
 ---
@@ -18,8 +19,8 @@ const { hero } = homeContent;
     <h1 class="hero__title">{hero.title}</h1>
     <p class="hero__subtitle">{hero.subtitle}</p>
     <div class="hero__actions">
-      <a href={site.bookingUrl} class="btn">{hero.cta}</a>
-      <a href="/la-finca" class="btn btn--outline">Descubrir la finca</a>
+      <a href={withBase(site.bookingUrl)} class="btn">{hero.cta}</a>
+      <a href={withBase('/la-finca')} class="btn btn--outline">Descubrir la finca</a>
     </div>
   </div>
 </section>
