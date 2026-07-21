@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 import { site } from '../data/site';
+import { contact } from '../data/contact';
 
 interface Props {
   title: string;
@@ -15,6 +16,26 @@ const canonicalURL = new URL(Astro.url.pathname, site.url);
 const ogImageUrl = ogImage.startsWith('http') ? ogImage : new URL(ogImage, site.url).href;
 const fontHref =
   'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'LodgingBusiness',
+  name: site.name,
+  description: site.tagline,
+  url: site.url,
+  image: ogImageUrl,
+  email: contact.email,
+  telephone: contact.phone,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: contact.address,
+    addressLocality: 'Villamanrique',
+    addressRegion: 'Ciudad Real',
+    postalCode: '13343',
+    addressCountry: 'ES',
+  },
+  sameAs: [contact.facebook, contact.instagram],
+};
 ---
 
 <!doctype html>
@@ -46,6 +67,7 @@ const fontHref =
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
     <slot name="head" />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     <title>{title}</title>
   </head>
   <body>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://loscolladosdesanmiguel.com/sitemap-index.xml
