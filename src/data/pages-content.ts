@@ -340,7 +340,7 @@ export const eventosContent = {
     websiteLabel: 'Visitar web de Azurea Catering',
     instagram: 'https://www.instagram.com/azurea_catering/',
     instagramLabel: '@azurea_catering',
-    email: 'comercial@azureacatering.com',
+    email: 'azureacatering@gmail.com',
     phone: '+34 635 197 898',
     services: [
       'Bodas y banquetes',
