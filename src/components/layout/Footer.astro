@@ -23,7 +23,7 @@ import { withBase } from '../../utils/paths';
           <a href={`tel:${contact.phoneAlt}`}>{contact.phoneAltDisplay}</a>
         </p>
         <p>
-          <a href={`mailto:${contact.email}`}>{contact.email}</a>
+          <a href={`mailto:${contact.email}?subject=${encodeURIComponent('Consulta desde la web')}`}>{contact.email}</a>
         </p>
       </div>
       <div class="footer__social-block">

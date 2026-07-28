@@ -33,7 +33,7 @@ const meta = getPageMeta('/solicitud-enviada');
 
       <p class="solicitud-enviada__alt">
         También puede escribir a
-        <a href={`mailto:${contact.email}`}>{contact.email}</a>
+        <a href={`mailto:${contact.email}?subject=${encodeURIComponent('Consulta desde la web')}`}>{contact.email}</a>
         o llamar al
         <a href={`tel:${contact.phoneAlt}`}>{contact.phoneAltDisplay}</a>.
       </p>

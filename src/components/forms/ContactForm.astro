@@ -97,12 +97,25 @@ const successUrl = withBase('/solicitud-enviada');
       <p class="contact-form__note" data-form-status hidden></p>
       <p class="contact-form__note">
         {
-          configured
-            ? `Sus datos se enviarán a ${contact.email}. También puede escribir a `
-            : 'Para activar el envío automático, configure Web3Forms (gratuito). Mientras tanto, el formulario abrirá su cliente de email. También: '
+          configured ? (
+            <>
+              Sus datos se enviarán a{' '}
+              <a href={`mailto:${contact.email}?subject=${encodeURIComponent('Consulta desde la web')}`}>
+                {contact.email}
+              </a>
+              .
+            </>
+          ) : (
+            <>
+              Para activar el envío automático, configure Web3Forms (gratuito). Mientras tanto, el
+              formulario abrirá su cliente de email. También:{' '}
+              <a href={`mailto:${contact.email}?subject=${encodeURIComponent('Consulta desde la web')}`}>
+                {contact.email}
+              </a>
+              .
+            </>
+          )
         }
-        <a href={`mailto:${contact.email}`}>{contact.email}</a>
-        {configured ? '.' : '.'}
       </p>
     </form>
   </div>
@@ -188,7 +201,14 @@ const successUrl = withBase('/solicitud-enviada');
         submitBtn.disabled = false;
       }
       if (statusEl) {
-        statusEl.textContent = 'No se pudo enviar. Escríbanos a ' + recipientEmail + ' o por WhatsApp.';
+        statusEl.innerHTML =
+          'No se pudo enviar. Escríbanos a <a href="mailto:' +
+          recipientEmail +
+          '?subject=' +
+          encodeURIComponent('Consulta desde la web') +
+          '">' +
+          recipientEmail +
+          '</a> o por WhatsApp.';
         statusEl.classList.add('is-error');
       }
     }

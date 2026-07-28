@@ -41,7 +41,7 @@ const { contacto } = homeContent;
           <a href={`tel:${contact.phone}`}>{contact.phoneDisplay}</a><br />
           <a href={`tel:${contact.phoneAlt}`}>{contact.phoneAltDisplay}</a>
         </p>
-        <p><a href={`mailto:${contact.email}`}>{contact.email}</a></p>
+        <p><a href={`mailto:${contact.email}?subject=${encodeURIComponent('Consulta desde la web')}`}>{contact.email}</a></p>
         <p>
           <a href={contact.mapsUrl} target="_blank" rel="noopener noreferrer">Ver en Google Maps</a>
         </p>
