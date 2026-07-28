@@ -2,6 +2,7 @@
 import { inquirySubjects } from '../../data/venue-packages';
 import { forms, isEmailFormConfigured } from '../../data/forms';
 import { contact } from '../../data/contact';
+import { withBase } from '../../utils/paths';
 
 interface Props {
   title?: string;
@@ -25,6 +26,7 @@ const {
 
 const idPrefix = formId;
 const configured = isEmailFormConfigured();
+const successUrl = withBase('/solicitud-enviada');
 ---
 
 <section class="contact-form section" aria-labelledby={`${idPrefix}-form-title`}>
@@ -106,9 +108,10 @@ const configured = isEmailFormConfigured();
   </div>
 </section>
 
-<script define:vars={{ formId, endpoint: forms.endpoint, accessKey: forms.web3formsAccessKey, recipientEmail: forms.recipientEmail, configured }}>
+<script define:vars={{ formId, endpoint: forms.endpoint, accessKey: forms.web3formsAccessKey, recipientEmail: forms.recipientEmail, configured, successUrl }}>
   const form = document.querySelector(`[data-contact-form="${formId}"]`);
   const statusEl = form?.querySelector('[data-form-status]');
+  const submitBtn = form?.querySelector('button[type="submit"]');
 
   form?.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -145,13 +148,19 @@ const configured = isEmailFormConfigured();
       statusEl.classList.remove('is-error', 'is-success');
     }
 
+    if (submitBtn instanceof HTMLButtonElement) {
+      submitBtn.disabled = true;
+    }
+
     if (!configured) {
       const params = new URLSearchParams({
         subject: payload.subject,
         body: `Nombre: ${payload.name}\nEmail: ${payload.email}\n${fullMessage}`,
       });
       window.location.href = `mailto:${recipientEmail}?${params.toString()}`;
-      if (statusEl) statusEl.textContent = 'Se ha abierto su cliente de email.';
+      window.setTimeout(() => {
+        window.location.href = successUrl;
+      }, 400);
       return;
     }
 
@@ -173,12 +182,11 @@ const configured = isEmailFormConfigured();
         throw new Error(result.message || 'Error al enviar');
       }
 
-      form.reset();
-      if (statusEl) {
-        statusEl.textContent = 'Mensaje enviado correctamente. Le responderemos pronto.';
-        statusEl.classList.add('is-success');
-      }
+      window.location.href = successUrl;
     } catch {
+      if (submitBtn instanceof HTMLButtonElement) {
+        submitBtn.disabled = false;
+      }
       if (statusEl) {
         statusEl.textContent = 'No se pudo enviar. Escríbanos a ' + recipientEmail + ' o por WhatsApp.';
         statusEl.classList.add('is-error');

@@ -1,0 +1,87 @@
+---
+import ContentPage from '../components/ui/ContentPage.astro';
+import { getPageMeta } from '../data/pages-meta';
+import { contact } from '../data/contact';
+import { images } from '../data/images';
+import { withBase } from '../utils/paths';
+
+const meta = getPageMeta('/solicitud-enviada');
+---
+
+<ContentPage
+  title={meta.title}
+  description={meta.description}
+  heroTitle="Solicitud enviada"
+  heroSubtitle="Gracias por ponerse en contacto con nosotros."
+  heroEyebrow="Confirmación"
+  heroImage={images.hero.contacto}
+>
+  <section class="page-content solicitud-enviada">
+    <div class="container solicitud-enviada__inner">
+      <p class="solicitud-enviada__lead">
+        Hemos recibido su solicitud correctamente. Nuestro equipo la revisará y le responderá lo
+        antes posible por email o teléfono.
+      </p>
+      <p class="solicitud-enviada__note">
+        Si su consulta es urgente, puede llamarnos ahora o escribirnos por WhatsApp.
+      </p>
+
+      <div class="solicitud-enviada__actions">
+        <a href={withBase('/')} class="btn">Volver al inicio</a>
+        <a href={`tel:${contact.phone}`} class="btn btn--outline">Llamar {contact.phoneDisplay}</a>
+      </div>
+
+      <p class="solicitud-enviada__alt">
+        También puede escribir a
+        <a href={`mailto:${contact.email}`}>{contact.email}</a>
+        o llamar al
+        <a href={`tel:${contact.phoneAlt}`}>{contact.phoneAltDisplay}</a>.
+      </p>
+    </div>
+  </section>
+</ContentPage>
+
+<style>
+  .solicitud-enviada__inner {
+    max-width: 40rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .solicitud-enviada__lead {
+    margin: 0 0 1rem;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+
+  .solicitud-enviada__note {
+    margin: 0 0 2rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+
+  .solicitud-enviada__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .solicitud-enviada__alt {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+  }
+
+  .solicitud-enviada__alt a {
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .solicitud-enviada__alt a:hover {
+    text-decoration: underline;
+  }
+</style>

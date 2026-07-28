@@ -41,7 +41,6 @@ export const venuePackages: VenuePackage[] = [
       'Uso exclusivo de espacios interiores y exteriores',
       'Hasta 50 personas en exterior / 30 en interior',
       'Privacidad total de la finca durante la jornada',
-      'Apoyo del equipo para logística básica',
     ],
     capacity: [
       'Evento exterior: hasta 50 personas',

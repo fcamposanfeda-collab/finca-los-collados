@@ -54,7 +54,6 @@ const packages = venuePackages.filter((pkg) => packageIds.includes(pkg.id));
               <span class="venue-packages__amount venue-packages__amount--consult">
                 Precio a consultar{pkg.pricing.priceNote ? '*' : ''}
               </span>
-              <span class="venue-packages__unit">{pkg.pricing.unit}</span>
             </div>
 
             <ul class="venue-packages__rates">
@@ -130,6 +129,7 @@ const packages = venuePackages.filter((pkg) => packageIds.includes(pkg.id));
   }
 
   .venue-packages__card {
+    height: 100%;
     padding: 1.75rem;
     background: var(--color-bg);
     border: 1px solid var(--color-border);
@@ -256,7 +256,7 @@ const packages = venuePackages.filter((pkg) => packageIds.includes(pkg.id));
   @media (min-width: 900px) {
     .venue-packages__grid {
       grid-template-columns: repeat(2, 1fr);
-      align-items: start;
+      align-items: stretch;
     }
 
     .venue-packages__cols {

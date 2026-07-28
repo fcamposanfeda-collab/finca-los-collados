@@ -59,6 +59,11 @@ export const pagesMeta = {
     description:
       'Contacte con Finca Los Collados de San Miguel. Teléfono, email y formulario para reservas, eventos, empresas y consultas.',
   },
+  '/solicitud-enviada': {
+    title: `Solicitud enviada | ${brand}`,
+    description:
+      'Su solicitud ha sido enviada correctamente. El equipo de Finca Los Collados de San Miguel le responderá lo antes posible.',
+  },
   '/reservas-online': {
     title: `Reservas Online | ${brand}`,
     description:
