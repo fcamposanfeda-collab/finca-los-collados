@@ -74,6 +74,10 @@ const imagesRaw = {
     mancha: '/images/villanueva-infantes.jpg',
     gastronomia: '/images/gastronomia.jpg',
     deporte: '/images/bicicleta.jpg',
+    // CC BY-SA — EJGONZALEZ / Wikimedia Commons (ganadería extensiva)
+    ganaderia: '/images/experiencia-ganaderia.jpg',
+    // CC BY — Wikimedia Commons (copa de vino tinto, entorno exterior)
+    cataVinos: '/images/experiencia-cata-vinos.jpg',
   },
 
   entorno: {

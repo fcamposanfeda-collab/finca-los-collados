@@ -209,12 +209,22 @@ export const experienciasContent = {
     { title: 'La Mancha auténtica', description: 'Pueblos, paisajes y patrimonio de la comarca.' },
     { title: 'Experiencia gastronómica', description: 'Sabores manchegos en un entorno único.' },
     { title: 'Deporte y aventura', description: 'Bicicleta, senderismo, globo y más en los alrededores.' },
+    {
+      title: 'Visita a ganadería',
+      description: 'Conozca de cerca la vida rural y el cuidado del ganado en el entorno de la finca.',
+    },
+    {
+      title: 'Cata de vinos de la tierra',
+      description: 'Degustación de vinos manchegos con producto local y el sabor de Campos de Montiel.',
+    },
   ] satisfies FeatureCard[],
   activities: [
     'Rutas en bicicleta',
     'Aventura off-road',
     'Globo aerostático',
     'Piscina y biblioteca',
+    'Visita a ganadería',
+    'Cata de vinos',
   ],
   cta: {
     title: 'Diseñe su ruta a medida',
