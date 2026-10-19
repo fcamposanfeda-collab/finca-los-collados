@@ -63,20 +63,25 @@ export const legalPageKeys = [
 
 export type LegalPageKey = (typeof legalPageKeys)[number];
 
+function withTrailingSlash(path: string): string {
+  if (path === '/') return '/';
+  return path.endsWith('/') ? path : `${path}/`;
+}
+
 export function localizePath(pageKey: PageKey, locale: Locale = defaultLocale): string {
   const slug = pageSlugs[pageKey][locale];
   if (locale === defaultLocale) {
-    return withBase(slug ? `/${slug}` : '/');
+    return withBase(withTrailingSlash(slug ? `/${slug}` : '/'));
   }
-  return withBase(slug ? `/${locale}/${slug}` : `/${locale}`);
+  return withBase(withTrailingSlash(slug ? `/${locale}/${slug}` : `/${locale}`));
 }
 
 export function pagePathname(pageKey: PageKey, locale: Locale = defaultLocale): string {
   const slug = pageSlugs[pageKey][locale];
   if (locale === defaultLocale) {
-    return slug ? `/${slug}` : '/';
+    return withTrailingSlash(slug ? `/${slug}` : '/');
   }
-  return slug ? `/${locale}/${slug}` : `/${locale}`;
+  return withTrailingSlash(slug ? `/${locale}/${slug}` : `/${locale}`);
 }
 
 export function parsePathname(pathname: string): { locale: Locale; pageKey: PageKey } {

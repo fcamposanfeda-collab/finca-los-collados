@@ -5,8 +5,7 @@ const siteUrl = 'https://loscolladosdesanmiguel.com';
 
 export function absoluteUrl(pathname: string): string {
   if (pathname.startsWith('http')) return pathname;
-  const path = pathname === '/' ? '/' : pathname.replace(/\/+$/, '') || '/';
-  return new URL(path, siteUrl).href;
+  return new URL(pathname, `${siteUrl}/`).href;
 }
 
 export function hreflangLinks(pageKey: PageKey): { lang: string; url: string }[] {
