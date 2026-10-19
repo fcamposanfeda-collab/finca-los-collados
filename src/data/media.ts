@@ -1,10 +1,9 @@
 import { existsSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import manifest from './image-manifest.json';
 import { withBase } from '../utils/paths';
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '../..');
+const root = process.cwd();
 
 export type ImageVariant = {
   width: number;

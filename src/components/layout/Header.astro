@@ -96,8 +96,8 @@ const navLabels = copy.nav as Record<string, string>;
           )
         }
       </ul>
-      <LanguageSwitcher />
       <a href={href('reservas-online')} class="btn site-header__cta">{t('common.bookings')}</a>
+      <LanguageSwitcher />
     </nav>
   </div>
 </header>
@@ -394,10 +394,9 @@ const navLabels = copy.nav as Record<string, string>;
     }
 
     .site-header__nav :global(.language-switcher) {
-      order: -1;
-      margin-bottom: 1rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--color-border);
+      margin-top: 0.75rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--color-border);
     }
   }
 
