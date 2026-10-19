@@ -18,6 +18,7 @@ interface Props {
   closingVideo?: string;
   closingVideoAlt?: string;
   closingVideoPosition?: string;
+  index?: boolean;
 }
 
 const {
@@ -34,10 +35,11 @@ const {
   closingVideo,
   closingVideoAlt,
   closingVideoPosition,
+  index = true,
 } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} index={index}>
   <PageHero title={heroTitle} subtitle={heroSubtitle} eyebrow={heroEyebrow} imageSrc={heroImage} />
   <slot />
   {

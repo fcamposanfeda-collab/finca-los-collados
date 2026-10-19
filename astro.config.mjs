@@ -22,11 +22,16 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/404') && !page.endsWith('/404/'),
+      filter: (page) => {
+        if (page.includes('/404')) return false;
+        return !['/solicitud-enviada/', '/request-sent/', '/demande-envoyee/'].some((slug) =>
+          page.includes(slug),
+        );
+      },
       serialize(item) {
         try {
           const { pageKey } = pageKeyFromUrl(item.url);
-          if (pageKey === '404') return undefined;
+          if (pageKey === '404' || pageKey === 'solicitud-enviada') return undefined;
           return {
             ...item,
             links: hreflangLinks(pageKey),

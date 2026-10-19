@@ -18,9 +18,10 @@ interface Props {
   title: string;
   description: string;
   ogImage?: string;
+  index?: boolean;
 }
 
-const { title, description, ogImage = site.ogImage } = Astro.props;
+const { title, description, ogImage = site.ogImage, index = true } = Astro.props;
 const { locale, pageKey, t, copy } = useI18n(Astro);
 const meta = localeMeta[locale];
 const canonicalURL = absoluteUrl(pagePathname(pageKey, locale));
@@ -62,18 +63,19 @@ const alternates = hreflangLinks(pageKey);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={index ? 'index, follow' : 'noindex, follow'} />
     <meta name="theme-color" content="#4a6741" />
     <meta name="author" content={site.name} />
     <link rel="icon" type="image/png" sizes="32x32" href={withBase('/favicon-32.png')} />
     <link rel="icon" type="image/png" sizes="192x192" href={withBase('/favicon-192.png')} />
     <link rel="apple-touch-icon" href={withBase('/apple-touch-icon.png')} />
     <link rel="shortcut icon" href={withBase('/favicon-32.png')} />
-    <link rel="canonical" href={canonicalURL} />
+    {index && <link rel="canonical" href={canonicalURL} />}
     {
-      alternates.map((link) => (
-        <link rel="alternate" hreflang={link.lang} href={link.url} />
-      ))
+      index &&
+        alternates.map((link) => (
+          <link rel="alternate" hreflang={link.lang} href={link.url} />
+        ))
     }
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
