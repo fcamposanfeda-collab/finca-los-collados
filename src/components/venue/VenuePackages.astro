@@ -122,10 +122,12 @@ const packages = getVenuePackages(locale).filter((pkg) => packageIds.includes(pk
 <style>
   .venue-packages__grid {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem;
   }
 
   .venue-packages__card {
+    min-width: 0;
     height: 100%;
     padding: 1.75rem;
     background: var(--color-bg);
@@ -197,8 +199,10 @@ const packages = getVenuePackages(locale).filter((pkg) => packageIds.includes(pk
 
   .venue-packages__cols {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: 1rem;
     margin-bottom: 1rem;
+    min-width: 0;
   }
 
   .venue-packages__cols h4 {
@@ -228,6 +232,7 @@ const packages = getVenuePackages(locale).filter((pkg) => packageIds.includes(pk
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
+    min-width: 0;
   }
 
   .venue-packages__disclaimer {
