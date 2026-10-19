@@ -1,26 +1,26 @@
 ---
-import { homePillars } from '../../data/pages-content';
 import { images } from '../../data/images';
 import ContentImage from '../ui/ContentImage.astro';
+import { useI18n } from '../../i18n';
 
-const pillarImages = [
-  images.pillars.turismo,
-  images.pillars.empresas,
-  images.pillars.eventos,
-  images.pillars.petFriendly,
-];
+const { copy } = useI18n(Astro);
+const pillars = copy.home.pillars as {
+  title: string;
+  aria: string;
+  items: { id: 'turismo' | 'empresas' | 'eventos' | 'pet-friendly'; title: string; description: string }[];
+};
 ---
 
-<section class="section home-pillars" aria-label="Propuesta de valor">
+<section class="section home-pillars" aria-label={pillars.aria}>
   <div class="container">
-    <h2 class="section__title">Una finca, muchas experiencias</h2>
+    <h2 class="section__title">{pillars.title}</h2>
     <div class="home-pillars__grid">
       {
-        homePillars.map((pillar, index) => (
+        pillars.items.map((pillar, index) => (
           <article class="home-pillars__card">
             <div class="card-media">
               <ContentImage
-                src={pillarImages[index]}
+                src={images.pillars[pillar.id]}
                 alt={pillar.title}
                 class={
                   index === 2

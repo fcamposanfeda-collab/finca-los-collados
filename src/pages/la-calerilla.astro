@@ -2,12 +2,22 @@
 import ContentPage from '../components/ui/ContentPage.astro';
 import TextImageMedia from '../components/ui/TextImageMedia.astro';
 import { getPageMeta } from '../data/pages-meta';
-import { laCalerillaContent } from '../data/pages-content';
 import { images } from '../data/images';
 import ContactForm from '../components/forms/ContactForm.astro';
+import { useI18n } from '../i18n';
 
-const meta = getPageMeta('/la-calerilla');
-const { hero, intro, blocks, features, season, cta } = laCalerillaContent;
+const { locale, copy } = useI18n(Astro);
+const meta = getPageMeta('la-calerilla', locale);
+const page = copy['la-calerilla'] as {
+  hero: { eyebrow: string; title: string; subtitle: string };
+  intro: string;
+  blocks: { title: string; paragraphs: string[] }[];
+  featuresTitle: string;
+  features: { title: string; description: string }[];
+  season: { title: string; items: string[] };
+  cta: { title: string; text: string; buttonLabel: string };
+  form: { title: string; intro: string };
+};
 const blockImages = [
   images.laCalerilla.campo,
   images.laCalerilla.perdiz,
@@ -18,27 +28,27 @@ const blockImages = [
 <ContentPage
   title={meta.title}
   description={meta.description}
-  heroTitle={hero.title}
-  heroSubtitle={hero.subtitle}
-  heroEyebrow={hero.eyebrow}
+  heroTitle={page.hero.title}
+  heroSubtitle={page.hero.subtitle}
+  heroEyebrow={page.hero.eyebrow}
   heroImage={images.hero.laCalerilla}
-  ctaTitle={cta.title}
-  ctaText={cta.text}
-  ctaButtonLabel={cta.buttonLabel}
+  ctaTitle={page.cta.title}
+  ctaText={page.cta.text}
+  ctaButtonLabel={page.cta.buttonLabel}
   ctaButtonHref="#solicitud-caza"
 >
   <section class="page-content">
     <div class="container page-content__inner page-content__inner--wide">
-      <p class="page-content__lead">{intro}</p>
-      <h2 class="section__title">{season.title}</h2>
+      <p class="page-content__lead">{page.intro}</p>
+      <h2 class="section__title">{page.season.title}</h2>
       <ul class="capacity-list" style="max-width: 32rem; margin-inline: auto;">
-        {season.items.map((item) => <li>{item}</li>)}
+        {page.season.items.map((item) => <li>{item}</li>)}
       </ul>
     </div>
   </section>
 
   {
-    blocks.map((block, index) => (
+    page.blocks.map((block, index) => (
       <section class:list={['page-content', { 'page-content--alt section--alt': index % 2 === 1 }]}>
         <div class:list={['container text-image', { 'text-image--media-left': index === 1 }]}>
           <div class="page-content__inner">
@@ -53,9 +63,9 @@ const blockImages = [
 
   <section class="page-content page-content--alt section--alt">
     <div class="container page-content__inner page-content__inner--wide">
-      <h2 class="section__title">La Calerilla en resumen</h2>
+      <h2 class="section__title">{page.featuresTitle}</h2>
       <div class="feature-grid feature-grid--4">
-        {features.map((feature) => (
+        {page.features.map((feature) => (
           <article class="feature-grid__card">
             <h3>{feature.title}</h3>
             <p>{feature.description}</p>
@@ -67,8 +77,8 @@ const blockImages = [
 
   <div id="solicitud-caza">
     <ContactForm
-      title="Solicite su jornada de caza"
-      intro="Indique fechas preferidas, número de tiradores y si desea combinar con alojamiento o restauración. Las fechas de temporada son muy solicitadas."
+      title={page.form.title}
+      intro={page.form.intro}
       showPhone={true}
       showDates={true}
       showGuests={true}

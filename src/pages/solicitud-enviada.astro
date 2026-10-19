@@ -3,39 +3,51 @@ import ContentPage from '../components/ui/ContentPage.astro';
 import { getPageMeta } from '../data/pages-meta';
 import { contact } from '../data/contact';
 import { images } from '../data/images';
-import { withBase } from '../utils/paths';
+import { mailtoInquiryHref } from '../data/forms';
+import { useI18n } from '../i18n';
 
-const meta = getPageMeta('/solicitud-enviada');
+const { locale, copy, href } = useI18n(Astro);
+const meta = getPageMeta('solicitud-enviada', locale);
+const page = copy['solicitud-enviada'] as {
+  heroTitle: string;
+  heroSubtitle: string;
+  heroEyebrow: string;
+  lead: string;
+  note: string;
+  backHome: string;
+  call: string;
+  alt: string;
+};
+const common = copy.common as { phoneDisplay: string; phoneAltDisplay: string };
+const callLabel = page.call.replace('{phone}', common.phoneDisplay);
+const [altBefore, altAfter] = page.alt.split('{email}');
+const afterPhone = (altAfter ?? '').split('{phone}');
 ---
 
 <ContentPage
   title={meta.title}
   description={meta.description}
-  heroTitle="Solicitud enviada"
-  heroSubtitle="Gracias por ponerse en contacto con nosotros."
-  heroEyebrow="Confirmación"
+  heroTitle={page.heroTitle}
+  heroSubtitle={page.heroSubtitle}
+  heroEyebrow={page.heroEyebrow}
   heroImage={images.hero.contacto}
 >
   <section class="page-content solicitud-enviada">
     <div class="container solicitud-enviada__inner">
-      <p class="solicitud-enviada__lead">
-        Hemos recibido su solicitud correctamente. Nuestro equipo la revisará y le responderá lo
-        antes posible por email o teléfono.
-      </p>
-      <p class="solicitud-enviada__note">
-        Si su consulta es urgente, puede llamarnos ahora o escribirnos por WhatsApp.
-      </p>
+      <p class="solicitud-enviada__lead">{page.lead}</p>
+      <p class="solicitud-enviada__note">{page.note}</p>
 
       <div class="solicitud-enviada__actions">
-        <a href={withBase('/')} class="btn">Volver al inicio</a>
-        <a href={`tel:${contact.phone}`} class="btn btn--outline">Llamar {contact.phoneDisplay}</a>
+        <a href={href('home')} class="btn">{page.backHome}</a>
+        <a href={`tel:${contact.phone}`} class="btn btn--outline">{callLabel}</a>
       </div>
 
       <p class="solicitud-enviada__alt">
-        También puede escribir a
-        <a href={`mailto:${contact.email}?subject=${encodeURIComponent('Consulta desde la web')}`}>{contact.email}</a>
-        o llamar al
-        <a href={`tel:${contact.phoneAlt}`}>{contact.phoneAltDisplay}</a>.
+        {altBefore}
+        <a href={mailtoInquiryHref(locale)}>{contact.email}</a>
+        {afterPhone[0]}
+        <a href={`tel:${contact.phoneAlt}`}>{common.phoneAltDisplay}</a>
+        {afterPhone[1] ?? ''}
       </p>
     </div>
   </section>

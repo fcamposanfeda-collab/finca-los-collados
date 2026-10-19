@@ -1,37 +1,45 @@
 ---
 import ContentPage from '../components/ui/ContentPage.astro';
 import { getPageMeta } from '../data/pages-meta';
-import { booking, isWidgetConfigured, buildWhatsAppUrl } from '../data/booking';
+import { isWidgetConfigured, buildWhatsAppUrl } from '../data/booking';
 import { images } from '../data/images';
 import BookingSearch from '../components/booking/BookingSearch.astro';
 import BookingWidget from '../components/booking/BookingWidget.astro';
 import BookingAlternatives from '../components/booking/BookingAlternatives.astro';
 import BookingSyncInfo from '../components/booking/BookingSyncInfo.astro';
 import ContactForm from '../components/forms/ContactForm.astro';
+import { useI18n } from '../i18n';
 
-const meta = getPageMeta('/reservas-online');
-const { heroTitle, heroSubtitle, heroEyebrow } = booking.page;
+const { locale, copy } = useI18n(Astro);
+const meta = getPageMeta('reservas-online', locale);
+const page = copy.booking.page as {
+  heroTitle: string;
+  heroSubtitle: string;
+  heroEyebrow: string;
+};
+const cta = copy.booking.cta as { title: string; text: string; button: string };
+const form = copy.booking.form as { title: string; intro: string };
 ---
 
 <ContentPage
   title={meta.title}
   description={meta.description}
-  heroTitle={heroTitle}
-  heroSubtitle={heroSubtitle}
-  heroEyebrow={heroEyebrow}
+  heroTitle={page.heroTitle}
+  heroSubtitle={page.heroSubtitle}
+  heroEyebrow={page.heroEyebrow}
   heroImage={images.hero.reservas}
-  ctaTitle="¿Prefiere hablar con nosotros?"
-  ctaText="Para packs, eventos, empresas o reservas de varios bungalows, escríbanos por WhatsApp."
-  ctaButtonLabel="WhatsApp"
-  ctaButtonHref={buildWhatsAppUrl({})}
+  ctaTitle={cta.title}
+  ctaText={cta.text}
+  ctaButtonLabel={cta.button}
+  ctaButtonHref={buildWhatsAppUrl({}, locale)}
 >
   <BookingSearch />
   {isWidgetConfigured() && <BookingWidget />}
   <BookingAlternatives />
   <BookingSyncInfo />
   <ContactForm
-    title="Consulta por email"
-    intro="Para alojamiento, packs o dudas generales. Respondemos en 24–48 h laborables."
+    title={form.title}
+    intro={form.intro}
     showPhone={true}
     showDates={true}
     showGuests={false}

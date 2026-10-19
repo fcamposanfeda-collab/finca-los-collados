@@ -1,33 +1,36 @@
 ---
-import { homeTeasers } from '../../data/pages-content';
 import { images } from '../../data/images';
 import ContentImage from '../ui/ContentImage.astro';
-import { withBase } from '../../utils/paths';
+import { useI18n, type PageKey } from '../../i18n';
+
+const { href, copy, t } = useI18n(Astro);
+const teasers = copy.home.teasers as {
+  title: string;
+  lead: string;
+  aria: string;
+  items: { pageKey: PageKey; title: string; description: string }[];
+};
 ---
 
-<section class="section section--alt home-teasers" aria-label="Descubra la finca">
+<section class="section section--alt home-teasers" aria-label={teasers.aria}>
   <div class="container">
-    <h2 class="section__title">Descubre la Finca Los Collados de San Miguel</h2>
-    <p class="section__lead">
-      Cada área de la finca tiene su propia página con toda la información: alojamiento en bungalows,
-      gastronomía con Azurea, celebraciones al aire libre, propuestas para empresas y mucho más.
-      Elija por dónde empezar a planificar su visita.
-    </p>
+    <h2 class="section__title">{teasers.title}</h2>
+    <p class="section__lead">{teasers.lead}</p>
     <div class="home-teasers__grid">
       {
-        homeTeasers.map((item) => (
-          <a href={withBase(item.href)} class="home-teasers__card">
+        teasers.items.map((item) => (
+          <a href={href(item.pageKey)} class="home-teasers__card">
             <div class="card-media">
               <ContentImage
-                src={images.teasers[item.href as keyof typeof images.teasers]}
+                src={images.teasers[item.pageKey as keyof typeof images.teasers]}
                 alt={item.title}
-                class={item.href === '/empresas' ? 'content-image--teaser-empresas' : undefined}
+                class={item.pageKey === 'empresas' ? 'content-image--teaser-empresas' : undefined}
               />
             </div>
             <div class="card-body">
               <h3>{item.title}</h3>
               <p>{item.description}</p>
-              <span class="home-teasers__link">Ver más</span>
+              <span class="home-teasers__link">{t('common.seeMore')}</span>
             </div>
           </a>
         ))

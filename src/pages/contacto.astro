@@ -2,26 +2,26 @@
 import ContentPage from '../components/ui/ContentPage.astro';
 import ContentImage from '../components/ui/ContentImage.astro';
 import { getPageMeta } from '../data/pages-meta';
-import { contactoContent } from '../data/pages-content';
 import ContactForm from '../components/forms/ContactForm.astro';
 import { contact } from '../data/contact';
 import { images } from '../data/images';
+import { mailtoInquiryHref } from '../data/forms';
+import { inquirySubjectIds } from '../data/forms';
+import { site } from '../data/site';
+import { useI18n } from '../i18n';
 
-const meta = getPageMeta('/contacto');
-const { hero } = contactoContent;
+const { locale, copy, t } = useI18n(Astro);
+const meta = getPageMeta('contacto', locale);
+const page = copy.contacto as {
+  hero: { eyebrow: string; title: string; subtitle: string };
+  form: { title: string; intro: string };
+  alts: { porche: string };
+};
+const common = copy.common as { phoneDisplay: string; phoneAltDisplay: string; country: string };
+const cityLine = common.country ? `${contact.city}, ${common.country}` : contact.city;
 
 const motivo = Astro.url.searchParams.get('motivo') ?? 'general';
-const validMotivos = [
-  'general',
-  'alojamiento',
-  'finca-espacios',
-  'finca-completa',
-  'evento',
-  'empresa',
-  'pack',
-  'caza',
-] as const;
-const defaultSubject = validMotivos.includes(motivo as (typeof validMotivos)[number])
+const defaultSubject = inquirySubjectIds.includes(motivo as (typeof inquirySubjectIds)[number])
   ? motivo
   : 'general';
 ---
@@ -29,9 +29,9 @@ const defaultSubject = validMotivos.includes(motivo as (typeof validMotivos)[num
 <ContentPage
   title={meta.title}
   description={meta.description}
-  heroTitle={hero.title}
-  heroSubtitle={hero.subtitle}
-  heroEyebrow={hero.eyebrow}
+  heroTitle={page.hero.title}
+  heroSubtitle={page.hero.subtitle}
+  heroEyebrow={page.hero.eyebrow}
   heroImage={images.hero.contacto}
 >
   <section class="page-content">
@@ -39,29 +39,29 @@ const defaultSubject = validMotivos.includes(motivo as (typeof validMotivos)[num
       <div class="contacto-info">
         <div class="contacto-info__grid">
           <div>
-            <h2>Finca Los Collados de San Miguel</h2>
+            <h2>{site.name}</h2>
             <address>
               {contact.address}<br />
-              {contact.city}
+              {cityLine}
             </address>
             <p>
-              <a href={`tel:${contact.phone}`}>{contact.phoneDisplay}</a><br />
-              <a href={`tel:${contact.phoneAlt}`}>{contact.phoneAltDisplay}</a>
+              <a href={`tel:${contact.phone}`}>{common.phoneDisplay}</a><br />
+              <a href={`tel:${contact.phoneAlt}`}>{common.phoneAltDisplay}</a>
             </p>
-    <p><a href={`mailto:${contact.email}?subject=${encodeURIComponent('Consulta desde la web')}`}>{contact.email}</a></p>
+            <p><a href={mailtoInquiryHref(locale)}>{contact.email}</a></p>
             <p>
-              <a href={contact.mapsUrl} target="_blank" rel="noopener noreferrer">Ver en Google Maps</a>
+              <a href={contact.mapsUrl} target="_blank" rel="noopener noreferrer">{t('common.maps')}</a>
             </p>
           </div>
         </div>
       </div>
-      <ContentImage src={images.hero.contacto} alt="Porche y exteriores de la finca" />
+      <ContentImage src={images.hero.contacto} alt={page.alts.porche} />
     </div>
   </section>
 
   <ContactForm
-    title="Ponte en contacto con nosotros"
-    intro="Reservas, presupuestos de finca completa, eventos y consultas generales."
+    title={page.form.title}
+    intro={page.form.intro}
     showPhone={true}
     showDates={true}
     showGuests={true}

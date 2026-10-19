@@ -1,26 +1,28 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getPageMeta } from '../data/pages-meta';
-import { stripBase } from '../utils/paths';
+import { legalPageKeys, pagePathname, useI18n, type LegalPageKey } from '../i18n';
 
-interface Props {
-  legalTitle: string;
-}
-
-const { legalTitle } = Astro.props;
-const path = (stripBase(Astro.url.pathname).replace(/\/$/, '') || '/') as Parameters<
-  typeof getPageMeta
->[0];
-const meta = getPageMeta(path);
+const { locale, pageKey, copy } = useI18n(Astro);
+const legalKey = (legalPageKeys.includes(pageKey as LegalPageKey) ? pageKey : 'politica-de-privacidad') as LegalPageKey;
+const meta = getPageMeta(legalKey, locale);
+const legal = copy.legal as {
+  disclaimer: string;
+  placeholderLead: string;
+  titles: Record<string, string>;
+};
+const legalTitle = legal.titles[legalKey];
+const sourcePath = pagePathname(legalKey, 'es');
 ---
 
 <BaseLayout title={meta.title} description={meta.description}>
   <section class="section">
     <div class="container legal">
       <h1>{legalTitle}</h1>
+      {legal.disclaimer && <p class="legal__disclaimer">{legal.disclaimer}</p>}
       <p class="legal__notice">
-        Contenido legal pendiente de migrar desde la web actual en WordPress. Se trasladará el texto
-        completo de <a href={`https://loscolladosdesanmiguel.com${path}`}>loscolladosdesanmiguel.com{path}</a>.
+        {legal.placeholderLead}{' '}
+        <a href={`https://loscolladosdesanmiguel.com${sourcePath}`}>loscolladosdesanmiguel.com{sourcePath}</a>.
       </p>
     </div>
   </section>
@@ -35,6 +37,15 @@ const meta = getPageMeta(path);
     margin: 0 0 1.5rem;
     font-size: clamp(1.75rem, 4vw, 2.25rem);
     color: var(--color-secondary);
+  }
+
+  .legal__disclaimer {
+    margin: 0 0 1.25rem;
+    padding: 0.875rem 1rem;
+    background: var(--color-bg-alt);
+    border-left: 3px solid var(--color-primary);
+    color: var(--color-text);
+    line-height: 1.7;
   }
 
   .legal__notice {

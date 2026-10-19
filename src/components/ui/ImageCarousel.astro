@@ -1,4 +1,6 @@
 ---
+import { useI18n } from '../../i18n';
+
 export type CarouselSlide = {
   src: string;
   alt: string;
@@ -26,6 +28,7 @@ const {
 } = Astro.props;
 
 const isGallery = variant === 'gallery';
+const { t } = useI18n(Astro);
 ---
 
 <div
@@ -33,8 +36,8 @@ const isGallery = variant === 'gallery';
   data-carousel={id}
   data-autoplay-interval={autoplayInterval}
   tabindex="0"
-  aria-roledescription="carrusel"
-  aria-label="Galería de imágenes"
+  aria-roledescription={t('common.carousel.roledescription')}
+  aria-label={t('common.carousel.aria')}
 >
   <div class="image-carousel__frame">
     <div class="image-carousel__viewport">
@@ -72,7 +75,7 @@ const isGallery = variant === 'gallery';
             type="button"
             class="image-carousel__btn image-carousel__btn--prev"
             data-carousel-prev
-            aria-label="Imagen anterior"
+            aria-label={t('common.carousel.prev')}
           >
             <span aria-hidden="true">‹</span>
           </button>
@@ -80,7 +83,7 @@ const isGallery = variant === 'gallery';
             type="button"
             class="image-carousel__btn image-carousel__btn--next"
             data-carousel-next
-            aria-label="Imagen siguiente"
+            aria-label={t('common.carousel.next')}
           >
             <span aria-hidden="true">›</span>
           </button>
@@ -90,7 +93,7 @@ const isGallery = variant === 'gallery';
 
     {
       !isGallery && slides.length > 1 && (
-        <div class="image-carousel__dots" data-carousel-dots role="tablist" aria-label="Seleccionar imagen">
+        <div class="image-carousel__dots" data-carousel-dots role="tablist" aria-label={t('common.carousel.select')}>
           {
             slides.map((_, index) => (
               <button
@@ -98,7 +101,7 @@ const isGallery = variant === 'gallery';
                 class:list={['image-carousel__dot', { 'is-active': index === 0 }]}
                 data-carousel-dot={index}
                 role="tab"
-                aria-label={`Imagen ${index + 1}`}
+                aria-label={t('common.carousel.imageN', { n: index + 1 })}
                 aria-selected={index === 0 ? 'true' : 'false'}
               />
             ))
@@ -121,7 +124,7 @@ const isGallery = variant === 'gallery';
         {
           slides.length > 1 && (
             <div class="image-carousel__meta">
-              <div class="image-carousel__dots" data-carousel-dots role="tablist" aria-label="Seleccionar imagen">
+              <div class="image-carousel__dots" data-carousel-dots role="tablist" aria-label={t('common.carousel.select')}>
                 {
                   slides.map((_, index) => (
                     <button
@@ -129,7 +132,7 @@ const isGallery = variant === 'gallery';
                       class:list={['image-carousel__dot', { 'is-active': index === 0 }]}
                       data-carousel-dot={index}
                       role="tab"
-                      aria-label={`Imagen ${index + 1}`}
+                      aria-label={t('common.carousel.imageN', { n: index + 1 })}
                       aria-selected={index === 0 ? 'true' : 'false'}
                     />
                   ))

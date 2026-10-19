@@ -1,26 +1,32 @@
 ---
-import { homeContent } from '../../data/home-content';
-import { site } from '../../data/site';
 import { images } from '../../data/images';
-import { withBase } from '../../utils/paths';
+import { useI18n } from '../../i18n';
 
-const { hero } = homeContent;
+const { href, copy, t } = useI18n(Astro);
+const hero = copy.home.hero as {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  cta: string;
+  aria: string;
+};
+const heroAlt = (copy.images as { heroHome: string }).heroHome;
 ---
 
 <section
   class="hero hero--photo"
   style={`--hero-image: url('${images.hero.home}')`}
-  aria-label="Presentación"
+  aria-label={hero.aria}
 >
   <div class="hero__bg" aria-hidden="true"></div>
   <div class="hero__overlay"></div>
   <div class="container hero__content">
-    <p class="hero__eyebrow">Campos de Montiel · Ciudad Real</p>
+    <p class="hero__eyebrow">{hero.eyebrow}</p>
     <h1 class="hero__title">{hero.title}</h1>
     <p class="hero__subtitle">{hero.subtitle}</p>
     <div class="hero__actions">
-      <a href={withBase(site.bookingUrl)} class="btn">{hero.cta}</a>
-      <a href={withBase('/la-finca')} class="btn btn--outline">Descubrir la finca</a>
+      <a href={href('reservas-online')} class="btn">{hero.cta}</a>
+      <a href={href('la-finca')} class="btn btn--outline">{t('common.discoverEstate')}</a>
     </div>
   </div>
 </section>
@@ -112,6 +118,13 @@ const { hero } = homeContent;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+  }
+
+  .hero__actions .btn {
+    width: auto;
+    min-width: min-content;
+    white-space: nowrap;
+    padding-inline: 1.35rem;
   }
 
   .hero__actions .btn--outline {

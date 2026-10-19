@@ -1,11 +1,26 @@
 ---
-import { gastronomiaContent } from '../../data/pages-content';
 import { images } from '../../data/images';
 import ContentImage from '../ui/ContentImage.astro';
 import ImageCarousel from '../ui/ImageCarousel.astro';
-import { withBase } from '../../utils/paths';
+import { useI18n } from '../../i18n';
 
-const { moments } = gastronomiaContent;
+const { href, copy } = useI18n(Astro);
+const moments = copy.gastronomia.moments as {
+  title: string;
+  lead: string;
+  paragraphs: string[];
+  mesaAlt: string;
+  galleryAria: string;
+  platosEyebrow: string;
+  platosTitle: string;
+  links: { eventos: string; packs: string; 'la-finca': string };
+};
+const platoAlts = (copy.images as { platos: string[] }).platos;
+const slides = images.gastronomiaMoments.platos.map((plato, index) => ({
+  src: plato.src,
+  alt: platoAlts[index] ?? '',
+  objectPosition: 'objectPosition' in plato ? plato.objectPosition : undefined,
+}));
 ---
 
 <section class="section gastronomia-moments" aria-labelledby="gastronomia-moments-title">
@@ -19,7 +34,7 @@ const { moments } = gastronomiaContent;
       <div class="gastronomia-moments__visual">
         <ContentImage
           src={images.gastronomiaMoments.mesaDetalle}
-          alt="Mesa servida con detalle en Los Collados de San Miguel"
+          alt={moments.mesaAlt}
           aspect="portrait"
         />
       </div>
@@ -27,23 +42,23 @@ const { moments } = gastronomiaContent;
       <div class="gastronomia-moments__copy">
         {moments.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
         <p class="gastronomia-moments__links">
-          <a href={withBase('/eventos')}>Eventos</a>
+          <a href={href('eventos')}>{moments.links.eventos}</a>
           <span aria-hidden="true">·</span>
-          <a href={withBase('/packs')}>Packs</a>
+          <a href={href('packs')}>{moments.links.packs}</a>
           <span aria-hidden="true">·</span>
-          <a href={withBase('/la-finca')}>La finca</a>
+          <a href={href('la-finca')}>{moments.links['la-finca']}</a>
         </p>
       </div>
     </div>
 
-    <div class="gastronomia-moments__platos" aria-label="Galería de platos">
+    <div class="gastronomia-moments__platos" aria-label={moments.galleryAria}>
       <div class="gastronomia-moments__platos-header">
-        <p class="gastronomia-moments__eyebrow">De la cocina</p>
-        <h3 class="gastronomia-moments__platos-title">Una muestra de la mesa</h3>
+        <p class="gastronomia-moments__eyebrow">{moments.platosEyebrow}</p>
+        <h3 class="gastronomia-moments__platos-title">{moments.platosTitle}</h3>
       </div>
 
       <ImageCarousel
-        slides={images.gastronomiaMoments.platos}
+        slides={slides}
         id="gastronomia-platos"
         aspect="wide"
         variant="gallery"

@@ -2,46 +2,55 @@
 import ContentPage from '../components/ui/ContentPage.astro';
 import TextImageMedia from '../components/ui/TextImageMedia.astro';
 import { getPageMeta } from '../data/pages-meta';
-import { alojamientoContent } from '../data/pages-content';
 import { images } from '../data/images';
+import { useI18n } from '../i18n';
 
-const meta = getPageMeta('/alojamiento');
-const { hero, intro, capacity, amenities, cta } = alojamientoContent;
-const mid = Math.ceil(amenities.length / 2);
-const col1 = amenities.slice(0, mid);
-const col2 = amenities.slice(mid);
+const { locale, copy } = useI18n(Astro);
+const meta = getPageMeta('alojamiento', locale);
+const page = copy.alojamiento as {
+  hero: { eyebrow: string; title: string; subtitle: string };
+  intro: string;
+  capacity: { title: string; items: string[] };
+  amenitiesTitle: string;
+  amenities: string[];
+  cta: { title: string; text: string };
+  alts: { interior: string; amenities: string; closing: string };
+};
+const mid = Math.ceil(page.amenities.length / 2);
+const col1 = page.amenities.slice(0, mid);
+const col2 = page.amenities.slice(mid);
 ---
 
 <ContentPage
   title={meta.title}
   description={meta.description}
-  heroTitle={hero.title}
-  heroSubtitle={hero.subtitle}
-  heroEyebrow={hero.eyebrow}
+  heroTitle={page.hero.title}
+  heroSubtitle={page.hero.subtitle}
+  heroEyebrow={page.hero.eyebrow}
   heroImage={images.hero.alojamiento}
-  ctaTitle={cta.title}
-  ctaText={cta.text}
+  ctaTitle={page.cta.title}
+  ctaText={page.cta.text}
   closingVideo={images.videos.bungalowClosing}
-  closingVideoAlt="Vistas del alojamiento rural en Los Collados de San Miguel"
+  closingVideoAlt={page.alts.closing}
   closingVideoPosition="center 58%"
 >
   <section class="page-content">
     <div class="container text-image">
       <div class="page-content__inner">
-        <p class="page-content__lead">{intro}</p>
-        <h2>{capacity.title}</h2>
+        <p class="page-content__lead">{page.intro}</p>
+        <h2>{page.capacity.title}</h2>
         <ul class="capacity-list">
-          {capacity.items.map((item) => <li>{item}</li>)}
+          {page.capacity.items.map((item) => <li>{item}</li>)}
         </ul>
       </div>
-      <TextImageMedia video={images.videos.bungalowInterior} alt="Interior de bungalow en Los Collados" />
+      <TextImageMedia video={images.videos.bungalowInterior} alt={page.alts.interior} />
     </div>
   </section>
 
   <section class="page-content page-content--alt section--alt">
     <div class="container text-image text-image--media-left">
       <div>
-        <h2 class="section__title">Servicios incluidos</h2>
+        <h2 class="section__title">{page.amenitiesTitle}</h2>
         <div class="amenities-list">
           <ul>{col1.map((item) => <li>{item}</li>)}</ul>
           <ul>{col2.map((item) => <li>{item}</li>)}</ul>
@@ -49,7 +58,7 @@ const col2 = amenities.slice(mid);
       </div>
       <TextImageMedia
         video={images.videos.bungalowAmenities}
-        alt="Detalle de alojamiento rural en Los Collados"
+        alt={page.alts.amenities}
         aspect="wide"
       />
     </div>

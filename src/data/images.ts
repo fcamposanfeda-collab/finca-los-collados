@@ -1,7 +1,7 @@
 /**
  * Catálogo de imágenes del sitio.
  * Origen principal: web actual loscolladosdesanmiguel.com (WordPress).
- * Sustituir por fotos propias de alta resolución cuando estén disponibles.
+ * Los textos alt viven en las traducciones (`images` y páginas), no aquí.
  */
 import { withBase } from '../utils/paths';
 
@@ -40,13 +40,13 @@ const imagesRaw = {
     bungalows: '/images/bungalow-interior.jpg',
     piscina: '/images/evento-jardines.jpg',
     gallery: [
-      { src: '/images/evento-jardines.jpg', alt: 'Jardines y exteriores de la finca' },
-      { src: '/images/porche-exterior.jpg', alt: 'Porche exterior de Los Collados' },
-      { src: '/images/salon-biblioteca.jpg', alt: 'Salón biblioteca con chimenea' },
-      { src: '/images/hero-finca.jpg', alt: 'Entrada principal de la finca' },
-      { src: '/images/finca-paisaje.jpg', alt: 'Paisaje y entorno de Campos de Montiel' },
-      { src: '/images/IMG_0031.JPG', alt: 'Vista de la finca y sus edificaciones' },
-      { src: '/images/IMG_0035.JPG', alt: 'Salón con vistas al olivar' },
+      '/images/evento-jardines.jpg',
+      '/images/porche-exterior.jpg',
+      '/images/salon-biblioteca.jpg',
+      '/images/hero-finca.jpg',
+      '/images/finca-paisaje.jpg',
+      '/images/IMG_0031.JPG',
+      '/images/IMG_0035.JPG',
     ],
   },
 
@@ -56,15 +56,14 @@ const imagesRaw = {
   },
 
   venue: {
-    espacios: '/images/evento-jardines.jpg',
-    completa: '/images/bungalow-detalle.jpg',
-    finSemana: '/images/venue-fin-semana-porche.png',
-    sesiones: '/images/empresas-rodaje-sesion.png',
+    'finca-espacios': '/images/evento-jardines.jpg',
+    'finca-completa': '/images/bungalow-detalle.jpg',
+    'finca-fin-semana': '/images/venue-fin-semana-porche.png',
+    'sesiones-fotograficas': '/images/empresas-rodaje-sesion.png',
   },
 
   eventos: {
     exterior: '/images/eventos-exterior-atardecer.png',
-    // azureacatering.com — galería Azurea Catering
     azurea: '/images/azurea-catering-1.jpg',
     celebracion: '/images/azurea-catering-2.jpg',
   },
@@ -74,26 +73,21 @@ const imagesRaw = {
     mancha: '/images/villanueva-infantes.jpg',
     gastronomia: '/images/gastronomia.jpg',
     deporte: '/images/bicicleta.jpg',
-    // CC BY-SA — EJGONZALEZ / Wikimedia Commons (ganadería extensiva)
     ganaderia: '/images/experiencia-ganaderia.jpg',
-    // CC BY — Wikimedia Commons (copa de vino tinto, entorno exterior)
     cataVinos: '/images/experiencia-cata-vinos.jpg',
   },
 
   entorno: {
-    'Campos de Montiel': '/images/campo-montiel.png',
-    // CC BY-SA 4.0 — 19Tarrestnom65 / Wikimedia Commons (Iglesia de San Andrés, Villamanrique)
-    Villamanrique: '/images/villamanrique-iglesia.jpg',
-    'Torre de Juan Abad y alrededores': '/images/torre-juan-abad.jpg',
-    'Villanueva de los Infantes': '/images/villanueva-infantes.jpg',
-    // CC BY 2.0 — Miguel Angel Masegosa Martínez / Wikimedia Commons (Castillo de Montizón, Villamanrique)
-    'Patrimonio íbero y ruinas': '/images/castillo-montizon.jpg',
-    'Lagunas y naturaleza': '/images/lagunas-ruidera2.jpg',
+    'campos-de-montiel': '/images/campo-montiel.png',
+    villamanrique: '/images/villamanrique-iglesia.jpg',
+    'torre-de-juan-abad': '/images/torre-juan-abad.jpg',
+    'villanueva-de-los-infantes': '/images/villanueva-infantes.jpg',
+    patrimonio: '/images/castillo-montizon.jpg',
+    lagunas: '/images/lagunas-ruidera2.jpg',
   },
 
   packs: {
     romantico: '/images/salon-biblioteca.jpg',
-    // PD — NPS / Wikimedia Commons (familia en ruta por pradera abierta)
     familiar: '/images/pack-familiar.jpg',
     gastronomia: '/images/gastronomia.jpg',
     rutas: '/images/castillo-montizon.jpg',
@@ -104,38 +98,38 @@ const imagesRaw = {
   },
 
   teasers: {
-    '/la-finca': '/images/bungalow-interior.jpg',
-    '/la-calerilla': '/images/calerilla-hero.jpg',
-    '/alojamiento': '/images/finca-bungalow-exterior.png',
-    '/gastronomia': '/images/gastronomia-tabla-quesos.png',
-    '/experiencias': '/images/bicicleta.jpg',
-    '/empresas': '/images/empresas-teambuilding-campo.png',
-    '/eventos': '/images/eventos-celebracion-campo.png',
-    '/packs': '/images/evento-jardines.jpg',
-    '/entorno': '/images/campo-montiel.png',
+    'la-finca': '/images/bungalow-interior.jpg',
+    'la-calerilla': '/images/calerilla-hero.jpg',
+    alojamiento: '/images/finca-bungalow-exterior.png',
+    gastronomia: '/images/gastronomia-tabla-quesos.png',
+    experiencias: '/images/bicicleta.jpg',
+    empresas: '/images/empresas-teambuilding-campo.png',
+    eventos: '/images/eventos-celebracion-campo.png',
+    packs: '/images/evento-jardines.jpg',
+    entorno: '/images/campo-montiel.png',
   },
 
   pillars: {
     turismo: '/images/bungalow-exterior.png',
     empresas: '/images/empresas-rodaje.png',
     eventos: '/images/evento-terraza-atardecer.png',
-    petFriendly: '/images/pet-friendly.jpg',
+    'pet-friendly': '/images/pet-friendly.jpg',
   },
 
   gastronomiaMoments: {
     mesaDetalle: '/images/gastronomia-mesa-detalle.png',
     postre: '/images/gastronomia-postre.png',
     platos: [
-      { src: '/images/gastronomia-plato-01.webp', alt: 'Alcachofas con jamón y queso gratinado' },
-      { src: '/images/gastronomia-plato-02.webp', alt: 'Carne estofada con puré de patata' },
-      { src: '/images/gastronomia-plato-03.webp', alt: 'Pimientos del piquillo rellenos' },
-      { src: '/images/gastronomia-plato-04.webp', alt: 'Ensalada con confit y queso de cabra' },
-      { src: '/images/gastronomia-plato-05.webp', alt: 'Torrija con helado y sello de la finca', objectPosition: 'center 55%' },
-      { src: '/images/gastronomia-plato-06.webp', alt: 'Flan casero con nata montada' },
-      { src: '/images/gastronomia-plato-07.webp', alt: 'Ensalada de tomate, mango y codorniz' },
-      { src: '/images/gastronomia-plato-08.webp', alt: 'Revuelto de espárragos trigueros' },
-      { src: '/images/gastronomia-plato-09.webp', alt: 'Postre de hojaldre con sello de la finca', objectPosition: '62% 40%' },
-      { src: '/images/gastronomia-plato-10.webp', alt: 'Postre de autor con crema y aceite aromatizado' },
+      { src: '/images/gastronomia-plato-01.webp' },
+      { src: '/images/gastronomia-plato-02.webp' },
+      { src: '/images/gastronomia-plato-03.webp' },
+      { src: '/images/gastronomia-plato-04.webp' },
+      { src: '/images/gastronomia-plato-05.webp', objectPosition: 'center 55%' },
+      { src: '/images/gastronomia-plato-06.webp' },
+      { src: '/images/gastronomia-plato-07.webp' },
+      { src: '/images/gastronomia-plato-08.webp' },
+      { src: '/images/gastronomia-plato-09.webp', objectPosition: '62% 40%' },
+      { src: '/images/gastronomia-plato-10.webp' },
     ],
   },
 

@@ -4,33 +4,45 @@ import ContentImage from '../components/ui/ContentImage.astro';
 import FullWidthVideo from '../components/ui/FullWidthVideo.astro';
 import GastronomiaMoments from '../components/sections/GastronomiaMoments.astro';
 import { getPageMeta } from '../data/pages-meta';
-import { gastronomiaContent } from '../data/pages-content';
 import { images } from '../data/images';
+import { useI18n } from '../i18n';
 
-const meta = getPageMeta('/gastronomia');
-const { hero, lead, subtitle, description, dishes, quote, features, moments, cta } = gastronomiaContent;
+const { locale, copy } = useI18n(Astro);
+const meta = getPageMeta('gastronomia', locale);
+const page = copy.gastronomia as {
+  hero: { eyebrow: string; title: string; subtitle: string };
+  lead: string;
+  subtitle: string;
+  description: string;
+  dishes: string;
+  quote: string;
+  features: { title: string; description: string }[];
+  moments: { videoAlt: string };
+  cta: { title: string; text: string };
+  alts: { banner: string };
+};
 ---
 
 <ContentPage
   title={meta.title}
   description={meta.description}
-  heroTitle={hero.title}
-  heroSubtitle={hero.subtitle}
-  heroEyebrow={hero.eyebrow}
+  heroTitle={page.hero.title}
+  heroSubtitle={page.hero.subtitle}
+  heroEyebrow={page.hero.eyebrow}
   heroImage={images.hero.gastronomia}
-  ctaTitle={cta.title}
-  ctaText={cta.text}
+  ctaTitle={page.cta.title}
+  ctaText={page.cta.text}
 >
   <section class="page-content">
     <div class="container page-content__inner" style="margin-inline: auto; text-align: center;">
       <div class="page-banner-image">
-        <ContentImage src={images.experiencias.gastronomia} alt="Gastronomía manchega en Los Collados" aspect="natural" />
+        <ContentImage src={images.experiencias.gastronomia} alt={page.alts.banner} aspect="natural" />
       </div>
-      <p class="page-content__lead">{lead}</p>
-      <p style="font-style: italic; color: var(--color-accent); margin-bottom: 1.5rem;">{subtitle}</p>
-      <p>{description}</p>
-      <p style="font-weight: 500; color: var(--color-text);">{dishes}</p>
-      <blockquote class="gastronomia-quote">{quote}</blockquote>
+      <p class="page-content__lead">{page.lead}</p>
+      <p style="font-style: italic; color: var(--color-accent); margin-bottom: 1.5rem;">{page.subtitle}</p>
+      <p>{page.description}</p>
+      <p style="font-weight: 500; color: var(--color-text);">{page.dishes}</p>
+      <blockquote class="gastronomia-quote">{page.quote}</blockquote>
     </div>
   </section>
 
@@ -39,7 +51,7 @@ const { hero, lead, subtitle, description, dishes, quote, features, moments, cta
   <section class="page-content page-content--alt section--alt">
     <div class="container page-content__inner page-content__inner--wide">
       <div class="feature-grid">
-        {features.map((feature) => (
+        {page.features.map((feature) => (
           <article class="feature-grid__card">
             <h3>{feature.title}</h3>
             <p>{feature.description}</p>
@@ -52,7 +64,7 @@ const { hero, lead, subtitle, description, dishes, quote, features, moments, cta
   <div class="gastronomia-video">
     <FullWidthVideo
       src={images.videos.gastronomiaMomentos}
-      alt={moments.videoAlt}
+      alt={page.moments.videoAlt}
       objectPosition="center 52%"
       playbackRate={0.45}
     />

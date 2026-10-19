@@ -4,26 +4,40 @@ import TextImageMedia from '../components/ui/TextImageMedia.astro';
 import ImageCarousel from '../components/ui/ImageCarousel.astro';
 import FullWidthVideo from '../components/ui/FullWidthVideo.astro';
 import { getPageMeta } from '../data/pages-meta';
-import { laFincaContent } from '../data/pages-content';
 import { images } from '../data/images';
-import { withBase } from '../utils/paths';
+import { useI18n } from '../i18n';
 
-const meta = getPageMeta('/la-finca');
-const { hero, blocks, features, cta } = laFincaContent;
+const { locale, copy, href } = useI18n(Astro);
+const meta = getPageMeta('la-finca', locale);
+const page = copy['la-finca'] as {
+  hero: { eyebrow: string; title: string; subtitle: string };
+  blocks: { title: string; paragraphs: string[] }[];
+  features: { title: string; description: string }[];
+  cta: { title: string; text: string };
+  calerilla: { title: string; paragraphs: string[]; button: string };
+  highlightsTitle: string;
+  alts: { culturas: string; calerilla: string; closing: string };
+};
+const galleryAlts = (copy.images as { gallery: Record<string, string> }).gallery;
+const galleryKeys = ['jardines', 'porche', 'salon', 'entrada', 'paisaje', 'edificaciones', 'olivar'] as const;
+const slides = images.laFinca.gallery.map((src, index) => ({
+  src,
+  alt: galleryAlts[galleryKeys[index]] ?? '',
+}));
 ---
 
 <ContentPage
   title={meta.title}
   description={meta.description}
-  heroTitle={hero.title}
-  heroSubtitle={hero.subtitle}
-  heroEyebrow={hero.eyebrow}
+  heroTitle={page.hero.title}
+  heroSubtitle={page.hero.subtitle}
+  heroEyebrow={page.hero.eyebrow}
   heroImage={images.hero.laFinca}
-  ctaTitle={cta.title}
-  ctaText={cta.text}
+  ctaTitle={page.cta.title}
+  ctaText={page.cta.text}
 >
   {
-    blocks.map((block, index) => (
+    page.blocks.map((block, index) => (
       <section class:list={['page-content', { 'page-content--alt section--alt': index % 2 === 1 }]}>
         <div class:list={['container text-image', { 'text-image--media-left': index === 1 }]}>
           <div class="page-content__inner">
@@ -33,7 +47,7 @@ const { hero, blocks, features, cta } = laFincaContent;
           {
             index === 1 ? (
               <div class="text-image__media">
-                <ImageCarousel slides={images.laFinca.gallery} id="la-finca-espacios" />
+                <ImageCarousel slides={slides} id="la-finca-espacios" />
               </div>
             ) : (
               <TextImageMedia
@@ -52,32 +66,25 @@ const { hero, blocks, features, cta } = laFincaContent;
   <section class="page-content page-content--alt section--alt">
     <div class="container text-image">
       <div class="page-content__inner">
-        <h2>La Calerilla</h2>
-        <p>
-          Dentro de Los Collados de San Miguel, La Calerilla es nuestra zona cinegética dedicada a la
-          tradición de la perdiz roja en mano, en un entorno natural de Campos de Montiel.
-        </p>
-        <p>
-          De octubre a febrero organizamos jornadas de caza que pueden combinarse con alojamiento en
-          bungalows y con nuestra gastronomía manchega.
-        </p>
-        <a href={withBase('/la-calerilla')} class="btn">Descubrir La Calerilla</a>
+        <h2>{page.calerilla.title}</h2>
+        {page.calerilla.paragraphs.map((p) => <p>{p}</p>)}
+        <a href={href('la-calerilla')} class="btn">{page.calerilla.button}</a>
       </div>
-      <TextImageMedia src={images.laCalerilla.campo} alt="Campo de caza en La Calerilla" />
+      <TextImageMedia src={images.laCalerilla.campo} alt={page.alts.calerilla} />
     </div>
   </section>
 
   <FullWidthVideo
     src={images.videos.fincaShowcase}
-    alt="Paisaje y entorno de La Finca Los Collados de San Miguel"
+    alt={page.alts.closing}
     objectPosition="center 42%"
   />
 
   <section class="page-content">
     <div class="container page-content__inner page-content__inner--wide">
-      <h2 class="section__title">Destacados</h2>
+      <h2 class="section__title">{page.highlightsTitle}</h2>
       <div class="feature-grid feature-grid--4">
-        {features.map((feature) => (
+        {page.features.map((feature) => (
           <article class="feature-grid__card">
             <h3>{feature.title}</h3>
             <p>{feature.description}</p>

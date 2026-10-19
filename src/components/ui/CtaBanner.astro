@@ -1,6 +1,5 @@
 ---
-import { site } from '../../data/site';
-import { withBase } from '../../utils/paths';
+import { useI18n } from '../../i18n';
 
 interface Props {
   title: string;
@@ -9,12 +8,14 @@ interface Props {
   buttonHref?: string;
 }
 
+const { href, t } = useI18n(Astro);
 const {
   title,
   text,
-  buttonLabel = 'Reservar',
-  buttonHref = site.bookingUrl,
+  buttonLabel = t('common.reserve'),
+  buttonHref = href('reservas-online'),
 } = Astro.props;
+const isExternal = buttonHref.startsWith('http') || buttonHref.startsWith('mailto:') || buttonHref.startsWith('#');
 ---
 
 <section class="cta-banner section" aria-labelledby="cta-banner-title">
@@ -24,8 +25,15 @@ const {
       <p class="cta-banner__desc">{text}</p>
     </div>
     <div class="cta-banner__actions">
-      <a href={withBase(buttonHref)} class="btn">{buttonLabel}</a>
-      <a href={withBase('/contacto')} class="btn btn--outline cta-banner__outline">Contactar</a>
+      <a
+        href={buttonHref}
+        class="btn"
+        target={isExternal && buttonHref.startsWith('http') ? '_blank' : undefined}
+        rel={isExternal && buttonHref.startsWith('http') ? 'noopener noreferrer' : undefined}
+      >
+        {buttonLabel}
+      </a>
+      <a href={href('contacto')} class="btn btn--outline cta-banner__outline">{t('common.contact')}</a>
     </div>
   </div>
 </section>
@@ -66,11 +74,13 @@ const {
   }
 
   .cta-banner__actions .btn {
-    flex: 1 1 10.5rem;
-    min-width: 10.5rem;
+    flex: 1 1 auto;
+    width: auto;
+    min-width: min-content;
     min-height: 3rem;
-    padding-inline: 1.25rem;
+    padding-inline: 1.35rem;
     text-align: center;
+    white-space: nowrap;
   }
 
   .cta-banner__outline {
@@ -90,8 +100,9 @@ const {
     }
 
     .cta-banner__actions .btn {
-      flex: 0 0 10.5rem;
-      width: 10.5rem;
+      flex: 0 0 auto;
+      width: auto;
+      min-width: min-content;
     }
   }
 </style>

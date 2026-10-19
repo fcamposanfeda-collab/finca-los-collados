@@ -1,9 +1,24 @@
 ---
-import { eventosContent } from '../../data/pages-content';
 import { images } from '../../data/images';
 import ContentImage from '../ui/ContentImage.astro';
+import { useI18n } from '../../i18n';
 
-const { azurea } = eventosContent;
+const { copy } = useI18n(Astro);
+const azurea = copy.eventos.azurea as {
+  eyebrow: string;
+  title: string;
+  paragraphs: string[];
+  websiteLabel: string;
+  services: string[];
+  alts: { staff: string; presentation: string };
+};
+const azureaContact = {
+  website: 'https://azureacatering.com/',
+  instagram: 'https://www.instagram.com/azurea_catering/',
+  instagramLabel: '@azurea_catering',
+  email: 'azureacatering@gmail.com',
+  phone: '+34 635 197 898',
+};
 ---
 
 <section class="azurea section" aria-labelledby="azurea-title">
@@ -12,12 +27,12 @@ const { azurea } = eventosContent;
       <div class="azurea__media">
         <ContentImage
           src={images.eventos.azurea}
-          alt="Personal de Azurea Catering sirviendo en evento"
+          alt={azurea.alts.staff}
           aspect="landscape"
         />
         <ContentImage
           src={images.eventos.celebracion}
-          alt="Presentación gastronómica de Azurea Catering"
+          alt={azurea.alts.presentation}
           aspect="landscape"
           class="azurea__media-secondary"
         />
@@ -35,15 +50,15 @@ const { azurea } = eventosContent;
         </ul>
 
         <div class="azurea__contact">
-          <a href={`mailto:${azurea.email}`} class="azurea__contact-link">{azurea.email}</a>
-          <a href={`tel:${azurea.phone.replace(/\s/g, '')}`} class="azurea__contact-link">
-            {azurea.phone}
+          <a href={`mailto:${azureaContact.email}`} class="azurea__contact-link">{azureaContact.email}</a>
+          <a href={`tel:${azureaContact.phone.replace(/\s/g, '')}`} class="azurea__contact-link">
+            {azureaContact.phone}
           </a>
         </div>
 
         <div class="azurea__actions">
           <a
-            href={azurea.website}
+            href={azureaContact.website}
             class="btn"
             target="_blank"
             rel="noopener noreferrer"
@@ -51,12 +66,12 @@ const { azurea } = eventosContent;
             {azurea.websiteLabel}
           </a>
           <a
-            href={azurea.instagram}
+            href={azureaContact.instagram}
             class="btn btn--outline"
             target="_blank"
             rel="noopener noreferrer"
           >
-            {azurea.instagramLabel}
+            {azureaContact.instagramLabel}
           </a>
         </div>
       </div>
