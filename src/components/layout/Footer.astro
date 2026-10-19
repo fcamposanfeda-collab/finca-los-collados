@@ -2,50 +2,58 @@
 import { site } from '../../data/site';
 import { legalNav, footerNav } from '../../data/navigation';
 import { contact } from '../../data/contact';
-import { withBase } from '../../utils/paths';
+import { mailtoInquiryHref } from '../../data/forms';
+import { useI18n } from '../../i18n';
+import LanguageSwitcher from '../i18n/LanguageSwitcher.astro';
+
+const { locale, href, t, copy } = useI18n(Astro);
+const navLabels = copy.nav as Record<string, string>;
+const footerCopy = copy.footer as Record<string, string>;
+const common = copy.common as { copyright: string; country: string; phoneDisplay: string; phoneAltDisplay: string };
+const cityLine = common.country ? `${contact.city}, ${common.country}` : contact.city;
 ---
 
-<footer class="footer" aria-label="Pie de página">
+<footer class="footer" aria-label={footerCopy.aria}>
   <div class="footer__main container">
     <div class="footer__col">
       <h2 class="footer__title">{site.name}</h2>
-      <p class="footer__tagline">{site.tagline}</p>
+      <p class="footer__tagline">{t('common.tagline')}</p>
       <address class="footer__address">
         {contact.address}<br />
-        {contact.city}
+        {cityLine}
       </address>
       <div class="footer__contact">
-        <h2 class="footer__title">Contacto</h2>
+        <h2 class="footer__title">{footerCopy.contact}</h2>
         <p>
-          <a href={`tel:${contact.phone}`}>{contact.phoneDisplay}</a>
+          <a href={`tel:${contact.phone}`}>{common.phoneDisplay}</a>
         </p>
         <p>
-          <a href={`tel:${contact.phoneAlt}`}>{contact.phoneAltDisplay}</a>
+          <a href={`tel:${contact.phoneAlt}`}>{common.phoneAltDisplay}</a>
         </p>
         <p>
-          <a href={`mailto:${contact.email}?subject=${encodeURIComponent('Consulta desde la web')}`}>{contact.email}</a>
+          <a href={mailtoInquiryHref(locale)}>{contact.email}</a>
         </p>
       </div>
       <div class="footer__social-block">
-        <h2 class="footer__title">Síguenos</h2>
+        <h2 class="footer__title">{footerCopy.follow}</h2>
         <div class="footer__social">
-          <a href={contact.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            Facebook
+          <a href={contact.facebook} target="_blank" rel="noopener noreferrer" aria-label={t('common.facebook')}>
+            {t('common.facebook')}
           </a>
-          <a href={contact.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            Instagram
+          <a href={contact.instagram} target="_blank" rel="noopener noreferrer" aria-label={t('common.instagram')}>
+            {t('common.instagram')}
           </a>
         </div>
       </div>
     </div>
 
     <div class="footer__col">
-      <h2 class="footer__title">Explorar</h2>
-      <nav aria-label="Mapa del sitio">
+      <h2 class="footer__title">{footerCopy.explore}</h2>
+      <nav aria-label={footerCopy.sitemap}>
         <ul class="footer__sitemap">
           {footerNav.map((item) => (
             <li>
-              <a href={withBase(item.href)}>{item.label}</a>
+              <a href={href(item)}>{navLabels[item]}</a>
             </li>
           ))}
         </ul>
@@ -55,13 +63,22 @@ import { withBase } from '../../utils/paths';
   </div>
 
   <div class="footer__bottom container">
-    <p class="footer__copyright">{site.copyright}</p>
-    <nav class="footer__legal" aria-label="Enlaces legales">
+    <p class="footer__copyright">{common.copyright}</p>
+    <LanguageSwitcher />
+    <nav class="footer__legal" aria-label={footerCopy.legal}>
       <ul class="footer__legal-list">
         {
           legalNav.map((item) => (
             <li>
-              <a href={withBase(item.href)}>{item.label}</a>
+              <a href={href(item)}>{footerCopy[
+                item === 'politica-de-privacidad'
+                  ? 'privacy'
+                  : item === 'aviso-legal'
+                    ? 'legalNotice'
+                    : item === 'politica-de-cookies'
+                      ? 'cookies'
+                      : 'bookingPolicy'
+              ]}</a>
             </li>
           ))
         }
@@ -167,6 +184,20 @@ import { withBase } from '../../utils/paths';
     font-size: 0.875rem;
   }
 
+  .footer :global(.language-switcher__link) {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .footer :global(.language-switcher__link:hover),
+  .footer :global(.language-switcher__link.is-active),
+  .footer :global(.language-switcher__link[aria-current='page']) {
+    color: var(--color-accent);
+  }
+
+  .footer :global(.language-switcher__sep) {
+    color: rgba(255, 255, 255, 0.45);
+  }
+
   @media (min-width: 768px) {
     .footer__main {
       grid-template-columns: repeat(2, 1fr);
@@ -177,6 +208,7 @@ import { withBase } from '../../utils/paths';
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
     }
   }
 </style>

@@ -1,0 +1,95 @@
+---
+import { locales, localeMeta, useI18n } from '../../i18n';
+
+const { locale, pageKey, href, t } = useI18n(Astro);
+---
+
+<nav class="language-switcher" aria-label={t('common.languageSwitcher')}>
+  <ul class="language-switcher__list">
+    {
+      locales.map((item, index) => {
+        const meta = localeMeta[item];
+        const current = item === locale;
+        return (
+          <>
+            {index > 0 && (
+              <li class="language-switcher__sep" aria-hidden="true">
+                ·
+              </li>
+            )}
+            <li>
+              <a
+                href={href(pageKey, item)}
+                lang={meta.htmlLang}
+                hreflang={meta.htmlLang}
+                aria-current={current ? 'page' : undefined}
+                aria-label={meta.nativeName}
+                data-locale={item}
+                class:list={['language-switcher__link', { 'is-active': current }]}
+              >
+                {meta.short}
+              </a>
+            </li>
+          </>
+        );
+      })
+    }
+  </ul>
+</nav>
+
+<script>
+  document.querySelectorAll('[data-locale]').forEach((link) => {
+    link.addEventListener('click', () => {
+      const next = link.getAttribute('data-locale');
+      if (!next) return;
+      try {
+        localStorage.setItem('locale', next);
+        document.cookie = `locale=${next};path=/;max-age=31536000;SameSite=Lax`;
+      } catch {
+        /* ignore private mode */
+      }
+    });
+  });
+</script>
+
+<style>
+  .language-switcher {
+    flex-shrink: 0;
+  }
+
+  .language-switcher__list {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+  }
+
+  .language-switcher__sep {
+    color: var(--color-muted);
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .language-switcher__link {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--color-text);
+    padding: 0.25rem 0.1rem;
+    transition: color var(--transition-fast);
+  }
+
+  .language-switcher__link:hover,
+  .language-switcher__link.is-active,
+  .language-switcher__link[aria-current='page'] {
+    color: #4a6741;
+  }
+
+  .language-switcher__link[aria-current='page'] {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+</style>

@@ -3,14 +3,16 @@ import { mainNav } from '../../data/navigation';
 import { site } from '../../data/site';
 import { images } from '../../data/images';
 import { isActiveNav, isActiveNavItem } from '../../utils/nav';
-import { withBase } from '../../utils/paths';
+import { useI18n } from '../../i18n';
+import LanguageSwitcher from '../i18n/LanguageSwitcher.astro';
 
-const currentPath = Astro.url.pathname;
+const { locale, pageKey, href, t, copy } = useI18n(Astro);
+const navLabels = copy.nav as Record<string, string>;
 ---
 
 <header class="site-header">
   <div class="container site-header__inner">
-    <a href={withBase('/')} class="site-header__brand" aria-label={`${site.name} — Inicio`}>
+    <a href={href('home')} class="site-header__brand" aria-label={t('common.homeAria', { name: site.name })}>
       <img
         src={images.brand.header}
         alt={site.name}
@@ -24,13 +26,15 @@ const currentPath = Astro.url.pathname;
       class="site-header__toggle"
       aria-expanded="false"
       aria-controls="main-navigation"
-      aria-label="Abrir menú"
+      aria-label={t('common.menuOpen')}
       data-nav-toggle
+      data-label-open={t('common.menuOpen')}
+      data-label-close={t('common.menuClose')}
     >
       <span></span><span></span><span></span>
     </button>
 
-    <nav id="main-navigation" class="site-header__nav" aria-label="Navegación principal" data-nav-menu>
+    <nav id="main-navigation" class="site-header__nav" aria-label={t('common.mainNavAria')} data-nav-menu>
       <ul class="site-header__list">
         {
           mainNav.map((item) =>
@@ -38,19 +42,19 @@ const currentPath = Astro.url.pathname;
               <li class="site-header__item site-header__item--has-submenu">
                 <div class="site-header__parent">
                   <a
-                    href={withBase(item.href)}
+                    href={href(item.pageKey)}
                     class:list={[
                       'site-header__link',
-                      { 'is-active': isActiveNavItem(item, currentPath) },
+                      { 'is-active': isActiveNavItem(item, pageKey) },
                     ]}
                   >
-                    {item.label}
+                    {navLabels[item.pageKey]}
                   </a>
                   <button
                     type="button"
                     class="site-header__submenu-toggle"
                     aria-expanded="false"
-                    aria-label={`Mostrar secciones de ${item.label}`}
+                    aria-label={t('common.showSections', { label: navLabels[item.pageKey] })}
                     data-submenu-toggle
                   >
                     <span aria-hidden="true"></span>
@@ -61,13 +65,13 @@ const currentPath = Astro.url.pathname;
                     item.children.map((child) => (
                       <li>
                         <a
-                          href={withBase(child.href)}
+                          href={href(child)}
                           class:list={[
                             'site-header__sublink',
-                            { 'is-active': isActiveNav(child.href, currentPath) },
+                            { 'is-active': isActiveNav(child, pageKey) },
                           ]}
                         >
-                          {child.label}
+                          {navLabels[child]}
                         </a>
                       </li>
                     ))
@@ -77,20 +81,21 @@ const currentPath = Astro.url.pathname;
             ) : (
               <li>
                 <a
-                  href={withBase(item.href)}
+                  href={href(item.pageKey)}
                   class:list={[
                     'site-header__link',
-                    { 'is-active': isActiveNav(item.href, currentPath) },
+                    { 'is-active': isActiveNav(item.pageKey, pageKey) },
                   ]}
                 >
-                  {item.label}
+                  {navLabels[item.pageKey]}
                 </a>
               </li>
             ),
           )
         }
       </ul>
-      <a href={withBase(site.bookingUrl)} class="btn site-header__cta">Reservas</a>
+      <LanguageSwitcher />
+      <a href={href('reservas-online')} class="btn site-header__cta">{t('common.bookings')}</a>
     </nav>
   </div>
 </header>
@@ -98,11 +103,13 @@ const currentPath = Astro.url.pathname;
 <script>
   const toggle = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');
   const menu = document.querySelector<HTMLElement>('[data-nav-menu]');
+  const labelOpen = toggle?.dataset.labelOpen ?? 'Abrir menú';
+  const labelClose = toggle?.dataset.labelClose ?? 'Cerrar menú';
 
   toggle?.addEventListener('click', () => {
     const isOpen = toggle.getAttribute('aria-expanded') === 'true';
     toggle.setAttribute('aria-expanded', String(!isOpen));
-    toggle.setAttribute('aria-label', isOpen ? 'Abrir menú' : 'Cerrar menú');
+    toggle.setAttribute('aria-label', isOpen ? labelOpen : labelClose);
     menu?.classList.toggle('is-open', !isOpen);
     document.body.classList.toggle('nav-open', !isOpen);
   });
@@ -110,7 +117,7 @@ const currentPath = Astro.url.pathname;
   menu?.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
       toggle?.setAttribute('aria-expanded', 'false');
-      toggle?.setAttribute('aria-label', 'Abrir menú');
+      toggle?.setAttribute('aria-label', labelOpen);
       menu?.classList.remove('is-open');
       document.body.classList.remove('nav-open');
     });
@@ -153,7 +160,7 @@ const currentPath = Astro.url.pathname;
     align-items: center;
     justify-content: space-between;
     height: 100%;
-    gap: 1rem;
+    gap: 0.75rem;
   }
 
   .site-header__brand {
@@ -195,13 +202,13 @@ const currentPath = Astro.url.pathname;
   .site-header__nav {
     display: none;
     align-items: center;
-    gap: 1.5rem;
+    gap: 0.75rem;
   }
 
   .site-header__list {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.25rem 1.25rem;
+    flex-wrap: nowrap;
+    gap: 0.2rem 0.7rem;
     align-items: center;
   }
 
@@ -219,6 +226,7 @@ const currentPath = Astro.url.pathname;
     font-size: 0.9375rem;
     font-weight: 500;
     color: var(--color-text);
+    white-space: nowrap;
     transition: color var(--transition-fast);
   }
 
@@ -262,6 +270,7 @@ const currentPath = Astro.url.pathname;
     font-size: 0.875rem;
     font-weight: 500;
     color: var(--color-text);
+    white-space: nowrap;
     transition: color var(--transition-fast);
   }
 
@@ -271,8 +280,10 @@ const currentPath = Astro.url.pathname;
   }
 
   .site-header__cta {
-    padding: 0.625rem 1.25rem;
+    padding: 0.625rem 1rem;
     font-size: 0.8125rem;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   @media (min-width: 1024px) {
@@ -345,6 +356,7 @@ const currentPath = Astro.url.pathname;
       display: block;
       flex: 1;
       padding: 0.875rem 0;
+      white-space: normal;
     }
 
     .site-header__item--has-submenu .site-header__parent {
@@ -371,11 +383,19 @@ const currentPath = Astro.url.pathname;
     .site-header__sublink {
       padding: 0.625rem 0;
       border-bottom: 1px solid var(--color-border);
+      white-space: normal;
     }
 
     .site-header__cta {
       margin-top: 1rem;
       width: 100%;
+    }
+
+    .site-header__nav :global(.language-switcher) {
+      order: -1;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--color-border);
     }
   }
 
