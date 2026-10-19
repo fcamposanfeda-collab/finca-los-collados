@@ -1,28 +1,46 @@
 ---
-import { booking, buildWhatsAppUrl } from '../../data/booking';
+import { booking, buildWhatsAppUrl, bookingComPropertyUrl } from '../../data/booking';
 import { contact } from '../../data/contact';
+import { useI18n } from '../../i18n';
+
+const { locale, copy } = useI18n(Astro);
+const alt = copy.booking.alternatives as {
+  title: string;
+  bookingTitle: string;
+  bookingText: string;
+  bookingLink: string;
+  whatsappTitle: string;
+  whatsappText: string;
+  whatsappButton: string;
+  phoneTitle: string;
+  phoneText: string;
+};
+const common = copy.common as { phoneDisplay: string; phoneAltDisplay: string };
+const bookingUrl = bookingComPropertyUrl(locale);
+const [bookingBefore, bookingAfter] = alt.bookingText.split('{link}');
 ---
 
 <section class="booking-alternatives section" aria-labelledby="booking-alt-title">
   <div class="container">
-    <h2 id="booking-alt-title" class="section__title">Reservar también por</h2>
+    <h2 id="booking-alt-title" class="section__title">{alt.title}</h2>
 
     <div class="booking-alternatives__grid">
       {
         booking.bookingCom.enabled && (
           <article class="booking-alternatives__card">
-            <h3>Booking.com</h3>
+            <h3>{alt.bookingTitle}</h3>
             <p>
-              Reserva alojamiento con disponibilidad y pago seguro en nuestra
-              <a href={booking.bookingCom.propertyUrl} target="_blank" rel="noopener noreferrer">ficha oficial</a>.
+              {bookingBefore}
+              <a href={bookingUrl} target="_blank" rel="noopener noreferrer">{alt.bookingLink}</a>
+              {bookingAfter}
             </p>
             <a
-              href={booking.bookingCom.propertyUrl}
+              href={bookingUrl}
               class="btn btn--outline"
               target="_blank"
               rel="noopener noreferrer"
             >
-              {booking.bookingCom.label}
+              {(copy.booking as { bookingComLabel: string }).bookingComLabel}
             </a>
           </article>
         )
@@ -31,26 +49,26 @@ import { contact } from '../../data/contact';
       {
         booking.whatsapp.enabled && (
           <article class="booking-alternatives__card">
-            <h3>WhatsApp</h3>
-            <p>Packs, eventos, empresas o reservar varios bungalows. Le respondemos lo antes posible.</p>
+            <h3>{alt.whatsappTitle}</h3>
+            <p>{alt.whatsappText}</p>
             <a
-              href={buildWhatsAppUrl({})}
+              href={buildWhatsAppUrl({}, locale)}
               class="btn btn--outline"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Escribir por WhatsApp
+              {alt.whatsappButton}
             </a>
           </article>
         )
       }
 
       <article class="booking-alternatives__card">
-        <h3>Teléfono</h3>
-        <p>Llámenos para reservas, grupos, empresas o eventos.</p>
+        <h3>{alt.phoneTitle}</h3>
+        <p>{alt.phoneText}</p>
         <p class="booking-alternatives__phones">
-          <a href={`tel:${contact.phone}`}>{contact.phoneDisplay}</a>
-          <a href={`tel:${contact.phoneAlt}`}>{contact.phoneAltDisplay}</a>
+          <a href={`tel:${contact.phone}`}>{common.phoneDisplay}</a>
+          <a href={`tel:${contact.phoneAlt}`}>{common.phoneAltDisplay}</a>
         </p>
       </article>
     </div>

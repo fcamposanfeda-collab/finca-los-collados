@@ -1,11 +1,14 @@
 ---
-import { booking } from '../../data/booking';
+import { useI18n } from '../../i18n';
+
+const { copy } = useI18n(Astro);
+const sync = copy.booking.sync as { title: string; paragraphs: string[] };
 ---
 
 <section class="booking-sync section section--alt" aria-labelledby="booking-sync-title">
   <div class="container booking-sync__inner">
-    <h2 id="booking-sync-title">{booking.sync.title}</h2>
-    {booking.sync.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+    <h2 id="booking-sync-title">{sync.title}</h2>
+    {sync.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
   </div>
 </section>
 

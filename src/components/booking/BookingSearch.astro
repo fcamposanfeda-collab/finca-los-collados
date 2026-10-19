@@ -1,31 +1,49 @@
 ---
 import { booking, isWidgetConfigured } from '../../data/booking';
+import { localeMeta, useI18n } from '../../i18n';
 
+const { locale, copy } = useI18n(Astro);
+const search = copy.booking.search as {
+  title: string;
+  intro: string;
+  checkIn: string;
+  checkOut: string;
+  adults: string;
+  searchWidget: string;
+  searchBooking: string;
+  searchWhatsapp: string;
+  dateError: string;
+  widgetSent: string;
+};
+const bookingCopy = copy.booking as {
+  whatsappDefault: string;
+  whatsappCheckIn: string;
+  whatsappCheckOut: string;
+  whatsappAdults: string;
+};
 const today = new Date().toISOString().slice(0, 10);
+const htmlLang = localeMeta[locale].htmlLang;
 ---
 
 <section class="booking-search section" aria-labelledby="booking-search-title">
   <div class="container booking-search__inner">
     <div class="booking-search__intro">
-      <h2 id="booking-search-title">Buscar disponibilidad</h2>
-      <p>
-        Seleccione fechas y adultos (máx. 16 en 8 bungalows). El buscador abre vuestra ficha en
-        Booking.com con las fechas ya rellenadas, o WhatsApp para consultas personalizadas.
-      </p>
+      <h2 id="booking-search-title">{search.title}</h2>
+      <p>{search.intro}</p>
     </div>
 
     <form class="booking-search__form" data-booking-search novalidate>
       <div class="booking-search__fields">
         <div class="booking-search__field">
-          <label for="check-in">Entrada</label>
-          <input id="check-in" name="checkIn" type="date" min={today} required />
+          <label for="check-in">{search.checkIn}</label>
+          <input id="check-in" name="checkIn" type="date" min={today} required lang={htmlLang} />
         </div>
         <div class="booking-search__field">
-          <label for="check-out">Salida</label>
-          <input id="check-out" name="checkOut" type="date" min={today} required />
+          <label for="check-out">{search.checkOut}</label>
+          <input id="check-out" name="checkOut" type="date" min={today} required lang={htmlLang} />
         </div>
         <div class="booking-search__field">
-          <label for="adults">Adultos</label>
+          <label for="adults">{search.adults}</label>
           <select id="adults" name="adults" required>
             {
               Array.from({ length: 16 }, (_, i) => i + 1).map((n) => (
@@ -42,16 +60,16 @@ const today = new Date().toISOString().slice(0, 10);
         {
           isWidgetConfigured() ? (
             <button type="submit" class="btn" data-action="widget">
-              Buscar en motor directo
+              {search.searchWidget}
             </button>
           ) : (
             <button type="submit" class="btn" data-action="booking-com">
-              Buscar en Booking.com
+              {search.searchBooking}
             </button>
           )
         }
         <button type="submit" class="btn btn--outline" data-action="whatsapp">
-          Consultar por WhatsApp
+          {search.searchWhatsapp}
         </button>
       </div>
 
@@ -60,7 +78,20 @@ const today = new Date().toISOString().slice(0, 10);
   </div>
 </section>
 
-<script define:vars={{ bookingComBase: booking.bookingCom.propertyUrl, whatsappPhone: booking.whatsapp.phone, widgetConfigured: isWidgetConfigured(), roomCount: booking.accommodation.roomCount, maxAdultsPerRoom: booking.accommodation.maxAdultsPerRoom }}>
+<script define:vars={{
+  bookingComBase: booking.bookingCom.propertyUrl,
+  bookingLang: localeMeta[locale].bookingLang,
+  whatsappPhone: booking.whatsapp.phone,
+  widgetConfigured: isWidgetConfigured(),
+  roomCount: booking.accommodation.roomCount,
+  maxAdultsPerRoom: booking.accommodation.maxAdultsPerRoom,
+  dateError: search.dateError,
+  widgetSent: search.widgetSent,
+  whatsappDefault: bookingCopy.whatsappDefault,
+  whatsappCheckIn: bookingCopy.whatsappCheckIn,
+  whatsappCheckOut: bookingCopy.whatsappCheckOut,
+  whatsappAdults: bookingCopy.whatsappAdults,
+}}>
   const form = document.querySelector('[data-booking-search]');
   const messageEl = document.querySelector('[data-booking-message]');
   const checkInInput = document.querySelector('#check-in');
@@ -75,8 +106,19 @@ const today = new Date().toISOString().slice(0, 10);
     }
   });
 
-  function buildBookingComUrl(params) {
+  function interpolate(template, vars) {
+    return template.replace(/\{(\w+)\}/g, (_, name) => vars[name] ?? `{${name}}`);
+  }
+
+  function bookingComBaseUrl() {
     const url = new URL(bookingComBase);
+    url.pathname = url.pathname.replace(/\.(es|en-gb|en|fr)\.html$/i, '.html');
+    return url;
+  }
+
+  function buildBookingComUrl(params) {
+    const url = bookingComBaseUrl();
+    url.searchParams.set('lang', bookingLang);
     if (params.checkIn) url.searchParams.set('checkin', params.checkIn);
     if (params.checkOut) url.searchParams.set('checkout', params.checkOut);
     if (params.adults > 0) {
@@ -89,10 +131,10 @@ const today = new Date().toISOString().slice(0, 10);
 
   function buildWhatsAppUrl(params) {
     const lines = [
-      'Hola, me gustaría consultar disponibilidad en Finca Los Collados de San Miguel.',
-      params.checkIn && params.checkOut ? `Entrada: ${params.checkIn}` : '',
-      params.checkIn && params.checkOut ? `Salida: ${params.checkOut}` : '',
-      params.adults ? `Adultos: ${params.adults}` : '',
+      whatsappDefault,
+      params.checkIn && params.checkOut ? interpolate(whatsappCheckIn, { date: params.checkIn }) : '',
+      params.checkIn && params.checkOut ? interpolate(whatsappCheckOut, { date: params.checkOut }) : '',
+      params.adults ? interpolate(whatsappAdults, { count: params.adults }) : '',
     ].filter(Boolean);
     return `https://wa.me/${whatsappPhone}?text=${encodeURIComponent(lines.join('\n'))}`;
   }
@@ -118,7 +160,7 @@ const today = new Date().toISOString().slice(0, 10);
     if (params.checkOut <= params.checkIn) {
       if (messageEl) {
         messageEl.hidden = false;
-        messageEl.textContent = 'La fecha de salida debe ser posterior a la de entrada.';
+        messageEl.textContent = dateError;
       }
       return;
     }
@@ -141,7 +183,7 @@ const today = new Date().toISOString().slice(0, 10);
       window.dispatchEvent(new CustomEvent('booking:search', { detail: params }));
       if (messageEl) {
         messageEl.hidden = false;
-        messageEl.textContent = 'Búsqueda enviada al motor de reservas. Revise el calendario inferior.';
+        messageEl.textContent = widgetSent;
       }
       document.querySelector('[data-booking-widget]')?.scrollIntoView({ behavior: 'smooth' });
     }
@@ -194,6 +236,13 @@ const today = new Date().toISOString().slice(0, 10);
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+  }
+
+  .booking-search__actions .btn {
+    width: auto;
+    min-width: min-content;
+    white-space: nowrap;
+    padding-inline: 1.35rem;
   }
 
   .booking-search__note {

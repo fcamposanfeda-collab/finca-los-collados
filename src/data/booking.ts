@@ -1,17 +1,6 @@
 import { contact } from './contact';
+import { defaultLocale, localeMeta, msg, t, type Locale } from '../i18n';
 
-/**
- * Configuración del motor de reservas.
- *
- * La web en Hostinger es estática (HTML). El calendario, pagos y sincronización
- * con Booking.com los gestiona un proveedor externo (Smoobu, Beds24, Lodgify…).
- * Aquí solo embebemos su widget o redirigimos con fechas.
- *
- * Variables de entorno (crear .env en la raíz del proyecto):
- *   PUBLIC_BOOKING_IFRAME_URL   → URL del iframe del channel manager
- *   PUBLIC_BOOKING_SCRIPT_URL     → URL del script del widget (si aplica)
- *   PUBLIC_BOOKING_COM_URL        → URL directa de vuestra ficha en Booking.com
- */
 const env = import.meta.env;
 
 export type BookingProvider = 'iframe' | 'script' | 'redirect' | 'contact';
@@ -23,6 +12,9 @@ function resolveProvider(): BookingProvider {
   return 'contact';
 }
 
+const DEFAULT_BOOKING_URL =
+  'https://www.booking.com/hotel/es/finca-los-collados-de-san-miguel-villamanrique-ciudad-real.html';
+
 export const booking = {
   provider: resolveProvider(),
 
@@ -30,22 +22,13 @@ export const booking = {
     iframeUrl: env.PUBLIC_BOOKING_IFRAME_URL ?? '',
     scriptUrl: env.PUBLIC_BOOKING_SCRIPT_URL ?? '',
     iframeHeight: '900px',
-    iframeTitle: 'Motor de reservas — Finca Los Collados de San Miguel',
   },
 
   bookingCom: {
     enabled: true,
-    /**
-     * Ficha en Booking.com (confirmar con el cliente si cambia).
-     * @see https://www.booking.com/hotel/es/finca-los-collados-de-san-miguel-villamanrique-ciudad-real.es.html
-     */
-    propertyUrl:
-      env.PUBLIC_BOOKING_COM_URL ??
-      'https://www.booking.com/hotel/es/finca-los-collados-de-san-miguel-villamanrique-ciudad-real.es.html',
-    label: 'Reservar en Booking.com',
+    propertyUrl: env.PUBLIC_BOOKING_COM_URL ?? DEFAULT_BOOKING_URL,
   },
 
-  /** 8 bungalows publicados como habitaciones en Booking.com (máx. 16 adultos) */
   accommodation: {
     roomCount: 8,
     maxAdults: 16,
@@ -55,24 +38,6 @@ export const booking = {
   whatsapp: {
     enabled: true,
     phone: contact.phone.replace('+', ''),
-    defaultMessage:
-      'Hola, me gustaría consultar disponibilidad en Finca Los Collados de San Miguel.',
-  },
-
-  sync: {
-    title: 'Cómo gestionamos las reservas',
-    paragraphs: [
-      'Las reservas online se canalizan por Booking.com (con pago seguro en la plataforma) o por WhatsApp y teléfono para packs, eventos, empresas y consultas personalizadas.',
-      'Antes de confirmar por WhatsApp una estancia con alojamiento, comprobamos siempre la disponibilidad en el calendario de Booking.com y bloqueamos las fechas manualmente en el extranet para evitar solapamientos.',
-      'Para grupos, eventos o reservas de varios bungalows, WhatsApp suele ser la vía más ágil: os asesoramos y os indicamos el mejor modo de formalizar la reserva.',
-    ],
-  },
-
-  page: {
-    heroTitle: 'Reservas online',
-    heroSubtitle:
-      'Reserve en Booking.com con disponibilidad al instante, o escríbanos por WhatsApp para packs, eventos y estancias a medida.',
-    heroEyebrow: 'Booking.com · WhatsApp · Teléfono',
   },
 } as const;
 
@@ -82,9 +47,18 @@ export type BookingSearchParams = {
   adults: number;
 };
 
-export function buildBookingComUrl({ checkIn, checkOut, adults }: BookingSearchParams): string {
-  const base = booking.bookingCom.propertyUrl;
-  const url = new URL(base);
+function bookingComBaseUrl(): URL {
+  const url = new URL(booking.bookingCom.propertyUrl);
+  url.pathname = url.pathname.replace(/\.(es|en-gb|en|fr)\.html$/i, '.html');
+  return url;
+}
+
+export function buildBookingComUrl(
+  { checkIn, checkOut, adults }: BookingSearchParams,
+  locale: Locale = defaultLocale,
+): string {
+  const url = bookingComBaseUrl();
+  url.searchParams.set('lang', localeMeta[locale].bookingLang);
 
   if (checkIn) url.searchParams.set('checkin', checkIn);
   if (checkOut) url.searchParams.set('checkout', checkOut);
@@ -100,12 +74,28 @@ export function buildBookingComUrl({ checkIn, checkOut, adults }: BookingSearchP
   return url.toString();
 }
 
-export function buildWhatsAppUrl({ checkIn, checkOut, adults }: Partial<BookingSearchParams>): string {
+export function bookingComPropertyUrl(locale: Locale = defaultLocale): string {
+  const url = bookingComBaseUrl();
+  url.searchParams.set('lang', localeMeta[locale].bookingLang);
+  return url.toString();
+}
+
+export function buildWhatsAppUrl(
+  { checkIn, checkOut, adults }: Partial<BookingSearchParams>,
+  locale: Locale = defaultLocale,
+): string {
+  const copy = msg(locale).booking as {
+    whatsappDefault: string;
+    whatsappCheckIn: string;
+    whatsappCheckOut: string;
+    whatsappAdults: string;
+  };
+
   const lines = [
-    booking.whatsapp.defaultMessage,
-    checkIn && checkOut ? `Entrada: ${checkIn}` : '',
-    checkIn && checkOut ? `Salida: ${checkOut}` : '',
-    adults ? `Adultos: ${adults}` : '',
+    copy.whatsappDefault,
+    checkIn && checkOut ? t(locale, 'booking.whatsappCheckIn', { date: checkIn }) : '',
+    checkIn && checkOut ? t(locale, 'booking.whatsappCheckOut', { date: checkOut }) : '',
+    adults ? t(locale, 'booking.whatsappAdults', { count: adults }) : '',
   ].filter(Boolean);
 
   const text = encodeURIComponent(lines.join('\n'));

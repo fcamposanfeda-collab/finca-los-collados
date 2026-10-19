@@ -1,8 +1,8 @@
 ---
-import { inquirySubjects } from '../../data/venue-packages';
-import { forms, isEmailFormConfigured } from '../../data/forms';
+import { inquiryOptions, isEmailFormConfigured, spanishSubjectLabel } from '../../data/forms';
+import { forms } from '../../data/forms';
 import { contact } from '../../data/contact';
-import { withBase } from '../../utils/paths';
+import { localeMeta, localizePath, msg, useI18n } from '../../i18n';
 
 interface Props {
   title?: string;
@@ -14,9 +14,29 @@ interface Props {
   formId?: string;
 }
 
+const { locale, copy, t } = useI18n(Astro);
+const formCopy = copy.forms as {
+  title: string;
+  intro: string;
+  name: string;
+  email: string;
+  phone: string;
+  subject: string;
+  checkIn: string;
+  checkOut: string;
+  guests: string;
+  message: string;
+  submit: string;
+  sending: string;
+  sendError: string;
+  configuredNote: string;
+  defaultSubject: string;
+  emailLabels: Record<string, string>;
+};
+
 const {
-  title = 'Escríbanos',
-  intro = 'Le respondemos por email lo antes posible. Para urgencias, use WhatsApp o teléfono.',
+  title = formCopy.title,
+  intro = formCopy.intro,
   showPhone = true,
   showDates = false,
   showGuests = false,
@@ -26,7 +46,12 @@ const {
 
 const idPrefix = formId;
 const configured = isEmailFormConfigured();
-const successUrl = withBase('/solicitud-enviada');
+const successUrl = localizePath('solicitud-enviada', locale);
+const options = inquiryOptions(locale);
+const languageField = localeMeta[locale].languageField;
+const showAdminNote = import.meta.env.DEV && !configured;
+const mailtoSubject = t('common.mailtoSubject');
+const spanishEmailLabels = (msg('es').forms as { emailLabels: Record<string, string> }).emailLabels;
 ---
 
 <section class="contact-form section" aria-labelledby={`${idPrefix}-form-title`}>
@@ -34,30 +59,31 @@ const successUrl = withBase('/solicitud-enviada');
     {title && <h2 id={`${idPrefix}-form-title`} class="section__title">{title}</h2>}
     {intro && <p class="contact-form__intro">{intro}</p>}
 
-    <form class="contact-form__form" data-contact-form={formId} novalidate>
+    <form class="contact-form__form" data-contact-form={formId} novalidate lang={localeMeta[locale].htmlLang}>
+      <input type="hidden" name="idioma" value={languageField} />
       <div class="contact-form__grid">
         <div class="contact-form__field">
-          <label for={`${idPrefix}-nombre`}>Nombre</label>
+          <label for={`${idPrefix}-nombre`}>{formCopy.name}</label>
           <input id={`${idPrefix}-nombre`} name="name" type="text" required autocomplete="name" />
         </div>
         <div class="contact-form__field">
-          <label for={`${idPrefix}-email`}>Email</label>
+          <label for={`${idPrefix}-email`}>{formCopy.email}</label>
           <input id={`${idPrefix}-email`} name="email" type="email" required autocomplete="email" />
         </div>
         {
           showPhone && (
             <div class="contact-form__field">
-              <label for={`${idPrefix}-telefono`}>Teléfono</label>
+              <label for={`${idPrefix}-telefono`}>{formCopy.phone}</label>
               <input id={`${idPrefix}-telefono`} name="phone" type="tel" autocomplete="tel" />
             </div>
           )
         }
         <div class="contact-form__field">
-          <label for={`${idPrefix}-motivo`}>Motivo</label>
+          <label for={`${idPrefix}-motivo`}>{formCopy.subject}</label>
           <select id={`${idPrefix}-motivo`} name="subject" required>
             {
-              inquirySubjects.map((item) => (
-                <option value={item.label} data-package-id={item.value} selected={item.value === defaultSubject}>
+              options.map((item) => (
+                <option value={item.value} data-package-id={item.value} selected={item.value === defaultSubject}>
                   {item.label}
                 </option>
               ))
@@ -68,12 +94,12 @@ const successUrl = withBase('/solicitud-enviada');
           showDates && (
             <>
               <div class="contact-form__field">
-                <label for={`${idPrefix}-entrada`}>Fecha de entrada / evento</label>
-                <input id={`${idPrefix}-entrada`} name="checkIn" type="date" />
+                <label for={`${idPrefix}-entrada`}>{formCopy.checkIn}</label>
+                <input id={`${idPrefix}-entrada`} name="checkIn" type="date" lang={localeMeta[locale].htmlLang} />
               </div>
               <div class="contact-form__field">
-                <label for={`${idPrefix}-salida`}>Fecha de salida</label>
-                <input id={`${idPrefix}-salida`} name="checkOut" type="date" />
+                <label for={`${idPrefix}-salida`}>{formCopy.checkOut}</label>
+                <input id={`${idPrefix}-salida`} name="checkOut" type="date" lang={localeMeta[locale].htmlLang} />
               </div>
             </>
           )
@@ -81,7 +107,7 @@ const successUrl = withBase('/solicitud-enviada');
         {
           showGuests && (
             <div class="contact-form__field">
-              <label for={`${idPrefix}-invitados`}>Número de invitados / adultos</label>
+              <label for={`${idPrefix}-invitados`}>{formCopy.guests}</label>
               <input id={`${idPrefix}-invitados`} name="guests" type="number" min="1" max="50" />
             </div>
           )
@@ -89,30 +115,35 @@ const successUrl = withBase('/solicitud-enviada');
       </div>
 
       <div class="contact-form__field">
-        <label for={`${idPrefix}-mensaje`}>Mensaje</label>
+        <label for={`${idPrefix}-mensaje`}>{formCopy.message}</label>
         <textarea id={`${idPrefix}-mensaje`} name="message" rows="5" required />
       </div>
 
-      <button type="submit" class="btn">Enviar solicitud</button>
+      <button type="submit" class="btn">{formCopy.submit}</button>
       <p class="contact-form__note" data-form-status hidden></p>
       <p class="contact-form__note">
         {
           configured ? (
             <>
-              Sus datos se enviarán a{' '}
-              <a href={`mailto:${contact.email}?subject=${encodeURIComponent('Consulta desde la web')}`}>
+              {formCopy.configuredNote.split('{email}')[0]}
+              <a href={`mailto:${contact.email}?subject=${encodeURIComponent(mailtoSubject)}`}>
                 {contact.email}
               </a>
-              .
+              {formCopy.configuredNote.split('{email}')[1] ?? ''}
+            </>
+          ) : showAdminNote ? (
+            <>
+              {t('forms.devNote').split('{email}')[0]}
+              <a href={`mailto:${contact.email}?subject=${encodeURIComponent(mailtoSubject)}`}>
+                {contact.email}
+              </a>
+              {t('forms.devNote').split('{email}')[1] ?? ''}
             </>
           ) : (
             <>
-              Para activar el envío automático, configure Web3Forms (gratuito). Mientras tanto, el
-              formulario abrirá su cliente de email. También:{' '}
-              <a href={`mailto:${contact.email}?subject=${encodeURIComponent('Consulta desde la web')}`}>
+              <a href={`mailto:${contact.email}?subject=${encodeURIComponent(mailtoSubject)}`}>
                 {contact.email}
               </a>
-              .
             </>
           )
         }
@@ -121,7 +152,23 @@ const successUrl = withBase('/solicitud-enviada');
   </div>
 </section>
 
-<script define:vars={{ formId, endpoint: forms.endpoint, accessKey: forms.web3formsAccessKey, recipientEmail: forms.recipientEmail, configured, successUrl }}>
+<script define:vars={{
+  formId,
+  endpoint: forms.endpoint,
+  accessKey: forms.web3formsAccessKey,
+  recipientEmail: forms.recipientEmail,
+  configured,
+  successUrl,
+  sendingLabel: formCopy.sending,
+  sendError: formCopy.sendError,
+  mailtoSubject,
+  languageField,
+  emailLabels: spanishEmailLabels,
+  spanishSubjects: Object.fromEntries(
+    (['general','alojamiento','finca-espacios','finca-completa','finca-fin-semana','sesiones-fotograficas','evento','empresa','pack','caza'] as const).map((id) => [id, spanishSubjectLabel(id)]),
+  ),
+  subjectPrefix: spanishEmailLabels.subjectPrefix,
+}}>
   const form = document.querySelector(`[data-contact-form="${formId}"]`);
   const statusEl = form?.querySelector('[data-form-status]');
   const submitBtn = form?.querySelector('button[type="submit"]');
@@ -134,30 +181,37 @@ const successUrl = withBase('/solicitud-enviada');
     }
 
     const data = new FormData(form);
+    const subjectId = String(data.get('subject') ?? 'general');
+    const spanishSubject = spanishSubjects[subjectId] ?? subjectId;
     const payload = {
       name: String(data.get('name') ?? ''),
       email: String(data.get('email') ?? ''),
       phone: String(data.get('phone') ?? ''),
-      subject: String(data.get('subject') ?? 'Consulta web'),
+      subjectId,
       message: String(data.get('message') ?? ''),
       checkIn: String(data.get('checkIn') ?? ''),
       checkOut: String(data.get('checkOut') ?? ''),
       guests: String(data.get('guests') ?? ''),
+      idioma: String(data.get('idioma') ?? languageField),
     };
 
     const fullMessage = [
+      `${emailLabels.name}: ${payload.name}`,
+      `${emailLabels.email}: ${payload.email}`,
+      payload.phone ? `${emailLabels.phone}: ${payload.phone}` : '',
+      payload.checkIn ? `${emailLabels.checkIn}: ${payload.checkIn}` : '',
+      payload.checkOut ? `${emailLabels.checkOut}: ${payload.checkOut}` : '',
+      payload.guests ? `${emailLabels.guests}: ${payload.guests}` : '',
+      `${emailLabels.language}: ${payload.idioma}`,
+      '',
       payload.message,
-      payload.phone ? `\nTeléfono: ${payload.phone}` : '',
-      payload.checkIn ? `\nFecha entrada/evento: ${payload.checkIn}` : '',
-      payload.checkOut ? `\nFecha salida: ${payload.checkOut}` : '',
-      payload.guests ? `\nInvitados/adultos: ${payload.guests}` : '',
     ]
-      .filter(Boolean)
-      .join('');
+      .filter((line, index, arr) => line !== '' || arr[index - 1] === '')
+      .join('\n');
 
     if (statusEl) {
       statusEl.hidden = false;
-      statusEl.textContent = 'Enviando…';
+      statusEl.textContent = sendingLabel;
       statusEl.classList.remove('is-error', 'is-success');
     }
 
@@ -167,8 +221,8 @@ const successUrl = withBase('/solicitud-enviada');
 
     if (!configured) {
       const params = new URLSearchParams({
-        subject: payload.subject,
-        body: `Nombre: ${payload.name}\nEmail: ${payload.email}\n${fullMessage}`,
+        subject: spanishSubject,
+        body: fullMessage,
       });
       window.location.href = `mailto:${recipientEmail}?${params.toString()}`;
       window.setTimeout(() => {
@@ -183,16 +237,17 @@ const successUrl = withBase('/solicitud-enviada');
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           access_key: accessKey,
-          subject: `[Web Los Collados] ${payload.subject}`,
+          subject: `${subjectPrefix} ${spanishSubject}`,
           name: payload.name,
           email: payload.email,
           message: fullMessage,
+          idioma: payload.idioma,
         }),
       });
 
       const result = await response.json();
       if (!response.ok || !result.success) {
-        throw new Error(result.message || 'Error al enviar');
+        throw new Error(result.message || 'Error');
       }
 
       window.location.href = successUrl;
@@ -201,14 +256,16 @@ const successUrl = withBase('/solicitud-enviada');
         submitBtn.disabled = false;
       }
       if (statusEl) {
-        statusEl.innerHTML =
-          'No se pudo enviar. Escríbanos a <a href="mailto:' +
-          recipientEmail +
-          '?subject=' +
-          encodeURIComponent('Consulta desde la web') +
-          '">' +
-          recipientEmail +
-          '</a> o por WhatsApp.';
+        statusEl.innerHTML = sendError.replace(
+          '{email}',
+          '<a href="mailto:' +
+            recipientEmail +
+            '?subject=' +
+            encodeURIComponent(mailtoSubject) +
+            '">' +
+            recipientEmail +
+            '</a>',
+        );
         statusEl.classList.add('is-error');
       }
     }

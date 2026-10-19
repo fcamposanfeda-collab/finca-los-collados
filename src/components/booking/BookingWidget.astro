@@ -1,17 +1,21 @@
 ---
-import { booking, isWidgetConfigured } from '../../data/booking';
+import { booking } from '../../data/booking';
+import { useI18n } from '../../i18n';
+
+const { copy, t } = useI18n(Astro);
+const widget = copy.booking.widget as { title: string; pending: string; pendingText: string };
 ---
 
 <section class="booking-widget section section--alt" data-booking-widget aria-labelledby="booking-widget-title">
   <div class="container">
-    <h2 id="booking-widget-title" class="section__title">Motor de reservas directo</h2>
+    <h2 id="booking-widget-title" class="section__title">{widget.title}</h2>
 
     {
       booking.provider === 'iframe' && booking.widget.iframeUrl ? (
         <div class="booking-widget__frame-wrap">
           <iframe
             src={booking.widget.iframeUrl}
-            title={booking.widget.iframeTitle}
+            title={t('booking.widgetTitle')}
             class="booking-widget__iframe"
             style={`min-height: ${booking.widget.iframeHeight}`}
             loading="lazy"
@@ -25,9 +29,7 @@ import { booking, isWidgetConfigured } from '../../data/booking';
       ) : (
         <div class="booking-widget__pending">
           <p>
-            <strong>Reserva directa en preparación.</strong> Use el buscador de fechas superior, Booking.com,
-            WhatsApp o teléfono. En cuanto conectemos el calendario sincronizado con Booking.com, el motor
-            aparecerá aquí automáticamente.
+            <strong>{widget.pending}</strong> {widget.pendingText}
           </p>
         </div>
       )
@@ -66,14 +68,5 @@ import { booking, isWidgetConfigured } from '../../data/booking';
 
   .booking-widget__pending strong {
     color: var(--color-secondary);
-  }
-
-  .booking-widget__pending pre {
-    margin: 1rem 0;
-    padding: 0.875rem 1rem;
-    overflow-x: auto;
-    font-size: 0.875rem;
-    background: var(--color-bg-alt);
-    border-radius: 0.25rem;
   }
 </style>
