@@ -37,5 +37,12 @@
     "empresa": "Entreprise / team building / tournage",
     "pack": "Formule romantique, famille ou gastronomique",
     "caza": "Chasse à La Calerilla"
-  }
+  },
+  "required": "obligatoire",
+  "privacyAccept": "J’ai lu et j’accepte la {policy}.",
+  "privacyPolicy": "politique de confidentialité",
+  "privacyLayer": "Responsable : Finca Los Collados de San Miguel. Finalité : traiter votre demande d’information ou de réservation. Base juridique : votre consentement. Droits : accès, rectification, suppression, opposition et autres prévus par la réglementation, en écrivant à {email}. Plus d’informations dans la {policy}.",
+  "privacyError": "Veuillez accepter la politique de confidentialité pour envoyer le formulaire.",
+  "requiredError": "Ce champ est obligatoire.",
+  "emailError": "Veuillez indiquer une adresse e-mail valide."
 }

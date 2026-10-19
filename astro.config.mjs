@@ -6,6 +6,10 @@ import { hreflangLinks, pageKeyFromUrl } from './src/i18n/sitemap';
 export default defineConfig({
   site: 'https://loscolladosdesanmiguel.com',
   trailingSlash: 'always',
+  prefetch: {
+    prefetchAll: false,
+    defaultStrategy: 'hover',
+  },
   i18n: {
     defaultLocale: 'es',
     locales: [
@@ -34,6 +38,7 @@ export default defineConfig({
           if (pageKey === '404' || pageKey === 'solicitud-enviada') return undefined;
           return {
             ...item,
+            lastmod: new Date().toISOString(),
             links: hreflangLinks(pageKey),
           };
         } catch {

@@ -1,17 +1,27 @@
 ---
+import OptimizedImage from './OptimizedImage.astro';
+
 interface Props {
   src: string;
   alt: string;
   class?: string;
   loading?: 'lazy' | 'eager';
+  fetchpriority?: 'high' | 'low' | 'auto';
   aspect?: 'landscape' | 'square' | 'wide' | 'natural' | 'portrait';
 }
 
-const { src, alt, class: className, loading = 'lazy', aspect = 'landscape' } = Astro.props;
+const {
+  src,
+  alt,
+  class: className,
+  loading = 'lazy',
+  fetchpriority = 'auto',
+  aspect = 'landscape',
+} = Astro.props;
 ---
 
 <div class:list={['content-image', `content-image--${aspect}`, className]}>
-  <img src={src} alt={alt} loading={loading} decoding="async" />
+  <OptimizedImage src={src} alt={alt} loading={loading} fetchpriority={fetchpriority} />
 </div>
 
 <style>
@@ -21,11 +31,15 @@ const { src, alt, class: className, loading = 'lazy', aspect = 'landscape' } = A
     background: var(--color-bg-alt);
   }
 
-  .content-image img {
+  .content-image :global(picture),
+  .content-image :global(img) {
     width: 100%;
     height: 100%;
-    object-fit: cover;
     display: block;
+  }
+
+  .content-image :global(img) {
+    object-fit: cover;
   }
 
   .content-image--landscape {
@@ -52,7 +66,7 @@ const { src, alt, class: className, loading = 'lazy', aspect = 'landscape' } = A
     min-height: 0;
   }
 
-  .content-image--natural img {
+  .content-image--natural :global(img) {
     height: auto;
     object-fit: unset;
   }

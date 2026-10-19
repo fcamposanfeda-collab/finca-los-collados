@@ -1,5 +1,5 @@
 ---
-import { inquiryOptions, isEmailFormConfigured, spanishSubjectLabel } from '../../data/forms';
+import { inquiryOptions, isEmailFormConfigured, resolveInquirySubject, spanishSubjectLabel } from '../../data/forms';
 import { forms } from '../../data/forms';
 import { contact } from '../../data/contact';
 import { localeMeta, localizePath, msg, useI18n } from '../../i18n';
@@ -14,7 +14,7 @@ interface Props {
   formId?: string;
 }
 
-const { locale, copy, t } = useI18n(Astro);
+const { locale, copy, t, href } = useI18n(Astro);
 const formCopy = copy.forms as {
   title: string;
   intro: string;
@@ -33,6 +33,13 @@ const formCopy = copy.forms as {
   mailtoFallback: string;
   defaultSubject: string;
   emailLabels: Record<string, string>;
+  required: string;
+  privacyAccept: string;
+  privacyPolicy: string;
+  privacyLayer: string;
+  privacyError: string;
+  requiredError: string;
+  emailError: string;
 };
 
 const {
@@ -45,6 +52,9 @@ const {
   formId = 'contact',
 } = Astro.props;
 
+const urlMotivo = resolveInquirySubject(Astro.url.searchParams.get('motivo'));
+const selectedSubject = urlMotivo ?? defaultSubject;
+
 const idPrefix = formId;
 const configured = isEmailFormConfigured();
 const successUrl = localizePath('solicitud-enviada', locale);
@@ -53,6 +63,7 @@ const languageField = localeMeta[locale].languageField;
 const showAdminNote = import.meta.env.DEV && !configured;
 const mailtoSubject = t('common.mailtoSubject');
 const spanishEmailLabels = (msg('es').forms as { emailLabels: Record<string, string> }).emailLabels;
+const privacyHref = href('politica-de-privacidad');
 const mailtoFallbackHtml = formCopy.mailtoFallback
   .replace(
     '{email}',
@@ -60,6 +71,11 @@ const mailtoFallbackHtml = formCopy.mailtoFallback
   )
   .replace('{phone}', `<a href="tel:${contact.phone}">${contact.phoneDisplay}</a>`)
   .replace('{phoneAlt}', `<a href="tel:${contact.phoneAlt}">${contact.phoneAltDisplay}</a>`);
+
+const [privacyAcceptBefore, privacyAcceptAfter] = formCopy.privacyAccept.split('{policy}');
+const [layerBeforePolicy, layerAfterPolicy] = formCopy.privacyLayer
+  .replace('{email}', contact.email)
+  .split('{policy}');
 ---
 
 <section class="contact-form section" aria-labelledby={`${idPrefix}-form-title`}>
@@ -67,16 +83,45 @@ const mailtoFallbackHtml = formCopy.mailtoFallback
     {title && <h2 id={`${idPrefix}-form-title`} class="section__title">{title}</h2>}
     {intro && <p class="contact-form__intro">{intro}</p>}
 
-    <form class="contact-form__form" data-contact-form={formId} novalidate lang={localeMeta[locale].htmlLang}>
+    <form
+      class="contact-form__form"
+      data-contact-form={formId}
+      data-default-subject={selectedSubject}
+      lang={localeMeta[locale].htmlLang}
+    >
       <input type="hidden" name="idioma" value={languageField} />
+      <div class="contact-form__hp" aria-hidden="true">
+        <label>
+          Leave this field empty
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" />
+        </label>
+      </div>
       <div class="contact-form__grid">
         <div class="contact-form__field">
-          <label for={`${idPrefix}-nombre`}>{formCopy.name}</label>
-          <input id={`${idPrefix}-nombre`} name="name" type="text" required autocomplete="name" />
+          <label for={`${idPrefix}-nombre`}>
+            {formCopy.name} <span class="contact-form__req">({formCopy.required})</span>
+          </label>
+          <input
+            id={`${idPrefix}-nombre`}
+            name="name"
+            type="text"
+            required
+            autocomplete="name"
+            aria-required="true"
+          />
         </div>
         <div class="contact-form__field">
-          <label for={`${idPrefix}-email`}>{formCopy.email}</label>
-          <input id={`${idPrefix}-email`} name="email" type="email" required autocomplete="email" />
+          <label for={`${idPrefix}-email`}>
+            {formCopy.email} <span class="contact-form__req">({formCopy.required})</span>
+          </label>
+          <input
+            id={`${idPrefix}-email`}
+            name="email"
+            type="email"
+            required
+            autocomplete="email"
+            aria-required="true"
+          />
         </div>
         {
           showPhone && (
@@ -87,11 +132,13 @@ const mailtoFallbackHtml = formCopy.mailtoFallback
           )
         }
         <div class="contact-form__field">
-          <label for={`${idPrefix}-motivo`}>{formCopy.subject}</label>
-          <select id={`${idPrefix}-motivo`} name="subject" required>
+          <label for={`${idPrefix}-motivo`}>
+            {formCopy.subject} <span class="contact-form__req">({formCopy.required})</span>
+          </label>
+          <select id={`${idPrefix}-motivo`} name="subject" required aria-required="true">
             {
               options.map((item) => (
-                <option value={item.value} data-package-id={item.value} selected={item.value === defaultSubject}>
+                <option value={item.value} data-package-id={item.value} selected={item.value === selectedSubject}>
                   {item.label}
                 </option>
               ))
@@ -123,8 +170,33 @@ const mailtoFallbackHtml = formCopy.mailtoFallback
       </div>
 
       <div class="contact-form__field">
-        <label for={`${idPrefix}-mensaje`}>{formCopy.message}</label>
-        <textarea id={`${idPrefix}-mensaje`} name="message" rows="5" required />
+        <label for={`${idPrefix}-mensaje`}>
+          {formCopy.message} <span class="contact-form__req">({formCopy.required})</span>
+        </label>
+        <textarea id={`${idPrefix}-mensaje`} name="message" rows="5" required aria-required="true" />
+      </div>
+
+      <div class="contact-form__privacy">
+        <label class="contact-form__consent" for={`${idPrefix}-privacy`}>
+          <input
+            id={`${idPrefix}-privacy`}
+            name="privacy"
+            type="checkbox"
+            value="accepted"
+            required
+            aria-required="true"
+          />
+          <span>
+            {privacyAcceptBefore}
+            <a href={privacyHref}>{formCopy.privacyPolicy}</a>
+            {privacyAcceptAfter}
+          </span>
+        </label>
+        <p class="contact-form__layer">
+          {layerBeforePolicy}
+          <a href={privacyHref}>{formCopy.privacyPolicy}</a>
+          {layerAfterPolicy}
+        </p>
       </div>
 
       <button type="submit" class="btn">{formCopy.submit}</button>
@@ -177,10 +249,79 @@ const mailtoFallbackHtml = formCopy.mailtoFallback
     (['general','alojamiento','finca-espacios','finca-completa','finca-fin-semana','sesiones-fotograficas','evento','empresa','pack','caza'] as const).map((id) => [id, spanishSubjectLabel(id)]),
   ),
   subjectPrefix: spanishEmailLabels.subjectPrefix,
+  requiredError: formCopy.requiredError,
+  emailError: formCopy.emailError,
+  privacyError: formCopy.privacyError,
+  locale,
 }}>
   const form = document.querySelector(`[data-contact-form="${formId}"]`);
   const statusEl = form?.querySelector('[data-form-status]');
   const submitBtn = form?.querySelector('button[type="submit"]');
+  const subjectSelect = form?.querySelector('select[name="subject"]');
+  const subjectAliases = {
+    general: 'general',
+    alojamiento: 'alojamiento',
+    bungalows: 'alojamiento',
+    accommodation: 'alojamiento',
+    hebergement: 'alojamiento',
+    'finca-espacios': 'finca-espacios',
+    'finca-completa': 'finca-completa',
+    finca: 'finca-completa',
+    'finca-fin-semana': 'finca-fin-semana',
+    'sesiones-fotograficas': 'sesiones-fotograficas',
+    rodaje: 'sesiones-fotograficas',
+    rodajes: 'sesiones-fotograficas',
+    shooting: 'sesiones-fotograficas',
+    shootings: 'sesiones-fotograficas',
+    evento: 'evento',
+    eventos: 'evento',
+    events: 'evento',
+    evenements: 'evento',
+    empresa: 'empresa',
+    empresas: 'empresa',
+    corporate: 'empresa',
+    teambuilding: 'empresa',
+    pack: 'pack',
+    packs: 'pack',
+    packages: 'pack',
+    formules: 'pack',
+    caza: 'caza',
+    chasse: 'caza',
+    shootingday: 'caza',
+  };
+
+  const motivo = new URLSearchParams(window.location.search).get('motivo')?.trim().toLowerCase();
+  const mapped = motivo ? subjectAliases[motivo] : undefined;
+  if (mapped && subjectSelect instanceof HTMLSelectElement) {
+    const option = [...subjectSelect.options].find((item) => item.value === mapped);
+    if (option) subjectSelect.value = mapped;
+  }
+
+  function setValidityMessage(field, message) {
+    if (!(field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement || field instanceof HTMLSelectElement)) {
+      return;
+    }
+    field.setCustomValidity(field.validity.valueMissing || field.validity.typeMismatch ? message : '');
+  }
+
+  form?.querySelectorAll('[required]').forEach((field) => {
+    const message = field.getAttribute('name') === 'privacy'
+      ? privacyError
+      : field.getAttribute('name') === 'email'
+        ? emailError
+        : requiredError;
+    field.addEventListener('invalid', () => setValidityMessage(field, message));
+    field.addEventListener('input', () => {
+      if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement || field instanceof HTMLSelectElement) {
+        field.setCustomValidity('');
+      }
+    });
+    field.addEventListener('change', () => {
+      if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement || field instanceof HTMLSelectElement) {
+        field.setCustomValidity('');
+      }
+    });
+  });
 
   form?.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -190,6 +331,10 @@ const mailtoFallbackHtml = formCopy.mailtoFallback
     }
 
     const data = new FormData(form);
+    if (data.get('botcheck')) {
+      return;
+    }
+
     const subjectId = String(data.get('subject') ?? 'general');
     const spanishSubject = spanishSubjects[subjectId] ?? subjectId;
     const payload = {
@@ -228,6 +373,8 @@ const mailtoFallbackHtml = formCopy.mailtoFallback
       submitBtn.disabled = true;
     }
 
+    window.trackConversion?.('form_submit', { locale, motivo: subjectId });
+
     if (!configured) {
       const params = new URLSearchParams({
         subject: spanishSubject,
@@ -256,6 +403,7 @@ const mailtoFallbackHtml = formCopy.mailtoFallback
           email: payload.email,
           message: fullMessage,
           idioma: payload.idioma,
+          botcheck: false,
         }),
       });
 
@@ -295,11 +443,20 @@ const mailtoFallbackHtml = formCopy.mailtoFallback
   }
 
   .contact-form__form {
+    position: relative;
     max-width: 40rem;
     margin-inline: auto;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+  }
+
+  .contact-form__hp {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
   }
 
   .contact-form__grid {
@@ -314,6 +471,12 @@ const mailtoFallbackHtml = formCopy.mailtoFallback
     font-size: 0.9375rem;
   }
 
+  .contact-form__req {
+    font-weight: 400;
+    color: var(--color-muted);
+    font-size: 0.8125rem;
+  }
+
   .contact-form__field input,
   .contact-form__field textarea,
   .contact-form__field select {
@@ -323,6 +486,41 @@ const mailtoFallbackHtml = formCopy.mailtoFallback
     border-radius: 0.25rem;
     background: var(--color-bg);
     color: var(--color-text);
+  }
+
+  .contact-form__privacy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .contact-form__consent {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+
+  .contact-form__consent input {
+    margin-top: 0.2rem;
+    width: 1.15rem;
+    height: 1.15rem;
+    flex-shrink: 0;
+    accent-color: var(--color-primary);
+  }
+
+  .contact-form__consent a,
+  .contact-form__layer a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  .contact-form__layer {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: var(--color-muted);
+    line-height: 1.55;
   }
 
   .contact-form__note {

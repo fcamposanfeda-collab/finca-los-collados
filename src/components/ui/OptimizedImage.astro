@@ -1,0 +1,61 @@
+---
+import { getImageVariant, srcset } from '../../data/media';
+import { withBase } from '../../utils/paths';
+
+interface Props {
+  src: string;
+  alt: string;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+  fetchpriority?: 'high' | 'low' | 'auto';
+  sizes?: string;
+  width?: number;
+  height?: number;
+}
+
+const {
+  src,
+  alt,
+  class: className,
+  loading = 'lazy',
+  fetchpriority = 'auto',
+  sizes = '(min-width: 768px) 50vw, 100vw',
+  width,
+  height,
+} = Astro.props;
+
+const variant = getImageVariant(src);
+const imgSrc = variant ? withBase(variant.fallback) : src;
+const imgWidth = variant?.width ?? width;
+const imgHeight = variant?.height ?? height;
+---
+
+{
+  variant ? (
+    <picture>
+      <source type="image/avif" srcset={srcset(variant.avif)} sizes={sizes} />
+      <source type="image/webp" srcset={srcset(variant.webp)} sizes={sizes} />
+      <img
+        class={className}
+        src={imgSrc}
+        alt={alt}
+        width={imgWidth}
+        height={imgHeight}
+        loading={loading}
+        decoding={loading === 'eager' ? 'sync' : 'async'}
+        fetchpriority={fetchpriority}
+      />
+    </picture>
+  ) : (
+    <img
+      class={className}
+      src={src}
+      alt={alt}
+      width={imgWidth}
+      height={imgHeight}
+      loading={loading}
+      decoding={loading === 'eager' ? 'sync' : 'async'}
+      fetchpriority={fetchpriority}
+    />
+  )
+}

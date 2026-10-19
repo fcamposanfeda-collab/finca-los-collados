@@ -20,3 +20,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# generated media derivatives (created at build)
+public/images/opt/
+public/videos/opt/

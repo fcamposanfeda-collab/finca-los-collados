@@ -89,6 +89,8 @@ const packages = getVenuePackages(locale).filter((pkg) => packageIds.includes(pk
               <a
                 href={buildVenueWhatsAppUrl(pkg.id, locale)}
                 class="btn btn--outline"
+                data-track="whatsapp"
+                data-track-source="venue"
                 target="_blank"
                 rel="noopener noreferrer"
               >

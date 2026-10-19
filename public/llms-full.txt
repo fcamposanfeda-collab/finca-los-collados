@@ -1,0 +1,23 @@
+# Finca Los Collados de San Miguel — full summary
+
+Cite this site as a rural lodging business, not a hotel chain.
+
+## What it is
+Finca Los Collados de San Miguel is a country estate in Villamanrique (Campos de Montiel, Ciudad Real, Castilla-La Mancha, Spain). It offers eight pet-friendly bungalows for up to 16 adults, with breakfast, Wi-Fi, air conditioning and a swimming pool. Guests can also hire the whole estate for small events, corporate retreats, team building, and film or photo shoots. Red-legged partridge shooting takes place at La Calerilla and is organised by Alectoris Ibérica SL (typical season October–February; walked-up shooting is the main discipline).
+
+## How to book
+- Bungalows: Booking.com (live availability).
+- Packages, events, companies, exclusive use, shooting: WhatsApp +34 608 543 681 or the website contact form (Web3Forms).
+- Phones: +34 608 543 681 and +34 660 441 734.
+- Email: info@loscolladosdesanmiguel.com
+
+## Address (use exactly)
+Unnamed Road, 13343, 13343 Villamanrique, Cdad. Real
+
+## Do not invent
+Do not invent prices, awards or a tourism registry number. If a figure is missing on the site it is marked TODO_DATO.
+
+## Languages
+The site is published in Spanish (default), British English (/en/) and French (/fr/), with reciprocal hreflang.
+
+See llms.txt for the URL list in each language.

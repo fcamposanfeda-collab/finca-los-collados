@@ -6,9 +6,11 @@ import { images } from '../data/images';
 import VenuePackages from '../components/venue/VenuePackages.astro';
 import ContactForm from '../components/forms/ContactForm.astro';
 import FullWidthVideo from '../components/ui/FullWidthVideo.astro';
+import { buildPageWhatsAppUrl } from '../data/booking';
+import { contactFormUrl } from '../data/forms';
 import { useI18n } from '../i18n';
 
-const { locale, copy } = useI18n(Astro);
+const { locale, copy, t } = useI18n(Astro);
 const meta = getPageMeta('empresas', locale);
 const page = copy.empresas as {
   hero: { eyebrow: string; title: string; subtitle: string };
@@ -30,10 +32,20 @@ const blockImages = [images.empresas.teambuilding, images.empresas.rodajes];
   heroSubtitle={page.hero.subtitle}
   heroEyebrow={page.hero.eyebrow}
   heroImage={images.hero.empresas}
+  heroCtaLabel={t('common.whatsapp')}
+  heroCtaHref={buildPageWhatsAppUrl('empresas', locale)}
+  heroCtaTrack="whatsapp"
+  heroSecondaryLabel={page.cta.buttonLabel}
+  heroSecondaryHref={contactFormUrl(locale, 'empresas')}
+  heroSecondaryTrack="form"
   ctaTitle={page.cta.title}
   ctaText={page.cta.text}
-  ctaButtonLabel={page.cta.buttonLabel}
-  ctaButtonHref="#solicitud-presupuesto"
+  ctaButtonLabel={t('common.whatsapp')}
+  ctaButtonHref={buildPageWhatsAppUrl('empresas', locale)}
+  ctaPrimaryTrack="whatsapp"
+  extraLabel={page.cta.buttonLabel}
+  extraHref="#solicitud-presupuesto"
+  extraTrack="form"
 >
   <section class="page-content">
     <div class="container page-content__inner page-content__inner--wide page-content__intro">

@@ -2,9 +2,13 @@
 import '../styles/global.css';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
+import ConversionChrome from '../components/conversion/ConversionChrome.astro';
+import CloudflareAnalytics from '../components/analytics/CloudflareAnalytics.astro';
+import DeferredVideoScript from '../components/ui/DeferredVideoScript.astro';
 import { site } from '../data/site';
-import { contact } from '../data/contact';
 import { withBase } from '../utils/paths';
+import { jsonLdGraph } from '../data/schema';
+import { getImageVariant, srcset } from '../data/media';
 import {
   absoluteUrl,
   alternateLocales,
@@ -19,40 +23,19 @@ interface Props {
   description: string;
   ogImage?: string;
   index?: boolean;
+  lcpSrc?: string;
 }
 
-const { title, description, ogImage = site.ogImage, index = true } = Astro.props;
-const { locale, pageKey, t, copy } = useI18n(Astro);
+const { title, description, ogImage = site.ogImage, index = true, lcpSrc } = Astro.props;
+const lcpVariant = lcpSrc ? getImageVariant(lcpSrc) : null;
+const { locale, pageKey, t } = useI18n(Astro);
 const meta = localeMeta[locale];
 const canonicalURL = absoluteUrl(pagePathname(pageKey, locale));
 const ogImagePath = ogImage.startsWith('http') ? ogImage : withBase(ogImage);
 const ogImageUrl = ogImagePath.startsWith('http')
   ? ogImagePath
   : new URL(ogImagePath, Astro.site ?? new URL(site.url)).href;
-const fontHref =
-  'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap';
-const tagline = (copy.common as { tagline: string }).tagline;
-
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'LodgingBusiness',
-  name: site.name,
-  description: tagline,
-  url: canonicalURL,
-  inLanguage: meta.bcp47,
-  image: ogImageUrl,
-  email: contact.email,
-  telephone: contact.phone,
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: contact.address,
-    addressLocality: 'Villamanrique',
-    addressRegion: 'Ciudad Real',
-    postalCode: '13343',
-    addressCountry: 'ES',
-  },
-  sameAs: [contact.facebook, contact.instagram],
-};
+const structuredGraph = jsonLdGraph(locale, pageKey, canonicalURL, pageKey === 'home');
 
 const alternates = hreflangLinks(pageKey);
 ---
@@ -77,9 +60,25 @@ const alternates = hreflangLinks(pageKey);
           <link rel="alternate" hreflang={link.lang} href={link.url} />
         ))
     }
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href={fontHref} rel="stylesheet" />
+    <link
+      rel="preload"
+      href={withBase('/fonts/source-sans-3-latin-400-normal.woff2')}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    {
+      lcpVariant && (
+        <link
+          rel="preload"
+          as="image"
+          type="image/avif"
+          imagesrcset={srcset(lcpVariant.avif)}
+          imagesizes="100vw"
+          fetchpriority="high"
+        />
+      )
+    }
     <meta property="og:site_name" content={site.name} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={ogImageUrl} />
@@ -97,7 +96,11 @@ const alternates = hreflangLinks(pageKey);
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
     <slot name="head" />
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    {
+      structuredGraph.map((block) => (
+        <script type="application/ld+json" set:html={JSON.stringify(block)} />
+      ))
+    }
     <title>{title}</title>
   </head>
   <body>
@@ -107,5 +110,8 @@ const alternates = hreflangLinks(pageKey);
       <slot />
     </main>
     <Footer />
+    <ConversionChrome />
+    <CloudflareAnalytics locale={locale} pageKey={pageKey} />
+    <DeferredVideoScript />
   </body>
 </html>

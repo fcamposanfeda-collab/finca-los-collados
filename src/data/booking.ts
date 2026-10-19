@@ -1,5 +1,6 @@
 import { contact } from './contact';
 import { defaultLocale, localeMeta, msg, t, type Locale } from '../i18n';
+import type { PageKey } from '../i18n';
 
 const env = import.meta.env;
 
@@ -104,4 +105,14 @@ export function buildWhatsAppUrl(
 
 export function isWidgetConfigured(): boolean {
   return booking.provider === 'iframe' || booking.provider === 'script';
+}
+
+export function buildWhatsAppTextUrl(text: string): string {
+  return `https://wa.me/${booking.whatsapp.phone}?text=${encodeURIComponent(text)}`;
+}
+
+export function buildPageWhatsAppUrl(pageKey: PageKey, locale: Locale = defaultLocale): string {
+  const copy = msg(locale).conversion as { whatsappMessages: Record<string, string> };
+  const text = copy.whatsappMessages[pageKey] ?? copy.whatsappMessages.default;
+  return buildWhatsAppTextUrl(text);
 }

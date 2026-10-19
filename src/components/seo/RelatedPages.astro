@@ -1,0 +1,54 @@
+---
+import { useI18n, type PageKey } from '../../i18n';
+
+const { pageKey, href, copy } = useI18n(Astro);
+const conv = copy.conversion as {
+  relatedTitle: string;
+  related: Partial<Record<PageKey, PageKey[]>>;
+};
+const navLabels = copy.nav as Record<string, string>;
+const related = conv.related[pageKey] ?? [];
+---
+
+{
+  related.length > 0 && (
+    <section class="related-pages section" aria-labelledby="related-pages-title">
+      <div class="container">
+        <h2 id="related-pages-title" class="section__title">
+          {conv.relatedTitle}
+        </h2>
+        <ul class="related-pages__list">
+          {related.map((key) => (
+            <li>
+              <a href={href(key)}>{navLabels[key] ?? key}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )
+}
+
+<style>
+  .related-pages__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .related-pages__list a {
+    display: inline-flex;
+    padding: 0.55rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    font-weight: 600;
+    color: var(--color-primary);
+    background: var(--color-bg);
+  }
+
+  .related-pages__list a:hover {
+    border-color: var(--color-primary);
+    background: var(--color-bg-alt);
+  }
+</style>

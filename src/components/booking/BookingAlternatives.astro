@@ -15,7 +15,6 @@ const alt = copy.booking.alternatives as {
   phoneTitle: string;
   phoneText: string;
 };
-const common = copy.common as { phoneDisplay: string; phoneAltDisplay: string };
 const bookingUrl = bookingComPropertyUrl(locale);
 const [bookingBefore, bookingAfter] = alt.bookingText.split('{link}');
 ---
@@ -35,6 +34,8 @@ const [bookingBefore, bookingAfter] = alt.bookingText.split('{link}');
             <a
               href={bookingUrl}
               class="btn btn--outline"
+              data-track="booking"
+              data-track-source="alternatives"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -52,6 +53,8 @@ const [bookingBefore, bookingAfter] = alt.bookingText.split('{link}');
             <a
               href={buildWhatsAppUrl({}, locale)}
               class="btn btn--outline"
+              data-track="whatsapp"
+              data-track-source="alternatives"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -65,8 +68,8 @@ const [bookingBefore, bookingAfter] = alt.bookingText.split('{link}');
         <h3>{alt.phoneTitle}</h3>
         <p>{alt.phoneText}</p>
         <p class="booking-alternatives__phones">
-          <a href={`tel:${contact.phone}`}>{common.phoneDisplay}</a>
-          <a href={`tel:${contact.phoneAlt}`}>{common.phoneAltDisplay}</a>
+          <a href={`tel:${contact.phone}`} data-track="phone" data-track-source="alternatives">{contact.phoneDisplay}</a>
+          <a href={`tel:${contact.phoneAlt}`} data-track="phone" data-track-source="alternatives">{contact.phoneAltDisplay}</a>
         </p>
       </article>
     </div>

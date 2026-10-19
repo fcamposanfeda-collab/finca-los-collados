@@ -1,0 +1,125 @@
+{
+  "title": "Preguntas frecuentes",
+  "alojamiento": [
+    {
+      "q": "¿Se admiten perros?",
+      "a": "Sí. Los bungalows son pet friendly. TODO_DATO: suplemento, normas y si hay límite de tamaño o número de mascotas."
+    },
+    {
+      "q": "¿Cuántas personas caben?",
+      "a": "Hay 8 bungalows, con capacidad para hasta 16 adultos. Los niños dependen de la configuración de cada reserva."
+    },
+    {
+      "q": "¿Qué incluye la estancia?",
+      "a": "Desayuno, Wi-Fi, aire acondicionado, porche y acceso a zonas comunes y piscina."
+    },
+    {
+      "q": "¿Cómo se reserva un bungalow?",
+      "a": "La vía más directa es Booking.com, con disponibilidad en tiempo real. También puede escribirnos por WhatsApp o usar el formulario; antes de confirmar cruzamos las fechas con el calendario de Booking.com."
+    },
+    {
+      "q": "¿Se puede alquilar la finca completa?",
+      "a": "Sí. En Eventos encontrará las modalidades de alquiler de la finca completa (con o sin alojamiento) y el fin de semana."
+    },
+    {
+      "q": "¿Cuál es la política de cancelación?",
+      "a": "TODO_DATO: resumen de la política vigente en Booking.com. Consulte también nuestra política de reservas."
+    },
+    {
+      "q": "¿A cuánto está de Madrid?",
+      "a": "La finca está en Villamanrique, Ciudad Real. Unos 247 km y 3 h 25 min en coche desde Madrid (OSRM / OpenStreetMap, 19/10/2026, desde el casco de Villamanrique)."
+    }
+  ],
+  "la-calerilla": [
+    {
+      "q": "¿Cuál es la temporada de caza de perdiz?",
+      "a": "La temporada habitual es de octubre a febrero. Las fechas se solicitan con antelación porque hay mucha demanda."
+    },
+    {
+      "q": "¿Qué modalidades se cazan?",
+      "a": "La modalidad principal es la caza en mano de perdiz roja. También hay ojeo de perdiz. TODO_DATO: otras modalidades si las hay."
+    },
+    {
+      "q": "¿Quién organiza las jornadas?",
+      "a": "Las jornadas de caza las organiza Alectoris Ibérica SL."
+    },
+    {
+      "q": "¿Se puede combinar con alojamiento?",
+      "a": "Sí. Puede combinar la jornada con bungalows y restauración en Finca Los Collados de San Miguel."
+    },
+    {
+      "q": "¿Cómo se reserva un día de caza?",
+      "a": "Por WhatsApp o con el formulario de La Calerilla, indicando fechas y número de tiradores."
+    },
+    {
+      "q": "¿Se admiten perros de caza?",
+      "a": "TODO_DATO: condiciones para perros de muestra en el coto y en los bungalows."
+    }
+  ],
+  "eventos": [
+    {
+      "q": "¿Cuántas personas caben en un evento?",
+      "a": "Celebraciones al aire libre hasta 50 invitados. El alojamiento de la finca es para 16 adultos en 8 bungalows."
+    },
+    {
+      "q": "¿Se puede alquilar la finca completa?",
+      "a": "Sí, con o sin alojamiento, y hay una modalidad de fin de semana. El precio es a consultar."
+    },
+    {
+      "q": "¿Hay catering?",
+      "a": "El catering lo gestiona Azurea. Puede consultarnos menús y formato al solicitar presupuesto."
+    },
+    {
+      "q": "¿Se hacen bodas?",
+      "a": "Sí, bodas íntimas y otras celebraciones privadas (comuniones, cumpleaños, empresas) en un entorno rural exclusivo."
+    },
+    {
+      "q": "¿Cómo se reserva un evento?",
+      "a": "WhatsApp o formulario, con fechas, número de invitados y tipo de celebración. No se reserva un evento como una habitación en Booking.com."
+    }
+  ],
+  "empresas": [
+    {
+      "q": "¿Para qué tipo de empresa es la finca?",
+      "a": "Para PYME y equipos que buscan teambuilding, retiros, rodajes o sesiones fotográficas en un entorno privado de La Mancha."
+    },
+    {
+      "q": "¿Cuántas personas puede alojar un equipo?",
+      "a": "Hasta 16 adultos en 8 bungalows. Los espacios de la finca admiten grupos mayores para la actividad diurna. TODO_DATO: aforo exacto de salas y exteriores."
+    },
+    {
+      "q": "¿Se pueden hacer rodajes y sesiones foto?",
+      "a": "Sí. Hay una modalidad específica de sesiones fotográficas / shootings y alquiler de espacios para producción."
+    },
+    {
+      "q": "¿Se puede alquilar la finca completa para una empresa?",
+      "a": "Sí. Es la opción habitual cuando se busca privacidad total."
+    },
+    {
+      "q": "¿Cómo se pide presupuesto?",
+      "a": "WhatsApp o formulario, indicando fechas, tamaño del equipo y tipo de actividad (teambuilding, retiro o rodaje)."
+    }
+  ],
+  "packs": [
+    {
+      "q": "¿Los packs se reservan en Booking.com?",
+      "a": "El alojamiento se reserva en Booking.com. El contenido del pack (cena, actividades, etc.) se confirma con nosotros por WhatsApp o formulario."
+    },
+    {
+      "q": "¿Qué packs hay?",
+      "a": "Romántico, familiar, gastronómico y de rutas, entre otras propuestas descritas en esta página."
+    },
+    {
+      "q": "¿Los precios de los packs están publicados?",
+      "a": "TODO_DATO: precios o ‘desde’. Mientras tanto, el precio es a consultar."
+    },
+    {
+      "q": "¿Son pet friendly?",
+      "a": "El alojamiento es pet friendly. Si el pack incluye restaurante u otras actividades, consulte condiciones para mascotas."
+    },
+    {
+      "q": "¿Se pueden personalizar?",
+      "a": "Sí. Escríbanos el tipo de escapada y las fechas y adaptamos la propuesta."
+    }
+  ]
+}

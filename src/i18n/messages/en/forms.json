@@ -37,5 +37,12 @@
     "empresa": "Corporate / team building / film shoot",
     "pack": "Romantic, family or gastronomic package",
     "caza": "Shooting at La Calerilla"
-  }
+  },
+  "required": "required",
+  "privacyAccept": "I have read and accept the {policy}.",
+  "privacyPolicy": "privacy policy",
+  "privacyLayer": "Controller: Finca Los Collados de San Miguel. Purpose: to handle your enquiry or booking request. Legal basis: your consent. Rights: access, rectification, erasure, objection and others provided by law, by writing to {email}. Further information in the {policy}.",
+  "privacyError": "Please accept the privacy policy to send the form.",
+  "requiredError": "This field is required.",
+  "emailError": "Please enter a valid email address."
 }

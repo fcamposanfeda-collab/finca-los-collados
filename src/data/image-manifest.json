@@ -1,0 +1,1407 @@
+{
+  "/images/hero-entrada-atardecer.png": {
+    "width": 1024,
+    "height": 851,
+    "fallback": "/images/opt/hero-entrada-atardecer/1024.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/hero-entrada-atardecer/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/hero-entrada-atardecer/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/hero-entrada-atardecer/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/hero-entrada-atardecer/768.webp"
+      }
+    ]
+  },
+  "/images/hero-casa-panorama.png": {
+    "width": 1024,
+    "height": 291,
+    "fallback": "/images/opt/hero-casa-panorama/1024.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/hero-casa-panorama/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/hero-casa-panorama/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/hero-casa-panorama/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/hero-casa-panorama/768.webp"
+      }
+    ]
+  },
+  "/images/calerilla-hero.jpg": {
+    "width": 1536,
+    "height": 1024,
+    "fallback": "/images/opt/calerilla-hero/1100.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/calerilla-hero/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/calerilla-hero/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/calerilla-hero/1100.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/calerilla-hero/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/calerilla-hero/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/calerilla-hero/1100.webp"
+      }
+    ]
+  },
+  "/images/bungalow-interior.jpg": {
+    "width": 1600,
+    "height": 1067,
+    "fallback": "/images/opt/bungalow-interior/1100.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/bungalow-interior/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/bungalow-interior/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/bungalow-interior/1100.avif"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/bungalow-interior/1600.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/bungalow-interior/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/bungalow-interior/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/bungalow-interior/1100.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/bungalow-interior/1600.webp"
+      }
+    ]
+  },
+  "/images/gastronomia.jpg": {
+    "width": 1024,
+    "height": 621,
+    "fallback": "/images/opt/gastronomia/1024.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia/768.webp"
+      }
+    ]
+  },
+  "/images/campo-montiel.png": {
+    "width": 1000,
+    "height": 667,
+    "fallback": "/images/opt/campo-montiel/1000.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/campo-montiel/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/campo-montiel/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/campo-montiel/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/campo-montiel/768.webp"
+      }
+    ]
+  },
+  "/images/empresa-teambuilding.jpg": {
+    "width": 1536,
+    "height": 1024,
+    "fallback": "/images/opt/empresa-teambuilding/1100.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/empresa-teambuilding/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/empresa-teambuilding/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/empresa-teambuilding/1100.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/empresa-teambuilding/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/empresa-teambuilding/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/empresa-teambuilding/1100.webp"
+      }
+    ]
+  },
+  "/images/evento-celebracion.jpg": {
+    "width": 1536,
+    "height": 1024,
+    "fallback": "/images/opt/evento-celebracion/1100.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/evento-celebracion/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/evento-celebracion/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/evento-celebracion/1100.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/evento-celebracion/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/evento-celebracion/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/evento-celebracion/1100.webp"
+      }
+    ]
+  },
+  "/images/evento-jardines.jpg": {
+    "width": 1600,
+    "height": 1219,
+    "fallback": "/images/opt/evento-jardines/1100.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/evento-jardines/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/evento-jardines/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/evento-jardines/1100.avif"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/evento-jardines/1600.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/evento-jardines/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/evento-jardines/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/evento-jardines/1100.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/evento-jardines/1600.webp"
+      }
+    ]
+  },
+  "/images/entorno-hero.jpg": {
+    "width": 2000,
+    "height": 1339,
+    "fallback": "/images/opt/entorno-hero/1100.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/entorno-hero/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/entorno-hero/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/entorno-hero/1100.avif"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/entorno-hero/1600.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/entorno-hero/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/entorno-hero/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/entorno-hero/1100.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/entorno-hero/1600.webp"
+      }
+    ]
+  },
+  "/images/porche-exterior.jpg": {
+    "width": 768,
+    "height": 519,
+    "fallback": "/images/opt/porche-exterior/768.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/porche-exterior/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/porche-exterior/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/porche-exterior/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/porche-exterior/768.webp"
+      }
+    ]
+  },
+  "/images/bungalow-detalle.jpg": {
+    "width": 1600,
+    "height": 1067,
+    "fallback": "/images/opt/bungalow-detalle/1100.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/bungalow-detalle/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/bungalow-detalle/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/bungalow-detalle/1100.avif"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/bungalow-detalle/1600.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/bungalow-detalle/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/bungalow-detalle/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/bungalow-detalle/1100.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/bungalow-detalle/1600.webp"
+      }
+    ]
+  },
+  "/images/calerilla-temporada.jpg": {
+    "width": 1080,
+    "height": 1080,
+    "fallback": "/images/opt/calerilla-temporada/1080.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/calerilla-temporada/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/calerilla-temporada/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/calerilla-temporada/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/calerilla-temporada/768.webp"
+      }
+    ]
+  },
+  "/images/calerilla-perdiz.png": {
+    "width": 1041,
+    "height": 809,
+    "fallback": "/images/opt/calerilla-perdiz/1041.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/calerilla-perdiz/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/calerilla-perdiz/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/calerilla-perdiz/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/calerilla-perdiz/768.webp"
+      }
+    ]
+  },
+  "/images/finca-paisaje.jpg": {
+    "width": 1600,
+    "height": 1067,
+    "fallback": "/images/opt/finca-paisaje/1100.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/finca-paisaje/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/finca-paisaje/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/finca-paisaje/1100.avif"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/finca-paisaje/1600.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/finca-paisaje/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/finca-paisaje/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/finca-paisaje/1100.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/finca-paisaje/1600.webp"
+      }
+    ]
+  },
+  "/images/salon-biblioteca.jpg": {
+    "width": 1600,
+    "height": 1284,
+    "fallback": "/images/opt/salon-biblioteca/1100.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/salon-biblioteca/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/salon-biblioteca/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/salon-biblioteca/1100.avif"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/salon-biblioteca/1600.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/salon-biblioteca/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/salon-biblioteca/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/salon-biblioteca/1100.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/salon-biblioteca/1600.webp"
+      }
+    ]
+  },
+  "/images/hero-finca.jpg": {
+    "width": 1600,
+    "height": 1067,
+    "fallback": "/images/opt/hero-finca/1100.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/hero-finca/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/hero-finca/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/hero-finca/1100.avif"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/hero-finca/1600.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/hero-finca/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/hero-finca/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/hero-finca/1100.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/hero-finca/1600.webp"
+      }
+    ]
+  },
+  "/images/IMG_0031.JPG": {
+    "width": 4032,
+    "height": 3024,
+    "fallback": "/images/opt/img-0031/1100.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/img-0031/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/img-0031/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/img-0031/1100.avif"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/img-0031/1600.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/img-0031/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/img-0031/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/img-0031/1100.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/img-0031/1600.webp"
+      }
+    ]
+  },
+  "/images/IMG_0035.JPG": {
+    "width": 4032,
+    "height": 3024,
+    "fallback": "/images/opt/img-0035/1100.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/img-0035/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/img-0035/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/img-0035/1100.avif"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/img-0035/1600.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/img-0035/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/img-0035/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/img-0035/1100.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/img-0035/1600.webp"
+      }
+    ]
+  },
+  "/images/rodaje-finca.jpg": {
+    "width": 1536,
+    "height": 1024,
+    "fallback": "/images/opt/rodaje-finca/1100.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/rodaje-finca/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/rodaje-finca/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/rodaje-finca/1100.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/rodaje-finca/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/rodaje-finca/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/rodaje-finca/1100.webp"
+      }
+    ]
+  },
+  "/images/venue-fin-semana-porche.png": {
+    "width": 768,
+    "height": 519,
+    "fallback": "/images/opt/venue-fin-semana-porche/768.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/venue-fin-semana-porche/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/venue-fin-semana-porche/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/venue-fin-semana-porche/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/venue-fin-semana-porche/768.webp"
+      }
+    ]
+  },
+  "/images/empresas-rodaje-sesion.png": {
+    "width": 768,
+    "height": 1024,
+    "fallback": "/images/opt/empresas-rodaje-sesion/768.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/empresas-rodaje-sesion/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/empresas-rodaje-sesion/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/empresas-rodaje-sesion/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/empresas-rodaje-sesion/768.webp"
+      }
+    ]
+  },
+  "/images/eventos-exterior-atardecer.png": {
+    "width": 831,
+    "height": 1024,
+    "fallback": "/images/opt/eventos-exterior-atardecer/831.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/eventos-exterior-atardecer/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/eventos-exterior-atardecer/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/eventos-exterior-atardecer/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/eventos-exterior-atardecer/768.webp"
+      }
+    ]
+  },
+  "/images/azurea-catering-1.jpg": {
+    "width": 1086,
+    "height": 718,
+    "fallback": "/images/opt/azurea-catering-1/1086.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/azurea-catering-1/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/azurea-catering-1/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/azurea-catering-1/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/azurea-catering-1/768.webp"
+      }
+    ]
+  },
+  "/images/azurea-catering-2.jpg": {
+    "width": 1440,
+    "height": 1080,
+    "fallback": "/images/opt/azurea-catering-2/1100.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/azurea-catering-2/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/azurea-catering-2/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/azurea-catering-2/1100.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/azurea-catering-2/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/azurea-catering-2/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/azurea-catering-2/1100.webp"
+      }
+    ]
+  },
+  "/images/villanueva-infantes.jpg": {
+    "width": 1920,
+    "height": 1385,
+    "fallback": "/images/opt/villanueva-infantes/1100.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/villanueva-infantes/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/villanueva-infantes/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/villanueva-infantes/1100.avif"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/villanueva-infantes/1600.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/villanueva-infantes/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/villanueva-infantes/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/villanueva-infantes/1100.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/villanueva-infantes/1600.webp"
+      }
+    ]
+  },
+  "/images/bicicleta.jpg": {
+    "width": 1600,
+    "height": 1066,
+    "fallback": "/images/opt/bicicleta/1100.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/bicicleta/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/bicicleta/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/bicicleta/1100.avif"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/bicicleta/1600.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/bicicleta/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/bicicleta/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/bicicleta/1100.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/bicicleta/1600.webp"
+      }
+    ]
+  },
+  "/images/experiencia-ganaderia.jpg": {
+    "width": 1600,
+    "height": 1200,
+    "fallback": "/images/opt/experiencia-ganaderia/1100.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/experiencia-ganaderia/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/experiencia-ganaderia/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/experiencia-ganaderia/1100.avif"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/experiencia-ganaderia/1600.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/experiencia-ganaderia/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/experiencia-ganaderia/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/experiencia-ganaderia/1100.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/experiencia-ganaderia/1600.webp"
+      }
+    ]
+  },
+  "/images/experiencia-cata-vinos.jpg": {
+    "width": 1600,
+    "height": 1200,
+    "fallback": "/images/opt/experiencia-cata-vinos/1100.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/experiencia-cata-vinos/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/experiencia-cata-vinos/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/experiencia-cata-vinos/1100.avif"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/experiencia-cata-vinos/1600.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/experiencia-cata-vinos/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/experiencia-cata-vinos/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/experiencia-cata-vinos/1100.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/experiencia-cata-vinos/1600.webp"
+      }
+    ]
+  },
+  "/images/villamanrique-iglesia.jpg": {
+    "width": 1920,
+    "height": 1170,
+    "fallback": "/images/opt/villamanrique-iglesia/1100.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/villamanrique-iglesia/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/villamanrique-iglesia/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/villamanrique-iglesia/1100.avif"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/villamanrique-iglesia/1600.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/villamanrique-iglesia/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/villamanrique-iglesia/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/villamanrique-iglesia/1100.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/villamanrique-iglesia/1600.webp"
+      }
+    ]
+  },
+  "/images/torre-juan-abad.jpg": {
+    "width": 744,
+    "height": 558,
+    "fallback": "/images/opt/torre-juan-abad/744.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/torre-juan-abad/480.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/torre-juan-abad/480.webp"
+      }
+    ]
+  },
+  "/images/castillo-montizon.jpg": {
+    "width": 1920,
+    "height": 1200,
+    "fallback": "/images/opt/castillo-montizon/1100.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/castillo-montizon/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/castillo-montizon/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/castillo-montizon/1100.avif"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/castillo-montizon/1600.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/castillo-montizon/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/castillo-montizon/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/castillo-montizon/1100.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/castillo-montizon/1600.webp"
+      }
+    ]
+  },
+  "/images/lagunas-ruidera2.jpg": {
+    "width": 975,
+    "height": 570,
+    "fallback": "/images/opt/lagunas-ruidera2/975.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/lagunas-ruidera2/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/lagunas-ruidera2/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/lagunas-ruidera2/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/lagunas-ruidera2/768.webp"
+      }
+    ]
+  },
+  "/images/pack-familiar.jpg": {
+    "width": 1920,
+    "height": 1280,
+    "fallback": "/images/opt/pack-familiar/1100.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/pack-familiar/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/pack-familiar/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/pack-familiar/1100.avif"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/pack-familiar/1600.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/pack-familiar/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/pack-familiar/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/pack-familiar/1100.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/pack-familiar/1600.webp"
+      }
+    ]
+  },
+  "/images/finca-bungalow-exterior.png": {
+    "width": 1024,
+    "height": 682,
+    "fallback": "/images/opt/finca-bungalow-exterior/1024.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/finca-bungalow-exterior/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/finca-bungalow-exterior/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/finca-bungalow-exterior/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/finca-bungalow-exterior/768.webp"
+      }
+    ]
+  },
+  "/images/gastronomia-tabla-quesos.png": {
+    "width": 768,
+    "height": 1024,
+    "fallback": "/images/opt/gastronomia-tabla-quesos/768.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-tabla-quesos/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-tabla-quesos/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-tabla-quesos/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-tabla-quesos/768.webp"
+      }
+    ]
+  },
+  "/images/empresas-teambuilding-campo.png": {
+    "width": 682,
+    "height": 1024,
+    "fallback": "/images/opt/empresas-teambuilding-campo/682.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/empresas-teambuilding-campo/480.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/empresas-teambuilding-campo/480.webp"
+      }
+    ]
+  },
+  "/images/eventos-celebracion-campo.png": {
+    "width": 1024,
+    "height": 706,
+    "fallback": "/images/opt/eventos-celebracion-campo/1024.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/eventos-celebracion-campo/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/eventos-celebracion-campo/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/eventos-celebracion-campo/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/eventos-celebracion-campo/768.webp"
+      }
+    ]
+  },
+  "/images/bungalow-exterior.png": {
+    "width": 1024,
+    "height": 650,
+    "fallback": "/images/opt/bungalow-exterior/1024.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/bungalow-exterior/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/bungalow-exterior/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/bungalow-exterior/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/bungalow-exterior/768.webp"
+      }
+    ]
+  },
+  "/images/empresas-rodaje.png": {
+    "width": 768,
+    "height": 1024,
+    "fallback": "/images/opt/empresas-rodaje/768.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/empresas-rodaje/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/empresas-rodaje/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/empresas-rodaje/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/empresas-rodaje/768.webp"
+      }
+    ]
+  },
+  "/images/evento-terraza-atardecer.png": {
+    "width": 989,
+    "height": 603,
+    "fallback": "/images/opt/evento-terraza-atardecer/989.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/evento-terraza-atardecer/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/evento-terraza-atardecer/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/evento-terraza-atardecer/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/evento-terraza-atardecer/768.webp"
+      }
+    ]
+  },
+  "/images/pet-friendly.jpg": {
+    "width": 1000,
+    "height": 667,
+    "fallback": "/images/opt/pet-friendly/1000.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/pet-friendly/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/pet-friendly/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/pet-friendly/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/pet-friendly/768.webp"
+      }
+    ]
+  },
+  "/images/gastronomia-mesa-detalle.png": {
+    "width": 1024,
+    "height": 1024,
+    "fallback": "/images/opt/gastronomia-mesa-detalle/1024.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-mesa-detalle/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-mesa-detalle/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-mesa-detalle/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-mesa-detalle/768.webp"
+      }
+    ]
+  },
+  "/images/gastronomia-postre.png": {
+    "width": 768,
+    "height": 1024,
+    "fallback": "/images/opt/gastronomia-postre/768.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-postre/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-postre/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-postre/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-postre/768.webp"
+      }
+    ]
+  },
+  "/images/logo-cabecera.png": {
+    "width": 1024,
+    "height": 455,
+    "fallback": "/images/opt/logo-cabecera/1024.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/logo-cabecera/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/logo-cabecera/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/logo-cabecera/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/logo-cabecera/768.webp"
+      }
+    ]
+  }
+}

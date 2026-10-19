@@ -1,4 +1,7 @@
 ---
+import { getOptimizedVideo } from '../../data/media';
+import { useI18n } from '../../i18n';
+
 interface Props {
   src: string;
   alt: string;
@@ -7,48 +10,89 @@ interface Props {
 }
 
 const { src, alt, objectPosition = 'center center', playbackRate = 1 } = Astro.props;
+const optimized = getOptimizedVideo(src);
+const playLabel = (useI18n(Astro).copy.conversion as { playVideo: string }).playVideo;
 ---
 
-<section class="full-width-video" aria-label={alt} data-playback-rate={playbackRate}>
-  <video
-    src={encodeURI(src)}
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="metadata"
-    style={`object-position: ${objectPosition}`}
-  ></video>
+<section
+  class="full-width-video"
+  aria-label={alt}
+  data-deferred-video
+  data-src={encodeURI(optimized.src)}
+  data-playback-rate={playbackRate}
+>
+  {
+    optimized.poster && (
+      <img
+        src={optimized.poster}
+        alt={alt}
+        width="1280"
+        height="720"
+        loading="lazy"
+        decoding="async"
+        class="full-width-video__poster"
+      />
+    )
+  }
+  <button type="button" class="full-width-video__play" data-video-play>
+    {playLabel}
+  </button>
+  <video muted loop playsinline preload="none" poster={optimized.poster} style={`object-position: ${objectPosition}`}></video>
 </section>
 
 <style>
   .full-width-video {
+    position: relative;
     width: 100%;
     overflow: hidden;
     background: var(--color-secondary);
   }
 
-  .full-width-video video {
+  .full-width-video video,
+  .full-width-video__poster {
     display: block;
     width: 100%;
     height: clamp(10rem, 24vw, 18rem);
     object-fit: cover;
   }
+
+  .full-width-video video {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+  }
+
+  .full-width-video__play {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border: 0;
+    background: rgba(44, 36, 25, 0.28);
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .full-width-video.is-playing .full-width-video__play,
+  .full-width-video.is-playing .full-width-video__poster {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .full-width-video__play {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .full-width-video video {
+      display: none;
+    }
+
+    .full-width-video__play {
+      display: flex;
+    }
+  }
 </style>
-
-<script>
-  document.querySelectorAll<HTMLElement>('[data-playback-rate]').forEach((section) => {
-    const rate = Number(section.dataset.playbackRate);
-    if (!Number.isFinite(rate) || rate === 1) return;
-
-    const video = section.querySelector('video');
-    if (!video) return;
-
-    const applyRate = () => {
-      video.playbackRate = rate;
-    };
-
-    applyRate();
-    video.addEventListener('loadedmetadata', applyRate);
-  });
-</script>

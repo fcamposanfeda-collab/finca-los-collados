@@ -52,6 +52,8 @@ const { t } = useI18n(Astro);
             <img
               src={slide.src}
               alt={slide.alt}
+              width="1200"
+              height="900"
               loading={index === 0 ? 'eager' : 'lazy'}
               decoding="async"
               style={[

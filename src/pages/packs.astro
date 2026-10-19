@@ -3,9 +3,10 @@ import ContentPage from '../components/ui/ContentPage.astro';
 import ContentImage from '../components/ui/ContentImage.astro';
 import { getPageMeta } from '../data/pages-meta';
 import { images } from '../data/images';
+import { bookingComPropertyUrl, buildPageWhatsAppUrl } from '../data/booking';
 import { useI18n } from '../i18n';
 
-const { locale, copy } = useI18n(Astro);
+const { locale, copy, t } = useI18n(Astro);
 const meta = getPageMeta('packs', locale);
 const page = copy.packs as {
   hero: { eyebrow: string; title: string; subtitle: string };
@@ -22,8 +23,20 @@ const page = copy.packs as {
   heroSubtitle={page.hero.subtitle}
   heroEyebrow={page.hero.eyebrow}
   heroImage={images.hero.packs}
+  heroCtaLabel={(copy.booking as { bookingComLabel: string }).bookingComLabel}
+  heroCtaHref={bookingComPropertyUrl(locale)}
+  heroCtaTrack="booking"
+  heroSecondaryLabel={t('common.whatsapp')}
+  heroSecondaryHref={buildPageWhatsAppUrl('packs', locale)}
+  heroSecondaryTrack="whatsapp"
   ctaTitle={page.cta.title}
   ctaText={page.cta.text}
+  ctaButtonLabel={(copy.booking as { bookingComLabel: string }).bookingComLabel}
+  ctaButtonHref={bookingComPropertyUrl(locale)}
+  ctaPrimaryTrack="booking"
+  extraLabel={t('common.whatsapp')}
+  extraHref={buildPageWhatsAppUrl('packs', locale)}
+  extraTrack="whatsapp"
 >
   <section class="page-content">
     <div class="container page-content__inner page-content__inner--wide">

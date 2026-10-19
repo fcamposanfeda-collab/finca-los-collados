@@ -6,6 +6,10 @@ interface Props {
   text: string;
   buttonLabel?: string;
   buttonHref?: string;
+  extraLabel?: string;
+  extraHref?: string;
+  extraTrack?: string;
+  primaryTrack?: string;
 }
 
 const { href, t } = useI18n(Astro);
@@ -14,8 +18,15 @@ const {
   text,
   buttonLabel = t('common.reserve'),
   buttonHref = href('reservas-online'),
+  extraLabel,
+  extraHref,
+  extraTrack,
+  primaryTrack,
 } = Astro.props;
 const isExternal = buttonHref.startsWith('http') || buttonHref.startsWith('mailto:') || buttonHref.startsWith('#');
+const extraIsExternal = extraHref
+  ? extraHref.startsWith('http') || extraHref.startsWith('mailto:')
+  : false;
 ---
 
 <section class="cta-banner section" aria-labelledby="cta-banner-title">
@@ -28,12 +39,34 @@ const isExternal = buttonHref.startsWith('http') || buttonHref.startsWith('mailt
       <a
         href={buttonHref}
         class="btn"
+        data-track={primaryTrack}
+        data-track-source="cta"
         target={isExternal && buttonHref.startsWith('http') ? '_blank' : undefined}
         rel={isExternal && buttonHref.startsWith('http') ? 'noopener noreferrer' : undefined}
       >
         {buttonLabel}
       </a>
-      <a href={href('contacto')} class="btn btn--outline cta-banner__outline">{t('common.contact')}</a>
+      {
+        extraLabel && extraHref && (
+          <a
+            href={extraHref}
+            class="btn btn--outline cta-banner__outline"
+            data-track={extraTrack}
+            data-track-source="cta"
+            target={extraIsExternal && extraHref.startsWith('http') ? '_blank' : undefined}
+            rel={extraIsExternal && extraHref.startsWith('http') ? 'noopener noreferrer' : undefined}
+          >
+            {extraLabel}
+          </a>
+        )
+      }
+      {
+        !extraHref && (
+          <a href={href('contacto')} class="btn btn--outline cta-banner__outline">
+            {t('common.contact')}
+          </a>
+        )
+      }
     </div>
   </div>
 </section>

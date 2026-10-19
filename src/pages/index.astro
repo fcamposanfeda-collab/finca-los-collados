@@ -5,16 +5,30 @@ import Hero from '../components/sections/Hero.astro';
 import HomePillars from '../components/sections/HomePillars.astro';
 import HomeTeasers from '../components/sections/HomeTeasers.astro';
 import CtaBanner from '../components/ui/CtaBanner.astro';
+import TrustBlock from '../components/conversion/TrustBlock.astro';
+import { bookingComPropertyUrl, buildPageWhatsAppUrl } from '../data/booking';
+import { images } from '../data/images';
 import { useI18n } from '../i18n';
 
-const { locale, copy } = useI18n(Astro);
+const { locale, copy, t } = useI18n(Astro);
 const meta = getPageMeta('home', locale);
 const cta = copy.home.cta as { title: string; text: string };
+const bookingLabel = (copy.booking as { bookingComLabel: string }).bookingComLabel;
 ---
 
-<BaseLayout title={meta.title} description={meta.description}>
+<BaseLayout title={meta.title} description={meta.description} lcpSrc={images.hero.home}>
   <Hero />
   <HomePillars />
   <HomeTeasers />
-  <CtaBanner title={cta.title} text={cta.text} />
+  <TrustBlock />
+  <CtaBanner
+    title={cta.title}
+    text={cta.text}
+    buttonLabel={bookingLabel}
+    buttonHref={bookingComPropertyUrl(locale)}
+    primaryTrack="booking"
+    extraLabel={t('common.whatsapp')}
+    extraHref={buildPageWhatsAppUrl('home', locale)}
+    extraTrack="whatsapp"
+  />
 </BaseLayout>

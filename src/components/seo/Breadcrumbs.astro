@@ -1,0 +1,56 @@
+---
+import { useI18n } from '../../i18n';
+
+const { pageKey, href, copy } = useI18n(Astro);
+const conv = copy.conversion as { breadcrumbAria: string; breadcrumbHome: string };
+const navLabels = copy.nav as Record<string, string>;
+const current = navLabels[pageKey] ?? pageKey;
+const show = pageKey !== 'home';
+---
+
+{
+  show && (
+    <nav class="breadcrumbs" aria-label={conv.breadcrumbAria}>
+      <ol class="breadcrumbs__list">
+        <li>
+          <a href={href('home')}>{conv.breadcrumbHome}</a>
+        </li>
+        <li>
+          <span aria-current="page">{current}</span>
+        </li>
+      </ol>
+    </nav>
+  )
+}
+
+<style>
+  .breadcrumbs {
+    padding: 0.85rem 0 0;
+    font-size: 0.8125rem;
+  }
+
+  .breadcrumbs__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: var(--color-muted);
+  }
+
+  .breadcrumbs__list li:not(:last-child)::after {
+    content: '/';
+    margin-left: 0.5rem;
+    color: var(--color-border);
+  }
+
+  .breadcrumbs a {
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .breadcrumbs [aria-current='page'] {
+    color: var(--color-text);
+  }
+</style>

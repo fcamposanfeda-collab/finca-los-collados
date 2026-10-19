@@ -10,6 +10,9 @@ const meta = getPageMeta('entorno', locale);
 const page = copy.entorno as {
   hero: { eyebrow: string; title: string; subtitle: string };
   intro: string;
+  distancesTitle: string;
+  distancesNote: string;
+  distances: { place: string; detail: string }[];
   places: { id: keyof typeof images.entorno; title: string; description: string }[];
   cta: { title: string; text: string };
 };
@@ -28,6 +31,18 @@ const page = copy.entorno as {
   <section class="page-content">
     <div class="container page-content__inner page-content__inner--wide">
       <p class="page-content__lead">{page.intro}</p>
+      <h2 class="section__title">{page.distancesTitle}</h2>
+      <p class="page-content__lead">{page.distancesNote}</p>
+      <table class="distances-table">
+        <tbody>
+          {page.distances.map((row) => (
+            <tr>
+              <th scope="row">{row.place}</th>
+              <td>{row.detail}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
       <div class="feature-grid">
         {
           page.places.map((place) => (

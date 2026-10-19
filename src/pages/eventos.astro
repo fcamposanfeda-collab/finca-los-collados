@@ -6,9 +6,11 @@ import { images } from '../data/images';
 import VenuePackages from '../components/venue/VenuePackages.astro';
 import AzureaCatering from '../components/venue/AzureaCatering.astro';
 import ContactForm from '../components/forms/ContactForm.astro';
+import { buildPageWhatsAppUrl } from '../data/booking';
+import { contactFormUrl } from '../data/forms';
 import { useI18n } from '../i18n';
 
-const { locale, copy } = useI18n(Astro);
+const { locale, copy, t } = useI18n(Astro);
 const meta = getPageMeta('eventos', locale);
 const page = copy.eventos as {
   hero: { eyebrow: string; title: string; subtitle: string };
@@ -37,10 +39,20 @@ const eventVenuePackageIds = [
   heroSubtitle={page.hero.subtitle}
   heroEyebrow={page.hero.eyebrow}
   heroImage={images.hero.eventos}
+  heroCtaLabel={t('common.whatsapp')}
+  heroCtaHref={buildPageWhatsAppUrl('eventos', locale)}
+  heroCtaTrack="whatsapp"
+  heroSecondaryLabel={page.cta.buttonLabel}
+  heroSecondaryHref={contactFormUrl(locale, 'eventos')}
+  heroSecondaryTrack="form"
   ctaTitle={page.cta.title}
   ctaText={page.cta.text}
-  ctaButtonLabel={page.cta.buttonLabel}
-  ctaButtonHref="#solicitud-presupuesto"
+  ctaButtonLabel={t('common.whatsapp')}
+  ctaButtonHref={buildPageWhatsAppUrl('eventos', locale)}
+  ctaPrimaryTrack="whatsapp"
+  extraLabel={page.cta.buttonLabel}
+  extraHref="#solicitud-presupuesto"
+  extraTrack="form"
 >
   <section class="page-content">
     <div class="container text-image">

@@ -1,0 +1,105 @@
+---
+import { bookingComPropertyUrl } from '../../data/booking';
+import { useI18n } from '../../i18n';
+
+interface Props {
+  showHunting?: boolean;
+}
+
+const { showHunting = false } = Astro.props;
+const { locale, href, copy } = useI18n(Astro);
+const trust = copy.conversion.trust as {
+  title: string;
+  ratingTitle: string;
+  rating: string;
+  ratingLink: string;
+  includesTitle: string;
+  includes: string[];
+  cancelTitle: string;
+  cancelText: string;
+  cancelLink: string;
+  huntingTitle: string;
+  huntingText: string;
+};
+const bookingUrl = bookingComPropertyUrl(locale);
+---
+
+<section class="trust-block section" aria-labelledby="trust-block-title">
+  <div class="container">
+    <h2 id="trust-block-title" class="section__title">{trust.title}</h2>
+    <div class="trust-block__grid">
+      <article class="trust-block__card">
+        <h3>{trust.ratingTitle}</h3>
+        <p>{trust.rating}</p>
+        <a href={bookingUrl} target="_blank" rel="noopener noreferrer" data-track="booking" data-track-source="trust">
+          {trust.ratingLink}
+        </a>
+      </article>
+      <article class="trust-block__card">
+        <h3>{trust.includesTitle}</h3>
+        <ul>
+          {trust.includes.map((item) => <li>{item}</li>)}
+        </ul>
+      </article>
+      <article class="trust-block__card">
+        <h3>{trust.cancelTitle}</h3>
+        <p>{trust.cancelText}</p>
+        <a href={href('politica-de-reservas')}>{trust.cancelLink}</a>
+      </article>
+      {
+        showHunting && (
+          <article class="trust-block__card">
+            <h3>{trust.huntingTitle}</h3>
+            <p>{trust.huntingText}</p>
+          </article>
+        )
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .trust-block__grid {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .trust-block__card {
+    padding: 1.5rem;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+  }
+
+  .trust-block__card h3 {
+    margin: 0 0 0.75rem;
+    font-size: 1.05rem;
+    color: var(--color-secondary);
+  }
+
+  .trust-block__card p,
+  .trust-block__card li {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.9375rem;
+  }
+
+  .trust-block__card ul {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .trust-block__card a {
+    display: inline-block;
+    margin-top: 0.75rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  @media (min-width: 768px) {
+    .trust-block__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

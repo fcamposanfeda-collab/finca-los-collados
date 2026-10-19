@@ -8,7 +8,7 @@ import { withBase } from '../utils/paths';
 const imagesRaw = {
   brand: {
     logo: '/images/logo-finca-los-collados.png',
-    header: '/images/logo-cabecera.png',
+    header: '/images/logo-cabecera.webp',
     emblem: '/images/logo-emblem.png',
   },
 

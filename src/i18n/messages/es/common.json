@@ -5,8 +5,8 @@
   "copyright": "© 2026 Finca Los Collados de San Miguel. Todos los derechos reservados.",
   "tagline": "Turismo rural, empresas y eventos en Campos de Montiel",
   "country": "",
-  "phoneDisplay": "608 543 681",
-  "phoneAltDisplay": "660 441 734",
+  "phoneDisplay": "+34 608 543 681",
+  "phoneAltDisplay": "+34 660 441 734",
   "reserve": "Reservar",
   "contact": "Contactar",
   "seeMore": "Ver más",
@@ -28,6 +28,7 @@
   "capacity": "Capacidad",
   "idealFor": "Ideal para:",
   "requestQuote": "Solicitar presupuesto",
+  "tourismRegistry": "Registro de Turismo de Castilla-La Mancha: TODO_DATO",
   "carousel": {
     "aria": "Galería de imágenes",
     "roledescription": "carrusel",

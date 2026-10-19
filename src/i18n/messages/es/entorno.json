@@ -4,7 +4,17 @@
     "title": "Entorno y territorio",
     "subtitle": "Campos de Montiel, Villamanrique, patrimonio íbero y la Mancha más auténtica a pocos kilómetros de Torre de Juan Abad y Villanueva de los Infantes."
   },
-  "intro": "Los Collados se sitúa en uno de los paisajes más representativos de La Mancha: llanuras, dehesas, pueblos con historia y un patrimonio cultural que se remonta a la antigüedad.",
+  "intro": "Finca Los Collados de San Miguel está en Villamanrique, Ciudad Real, en Campos de Montiel (Castilla-La Mancha). Es el punto de partida para Villanueva de los Infantes, las Lagunas de Ruidera, Valdepeñas y rutas por La Mancha. Reserve alojamiento y organice su visita con nosotros.",
+  "distancesTitle": "Distancias en coche",
+  "distancesNote": "Kilómetros y tiempos aproximados por carretera desde el casco de Villamanrique (38,546 N, 2,998 O). Fuente: OSRM / OpenStreetMap, consulta 19/10/2026. El acceso final a la finca es Unnamed Road.",
+  "distances": [
+    { "place": "Villanueva de los Infantes", "detail": "27 km · 34 min" },
+    { "place": "Lagunas de Ruidera", "detail": "62 km · 1 h 10 min" },
+    { "place": "Valdepeñas", "detail": "60 km · 1 h 5 min" },
+    { "place": "Ciudad Real", "detail": "113 km · 1 h 55 min" },
+    { "place": "Madrid", "detail": "247 km · 3 h 25 min" },
+    { "place": "Jaén / Úbeda-Baeza", "detail": "Jaén 144 km · 2 h; Úbeda 100 km · 1 h 40 min" }
+  ],
   "places": [
     {
       "id": "campos-de-montiel",

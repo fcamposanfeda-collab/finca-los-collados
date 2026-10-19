@@ -4,7 +4,17 @@
     "title": "Surroundings and landscape",
     "subtitle": "Campos de Montiel, Villamanrique, Iberian heritage and the most authentic La Mancha, a few kilometres from Torre de Juan Abad and Villanueva de los Infantes."
   },
-  "intro": "Los Collados sits in one of the most representative landscapes of La Mancha: plains, dehesas, historic villages and a cultural heritage that reaches back to antiquity.",
+  "intro": "Finca Los Collados de San Miguel is in Villamanrique, Ciudad Real, in Campos de Montiel (Castilla-La Mancha). It is a base for Villanueva de los Infantes, the Ruidera Lagoons, Valdepeñas and touring La Mancha. Book your stay and we will help you plan the visit.",
+  "distancesTitle": "Driving distances",
+  "distancesNote": "Approximate driving distances from Villamanrique village (38.546 N, 2.998 W). Source: OSRM / OpenStreetMap, checked 19 Oct 2026. The last stretch to the estate is Unnamed Road.",
+  "distances": [
+    { "place": "Villanueva de los Infantes", "detail": "27 km · 34 min" },
+    { "place": "Ruidera Lagoons", "detail": "62 km · 1 h 10 min" },
+    { "place": "Valdepeñas", "detail": "60 km · 1 h 5 min" },
+    { "place": "Ciudad Real", "detail": "113 km · 1 h 55 min" },
+    { "place": "Madrid", "detail": "247 km · 3 h 25 min" },
+    { "place": "Jaén / Úbeda-Baeza", "detail": "Jaén 144 km · 2 h; Úbeda 100 km · 1 h 40 min" }
+  ],
   "places": [
     {
       "id": "campos-de-montiel",

@@ -1,8 +1,10 @@
 ---
 import { images } from '../../data/images';
+import { bookingComPropertyUrl, buildPageWhatsAppUrl } from '../../data/booking';
+import OptimizedImage from '../ui/OptimizedImage.astro';
 import { useI18n } from '../../i18n';
 
-const { href, copy, t } = useI18n(Astro);
+const { locale, copy, t } = useI18n(Astro);
 const hero = copy.home.hero as {
   eyebrow: string;
   title: string;
@@ -11,22 +13,48 @@ const hero = copy.home.hero as {
   aria: string;
 };
 const heroAlt = (copy.images as { heroHome: string }).heroHome;
+const bookingUrl = bookingComPropertyUrl(locale);
+const whatsappUrl = buildPageWhatsAppUrl('home', locale);
+const bookingLabel = (copy.booking as { bookingComLabel: string }).bookingComLabel;
 ---
 
-<section
-  class="hero hero--photo"
-  style={`--hero-image: url('${images.hero.home}')`}
-  aria-label={hero.aria}
->
-  <div class="hero__bg" aria-hidden="true"></div>
+<section class="hero hero--photo" aria-label={hero.aria}>
+  <OptimizedImage
+    class="hero__img"
+    src={images.hero.home}
+    alt={heroAlt}
+    width={1920}
+    height={1080}
+    loading="eager"
+    fetchpriority="high"
+    sizes="100vw"
+  />
   <div class="hero__overlay"></div>
   <div class="container hero__content">
     <p class="hero__eyebrow">{hero.eyebrow}</p>
     <h1 class="hero__title">{hero.title}</h1>
     <p class="hero__subtitle">{hero.subtitle}</p>
     <div class="hero__actions">
-      <a href={href('reservas-online')} class="btn">{hero.cta}</a>
-      <a href={href('la-finca')} class="btn btn--outline">{t('common.discoverEstate')}</a>
+      <a
+        href={bookingUrl}
+        class="btn"
+        data-track="booking"
+        data-track-source="hero"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {bookingLabel}
+      </a>
+      <a
+        href={whatsappUrl}
+        class="btn btn--outline"
+        data-track="whatsapp"
+        data-track-source="hero"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {t('common.whatsapp')}
+      </a>
     </div>
   </div>
 </section>
@@ -49,14 +77,24 @@ const heroAlt = (copy.images as { heroHome: string }).heroHome;
     background: var(--color-secondary);
   }
 
-  .hero__bg {
+  .hero :global(picture.hero__img),
+  .hero :global(img.hero__img) {
     position: absolute;
     inset: 0;
-    background: var(--hero-image) 50% 40% / cover no-repeat;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero :global(.hero__img img),
+  .hero :global(img.hero__img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 40%;
+    max-width: none;
     transform: scale(1);
     transform-origin: 50% 38%;
-    animation: hero-zoom 5s ease-in-out infinite alternate;
-    will-change: transform;
+    animation: hero-zoom 5s ease-in-out 2.5s infinite alternate;
   }
 
   @keyframes hero-zoom {
@@ -79,7 +117,8 @@ const heroAlt = (copy.images as { heroHome: string }).heroHome;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero__bg {
+    .hero :global(.hero__img img),
+    .hero :global(img.hero__img) {
       animation: none;
       transform: none;
     }

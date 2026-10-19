@@ -3,6 +3,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from './PageHero.astro';
 import CtaBanner from './CtaBanner.astro';
 import FullWidthVideo from './FullWidthVideo.astro';
+import Breadcrumbs from '../seo/Breadcrumbs.astro';
+import FaqSection from '../seo/FaqSection.astro';
+import RelatedPages from '../seo/RelatedPages.astro';
 
 interface Props {
   title: string;
@@ -11,10 +14,21 @@ interface Props {
   heroSubtitle?: string;
   heroEyebrow?: string;
   heroImage?: string;
+  heroImageAlt?: string;
+  heroCtaLabel?: string;
+  heroCtaHref?: string;
+  heroCtaTrack?: string;
+  heroSecondaryLabel?: string;
+  heroSecondaryHref?: string;
+  heroSecondaryTrack?: string;
   ctaTitle?: string;
   ctaText?: string;
   ctaButtonLabel?: string;
   ctaButtonHref?: string;
+  ctaPrimaryTrack?: string;
+  extraLabel?: string;
+  extraHref?: string;
+  extraTrack?: string;
   closingVideo?: string;
   closingVideoAlt?: string;
   closingVideoPosition?: string;
@@ -28,10 +42,21 @@ const {
   heroSubtitle,
   heroEyebrow,
   heroImage,
+  heroImageAlt,
+  heroCtaLabel,
+  heroCtaHref,
+  heroCtaTrack,
+  heroSecondaryLabel,
+  heroSecondaryHref,
+  heroSecondaryTrack,
   ctaTitle,
   ctaText,
   ctaButtonLabel,
   ctaButtonHref,
+  ctaPrimaryTrack,
+  extraLabel,
+  extraHref,
+  extraTrack,
   closingVideo,
   closingVideoAlt,
   closingVideoPosition,
@@ -39,9 +64,26 @@ const {
 } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description} index={index}>
-  <PageHero title={heroTitle} subtitle={heroSubtitle} eyebrow={heroEyebrow} imageSrc={heroImage} />
+<BaseLayout title={title} description={description} index={index} lcpSrc={heroImage}>
+  <PageHero
+    title={heroTitle}
+    subtitle={heroSubtitle}
+    eyebrow={heroEyebrow}
+    imageSrc={heroImage}
+    imageAlt={heroImageAlt}
+    ctaLabel={heroCtaLabel}
+    ctaHref={heroCtaHref}
+    ctaTrack={heroCtaTrack}
+    secondaryLabel={heroSecondaryLabel}
+    secondaryHref={heroSecondaryHref}
+    secondaryTrack={heroSecondaryTrack}
+  />
+  <div class="container">
+    <Breadcrumbs />
+  </div>
   <slot />
+  <FaqSection />
+  <RelatedPages />
   {
     ctaTitle && ctaText && (
       <CtaBanner
@@ -49,6 +91,10 @@ const {
         text={ctaText}
         buttonLabel={ctaButtonLabel}
         buttonHref={ctaButtonHref}
+        primaryTrack={ctaPrimaryTrack}
+        extraLabel={extraLabel}
+        extraHref={extraHref}
+        extraTrack={extraTrack}
       />
     )
   }

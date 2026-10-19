@@ -1,0 +1,125 @@
+{
+  "title": "Frequently asked questions",
+  "alojamiento": [
+    {
+      "q": "Are dogs allowed?",
+      "a": "Yes. The bungalows are pet-friendly. TODO_DATO: supplement, house rules and any size or number limits."
+    },
+    {
+      "q": "How many people can stay?",
+      "a": "There are 8 bungalows, sleeping up to 16 adults. Children depend on the set-up of each booking."
+    },
+    {
+      "q": "What is included in the stay?",
+      "a": "Breakfast, Wi-Fi, air conditioning, a porch, and access to shared areas and the swimming pool."
+    },
+    {
+      "q": "How do I book a bungalow?",
+      "a": "The most direct route is Booking.com, with live availability. You can also write on WhatsApp or use the form; we always check the Booking.com calendar before confirming."
+    },
+    {
+      "q": "Can we take the whole estate?",
+      "a": "Yes. The Events page lists exclusive-use options, with or without accommodation, and a weekend option."
+    },
+    {
+      "q": "What is the cancellation policy?",
+      "a": "TODO_DATO: short summary of the current Booking.com policy. Please also see our booking policy page."
+    },
+    {
+      "q": "How far is it from Madrid?",
+      "a": "The estate is in Villamanrique, Ciudad Real. About 247 km and 3 h 25 min by car from Madrid (OSRM / OpenStreetMap, 19 Oct 2026, from Villamanrique village)."
+    }
+  ],
+  "la-calerilla": [
+    {
+      "q": "When is the partridge season?",
+      "a": "The usual season runs from October to February. Dates should be requested well in advance as demand is high."
+    },
+    {
+      "q": "Which types of shooting are offered?",
+      "a": "The main discipline is walked-up red-legged partridge shooting. Driven partridge days are also available. TODO_DATO: any other disciplines."
+    },
+    {
+      "q": "Who organises the shooting days?",
+      "a": "Shooting days are organised by Alectoris Ibérica SL."
+    },
+    {
+      "q": "Can shooting be combined with lodging?",
+      "a": "Yes. You can combine a day in the field with bungalows and dining at Finca Los Collados de San Miguel."
+    },
+    {
+      "q": "How do I book a shooting day?",
+      "a": "Via WhatsApp or the La Calerilla form, with preferred dates and the number of guns."
+    },
+    {
+      "q": "Are shooting dogs allowed?",
+      "a": "TODO_DATO: conditions for pointing dogs on the shoot and in the bungalows."
+    }
+  ],
+  "eventos": [
+    {
+      "q": "How many people can an event hold?",
+      "a": "Outdoor celebrations for up to 50 guests. Overnight lodging on the estate is for 16 adults in 8 bungalows."
+    },
+    {
+      "q": "Can we hire the whole estate?",
+      "a": "Yes, with or without lodging, and there is a weekend option. Price on request."
+    },
+    {
+      "q": "Is catering available?",
+      "a": "Catering is provided by Azurea. Menus and format can be discussed when you request a quote."
+    },
+    {
+      "q": "Do you host weddings?",
+      "a": "Yes: intimate weddings and other private celebrations (communions, birthdays, corporate events) on a private country estate."
+    },
+    {
+      "q": "How do I book an event?",
+      "a": "WhatsApp or the form, with dates, guest numbers and the type of celebration. Events are not booked as a Booking.com room stay."
+    }
+  ],
+  "empresas": [
+    {
+      "q": "What kind of company is the estate for?",
+      "a": "SMEs and teams looking for team building, retreats, film shoots or photo sessions in a private La Mancha setting."
+    },
+    {
+      "q": "How many people can a team lodge?",
+      "a": "Up to 16 adults in 8 bungalows. The estate can host larger groups for daytime activity. TODO_DATO: exact indoor/outdoor capacity."
+    },
+    {
+      "q": "Can we film or shoot stills?",
+      "a": "Yes. There is a specific option for photo shoots / film and photo shoots and for hiring spaces for production."
+    },
+    {
+      "q": "Can a company take the whole estate?",
+      "a": "Yes. That is the usual option when full privacy is required."
+    },
+    {
+      "q": "How do we request a quote?",
+      "a": "WhatsApp or the form, with dates, team size and the type of activity (team building, retreat or shoot)."
+    }
+  ],
+  "packs": [
+    {
+      "q": "Are packages booked on Booking.com?",
+      "a": "Lodging is booked on Booking.com. The rest of the package (dinner, activities, and so on) is confirmed with us on WhatsApp or via the form."
+    },
+    {
+      "q": "Which packages are available?",
+      "a": "Romantic, family, gastronomic and touring packages, among the proposals described on this page."
+    },
+    {
+      "q": "Are package prices published?",
+      "a": "TODO_DATO: prices or ‘from’ rates. Until then, the price is on request."
+    },
+    {
+      "q": "Are they pet-friendly?",
+      "a": "The lodging is pet-friendly. If a package includes a restaurant or other activities, please check the pet conditions."
+    },
+    {
+      "q": "Can packages be tailored?",
+      "a": "Yes. Tell us the type of getaway and your dates and we will adapt the proposal."
+    }
+  ]
+}

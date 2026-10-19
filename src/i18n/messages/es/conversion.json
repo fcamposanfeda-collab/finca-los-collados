@@ -1,0 +1,52 @@
+{
+  "fabAria": "Escribir por WhatsApp a Finca Los Collados de San Miguel",
+  "barAria": "Reservar, WhatsApp o llamar",
+  "barReserve": "Reservar",
+  "barWhatsapp": "WhatsApp",
+  "barCall": "Llamar",
+  "playVideo": "Reproducir vídeo",
+  "breadcrumbAria": "Migas de pan",
+  "breadcrumbHome": "Inicio",
+  "relatedTitle": "También le puede interesar",
+  "related": {
+    "alojamiento": ["packs", "gastronomia", "la-finca"],
+    "la-calerilla": ["alojamiento", "packs", "gastronomia"],
+    "eventos": ["empresas", "la-finca", "gastronomia"],
+    "empresas": ["eventos", "alojamiento", "la-finca"],
+    "packs": ["alojamiento", "gastronomia", "experiencias"],
+    "la-finca": ["alojamiento", "eventos", "la-calerilla"],
+    "gastronomia": ["packs", "alojamiento", "eventos"],
+    "experiencias": ["entorno", "packs", "alojamiento"],
+    "entorno": ["experiencias", "la-finca", "alojamiento"]
+  },
+  "updatedOn": "Actualizado el {date}",
+  "whatsappMessages": {
+    "default": "Hola, me gustaría consultar disponibilidad en Finca Los Collados de San Miguel.",
+    "home": "Hola, he visto la web de Finca Los Collados de San Miguel y me gustaría más información.",
+    "alojamiento": "Hola, me gustaría reservar alojamiento en los bungalows de Finca Los Collados de San Miguel.",
+    "la-calerilla": "Hola, me gustaría información sobre caza en La Calerilla (Finca Los Collados de San Miguel).",
+    "eventos": "Hola, me gustaría información para un evento en Finca Los Collados de San Miguel.",
+    "empresas": "Hola, me gustaría información para empresa / teambuilding en Finca Los Collados de San Miguel.",
+    "packs": "Hola, me gustaría información sobre packs de estancia en Finca Los Collados de San Miguel.",
+    "la-finca": "Hola, me gustaría información sobre el alquiler de la finca completa en Los Collados de San Miguel.",
+    "gastronomia": "Hola, me gustaría información sobre gastronomía y mesas en Finca Los Collados de San Miguel.",
+    "experiencias": "Hola, me gustaría información sobre experiencias en Finca Los Collados de San Miguel.",
+    "entorno": "Hola, me gustaría información para visitar Finca Los Collados de San Miguel y su entorno.",
+    "contacto": "Hola, les escribo desde la página de contacto de Finca Los Collados de San Miguel.",
+    "reservas-online": "Hola, me gustaría consultar disponibilidad y reservar en Finca Los Collados de San Miguel.",
+    "rodaje": "Hola, me gustaría información para un rodaje o sesión fotográfica en Finca Los Collados de San Miguel."
+  },
+  "trust": {
+    "title": "Por qué reservar en Los Collados",
+    "ratingTitle": "Valoración",
+    "rating": "9,7 / 10 · 105 reseñas en Booking.com (consulta: 19/10/2026, vía ViaMichelin).",
+    "ratingLink": "Ver ficha en Booking.com",
+    "includesTitle": "La estancia incluye",
+    "includes": ["Desayuno", "Piscina", "Wi-Fi gratuito", "Pet friendly"],
+    "cancelTitle": "Cancelación",
+    "cancelText": "TODO_DATO: resumen de la política de cancelación. Consulte las condiciones vigentes en Booking.com y en nuestra política de reservas.",
+    "cancelLink": "Política de reservas",
+    "huntingTitle": "Caza en La Calerilla",
+    "huntingText": "Las jornadas de caza las organiza Alectoris Ibérica SL."
+  }
+}

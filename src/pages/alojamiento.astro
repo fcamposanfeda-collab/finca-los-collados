@@ -1,11 +1,13 @@
 ---
 import ContentPage from '../components/ui/ContentPage.astro';
 import TextImageMedia from '../components/ui/TextImageMedia.astro';
+import TrustBlock from '../components/conversion/TrustBlock.astro';
 import { getPageMeta } from '../data/pages-meta';
 import { images } from '../data/images';
+import { bookingComPropertyUrl, buildPageWhatsAppUrl } from '../data/booking';
 import { useI18n } from '../i18n';
 
-const { locale, copy } = useI18n(Astro);
+const { locale, copy, t } = useI18n(Astro);
 const meta = getPageMeta('alojamiento', locale);
 const page = copy.alojamiento as {
   hero: { eyebrow: string; title: string; subtitle: string };
@@ -28,8 +30,21 @@ const col2 = page.amenities.slice(mid);
   heroSubtitle={page.hero.subtitle}
   heroEyebrow={page.hero.eyebrow}
   heroImage={images.hero.alojamiento}
+  heroImageAlt={page.alts.interior}
+  heroCtaLabel={(copy.booking as { bookingComLabel: string }).bookingComLabel}
+  heroCtaHref={bookingComPropertyUrl(locale)}
+  heroCtaTrack="booking"
+  heroSecondaryLabel={t('common.whatsapp')}
+  heroSecondaryHref={buildPageWhatsAppUrl('alojamiento', locale)}
+  heroSecondaryTrack="whatsapp"
   ctaTitle={page.cta.title}
   ctaText={page.cta.text}
+  ctaButtonLabel={(copy.booking as { bookingComLabel: string }).bookingComLabel}
+  ctaButtonHref={bookingComPropertyUrl(locale)}
+  ctaPrimaryTrack="booking"
+  extraLabel={t('common.whatsapp')}
+  extraHref={buildPageWhatsAppUrl('alojamiento', locale)}
+  extraTrack="whatsapp"
   closingVideo={images.videos.bungalowClosing}
   closingVideoAlt={page.alts.closing}
   closingVideoPosition="center 58%"
@@ -63,4 +78,5 @@ const col2 = page.amenities.slice(mid);
       />
     </div>
   </section>
+  <TrustBlock />
 </ContentPage>

@@ -1,0 +1,60 @@
+<script>
+  function isMobile() {
+    return window.matchMedia('(max-width: 767px)').matches;
+  }
+
+  function prefersReducedMotion() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  function loadVideo(block: HTMLElement, autoplay: boolean) {
+    const video = block.querySelector('video');
+    const src = block.dataset.src;
+    if (!(video instanceof HTMLVideoElement) || !src || video.src) return;
+    video.src = src;
+    const start = Number(block.dataset.startTime);
+    const rate = Number(block.dataset.playbackRate);
+    video.addEventListener(
+      'loadedmetadata',
+      () => {
+        if (Number.isFinite(start) && start > 0 && start < video.duration) {
+          video.currentTime = start;
+        }
+        if (Number.isFinite(rate) && rate > 0) {
+          video.playbackRate = rate;
+        }
+        if (autoplay) {
+          video.play().catch(() => {});
+        }
+      },
+      { once: true },
+    );
+    video.load();
+    if (autoplay) block.classList.add('is-playing');
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-deferred-video]').forEach((block) => {
+    const playBtn = block.querySelector('[data-video-play]');
+    playBtn?.addEventListener('click', () => {
+      loadVideo(block, true);
+      const video = block.querySelector('video');
+      video?.play().catch(() => {});
+      block.classList.add('is-playing');
+    });
+
+    if (prefersReducedMotion() || isMobile()) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            loadVideo(block, true);
+            observer.disconnect();
+          }
+        }
+      },
+      { rootMargin: '80px' },
+    );
+    observer.observe(block);
+  });
+</script>

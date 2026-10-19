@@ -1,0 +1,50 @@
+---
+interface Props {
+  locale: string;
+  pageKey: string;
+}
+
+const token = import.meta.env.PUBLIC_CLOUDFLARE_WEB_ANALYTICS_TOKEN ?? '';
+const { locale, pageKey } = Astro.props;
+---
+
+{
+  token && (
+    <>
+      <!-- Cloudflare Web Analytics -->
+      <script
+        is:inline
+        type="module"
+        src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon={JSON.stringify({ token })}
+      />
+      <!-- End Cloudflare Web Analytics -->
+    </>
+  )
+}
+
+<script is:inline define:vars={{ locale, pageKey }}>
+  window.trackConversion = function trackConversion(name, props) {
+    const payload = Object.assign({ locale: locale, page: pageKey }, props || {});
+    try {
+      if (window.zaraz && typeof window.zaraz.track === 'function') {
+        window.zaraz.track(name, payload);
+      }
+    } catch (error) {}
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event: name }, payload));
+  };
+
+  document.addEventListener(
+    'click',
+    function (event) {
+      const target = event.target instanceof Element ? event.target.closest('[data-track]') : null;
+      if (!target) return;
+      window.trackConversion(target.getAttribute('data-track'), {
+        source: target.getAttribute('data-track-source') || 'link',
+        href: target.getAttribute('href') || '',
+      });
+    },
+    true,
+  );
+</script>

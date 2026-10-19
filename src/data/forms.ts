@@ -1,5 +1,5 @@
 import { contact } from './contact';
-import { defaultLocale, localeMeta, msg, type Locale } from '../i18n';
+import { defaultLocale, localeMeta, localizePath, msg, type Locale } from '../i18n';
 
 const env = import.meta.env;
 
@@ -86,4 +86,49 @@ export function buildMailtoUrl(
 export function mailtoInquiryHref(locale: Locale): string {
   const subject = encodeURIComponent((msg(locale).common as { mailtoSubject: string }).mailtoSubject);
   return `mailto:${contact.email}?subject=${subject}`;
+}
+
+const subjectAliases: Record<string, InquirySubjectId> = {
+  general: 'general',
+  alojamiento: 'alojamiento',
+  bungalows: 'alojamiento',
+  accommodation: 'alojamiento',
+  hebergement: 'alojamiento',
+  'finca-espacios': 'finca-espacios',
+  'finca-completa': 'finca-completa',
+  finca: 'finca-completa',
+  'finca-fin-semana': 'finca-fin-semana',
+  'sesiones-fotograficas': 'sesiones-fotograficas',
+  rodaje: 'sesiones-fotograficas',
+  rodajes: 'sesiones-fotograficas',
+  shooting: 'sesiones-fotograficas',
+  shootings: 'sesiones-fotograficas',
+  evento: 'evento',
+  eventos: 'evento',
+  events: 'evento',
+  evenements: 'evento',
+  empresa: 'empresa',
+  empresas: 'empresa',
+  corporate: 'empresa',
+  teambuilding: 'empresa',
+  pack: 'pack',
+  packs: 'pack',
+  packages: 'pack',
+  formules: 'pack',
+  caza: 'caza',
+  chasse: 'caza',
+  shootingday: 'caza',
+};
+
+export function resolveInquirySubject(value: string | null | undefined): InquirySubjectId | undefined {
+  if (!value) return undefined;
+  const normalized = value.trim().toLowerCase();
+  return subjectAliases[normalized];
+}
+
+export function contactFormUrl(locale: Locale, motivo?: string): string {
+  const path = localizePath('contacto', locale);
+  const resolved = resolveInquirySubject(motivo);
+  if (!resolved) return path;
+  return `${path}?motivo=${encodeURIComponent(resolved)}`;
 }

@@ -1,0 +1,125 @@
+{
+  "title": "Questions fréquentes",
+  "alojamiento": [
+    {
+      "q": "Les chiens sont-ils acceptés ?",
+      "a": "Oui. Les bungalows acceptent les animaux. TODO_DATO : supplément, règles et éventuelles limites de taille ou de nombre."
+    },
+    {
+      "q": "Combien de personnes peuvent séjourner ?",
+      "a": "Il y a 8 bungalows, pour 16 adultes au maximum. Les enfants dépendent de la configuration de chaque réservation."
+    },
+    {
+      "q": "Que comprend le séjour ?",
+      "a": "Petit-déjeuner, Wi-Fi, climatisation, porche et accès aux espaces communs et à la piscine."
+    },
+    {
+      "q": "Comment réserver un bungalow ?",
+      "a": "Le moyen le plus direct est Booking.com, avec les disponibilités en temps réel. Vous pouvez aussi écrire sur WhatsApp ou utiliser le formulaire ; nous vérifions toujours le calendrier Booking.com avant de confirmer."
+    },
+    {
+      "q": "Peut-on privatiser le domaine ?",
+      "a": "Oui. La page Événements détaille les formules de privatisation, avec ou sans hébergement, et l’option week-end."
+    },
+    {
+      "q": "Quelle est la politique d’annulation ?",
+      "a": "TODO_DATO : résumé de la politique Booking.com en vigueur. Consultez aussi notre page des conditions de réservation."
+    },
+    {
+      "q": "À quelle distance est Madrid ?",
+      "a": "Le domaine se trouve à Villamanrique, Ciudad Real. Environ 247 km et 3 h 25 min en voiture depuis Madrid (OSRM / OpenStreetMap, 19/10/2026, depuis le village de Villamanrique)."
+    }
+  ],
+  "la-calerilla": [
+    {
+      "q": "Quelle est la saison de chasse à la perdrix ?",
+      "a": "La saison habituelle va d’octobre à février. Il convient de demander les dates à l’avance, la demande étant forte."
+    },
+    {
+      "q": "Quelles modalités de chasse sont proposées ?",
+      "a": "La modalité principale est la chasse devant soi à la perdrix rouge. Il existe aussi des battues de perdrix. TODO_DATO : autres modalités le cas échéant."
+    },
+    {
+      "q": "Qui organise les journées de chasse ?",
+      "a": "Les journées de chasse sont organisées par Alectoris Ibérica SL."
+    },
+    {
+      "q": "Peut-on combiner avec l’hébergement ?",
+      "a": "Oui. Vous pouvez associer la journée à des bungalows et à la restauration de Finca Los Collados de San Miguel."
+    },
+    {
+      "q": "Comment réserver une journée de chasse ?",
+      "a": "Par WhatsApp ou via le formulaire de La Calerilla, en indiquant les dates et le nombre de fusils."
+    },
+    {
+      "q": "Les chiens de chasse sont-ils acceptés ?",
+      "a": "TODO_DATO : conditions pour les chiens d’arrêt sur le territoire et dans les bungalows."
+    }
+  ],
+  "eventos": [
+    {
+      "q": "Combien de personnes un événement peut-il accueillir ?",
+      "a": "Célébrations en extérieur jusqu’à 50 invités. L’hébergement du domaine est prévu pour 16 adultes dans 8 bungalows."
+    },
+    {
+      "q": "Peut-on privatiser le domaine ?",
+      "a": "Oui, avec ou sans hébergement, et il existe une formule week-end. Prix sur demande."
+    },
+    {
+      "q": "Y a-t-il un traiteur ?",
+      "a": "Le traiteur est Azurea. Menus et format se discutent lors de la demande de devis."
+    },
+    {
+      "q": "Organisez-vous des mariages ?",
+      "a": "Oui : mariages intimes et autres célébrations privées (communions, anniversaires, entreprises) dans un domaine rural privatif."
+    },
+    {
+      "q": "Comment réserver un événement ?",
+      "a": "WhatsApp ou formulaire, avec les dates, le nombre d’invités et le type de célébration. Un événement ne se réserve pas comme une chambre sur Booking.com."
+    }
+  ],
+  "empresas": [
+    {
+      "q": "À quel type d’entreprise s’adresse le domaine ?",
+      "a": "Aux PME et aux équipes qui cherchent un team building, une retraite, un tournage ou une séance photo dans un cadre privé de La Mancha."
+    },
+    {
+      "q": "Combien de personnes une équipe peut-elle loger ?",
+      "a": "Jusqu’à 16 adultes dans 8 bungalows. Le domaine peut accueillir des groupes plus importants dans la journée. TODO_DATO : capacité exacte des salles et des extérieurs."
+    },
+    {
+      "q": "Peut-on tourner ou faire des photos ?",
+      "a": "Oui. Il existe une formule dédiée aux séances photo / tournages et à la location d’espaces pour la production."
+    },
+    {
+      "q": "Une entreprise peut-elle privatiser le domaine ?",
+      "a": "Oui. C’est l’option habituelle lorsqu’une intimité totale est requise."
+    },
+    {
+      "q": "Comment demander un devis ?",
+      "a": "WhatsApp ou formulaire, en indiquant les dates, la taille de l’équipe et le type d’activité (team building, retraite ou tournage)."
+    }
+  ],
+  "packs": [
+    {
+      "q": "Les formules se réservent-elles sur Booking.com ?",
+      "a": "L’hébergement se réserve sur Booking.com. Le reste de la formule (dîner, activités, etc.) se confirme avec nous sur WhatsApp ou via le formulaire."
+    },
+    {
+      "q": "Quelles formules proposez-vous ?",
+      "a": "Formules romantiques, familiales, gastronomiques et de randonnées, parmi les propositions décrites sur cette page."
+    },
+    {
+      "q": "Les prix des formules sont-ils publiés ?",
+      "a": "TODO_DATO : prix ou tarifs « à partir de ». En attendant, le prix est sur demande."
+    },
+    {
+      "q": "Les animaux sont-ils acceptés ?",
+      "a": "L’hébergement accepte les animaux. Si la formule comprend un restaurant ou d’autres activités, vérifiez les conditions pour les animaux."
+    },
+    {
+      "q": "Les formules sont-elles personnalisables ?",
+      "a": "Oui. Indiquez-nous le type d’escapade et vos dates, nous adapterons la proposition."
+    }
+  ]
+}

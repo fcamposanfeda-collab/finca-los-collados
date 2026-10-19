@@ -17,8 +17,6 @@ const page = copy.contacto as {
   form: { title: string; intro: string };
   alts: { porche: string };
 };
-const common = copy.common as { phoneDisplay: string; phoneAltDisplay: string; country: string };
-const cityLine = common.country ? `${contact.city}, ${common.country}` : contact.city;
 
 const motivo = Astro.url.searchParams.get('motivo') ?? 'general';
 const defaultSubject = inquirySubjectIds.includes(motivo as (typeof inquirySubjectIds)[number])
@@ -41,12 +39,11 @@ const defaultSubject = inquirySubjectIds.includes(motivo as (typeof inquirySubje
           <div>
             <h2>{site.name}</h2>
             <address>
-              {contact.address}<br />
-              {cityLine}
+              {contact.address}
             </address>
             <p>
-              <a href={`tel:${contact.phone}`}>{common.phoneDisplay}</a><br />
-              <a href={`tel:${contact.phoneAlt}`}>{common.phoneAltDisplay}</a>
+              <a href={`tel:${contact.phone}`} data-track="phone" data-track-source="contacto">{contact.phoneDisplay}</a><br />
+              <a href={`tel:${contact.phoneAlt}`} data-track="phone" data-track-source="contacto">{contact.phoneAltDisplay}</a>
             </p>
             <p><a href={mailtoInquiryHref(locale)}>{contact.email}</a></p>
             <p>

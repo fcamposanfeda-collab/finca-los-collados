@@ -9,33 +9,31 @@ import LanguageSwitcher from '../i18n/LanguageSwitcher.astro';
 const { locale, href, t, copy } = useI18n(Astro);
 const navLabels = copy.nav as Record<string, string>;
 const footerCopy = copy.footer as Record<string, string>;
-const common = copy.common as { copyright: string; country: string; phoneDisplay: string; phoneAltDisplay: string };
-const cityLine = common.country ? `${contact.city}, ${common.country}` : contact.city;
+const common = copy.common as { copyright: string };
 ---
 
 <footer class="footer" aria-label={footerCopy.aria}>
   <div class="footer__main container">
     <div class="footer__col">
-      <h2 class="footer__title">{site.name}</h2>
+      <p class="footer__title">{site.name}</p>
       <p class="footer__tagline">{t('common.tagline')}</p>
       <address class="footer__address">
-        {contact.address}<br />
-        {cityLine}
+        {contact.address}
       </address>
       <div class="footer__contact">
-        <h2 class="footer__title">{footerCopy.contact}</h2>
+        <p class="footer__title">{footerCopy.contact}</p>
         <p>
-          <a href={`tel:${contact.phone}`}>{common.phoneDisplay}</a>
+          <a href={`tel:${contact.phone}`} data-track="phone" data-track-source="footer">{contact.phoneDisplay}</a>
         </p>
         <p>
-          <a href={`tel:${contact.phoneAlt}`}>{common.phoneAltDisplay}</a>
+          <a href={`tel:${contact.phoneAlt}`} data-track="phone" data-track-source="footer">{contact.phoneAltDisplay}</a>
         </p>
         <p>
           <a href={mailtoInquiryHref(locale)}>{contact.email}</a>
         </p>
       </div>
       <div class="footer__social-block">
-        <h2 class="footer__title">{footerCopy.follow}</h2>
+        <p class="footer__title">{footerCopy.follow}</p>
         <div class="footer__social">
           <a href={contact.facebook} target="_blank" rel="noopener noreferrer" aria-label={t('common.facebook')}>
             {t('common.facebook')}
@@ -48,7 +46,7 @@ const cityLine = common.country ? `${contact.city}, ${common.country}` : contact
     </div>
 
     <div class="footer__col">
-      <h2 class="footer__title">{footerCopy.explore}</h2>
+      <p class="footer__title">{footerCopy.explore}</p>
       <nav aria-label={footerCopy.sitemap}>
         <ul class="footer__sitemap">
           {footerNav.map((item) => (
@@ -64,6 +62,7 @@ const cityLine = common.country ? `${contact.city}, ${common.country}` : contact
 
   <div class="footer__bottom container">
     <p class="footer__copyright">{common.copyright}</p>
+    <p class="footer__copyright">{t('common.tourismRegistry')}</p>
     <LanguageSwitcher />
     <nav class="footer__legal" aria-label={footerCopy.legal}>
       <ul class="footer__legal-list">

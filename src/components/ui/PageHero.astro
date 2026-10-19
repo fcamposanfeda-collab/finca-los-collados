@@ -1,25 +1,94 @@
 ---
+import OptimizedImage from './OptimizedImage.astro';
+
 interface Props {
   title: string;
   subtitle?: string;
   eyebrow?: string;
   compact?: boolean;
   imageSrc?: string;
+  imageAlt?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  ctaTrack?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+  secondaryTrack?: string;
 }
 
-const { title, subtitle, eyebrow, compact = false, imageSrc } = Astro.props;
+const {
+  title,
+  subtitle,
+  eyebrow,
+  compact = false,
+  imageSrc,
+  imageAlt = '',
+  ctaLabel,
+  ctaHref,
+  ctaTrack,
+  secondaryLabel,
+  secondaryHref,
+  secondaryTrack,
+} = Astro.props;
+
+function isHttp(url?: string) {
+  return Boolean(url && url.startsWith('http'));
+}
 ---
 
 <section
   class:list={['page-hero', { 'page-hero--compact': compact, 'page-hero--photo': Boolean(imageSrc) }]}
-  style={imageSrc ? `--page-hero-image: url('${imageSrc}')` : undefined}
   aria-labelledby="page-hero-title"
 >
+  {
+    imageSrc && (
+      <OptimizedImage
+        class="page-hero__img"
+        src={imageSrc}
+        alt={imageAlt}
+        width={1600}
+        height={900}
+        loading="eager"
+        fetchpriority="high"
+        sizes="100vw"
+      />
+    )
+  }
   <div class="page-hero__overlay"></div>
   <div class="container page-hero__content">
     {eyebrow && <p class="page-hero__eyebrow">{eyebrow}</p>}
     <h1 id="page-hero-title" class="page-hero__title">{title}</h1>
     {subtitle && <p class="page-hero__subtitle">{subtitle}</p>}
+    {
+      (ctaHref && ctaLabel) || (secondaryHref && secondaryLabel) ? (
+        <div class="page-hero__actions">
+          {ctaHref && ctaLabel && (
+            <a
+              href={ctaHref}
+              class="btn"
+              data-track={ctaTrack}
+              data-track-source="hero"
+              target={isHttp(ctaHref) ? '_blank' : undefined}
+              rel={isHttp(ctaHref) ? 'noopener noreferrer' : undefined}
+            >
+              {ctaLabel}
+            </a>
+          )}
+          {secondaryHref && secondaryLabel && (
+            <a
+              href={secondaryHref}
+              class="btn btn--outline"
+              data-track={secondaryTrack}
+              data-track-source="hero"
+              target={isHttp(secondaryHref) ? '_blank' : undefined}
+              rel={isHttp(secondaryHref) ? 'noopener noreferrer' : undefined}
+            >
+              {secondaryLabel}
+            </a>
+          )}
+        </div>
+      ) : null
+    }
   </div>
 </section>
 
@@ -43,12 +112,15 @@ const { title, subtitle, eyebrow, compact = false, imageSrc } = Astro.props;
   .page-hero__overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(44, 36, 25, 0.35), transparent 65%);
+    z-index: 1;
+    background:
+      linear-gradient(135deg, rgba(44, 36, 25, 0.82), rgba(74, 103, 65, 0.72)),
+      linear-gradient(to top, rgba(44, 36, 25, 0.35), transparent 65%);
   }
 
   .page-hero__content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     max-width: 48rem;
     padding-block: 3rem;
   }
@@ -79,8 +151,49 @@ const { title, subtitle, eyebrow, compact = false, imageSrc } = Astro.props;
   }
 
   .page-hero--photo {
-    background:
-      linear-gradient(135deg, rgba(44, 36, 25, 0.82), rgba(74, 103, 65, 0.72)),
-      var(--page-hero-image) center / cover no-repeat;
+    overflow: hidden;
+    background: var(--color-secondary);
+  }
+
+  .page-hero :global(picture.page-hero__img),
+  .page-hero :global(img.page-hero__img) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .page-hero :global(.page-hero__img img),
+  .page-hero :global(img.page-hero__img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    max-width: none;
+  }
+
+  .page-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .page-hero__actions .btn {
+    width: auto;
+    min-width: min-content;
+    white-space: nowrap;
+    padding-inline: 1.2rem;
+  }
+
+  .page-hero__actions .btn--outline {
+    color: var(--color-on-primary);
+    border-color: var(--color-on-primary);
+  }
+
+  .page-hero__actions .btn--outline:hover {
+    color: var(--color-text);
+    background: var(--color-on-primary);
+    border-color: var(--color-on-primary);
   }
 </style>

@@ -1,0 +1,62 @@
+---
+import { useI18n, type PageKey } from '../../i18n';
+
+interface Props {
+  page?: PageKey;
+}
+
+const { pageKey, copy } = useI18n(Astro);
+const faqPage = (Astro.props.page ?? pageKey) as string;
+const faqCopy = copy.faq as Record<string, unknown>;
+const items = Array.isArray(faqCopy[faqPage])
+  ? (faqCopy[faqPage] as { q: string; a: string }[])
+  : [];
+const title = faqCopy.title as string;
+---
+
+{
+  items.length > 0 && (
+    <section class="faq-section section" aria-labelledby="faq-title">
+      <div class="container">
+        <h2 id="faq-title" class="section__title">
+          {title}
+        </h2>
+        <dl class="faq-section__list">
+          {items.map((item) => (
+            <div class="faq-section__item">
+              <dt>{item.q}</dt>
+              <dd>{item.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+  )
+}
+
+<style>
+  .faq-section__list {
+    max-width: 46rem;
+    margin: 0 auto;
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .faq-section__item {
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .faq-section__item dt {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    margin: 0 0 0.5rem;
+  }
+
+  .faq-section__item dd {
+    margin: 0;
+    color: var(--color-muted);
+  }
+</style>
