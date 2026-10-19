@@ -1,7 +1,6 @@
 {
   "disclaimer": "",
-  "placeholderLead": "Contenido legal pendiente de migrar desde la web actual en WordPress. Se trasladará el texto completo de",
-  "pending": true,
+  "pendingNotice": "Estamos actualizando este texto. Para cualquier consulta, escríbanos a {email}.",
   "titles": {
     "politica-de-privacidad": "Política de privacidad",
     "aviso-legal": "Aviso legal",

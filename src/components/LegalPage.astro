@@ -1,29 +1,34 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getPageMeta } from '../data/pages-meta';
-import { legalPageKeys, pagePathname, useI18n, type LegalPageKey } from '../i18n';
+import { contact } from '../data/contact';
+import { legalContentPending } from '../data/legal';
+import { legalPageKeys, useI18n, type LegalPageKey } from '../i18n';
 
 const { locale, pageKey, copy } = useI18n(Astro);
 const legalKey = (legalPageKeys.includes(pageKey as LegalPageKey) ? pageKey : 'politica-de-privacidad') as LegalPageKey;
 const meta = getPageMeta(legalKey, locale);
 const legal = copy.legal as {
   disclaimer: string;
-  placeholderLead: string;
+  pendingNotice: string;
   titles: Record<string, string>;
 };
 const legalTitle = legal.titles[legalKey];
-const sourcePath = pagePathname(legalKey, 'es');
+const [noticeBefore, noticeAfter] = legal.pendingNotice.split('{email}');
 ---
 
-<BaseLayout title={meta.title} description={meta.description}>
+<BaseLayout title={meta.title} description={meta.description} index={!legalContentPending}>
   <section class="section">
     <div class="container legal">
       <h1>{legalTitle}</h1>
       {legal.disclaimer && <p class="legal__disclaimer">{legal.disclaimer}</p>}
-      <p class="legal__notice">
-        {legal.placeholderLead}{' '}
-        <a href={`https://loscolladosdesanmiguel.com${sourcePath}`}>loscolladosdesanmiguel.com{sourcePath}</a>.
-      </p>
+      {legalContentPending && (
+        <p class="legal__notice">
+          {noticeBefore}
+          <a href={`mailto:${contact.email}`}>{contact.email}</a>
+          {noticeAfter ?? ''}
+        </p>
+      )}
     </div>
   </section>
 </BaseLayout>

@@ -1,7 +1,6 @@
 {
   "disclaimer": "This translation is provided for information purposes only. In the event of any discrepancy, the Spanish version shall prevail.",
-  "placeholderLead": "Legal content is still to be migrated from the current WordPress site. The full text will be transferred from",
-  "pending": true,
+  "pendingNotice": "We are updating this text. For any enquiry, please write to {email}.",
   "titles": {
     "politica-de-privacidad": "Privacy policy",
     "aviso-legal": "Legal notice",
