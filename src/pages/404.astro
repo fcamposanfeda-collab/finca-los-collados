@@ -1,0 +1,46 @@
+---
+import ContentPage from '../components/ui/ContentPage.astro';
+import { getPageMeta } from '../data/pages-meta';
+import { images } from '../data/images';
+import { useI18n } from '../i18n';
+
+const { locale, copy, href } = useI18n(Astro);
+const meta = getPageMeta('404', locale);
+const page = copy['not-found'] as {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  text: string;
+  backHome: string;
+};
+---
+
+<ContentPage
+  title={meta.title}
+  description={meta.description}
+  heroTitle={page.title}
+  heroSubtitle={page.subtitle}
+  heroEyebrow={page.eyebrow}
+  heroImage={images.hero.home}
+>
+  <section class="page-content">
+    <div class="container page-content__inner" style="margin-inline: auto; text-align: center;">
+      <p class="page-content__lead">{page.text}</p>
+      <p>
+        <a href={href('home')} class="btn">{page.backHome}</a>
+      </p>
+    </div>
+  </section>
+  {locale === 'es' && (
+    <script is:inline>
+      (function () {
+        var path = location.pathname;
+        if (/^\/en(\/|$)/.test(path) && path.indexOf('/en/404') !== 0) {
+          location.replace('/en/404');
+        } else if (/^\/fr(\/|$)/.test(path) && path.indexOf('/fr/404') !== 0) {
+          location.replace('/fr/404');
+        }
+      })();
+    </script>
+  )}
+</ContentPage>

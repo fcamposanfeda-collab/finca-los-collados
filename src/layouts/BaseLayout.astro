@@ -5,6 +5,14 @@ import Footer from '../components/layout/Footer.astro';
 import { site } from '../data/site';
 import { contact } from '../data/contact';
 import { withBase } from '../utils/paths';
+import {
+  absoluteUrl,
+  alternateLocales,
+  hreflangLinks,
+  localeMeta,
+  pagePathname,
+  useI18n,
+} from '../i18n';
 
 interface Props {
   title: string;
@@ -13,21 +21,24 @@ interface Props {
 }
 
 const { title, description, ogImage = site.ogImage } = Astro.props;
-const siteOrigin = Astro.site ?? new URL(site.url);
-const canonicalURL = new URL(Astro.url.pathname, siteOrigin);
+const { locale, pageKey, t, copy } = useI18n(Astro);
+const meta = localeMeta[locale];
+const canonicalURL = absoluteUrl(pagePathname(pageKey, locale));
 const ogImagePath = ogImage.startsWith('http') ? ogImage : withBase(ogImage);
 const ogImageUrl = ogImagePath.startsWith('http')
   ? ogImagePath
-  : new URL(ogImagePath, siteOrigin).href;
+  : new URL(ogImagePath, Astro.site ?? new URL(site.url)).href;
 const fontHref =
   'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap';
+const tagline = (copy.common as { tagline: string }).tagline;
 
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'LodgingBusiness',
   name: site.name,
-  description: site.tagline,
-  url: site.url,
+  description: tagline,
+  url: canonicalURL,
+  inLanguage: meta.bcp47,
   image: ogImageUrl,
   email: contact.email,
   telephone: contact.phone,
@@ -41,10 +52,12 @@ const structuredData = {
   },
   sameAs: [contact.facebook, contact.instagram],
 };
+
+const alternates = hreflangLinks(pageKey);
 ---
 
 <!doctype html>
-<html lang={site.lang}>
+<html lang={meta.htmlLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -57,6 +70,11 @@ const structuredData = {
     <link rel="apple-touch-icon" href={withBase('/apple-touch-icon.png')} />
     <link rel="shortcut icon" href={withBase('/favicon-32.png')} />
     <link rel="canonical" href={canonicalURL} />
+    {
+      alternates.map((link) => (
+        <link rel="alternate" hreflang={link.lang} href={link.url} />
+      ))
+    }
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href={fontHref} rel="stylesheet" />
@@ -66,7 +84,12 @@ const structuredData = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale" content={meta.ogLocale} />
+    {
+      alternateLocales(locale).map((item) => (
+        <meta property="og:locale:alternate" content={localeMeta[item].ogLocale} />
+      ))
+    }
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
@@ -76,7 +99,7 @@ const structuredData = {
     <title>{title}</title>
   </head>
   <body>
-    <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+    <a class="skip-link" href="#main-content">{t('common.skipLink')}</a>
     <Header />
     <main id="main-content" tabindex="-1">
       <slot />
