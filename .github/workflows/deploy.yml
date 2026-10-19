@@ -20,6 +20,8 @@ jobs:
         uses: withastro/action@v6
         with:
           node-version: 22
+        env:
+          PUBLIC_WEB3FORMS_ACCESS_KEY: ${{ vars.PUBLIC_WEB3FORMS_ACCESS_KEY || '4a83ae03-7fd9-4b70-a6bc-4dfa89ce1e8e' }}
 
   deploy:
     needs: build

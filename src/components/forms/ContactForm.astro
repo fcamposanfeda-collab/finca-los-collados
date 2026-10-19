@@ -30,6 +30,7 @@ const formCopy = copy.forms as {
   sending: string;
   sendError: string;
   configuredNote: string;
+  mailtoFallback: string;
   defaultSubject: string;
   emailLabels: Record<string, string>;
 };
@@ -52,6 +53,13 @@ const languageField = localeMeta[locale].languageField;
 const showAdminNote = import.meta.env.DEV && !configured;
 const mailtoSubject = t('common.mailtoSubject');
 const spanishEmailLabels = (msg('es').forms as { emailLabels: Record<string, string> }).emailLabels;
+const mailtoFallbackHtml = formCopy.mailtoFallback
+  .replace(
+    '{email}',
+    `<a href="mailto:${contact.email}?subject=${encodeURIComponent(mailtoSubject)}">${contact.email}</a>`,
+  )
+  .replace('{phone}', `<a href="tel:${contact.phone}">${contact.phoneDisplay}</a>`)
+  .replace('{phoneAlt}', `<a href="tel:${contact.phoneAlt}">${contact.phoneAltDisplay}</a>`);
 ---
 
 <section class="contact-form section" aria-labelledby={`${idPrefix}-form-title`}>
@@ -159,6 +167,7 @@ const spanishEmailLabels = (msg('es').forms as { emailLabels: Record<string, str
   recipientEmail: forms.recipientEmail,
   configured,
   successUrl,
+  mailtoFallbackHtml,
   sendingLabel: formCopy.sending,
   sendError: formCopy.sendError,
   mailtoSubject,
@@ -225,9 +234,14 @@ const spanishEmailLabels = (msg('es').forms as { emailLabels: Record<string, str
         body: fullMessage,
       });
       window.location.href = `mailto:${recipientEmail}?${params.toString()}`;
-      window.setTimeout(() => {
-        window.location.href = successUrl;
-      }, 400);
+      if (submitBtn instanceof HTMLButtonElement) {
+        submitBtn.disabled = false;
+      }
+      if (statusEl) {
+        statusEl.innerHTML = mailtoFallbackHtml;
+        statusEl.classList.add('is-success');
+        statusEl.classList.remove('is-error');
+      }
       return;
     }
 

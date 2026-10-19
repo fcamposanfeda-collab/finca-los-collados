@@ -13,6 +13,7 @@
   "sending": "Envoi…",
   "sendError": "L’envoi a échoué. Écrivez-nous à {email} ou sur WhatsApp.",
   "configuredNote": "Vos données seront envoyées à {email}.",
+  "mailtoFallback": "Votre messagerie devrait s’être ouverte. Sinon, écrivez-nous à {email} ou appelez le {phone} / {phoneAlt}.",
   "devNote": "Pour activer l’envoi automatique, configurez Web3Forms (gratuit). En attendant, le formulaire ouvrira votre client de messagerie. Aussi : {email}.",
   "defaultSubject": "Demande depuis le site",
   "emailLabels": {
