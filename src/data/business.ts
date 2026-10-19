@@ -8,10 +8,10 @@ import { booking } from './booking';
  */
 export const business = {
   name: 'Finca Los Collados de San Miguel',
-  streetAddress: 'Unnamed Road',
+  streetAddress: 'Camino de los Collados, km 4,4',
   postalCode: '13343',
   addressLocality: 'Villamanrique',
-  addressRegion: 'Cdad. Real',
+  addressRegion: 'Ciudad Real',
   addressCountry: 'ES',
   telephone: contact.phone,
   telephoneAlt: contact.phoneAlt,
@@ -50,9 +50,8 @@ export const todosDato = [
   'TODO_DATO: si se admiten perros de caza en el coto y en los bungalows',
 ] as const;
 
-export function formattedAddress(includeCountry = false): string {
-  const line = contact.address;
-  return includeCountry ? `${line}, ${business.addressCountry}` : line;
+export function formattedAddress(_includeCountry = false): string {
+  return contact.address;
 }
 
 export function canonicalSiteUrl(): string {

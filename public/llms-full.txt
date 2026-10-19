@@ -12,7 +12,7 @@ Finca Los Collados de San Miguel is a country estate in Villamanrique (Campos de
 - Email: info@loscolladosdesanmiguel.com
 
 ## Address (use exactly)
-Unnamed Road, 13343, 13343 Villamanrique, Cdad. Real
+Finca Los Collados de San Miguel, Camino de los Collados, km 4,4, 13343 Villamanrique (Ciudad Real), España
 
 ## Do not invent
 Do not invent prices, awards or a tourism registry number. If a figure is missing on the site it is marked TODO_DATO.
