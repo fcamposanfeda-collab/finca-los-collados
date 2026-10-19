@@ -24,9 +24,9 @@
         "Sans nuitée en bungalows"
       ],
       "pricing": {
-        "unit": "Journée complète (lun.–jeu.)",
+        "unit": "Journée complète (lundi–jeudi)",
         "halfDay": "Demi-journée (4 h)",
-        "weekday": "Journée complète lun.–jeu.",
+        "weekday": "Journée complète lundi–jeudi",
         "weekend": "Journée complète vendredi–dimanche"
       },
       "idealFor": [
@@ -53,7 +53,7 @@
         "Événement intérieur : jusqu’à 30 personnes"
       ],
       "pricing": {
-        "unit": "Par nuit (lun.–jeu.)",
+        "unit": "Par nuit (lundi–jeudi)",
         "weekday": "1 nuit en semaine",
         "weekend": "1 nuit le week-end",
         "halfDay": "Week-end 2 nuits (ven.–dim.)"
