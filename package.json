@@ -10,6 +10,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "check:i18n": "node scripts/check-i18n.mjs",
     "compress:videos": "node scripts/compress-videos.mjs",
     "enhance:gastronomia-platos": "node scripts/enhance-gastronomia-platos.mjs"
   },
