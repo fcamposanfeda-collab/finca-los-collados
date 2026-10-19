@@ -2,7 +2,7 @@
   "hero": {
     "eyebrow": "Campos de Montiel · Ciudad Real",
     "title": "Finca Los Collados de San Miguel",
-    "subtitle": "Séjour à la campagne, team building, tournages et petits événements dans un cadre unique de Castille-La Manche. Animaux acceptés.",
+    "subtitle": "Séjour à la campagne, team building, tournages et séances photo, et petits événements dans un cadre unique de Castille-La Manche. Animaux acceptés.",
     "cta": "Réserver",
     "aria": "Présentation"
   },
@@ -18,12 +18,12 @@
       {
         "id": "empresas",
         "title": "Entreprises",
-        "description": "Team building, tournages et production dans un cadre privé."
+        "description": "Team building, tournages, séances photo et production dans un cadre privé."
       },
       {
         "id": "eventos",
         "title": "Petits événements",
-        "description": "Célébrations intimistes en extérieur ou à l’abri."
+        "description": "Célébrations intimistes en extérieur ou en intérieur."
       },
       {
         "id": "pet-friendly",
@@ -34,7 +34,7 @@
   },
   "teasers": {
     "title": "Découvrez Finca Los Collados de San Miguel",
-    "lead": "Chaque univers du domaine a sa page : hébergement en bungalows, gastronomie avec Azurea, célébrations en plein air, propositions pour les entreprises et bien plus. Choisissez par où commencer à organiser votre visite.",
+    "lead": "Chaque univers du domaine a sa page : hébergement en bungalows, gastronomie avec Azurea, célébrations en plein air, propositions pour les entreprises et bien plus. Choisissez par où commencer à organiser votre visite.",
     "aria": "Découvrir le domaine",
     "items": [
       {
@@ -45,7 +45,7 @@
       {
         "pageKey": "la-calerilla",
         "title": "La Calerilla",
-        "description": "Chasse à la perdrix rouge à Campos de Montiel."
+        "description": "Chasse devant soi à la perdrix rouge à Campos de Montiel."
       },
       {
         "pageKey": "alojamiento",
@@ -60,7 +60,7 @@
       {
         "pageKey": "empresas",
         "title": "Entreprises",
-        "description": "Team building, tournages et contenu de marque."
+        "description": "Team building, tournages, séances photo et contenu de marque."
       },
       {
         "pageKey": "eventos",
@@ -80,7 +80,7 @@
     ]
   },
   "cta": {
-    "title": "Prêt pour une escapade rurale ?",
+    "title": "Prêt pour une escapade rurale ?",
     "text": "Réservez en ligne ou écrivez-nous pour composer votre séjour, une célébration intimiste ou une journée d’entreprise, sans précipitation."
   }
 }

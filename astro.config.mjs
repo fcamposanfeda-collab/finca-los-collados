@@ -26,8 +26,10 @@ export default defineConfig({
         try {
           const { pageKey } = pageKeyFromUrl(item.url);
           if (pageKey === '404') return undefined;
+          const url = item.url.replace(/^(https?:\/\/[^/]+\/.+?)\/+$/, '$1');
           return {
             ...item,
+            url,
             links: hreflangLinks(pageKey),
           };
         } catch {

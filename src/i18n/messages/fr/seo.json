@@ -1,43 +1,47 @@
 {
+  "404": {
+    "title": "Page introuvable | Los Collados de San Miguel",
+    "description": "Cette page n’existe pas. Revenez à l’accueil de Finca Los Collados de San Miguel."
+  },
   "home": {
-    "title": "Hébergement rural à La Mancha, Espagne",
-    "description": "Séjour à la campagne à Campos de Montiel : bungalows animaux acceptés, privatisation du domaine, team building, tournages et petits événements en Castille-La Manche."
+    "title": "Domaine rural à Villamanrique | Los Collados",
+    "description": "Séjour à la campagne à Campos de Montiel : bungalows animaux acceptés, privatisation du domaine, team building, tournages et séances photo, et petits événements en Castille-La Manche."
   },
   "la-finca": {
-    "title": "Le domaine | Séjour rural à La Mancha, Espagne",
-    "description": "Finca Los Collados de San Miguel : domaine rural de plus de 2 500 ans d’histoire, bungalows, piscine et nature à Villamanrique, Ciudad Real, Espagne."
+    "title": "Le domaine | La Mancha | Los Collados de San Miguel",
+    "description": "Finca Los Collados de San Miguel : domaine rural de plus de 2 500 ans d’histoire, bungalows, piscine et nature à Villamanrique, Ciudad Real, Espagne."
   },
   "la-calerilla": {
-    "title": "La Calerilla | Chasse à la perdrix rouge, Espagne",
-    "description": "La Calerilla : chasse à la perdrix rouge à Campos de Montiel, saison d’octobre à février, avec hébergement à Finca Los Collados de San Miguel."
+    "title": "La Calerilla | Chasse devant soi | Los Collados",
+    "description": "La Calerilla : chasse à la perdrix rouge à Campos de Montiel, saison d’octobre à février, avec hébergement à Finca Los Collados de San Miguel."
   },
   "alojamiento": {
-    "title": "Bungalows ruraux à La Mancha | Animaux acceptés",
+    "title": "Bungalows ruraux | Los Collados de San Miguel",
     "description": "Huit bungalows ruraux pour 16 adultes à Campos de Montiel. Animaux acceptés, Wi-Fi, piscine, douche à effet pluie et petit-déjeuner inclus, Espagne."
   },
   "gastronomia": {
-    "title": "Cuisine de La Mancha | Table rurale en Espagne",
-    "description": "Cuisine traditionnelle de La Mancha à la campagne : migas, perdrix, caldereta et produits du terroir à Finca Los Collados de San Miguel, Ciudad Real."
+    "title": "Cuisine de La Mancha | Los Collados de San Miguel",
+    "description": "Cuisine traditionnelle de La Mancha à la campagne : migas, perdrix, caldereta et produits du terroir à Finca Los Collados de San Miguel, Ciudad Real."
   },
   "experiencias": {
-    "title": "Expériences et randonnées à La Mancha, Espagne",
+    "title": "Expériences dans La Mancha | Los Collados de San Miguel",
     "description": "Itinéraires sur mesure, cheval, vélo, golf et montgolfière à Campos de Montiel. Expériences rurales à Finca Los Collados de San Miguel, Espagne."
   },
   "empresas": {
-    "title": "Team building et tournages | Domaine rural, Espagne",
+    "title": "Team building et tournages | Los Collados",
     "description": "Domaine privé en Castille-La Manche pour le team building, les retraites d’entreprise, les séances photo, les tournages et la création de contenu."
   },
   "eventos": {
-    "title": "Mariages et petits événements à La Mancha",
+    "title": "Mariages et événements | Los Collados de San Miguel",
     "description": "Mariages jusqu’à 50 invités, communions, anniversaires et entreprises dans un domaine rural privatif. Traiteur Azurea. Villamanrique, Espagne."
   },
   "packs": {
-    "title": "Formules romantique, famille et gastronomie",
-    "description": "Formules de séjour à la campagne à La Mancha : romantique, famille, gastronomie et randonnées à Finca Los Collados de San Miguel, Espagne."
+    "title": "Séjours romantiques, en famille et gourmands | Los Collados",
+    "description": "Formules de séjour à la campagne à La Mancha : romantique, famille, gastronomie et randonnées à Finca Los Collados de San Miguel, Espagne."
   },
   "entorno": {
-    "title": "Alentours de La Mancha | Campos de Montiel",
-    "description": "Découvrez Campos de Montiel : Villamanrique, patrimoine ibère, Torre de Juan Abad et Villanueva de los Infantes, tout près de Los Collados."
+    "title": "Campos de Montiel | Los Collados de San Miguel",
+    "description": "Découvrez Campos de Montiel : Villamanrique, patrimoine ibère, Torre de Juan Abad et Villanueva de los Infantes, tout près de Los Collados."
   },
   "contacto": {
     "title": "Contact et réservations | Los Collados",
@@ -48,8 +52,8 @@
     "description": "Votre demande a bien été envoyée. L’équipe de Finca Los Collados de San Miguel vous répondra dans les meilleurs délais."
   },
   "reservas-online": {
-    "title": "Réserver en ligne | Séjour rural à La Mancha",
-    "description": "Réservez sur Booking.com ou par WhatsApp. Finca Los Collados de San Miguel : huit bungalows ruraux à Villamanrique, Ciudad Real. Animaux acceptés."
+    "title": "Réserver en ligne | Los Collados de San Miguel",
+    "description": "Réservez sur Booking.com ou par WhatsApp. Finca Los Collados de San Miguel : huit bungalows ruraux à Villamanrique, Ciudad Real. Animaux acceptés."
   },
   "politica-de-privacidad": {
     "title": "Politique de confidentialité | Los Collados",
@@ -66,9 +70,5 @@
   "politica-de-reservas": {
     "title": "Conditions de réservation | Los Collados",
     "description": "Conditions de réservation de Finca Los Collados de San Miguel, hébergement rural à La Mancha, Espagne."
-  },
-  "404": {
-    "title": "Page introuvable | Los Collados de San Miguel",
-    "description": "Cette page n’existe pas. Revenez à l’accueil de Finca Los Collados de San Miguel."
   }
 }

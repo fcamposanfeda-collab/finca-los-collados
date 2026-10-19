@@ -2,9 +2,9 @@
   "hero": {
     "eyebrow": "PME · équipes · production",
     "title": "Entreprises et équipes",
-    "subtitle": "Team building, retraites, tournages, shootings et captation de contenu dans un cadre rural privé et polyvalent."
+    "subtitle": "Team building, retraites, tournages et séances photo, et captation de contenu dans un cadre rural privé et polyvalent."
   },
-  "intro": "Los Collados est le décor idéal pour les petites et moyennes entreprises à la recherche d’un lieu différent : loin du bruit de la ville, avec intimité, nature et des services pour travailler, créer et se retrouver en équipe.",
+  "intro": "Los Collados est le décor idéal pour les petites et moyennes entreprises à la recherche d’un lieu différent : loin du bruit de la ville, avec intimité, nature et des services pour travailler, créer et se retrouver en équipe.",
   "blocks": [
     {
       "title": "Team building et retraites",
@@ -14,19 +14,31 @@
       ]
     },
     {
-      "title": "Tournages, shootings et contenu",
+      "title": "Tournages, séances photo et contenu",
       "paragraphs": [
-        "Un décor cinématographique de La Mancha : plaines, oliviers, architecture rurale et lumière naturelle.",
+        "Un décor cinématographique de La Mancha : plaines, oliviers, architecture rurale et lumière naturelle.",
         "Idéal pour les captations, les séances photo, les podcasts et la production audiovisuelle de marques en quête d’authenticité."
       ]
     }
   ],
   "featuresTitle": "Pourquoi Los Collados pour votre entreprise",
   "features": [
-    { "title": "Intimité", "description": "Un domaine isolé, parfait pour des sessions sans interruption." },
-    { "title": "Polyvalence", "description": "Intérieurs chaleureux et vastes extérieurs pour tous les formats." },
-    { "title": "Hébergement inclus", "description": "Votre équipe peut passer la nuit dans les bungalows après la journée." },
-    { "title": "Gastronomie", "description": "Menus pour groupes et pauses traiteur pendant la production." }
+    {
+      "title": "Intimité",
+      "description": "Un domaine isolé, parfait pour des sessions sans interruption. Privatisation du domaine possible."
+    },
+    {
+      "title": "Polyvalence",
+      "description": "Intérieurs chaleureux et vastes extérieurs pour tous les formats."
+    },
+    {
+      "title": "Hébergement inclus",
+      "description": "Votre équipe peut passer la nuit dans les bungalows après la journée."
+    },
+    {
+      "title": "Gastronomie",
+      "description": "Menus pour groupes et pauses traiteur pendant la production."
+    }
   ],
   "cta": {
     "title": "Demandez un devis sur mesure",
@@ -35,7 +47,7 @@
   },
   "form": {
     "title": "Demandez un devis pour votre entreprise",
-    "intro": "Tournages, team building, retraites ou journée sur le domaine. Indiquez dates, équipe et nombre d’invités."
+    "intro": "Tournages et séances photo, team building, retraites ou journée sur le domaine. Indiquez dates, équipe et nombre d’invités."
   },
   "alts": {
     "video": "Le domaine Los Collados pour les entreprises et les équipes"

@@ -2,29 +2,41 @@
   "hero": {
     "eyebrow": "Campos de Montiel · Ciudad Real",
     "title": "Le domaine",
-    "subtitle": "Plus de 2 500 ans d’histoire dans un enclave rural unique de Castille-La Manche, entre Villamanrique et le cœur de La Mancha."
+    "subtitle": "Plus de 2 500 ans d’histoire dans un site rural unique de Castille-La Manche, entre Villamanrique et le cœur de La Mancha."
   },
   "blocks": [
     {
       "title": "Un creuset de cultures",
       "paragraphs": [
-        "Situé dans la province de Ciudad Real, près du village de Villamanrique, dans la comarque de Campos de Montiel, comarque naturelle et historique de La Mancha.",
+        "Situé dans la province de Ciudad Real, près du village de Villamanrique, dans la région de Campos de Montiel, région naturelle et historique de La Mancha.",
         "Un lieu unique, dont l’histoire remonte à plus de 2 500 ans av. J.-C., où l’on peut admirer des vestiges préhistoriques ainsi que les traces de peuples parmi lesquels se distinguent les Ibères, les Romains, les Wisigoths et les Arabes."
       ]
     },
     {
       "title": "Espaces et services",
       "paragraphs": [
-        "Le domaine propose un hébergement pour 16 adultes au maximum (8 bungalows), un service de restauration, une piscine en plein air, un salon bibliothèque, une cheminée, un porche extérieur et des cuisines campagnardes.",
-        "Un cadre privé et polyvalent : idéal pour les escapades en couple, les séjours en famille, les retraites d’entreprise, les tournages et les petits événements en plein air."
+        "Le domaine propose un hébergement pour 16 adultes au maximum (8 bungalows), un service de restauration, une piscine en plein air, un salon bibliothèque, une cheminée, un porche extérieur et des cuisines d’extérieur.",
+        "Un cadre privé et polyvalent : idéal pour les escapades en couple, les séjours en famille, les retraites d’entreprise, les tournages et séances photo, et les petits événements en plein air."
       ]
     }
   ],
   "features": [
-    { "title": "8 bungalows", "description": "Hébergements indépendants, confortables et intimes." },
-    { "title": "Piscine et jardins", "description": "Espaces extérieurs pour se reposer et profiter du paysage." },
-    { "title": "Salon bibliothèque", "description": "Un lieu chaleureux avec cheminée, pour se retrouver ou se détendre." },
-    { "title": "Animaux acceptés", "description": "Votre compagnon est le bienvenu. Renseignez-vous sur les conditions à la réservation." }
+    {
+      "title": "8 bungalows",
+      "description": "Hébergements indépendants, confortables et intimes."
+    },
+    {
+      "title": "Piscine et jardins",
+      "description": "Espaces extérieurs pour se reposer et profiter du paysage."
+    },
+    {
+      "title": "Salon bibliothèque",
+      "description": "Un lieu chaleureux avec cheminée, pour se retrouver ou se détendre."
+    },
+    {
+      "title": "Animaux acceptés",
+      "description": "Votre compagnon est le bienvenu. Renseignez-vous sur les conditions à la réservation."
+    }
   ],
   "cta": {
     "title": "Découvrez La Mancha depuis Los Collados",
@@ -33,7 +45,7 @@
   "calerilla": {
     "title": "La Calerilla",
     "paragraphs": [
-      "Au sein de Los Collados de San Miguel, La Calerilla est notre zone cynégétique, dédiée à la tradition de la perdrix rouge en battue à pied, dans le paysage naturel de Campos de Montiel.",
+      "Au sein de Los Collados de San Miguel, La Calerilla est notre zone cynégétique, dédiée à la tradition de la perdrix rouge à la chasse devant soi, dans le paysage naturel de Campos de Montiel.",
       "D’octobre à février, nous organisons des journées de chasse que l’on peut combiner avec l’hébergement en bungalows et notre cuisine traditionnelle de La Mancha."
     ],
     "button": "Découvrir La Calerilla"

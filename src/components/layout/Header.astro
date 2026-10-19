@@ -103,8 +103,8 @@ const navLabels = copy.nav as Record<string, string>;
 <script>
   const toggle = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');
   const menu = document.querySelector<HTMLElement>('[data-nav-menu]');
-  const labelOpen = toggle?.dataset.labelOpen ?? 'Abrir menú';
-  const labelClose = toggle?.dataset.labelClose ?? 'Cerrar menú';
+  const labelOpen = toggle?.dataset.labelOpen ?? '';
+  const labelClose = toggle?.dataset.labelClose ?? '';
 
   toggle?.addEventListener('click', () => {
     const isOpen = toggle.getAttribute('aria-expanded') === 'true';

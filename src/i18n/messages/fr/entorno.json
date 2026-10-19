@@ -4,12 +4,12 @@
     "title": "Alentours et territoire",
     "subtitle": "Campos de Montiel, Villamanrique, patrimoine ibère et La Mancha la plus authentique, à quelques kilomètres de Torre de Juan Abad et de Villanueva de los Infantes."
   },
-  "intro": "Los Collados s’inscrit dans l’un des paysages les plus représentatifs de La Mancha : plaines, dehesas, villages chargés d’histoire et un patrimoine culturel qui remonte à l’Antiquité.",
+  "intro": "Los Collados s’inscrit dans l’un des paysages les plus représentatifs de La Mancha : plaines, dehesas, villages chargés d’histoire et un patrimoine culturel qui remonte à l’Antiquité.",
   "places": [
     {
       "id": "campos-de-montiel",
       "title": "Campos de Montiel",
-      "description": "Comarque naturelle et historique, théâtre de légendes et de nature. Idéale pour la marche, l’observation des oiseaux et un séjour à la campagne."
+      "description": "Région naturelle et historique, théâtre de légendes et de nature. Idéale pour la marche, l’observation des oiseaux et un séjour à la campagne."
     },
     {
       "id": "villamanrique",
@@ -19,7 +19,7 @@
     {
       "id": "torre-de-juan-abad",
       "title": "Torre de Juan Abad et alentours",
-      "description": "À quelques kilomètres, dans la même comarque. Une référence culturelle et gastronomique de Castille-La Manche."
+      "description": "À quelques kilomètres, dans la même région. Une référence culturelle et gastronomique de Castille-La Manche."
     },
     {
       "id": "villanueva-de-los-infantes",
@@ -29,7 +29,7 @@
     {
       "id": "patrimonio",
       "title": "Patrimoine ibère et ruines",
-      "description": "Vestiges de plus de 2 500 ans d’histoire dans la région : Ibères, Romains, Wisigoths et Arabes."
+      "description": "Vestiges de plus de 2 500 ans d’histoire dans la région : Ibères, Romains, Wisigoths et Arabes."
     },
     {
       "id": "lagunas",

@@ -22,8 +22,8 @@ Lista para revisión humana antes de publicar EN/FR. No publicar en producción 
 
 - ES: «caza en mano», «ojeo», «coto», «perdiz roja»
 - EN: *walked-up shooting*, *driven shooting* (ojeo), *estate/ground*, *red-legged partridge*
-- FR: *chasse en battue à pied*, *ojeo* (se deja el término cuando aporta), *coto*, *perdrix rouge*
-- Revisar si «walked-up» / «battue à pied» encajan con el lenguaje de los cazadores clientes.
+- FR: *chasse devant soi*, *ojeo* (se deja el término cuando aporta), *coto*, *perdrix rouge*
+- EN: *walked-up shooting* para caza en mano; *driven shooting* para ojeo.
 
 ## Gastronomía
 
@@ -40,14 +40,6 @@ Lista para revisión humana antes de publicar EN/FR. No publicar en producción 
 
 - `images.entorno` y teasers/pillars van por **id estable**, no por el título visible.
 - Alts de galería y platos viven en `messages/{locale}/images.json`.
-
-## Código legado (no sale en las páginas vivas)
-
-Estos archivos siguen en español y **no se usan** en las rutas actuales. No afectan a `/`, `/en/` ni `/fr/`:
-
-- `src/data/pages-content.ts` (sin imports)
-- `src/data/home-content.ts`
-- `src/components/sections/LaFinca.astro`, `Alojamiento.astro`, `Gastronomia.astro`, `Experiencias.astro`, `Contacto.astro`
 
 ## Fuera de alcance (a propósito)
 

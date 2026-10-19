@@ -5,11 +5,11 @@
     "subtitle": "Parcours sur mesure, nature, sport et culture de La Mancha.\nNous concevons votre programme selon le temps, le groupe et vos envies."
   },
   "intro": "La richesse culturelle de la région est bien connue, mais elle est rarement rassemblée de façon à ce que le visiteur puisse tirer le meilleur de chaque recoin que cette terre offre.",
-  "detail": "Nous pouvons composer pour vous un itinéraire sur mesure. Indiquez simplement vos préférences, le temps dont vous disposez et le nombre de participants. Notre équipe vous proposera votre « ruta a medida ».",
+  "detail": "Nous pouvons composer pour vous un itinéraire sur mesure. Indiquez simplement vos préférences, le temps dont vous disposez et le nombre de participants. Notre équipe vous proposera votre itinéraire sur mesure.",
   "note": "Nous recommandons d’inclure les activités au moment de la réservation, afin d’éviter les indisponibilités à votre arrivée.",
   "cards": [
     { "title": "Campo de Montiel", "description": "Randonnées dans le paysage naturel de La Mancha." },
-    { "title": "La Mancha authentique", "description": "Villages, paysages et patrimoine de la comarque." },
+    { "title": "La Mancha authentique", "description": "Villages, paysages et patrimoine de la région." },
     { "title": "Expérience gastronomique", "description": "Saveurs de La Mancha dans un cadre unique." },
     { "title": "Sport et aventure", "description": "Vélo, randonnée, montgolfière et plus encore aux alentours." },
     {
@@ -24,7 +24,7 @@
   "activitiesAria": "Activités proposées",
   "activities": [
     "Parcours à vélo",
-    "Aventure off-road",
+    "Aventure tout-terrain",
     "Montgolfière",
     "Piscine et bibliothèque",
     "Visite d’élevage",

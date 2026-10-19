@@ -4,18 +4,18 @@
     "title": "Événements",
     "subtitle": "Mariages, communions, anniversaires, entreprises et célébrations de caractère dans un cadre rural exclusif à Campos de Montiel."
   },
-  "intro": "À Los Collados de San Miguel, nous organisons toutes sortes d’événements à caractère intime et personnalisé : des mariages jusqu’à 50 invités aux réunions de direction, shootings ou séances photo dans un cadre naturel unique.",
+  "intro": "À Los Collados de San Miguel, nous organisons toutes sortes d’événements à caractère intime et personnalisé : des mariages jusqu’à 50 invités aux réunions de direction, shootings ou séances photo dans un cadre naturel unique.",
   "capacity": {
     "title": "Capacités",
     "items": [
-      "Hébergement : jusqu’à 16 adultes (+ enfants selon réservation)",
-      "Événement en plein air : jusqu’à 50 personnes",
-      "Événement en intérieur : jusqu’à 30 personnes"
+      "Hébergement : jusqu’à 16 adultes (+ enfants selon réservation)",
+      "Événement en plein air : jusqu’à 50 personnes",
+      "Événement en intérieur : jusqu’à 30 personnes"
     ]
   },
   "eventTypes": {
     "title": "Types d’événements que nous accueillons",
-    "lead": "Chaque célébration s’adapte au groupe, aux dates et au style. Voici les formules les plus habituelles sur le domaine :",
+    "lead": "Chaque célébration s’adapte au groupe, aux dates et au style. Voici les formules les plus habituelles sur le domaine :",
     "items": [
       {
         "title": "Mariages",
@@ -84,7 +84,7 @@
   },
   "venuePackages": {
     "title": "Modalités de réservation",
-    "lead": "Choisissez la formule qui convient le mieux à votre événement. Prix sur demande ; le traiteur avec Azurea est coté à part."
+    "lead": "Choisissez la formule qui convient le mieux à votre événement. Prix sur demande ; le traiteur avec Azurea est coté à part."
   },
   "cta": {
     "title": "Planifiez votre événement",

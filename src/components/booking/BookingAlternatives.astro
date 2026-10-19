@@ -30,9 +30,7 @@ const [bookingBefore, bookingAfter] = alt.bookingText.split('{link}');
           <article class="booking-alternatives__card">
             <h3>{alt.bookingTitle}</h3>
             <p>
-              {bookingBefore}
-              <a href={bookingUrl} target="_blank" rel="noopener noreferrer">{alt.bookingLink}</a>
-              {bookingAfter}
+              {bookingBefore}<a href={bookingUrl} target="_blank" rel="noopener noreferrer">{alt.bookingLink}</a>{bookingAfter}
             </p>
             <a
               href={bookingUrl}

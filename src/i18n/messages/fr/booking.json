@@ -2,15 +2,15 @@
   "widgetTitle": "Moteur de réservation — Finca Los Collados de San Miguel",
   "bookingComLabel": "Réserver sur Booking.com",
   "whatsappDefault": "Bonjour, je voudrais vérifier les disponibilités à Finca Los Collados de San Miguel.",
-  "whatsappCheckIn": "Arrivée : {date}",
-  "whatsappCheckOut": "Départ : {date}",
-  "whatsappAdults": "Adultes : {count}",
+  "whatsappCheckIn": "Arrivée : {date}",
+  "whatsappCheckOut": "Départ : {date}",
+  "whatsappAdults": "Adultes : {count}",
   "sync": {
     "title": "Comment nous gérons les réservations",
     "paragraphs": [
       "Les réservations en ligne passent par Booking.com (paiement sécurisé sur la plateforme) ou par WhatsApp et téléphone pour les formules, événements, entreprises et demandes personnalisées.",
       "Avant de confirmer un séjour avec hébergement sur WhatsApp, nous vérifions toujours les disponibilités dans le calendrier Booking.com et bloquons les dates à la main dans l’extranet pour éviter les doubles réservations.",
-      "Pour les groupes, les événements ou plusieurs bungalows, WhatsApp est souvent la voie la plus rapide : nous vous conseillons et vous indiquons la meilleure façon de formaliser la réservation."
+      "Pour les groupes, les événements ou plusieurs bungalows, WhatsApp est souvent la voie la plus rapide : nous vous conseillons et vous indiquons la meilleure façon de formaliser la réservation."
     ]
   },
   "page": {
@@ -19,7 +19,7 @@
     "heroEyebrow": "Booking.com · WhatsApp · Téléphone"
   },
   "cta": {
-    "title": "Vous préférez nous parler ?",
+    "title": "Vous préférez nous parler ?",
     "text": "Pour les formules, événements, entreprises ou plusieurs bungalows, écrivez-nous sur WhatsApp.",
     "button": "WhatsApp"
   },
