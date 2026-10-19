@@ -1,0 +1,40 @@
+{
+  "title": "Escríbanos",
+  "intro": "Le respondemos por email lo antes posible. Para urgencias, use WhatsApp o teléfono.",
+  "name": "Nombre",
+  "email": "Email",
+  "phone": "Teléfono",
+  "subject": "Motivo",
+  "checkIn": "Fecha de entrada / evento",
+  "checkOut": "Fecha de salida",
+  "guests": "Número de invitados / adultos",
+  "message": "Mensaje",
+  "submit": "Enviar solicitud",
+  "sending": "Enviando…",
+  "sendError": "No se pudo enviar. Escríbanos a {email} o por WhatsApp.",
+  "configuredNote": "Sus datos se enviarán a {email}.",
+  "devNote": "Para activar el envío automático, configure Web3Forms (gratuito). Mientras tanto, el formulario abrirá su cliente de email. También: {email}.",
+  "defaultSubject": "Consulta web",
+  "emailLabels": {
+    "name": "Nombre",
+    "email": "Email",
+    "phone": "Teléfono",
+    "checkIn": "Fecha entrada/evento",
+    "checkOut": "Fecha salida",
+    "guests": "Invitados/adultos",
+    "language": "Idioma",
+    "subjectPrefix": "[Web Los Collados]"
+  },
+  "subjects": {
+    "general": "Consulta general",
+    "alojamiento": "Alojamiento / bungalows",
+    "finca-espacios": "Finca completa — solo espacios",
+    "finca-completa": "Finca completa — con alojamiento",
+    "finca-fin-semana": "Finca completa — fin de semana",
+    "sesiones-fotograficas": "Sesiones fotográficas / shootings",
+    "evento": "Evento privado",
+    "empresa": "Empresa / teambuilding / rodaje",
+    "pack": "Pack romántico, familiar o gastronómico",
+    "caza": "Caza en La Calerilla"
+  }
+}

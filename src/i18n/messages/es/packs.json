@@ -1,0 +1,62 @@
+{
+  "hero": {
+    "eyebrow": "Escapadas a medida",
+    "title": "Packs y experiencias",
+    "subtitle": "Combinaciones pensadas para parejas, familias y grupos: romance, naturaleza, gastronomía y rutas por La Mancha."
+  },
+  "intro": "Descubra nuestras propuestas combinadas de alojamiento, gastronomía y actividades. Cada pack se puede adaptar a fechas, grupo y preferencias.",
+  "items": [
+    {
+      "slug": "romantico",
+      "title": "Pack romántico",
+      "description": "Escapada en pareja con detalle, cena manchega y entorno privado para desconectar.",
+      "highlights": ["Alojamiento en bungalow", "Cena tradicional", "Ambiente íntimo y silencioso"]
+    },
+    {
+      "slug": "familiar",
+      "title": "Pack familiar",
+      "description": "Estancia para familias con actividades en la finca y rutas sencillas por el entorno.",
+      "highlights": ["Pet friendly", "Piscina y exteriores", "Actividades para todas las edades"]
+    },
+    {
+      "slug": "gastronomia",
+      "title": "Pack gastronómico",
+      "description": "Sabores auténticos de La Mancha: migas, guisos, producto local y experiencia sensorial.",
+      "highlights": ["Menú manchego", "Producto de proximidad", "Catering a cargo de Azurea."]
+    },
+    {
+      "slug": "rutas",
+      "title": "Pack rutas y naturaleza",
+      "description": "Alojamiento + ruta a medida por Campos de Montiel y alrededores culturales.",
+      "highlights": ["Facilitamos dossier con ruta personalizada.", "Naturaleza y patrimonio", "Asesoramiento del equipo"]
+    },
+    {
+      "slug": "caza",
+      "title": "Pack caza y campo (La Calerilla)",
+      "description": "Jornada de caza en mano en nuestro coto de perdiz roja, con alojamiento y gastronomía manchega al regreso.",
+      "highlights": ["La Calerilla · temporada oct.–feb.", "Caza en mano tradicional", "Taco y posible alojamiento en la finca"]
+    },
+    {
+      "slug": "quijote",
+      "title": "Pack Quijote y patrimonio",
+      "description": "Escapada cultural por La Mancha: Villanueva de los Infantes, Montizón, Torre de Juan Abad y rutas cervantinas.",
+      "highlights": ["Itinerario a medida", "Patrimonio y literatura", "Base en Los Collados"]
+    },
+    {
+      "slug": "celebracion",
+      "title": "Pack celebración íntima",
+      "description": "Cumpleaños, aniversarios o reuniones familiares en un entorno rural exclusivo, con menú y espacios al aire libre.",
+      "highlights": ["Hasta 30 int. / 50 ext.", "Menú personalizado", "Jardines y porche de la finca"]
+    },
+    {
+      "slug": "retiro",
+      "title": "Pack retiro de bienestar",
+      "description": "Yoga, mindfulness y talleres de autocuidado en plena naturaleza: un espacio tranquilo para reconectar cuerpo y mente en grupo reducido.",
+      "highlights": ["Sesiones de yoga al aire libre", "Talleres de bienestar y autoestima", "Alojamiento y entorno de desconexión"]
+    }
+  ],
+  "cta": {
+    "title": "¿Le interesa algún pack?",
+    "text": "Indíquelo en su reserva o contacte con nosotros para personalizar la experiencia."
+  }
+}

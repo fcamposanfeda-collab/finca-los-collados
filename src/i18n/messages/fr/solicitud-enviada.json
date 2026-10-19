@@ -1,0 +1,10 @@
+{
+  "heroTitle": "Demande envoyée",
+  "heroSubtitle": "Merci de nous avoir contactés.",
+  "heroEyebrow": "Confirmation",
+  "lead": "Nous avons bien reçu votre demande. Notre équipe la lira et vous répondra dès que possible par e-mail ou par téléphone.",
+  "note": "Si votre demande est urgente, vous pouvez nous appeler dès maintenant ou nous écrire sur WhatsApp.",
+  "backHome": "Retour à l’accueil",
+  "call": "Appeler le {phone}",
+  "alt": "Vous pouvez aussi écrire à {email} ou appeler le {phone}."
+}

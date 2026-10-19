@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "eyebrow": "PYME · equipos · producción",
+    "title": "Empresas y equipos",
+    "subtitle": "Teambuilding, retiros, rodajes, shootings y grabación de contenido en un entorno rural privado y versátil."
+  },
+  "intro": "Los Collados es el escenario ideal para empresas pequeñas y medianas que buscan un espacio diferente: lejos del ruido urbano, con privacidad, naturaleza y servicios para trabajar, crear y conectar en equipo.",
+  "blocks": [
+    {
+      "title": "Teambuilding y retiros",
+      "paragraphs": [
+        "Espacios interiores y exteriores para dinámicas de grupo, reuniones informales y jornadas de integración.",
+        "Capacidad para alojar hasta 16 adultos y organizar actividades complementarias en la finca y su entorno."
+      ]
+    },
+    {
+      "title": "Rodajes, shootings y contenido",
+      "paragraphs": [
+        "Entorno cinematográfico de La Mancha: llanuras, olivos, arquitectura rural y luz natural.",
+        "Ideal para grabaciones, sesiones fotográficas, podcasts y producción audiovisual de marcas que buscan autenticidad."
+      ]
+    }
+  ],
+  "featuresTitle": "Por qué Los Collados para su empresa",
+  "features": [
+    { "title": "Privacidad", "description": "Finca aislada, perfecta para sesiones sin interrupciones." },
+    { "title": "Versatilidad", "description": "Interiores acogedores y amplios exteriores para cualquier formato." },
+    { "title": "Alojamiento incluido", "description": "Su equipo puede pernoctar en los bungalows tras la jornada." },
+    { "title": "Gastronomía", "description": "Menús para grupos y pausas catering durante la producción." }
+  ],
+  "cta": {
+    "title": "Solicite un presupuesto a medida",
+    "text": "Explíquenos su proyecto (equipo, fechas, tipo de actividad) y le enviaremos una propuesta personalizada.",
+    "buttonLabel": "Contactar"
+  },
+  "form": {
+    "title": "Solicite presupuesto para su empresa",
+    "intro": "Rodajes, teambuilding, retiros o jornada en la finca. Indique fechas, equipo e invitados."
+  },
+  "alts": {
+    "video": "La finca Los Collados para empresas y equipos"
+  }
+}

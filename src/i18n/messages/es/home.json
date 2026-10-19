@@ -1,0 +1,86 @@
+{
+  "hero": {
+    "eyebrow": "Campos de Montiel · Ciudad Real",
+    "title": "Finca Los Collados de San Miguel",
+    "subtitle": "Turismo rural, teambuilding, rodajes y eventos pequeños en un entorno único de Castilla-La Mancha. Pet friendly.",
+    "cta": "Reservar",
+    "aria": "Presentación"
+  },
+  "pillars": {
+    "title": "Una finca, muchas experiencias",
+    "aria": "Propuesta de valor",
+    "items": [
+      {
+        "id": "turismo",
+        "title": "Turismo rural",
+        "description": "Escapadas auténticas en bungalows con encanto manchego."
+      },
+      {
+        "id": "empresas",
+        "title": "Empresas",
+        "description": "Teambuilding, rodajes y producción en entorno privado."
+      },
+      {
+        "id": "eventos",
+        "title": "Eventos pequeños",
+        "description": "Celebraciones íntimas al aire libre o en interior."
+      },
+      {
+        "id": "pet-friendly",
+        "title": "Pet friendly",
+        "description": "Su mascota es bienvenida en la finca."
+      }
+    ]
+  },
+  "teasers": {
+    "title": "Descubre la Finca Los Collados de San Miguel",
+    "lead": "Cada área de la finca tiene su propia página con toda la información: alojamiento en bungalows, gastronomía con Azurea, celebraciones al aire libre, propuestas para empresas y mucho más. Elija por dónde empezar a planificar su visita.",
+    "aria": "Descubra la finca",
+    "items": [
+      {
+        "pageKey": "la-finca",
+        "title": "La Finca",
+        "description": "Historia, naturaleza y servicios en Campos de Montiel."
+      },
+      {
+        "pageKey": "la-calerilla",
+        "title": "La Calerilla",
+        "description": "Caza de perdiz roja en mano en Campos de Montiel."
+      },
+      {
+        "pageKey": "alojamiento",
+        "title": "Alojamiento",
+        "description": "8 bungalows, hasta 16 adultos. Pet friendly."
+      },
+      {
+        "pageKey": "gastronomia",
+        "title": "Gastronomía",
+        "description": "Tradición manchega y producto de la tierra."
+      },
+      {
+        "pageKey": "empresas",
+        "title": "Empresas",
+        "description": "Teambuilding, rodajes y contenido para empresas."
+      },
+      {
+        "pageKey": "eventos",
+        "title": "Eventos",
+        "description": "Celebraciones pequeñas hasta 50 personas al aire libre."
+      },
+      {
+        "pageKey": "packs",
+        "title": "Packs",
+        "description": "Romántico, familiar, gastronomía y rutas."
+      },
+      {
+        "pageKey": "entorno",
+        "title": "Entorno",
+        "description": "La Mancha, Villamanrique y patrimonio cercano."
+      }
+    ]
+  },
+  "cta": {
+    "title": "¿Listo para su escapada rural?",
+    "text": "Reserve online o escríbanos para diseñar su estancia, evento íntimo o jornada de empresa en un entorno sin prisas."
+  }
+}

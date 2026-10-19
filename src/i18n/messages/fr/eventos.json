@@ -1,0 +1,101 @@
+{
+  "hero": {
+    "eyebrow": "Célébrations sur mesure",
+    "title": "Événements",
+    "subtitle": "Mariages, communions, anniversaires, entreprises et célébrations de caractère dans un cadre rural exclusif à Campos de Montiel."
+  },
+  "intro": "À Los Collados de San Miguel, nous organisons toutes sortes d’événements à caractère intime et personnalisé : des mariages jusqu’à 50 invités aux réunions de direction, shootings ou séances photo dans un cadre naturel unique.",
+  "capacity": {
+    "title": "Capacités",
+    "items": [
+      "Hébergement : jusqu’à 16 adultes (+ enfants selon réservation)",
+      "Événement en plein air : jusqu’à 50 personnes",
+      "Événement en intérieur : jusqu’à 30 personnes"
+    ]
+  },
+  "eventTypes": {
+    "title": "Types d’événements que nous accueillons",
+    "lead": "Chaque célébration s’adapte au groupe, aux dates et au style. Voici les formules les plus habituelles sur le domaine :",
+    "items": [
+      {
+        "title": "Mariages",
+        "description": "Cérémonies et banquets jusqu’à 50 invités dans les jardins, le porche et les salons, en toute intimité."
+      },
+      {
+        "title": "Noces d’or et d’argent",
+        "description": "Anniversaires particuliers, avec menu, mise en place et une ambiance soignée pour la famille et les amis."
+      },
+      {
+        "title": "Anniversaires",
+        "description": "Célébrations en famille ou entre amis, en intérieur ou en plein air, avec un traiteur sur mesure."
+      },
+      {
+        "title": "Communions",
+        "description": "Rencontres intimistes après la cérémonie, avec de l’espace pour les enfants et un menu adapté au groupe."
+      },
+      {
+        "title": "Présentations de produits",
+        "description": "Lancements, showcookings et rencontres avec la presse ou les clients dans un cadre différent."
+      },
+      {
+        "title": "Entreprises",
+        "description": "Conventions, incentives, teambuilding et journées d’équipe, avec hébergement optionnel."
+      },
+      {
+        "title": "Shootings",
+        "description": "Campagnes publicitaires, mode et produit, avec de nombreux décors sur le même domaine. Séances photo en intérieur et en extérieur."
+      },
+      {
+        "title": "Réunions de direction",
+        "description": "Rencontres stratégiques dans un cadre réservé, avec salles et espaces de travail."
+      }
+    ]
+  },
+  "blocks": [
+    {
+      "title": "Ce que nous proposons",
+      "paragraphs": [
+        "Espaces extérieurs avec porche, jardins et piscine pour les célébrations en plein air.",
+        "Salon bibliothèque, salle à manger et espaces intérieurs pour les rencontres plus intimistes ou climatisés.",
+        "Hébergement en bungalows pour les invités qui passent la nuit, et usage exclusif du domaine sur réservation.",
+        "Coordination avec Azurea Catering pour les menus, la mise en place et le service en salle lors de votre événement."
+      ]
+    }
+  ],
+  "azurea": {
+    "eyebrow": "Gastronomie lors de votre événement",
+    "title": "Azurea Catering",
+    "paragraphs": [
+      "Pour les mariages, communions, anniversaires et célébrations sur le domaine, nous travaillons avec Azurea Catering, une entreprise de Ciudad Real spécialisée dans la réinterprétation de la cuisine traditionnelle de La Mancha, avec une approche actuelle, créative et de haute qualité.",
+      "Azurea conçoit des menus exclusifs, adaptables à chaque occasion — des cocktails et banquets au service pour entreprises — avec des produits de proximité et une équipe professionnelle qui connaît parfaitement les espaces de Los Collados de San Miguel.",
+      "Le traiteur est chiffré indépendamment de la location du domaine. Nous vous conseillons pour coordonner dates, mise en place et logistique avec l’équipe d’Azurea."
+    ],
+    "websiteLabel": "Visiter le site d’Azurea Catering",
+    "services": [
+      "Mariages et banquets",
+      "Communions et baptêmes",
+      "Anniversaires et célébrations privées",
+      "Traiteur d’entreprise"
+    ],
+    "alts": {
+      "staff": "Personnel d’Azurea Catering servant lors d’un événement",
+      "presentation": "Présentation gastronomique d’Azurea Catering"
+    }
+  },
+  "venuePackages": {
+    "title": "Modalités de réservation",
+    "lead": "Choisissez la formule qui convient le mieux à votre événement. Prix sur demande ; le traiteur avec Azurea est coté à part."
+  },
+  "cta": {
+    "title": "Planifiez votre événement",
+    "text": "Indiquez-nous les dates, le nombre d’invités et le type de célébration. Nous vous conseillerons sans engagement.",
+    "buttonLabel": "Demander des informations"
+  },
+  "form": {
+    "title": "Planifiez votre événement",
+    "intro": "Mariages, communions, anniversaires, entreprises, shootings ou séances photo. Indiquez dates, invités et type de célébration."
+  },
+  "alts": {
+    "exterior": "Célébration en plein air sur le domaine"
+  }
+}

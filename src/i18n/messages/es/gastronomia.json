@@ -1,0 +1,42 @@
+{
+  "hero": {
+    "eyebrow": "Sabores de La Mancha",
+    "title": "Gastronomía",
+    "subtitle": "Restauración basada en la tradición y los productos de nuestra tierra. Una experiencia sensorial en entorno rural."
+  },
+  "lead": "Apostamos por una restauración basada en la tradición y en los productos de nuestra tierra.",
+  "subtitle": "Una experiencia sensorial única",
+  "description": "Degustar platos típicamente manchegos que conservan en su esencia el paso de los siglos y el sabor de la historia.",
+  "dishes": "Ensalada de perdiz en escabeche, migas, pisto, sopa de ajo, caldereta de cordero, conejo al ajillo, pan de calatrava...",
+  "quote": "«Qué de migas, qué de natas, qué de guirnaldas y qué de zarandajas pastoriles, que, puesto que no me granjeen fama de discreto, no dejarán de granjearme la de ingenioso!» (Don Quijote, Cap. LXVII. Parte II)",
+  "moments": {
+    "title": "Momentos que se quedan",
+    "lead": "Entre olivos centenarios, luz de atardecer y una mesa que habla de La Mancha, la finca invita a bajar el ritmo y disfrutar de lo esencial.",
+    "paragraphs": [
+      "La Finca Los Collados de San Miguel no es solo un lugar donde pernoctar: es un refugio en los Campos de Montiel donde el silencio tiene sabor a campo, las noches huelen a leña y cada rincón está pensado para que se sienta acogido desde el primer minuto.",
+      "En la mesa recuperamos la cocina manchega con producto de proximidad, temporada y un cuidado que se nota en cada detalle —la vajilla, la presentación, el postre de autor— con el sello de la finca, nuestro partner gastronómico en la finca.",
+      "Por la mañana, un paseo entre olivos; al mediodía, sombra en el porche; al atardecer, una copa con vistas al horizonte manchego. Ya venga en pareja, en familia, con su empresa o con su mascota, aquí encontrará espacio para desconectar sin renunciar a lo bien hecho."
+    ],
+    "videoAlt": "Ambiente y gastronomía en Finca Los Collados de San Miguel",
+    "mesaAlt": "Mesa servida con detalle en Los Collados de San Miguel",
+    "galleryAria": "Galería de platos",
+    "platosEyebrow": "De la cocina",
+    "platosTitle": "Una muestra de la mesa",
+    "links": {
+      "eventos": "Eventos",
+      "packs": "Packs",
+      "la-finca": "La finca"
+    }
+  },
+  "features": [
+    { "title": "Producto local", "description": "Ingredientes de la tierra manchega y recetas de tradición." },
+    { "title": "Menús a medida", "description": "Opciones para grupos, eventos y packs gastronómicos." }
+  ],
+  "cta": {
+    "title": "Saboree La Mancha en Los Collados",
+    "text": "Incluya la experiencia gastronómica en su reserva o consulte menús para grupos y eventos."
+  },
+  "alts": {
+    "banner": "Gastronomía manchega en Los Collados"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "hero": {
+    "eyebrow": "Castilla-La Mancha",
+    "title": "Surroundings and landscape",
+    "subtitle": "Campos de Montiel, Villamanrique, Iberian heritage and the most authentic La Mancha, a few kilometres from Torre de Juan Abad and Villanueva de los Infantes."
+  },
+  "intro": "Los Collados sits in one of the most representative landscapes of La Mancha: plains, dehesas, historic villages and a cultural heritage that reaches back to antiquity.",
+  "places": [
+    {
+      "id": "campos-de-montiel",
+      "title": "Campos de Montiel",
+      "description": "A natural and historic region, a setting of legend and open country. Ideal for walking, birdwatching and a rural getaway."
+    },
+    {
+      "id": "villamanrique",
+      "title": "Villamanrique",
+      "description": "The nearest village to the estate. A starting point for discovering rural life in La Mancha and local cooking."
+    },
+    {
+      "id": "torre-de-juan-abad",
+      "title": "Torre de Juan Abad and around",
+      "description": "A few kilometres away, in the same region. A cultural and gastronomic landmark of Castilla-La Mancha."
+    },
+    {
+      "id": "villanueva-de-los-infantes",
+      "title": "Villanueva de los Infantes",
+      "description": "One of the most emblematic towns of La Mancha, tied to Cervantes and cultural tourism."
+    },
+    {
+      "id": "patrimonio",
+      "title": "Iberian heritage and ruins",
+      "description": "Remains of more than 2,500 years of history in the area: Iberians, Romans, Visigoths and Arabs."
+    },
+    {
+      "id": "lagunas",
+      "title": "Lagoons and nature",
+      "description": "The region offers natural spaces, birdwatching routes and distinctive landscapes in which to switch off."
+    }
+  ],
+  "cta": {
+    "title": "Explore La Mancha from Los Collados",
+    "text": "Book your stay and we will help you plan routes through the territory."
+  }
+}

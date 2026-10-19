@@ -1,0 +1,10 @@
+{
+  "heroTitle": "Solicitud enviada",
+  "heroSubtitle": "Gracias por ponerse en contacto con nosotros.",
+  "heroEyebrow": "Confirmación",
+  "lead": "Hemos recibido su solicitud correctamente. Nuestro equipo la revisará y le responderá lo antes posible por email o teléfono.",
+  "note": "Si su consulta es urgente, puede llamarnos ahora o escribirnos por WhatsApp.",
+  "backHome": "Volver al inicio",
+  "call": "Llamar {phone}",
+  "alt": "También puede escribir a {email} o llamar al {phone}."
+}

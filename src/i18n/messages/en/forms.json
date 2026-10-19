@@ -1,0 +1,40 @@
+{
+  "title": "Write to us",
+  "intro": "We reply by email as soon as we can. For urgent matters, please use WhatsApp or telephone.",
+  "name": "Name",
+  "email": "Email",
+  "phone": "Telephone",
+  "subject": "Reason",
+  "checkIn": "Arrival / event date",
+  "checkOut": "Departure date",
+  "guests": "Number of guests / adults",
+  "message": "Message",
+  "submit": "Send request",
+  "sending": "Sending…",
+  "sendError": "The message could not be sent. Please email us at {email} or get in touch on WhatsApp.",
+  "configuredNote": "Your details will be sent to {email}.",
+  "devNote": "To enable automatic sending, configure Web3Forms (free). Until then, the form will open your email client. Also: {email}.",
+  "defaultSubject": "Website enquiry",
+  "emailLabels": {
+    "name": "Nombre",
+    "email": "Email",
+    "phone": "Teléfono",
+    "checkIn": "Fecha entrada/evento",
+    "checkOut": "Fecha salida",
+    "guests": "Invitados/adultos",
+    "language": "Idioma",
+    "subjectPrefix": "[Web Los Collados]"
+  },
+  "subjects": {
+    "general": "General enquiry",
+    "alojamiento": "Accommodation / bungalows",
+    "finca-espacios": "Exclusive use of the estate — spaces only",
+    "finca-completa": "Exclusive use of the estate — with accommodation",
+    "finca-fin-semana": "Exclusive use of the estate — weekend",
+    "sesiones-fotograficas": "Photo shoots / shootings",
+    "evento": "Private event",
+    "empresa": "Corporate / team building / film shoot",
+    "pack": "Romantic, family or gastronomic package",
+    "caza": "Shooting at La Calerilla"
+  }
+}

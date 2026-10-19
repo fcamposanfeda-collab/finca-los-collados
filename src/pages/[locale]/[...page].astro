@@ -1,0 +1,21 @@
+---
+import {
+  getStaticPathsForTranslatedLocales,
+  pagePathname,
+  type Locale,
+  type PageKey,
+} from '../../i18n';
+import { runWithI18n } from '../../i18n/render-context';
+
+export function getStaticPaths() {
+  return getStaticPathsForTranslatedLocales();
+}
+
+interface Props {
+  locale: Locale;
+  pageKey: PageKey;
+}
+
+const { locale, pageKey } = Astro.props;
+return runWithI18n({ locale, pageKey }, () => Astro.rewrite(pagePathname(pageKey, 'es')));
+---

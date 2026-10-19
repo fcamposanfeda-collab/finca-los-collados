@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "eyebrow": "Campos de Montiel · Ciudad Real",
+    "title": "La Finca",
+    "subtitle": "Más de 2.500 años de historia en un enclave rural único de Castilla-La Mancha, entre Villamanrique y el corazón manchego."
+  },
+  "blocks": [
+    {
+      "title": "Un crisol de culturas",
+      "paragraphs": [
+        "Ubicada en la provincia de Ciudad Real, próxima al municipio de Villamanrique y situada en la comarca de Campos de Montiel, comarca natural e histórica de La Mancha.",
+        "Un enclave único, cuya historia se remonta a más de 2.500 años a. C., en el que poder admirar sus ruinas prehistóricas, así como los numerosos vestigios de pueblos entre los que destacan los íberos, los romanos, los visigodos o los árabes."
+      ]
+    },
+    {
+      "title": "Espacios y servicios",
+      "paragraphs": [
+        "La Finca cuenta con alojamiento para un máximo de 16 adultos (8 bungalows), servicio de restauración, piscina al aire libre, salón biblioteca, chimenea, porche exterior y cocinas camperas.",
+        "Un entorno privado y versátil: ideal para escapadas en pareja, estancias familiares, retiros de empresa, rodajes y pequeños eventos al aire libre."
+      ]
+    }
+  ],
+  "features": [
+    { "title": "8 bungalows", "description": "Estancias independientes con máximo confort y privacidad." },
+    { "title": "Piscina y jardines", "description": "Espacios exteriores para descansar y disfrutar del entorno." },
+    { "title": "Salón biblioteca", "description": "Zona acogedora con chimenea para reuniones íntimas o relax." },
+    { "title": "Pet friendly", "description": "Su mascota es bienvenida. Consulte condiciones al reservar." }
+  ],
+  "cta": {
+    "title": "Descubra La Mancha desde Los Collados",
+    "text": "Reserve su estancia o solicite información sobre disponibilidad y actividades."
+  },
+  "calerilla": {
+    "title": "La Calerilla",
+    "paragraphs": [
+      "Dentro de Los Collados de San Miguel, La Calerilla es nuestra zona cinegética dedicada a la tradición de la perdiz roja en mano, en un entorno natural de Campos de Montiel.",
+      "De octubre a febrero organizamos jornadas de caza que pueden combinarse con alojamiento en bungalows y con nuestra gastronomía manchega."
+    ],
+    "button": "Descubrir La Calerilla"
+  },
+  "highlightsTitle": "Destacados",
+  "alts": {
+    "hero": "Paisaje panorámico de la casa principal de Finca Los Collados de San Miguel",
+    "culturas": "Paisaje de la finca Los Collados",
+    "calerilla": "Campo de caza en La Calerilla",
+    "closing": "Paisaje y entorno de La Finca Los Collados de San Miguel"
+  }
+}

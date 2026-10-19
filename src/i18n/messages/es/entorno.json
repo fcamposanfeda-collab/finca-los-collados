@@ -1,0 +1,44 @@
+{
+  "hero": {
+    "eyebrow": "Castilla-La Mancha",
+    "title": "Entorno y territorio",
+    "subtitle": "Campos de Montiel, Villamanrique, patrimonio íbero y la Mancha más auténtica a pocos kilómetros de Torre de Juan Abad y Villanueva de los Infantes."
+  },
+  "intro": "Los Collados se sitúa en uno de los paisajes más representativos de La Mancha: llanuras, dehesas, pueblos con historia y un patrimonio cultural que se remonta a la antigüedad.",
+  "places": [
+    {
+      "id": "campos-de-montiel",
+      "title": "Campos de Montiel",
+      "description": "Comarca natural e histórica, escenario de leyenda y naturaleza. Ideal para rutas a pie, observación de aves y turismo rural."
+    },
+    {
+      "id": "villamanrique",
+      "title": "Villamanrique",
+      "description": "Municipio más cercano a la finca. Punto de partida para descubrir la vida rural manchega y la gastronomía local."
+    },
+    {
+      "id": "torre-de-juan-abad",
+      "title": "Torre de Juan Abad y alrededores",
+      "description": "A pocos kilómetros, en la misma comarca. Referencia cultural y gastronómica de Castilla-La Mancha."
+    },
+    {
+      "id": "villanueva-de-los-infantes",
+      "title": "Villanueva de los Infantes",
+      "description": "Uno de los pueblos más emblemáticos de La Mancha, ligado a la literatura cervantina y al turismo cultural."
+    },
+    {
+      "id": "patrimonio",
+      "title": "Patrimonio íbero y ruinas",
+      "description": "Vestigios de más de 2.500 años de historia en la zona: íberos, romanos, visigodos y árabes."
+    },
+    {
+      "id": "lagunas",
+      "title": "Lagunas y naturaleza",
+      "description": "La región ofrece espacios naturales, rutas ornitológicas y paisajes únicos para desconectar."
+    }
+  ],
+  "cta": {
+    "title": "Explore La Mancha desde Los Collados",
+    "text": "Reserve su estancia y le ayudamos a diseñar rutas por el territorio."
+  }
+}

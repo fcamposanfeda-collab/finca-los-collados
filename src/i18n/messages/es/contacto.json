@@ -1,0 +1,14 @@
+{
+  "hero": {
+    "eyebrow": "Estamos aquí para ayudarle",
+    "title": "Contacto",
+    "subtitle": "Reservas, packs, eventos, empresas o consultas generales. Responderemos lo antes posible."
+  },
+  "form": {
+    "title": "Ponte en contacto con nosotros",
+    "intro": "Reservas, presupuestos de finca completa, eventos y consultas generales."
+  },
+  "alts": {
+    "porche": "Porche y exteriores de la finca"
+  }
+}

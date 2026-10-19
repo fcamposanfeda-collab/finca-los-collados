@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "eyebrow": "8 bungalows · jusqu’à 16 adultes",
+    "title": "Hébergement rural",
+    "subtitle": "Des bungalows pensés pour le repos et l’intimité, en pleine nature de La Mancha. Animaux acceptés."
+  },
+  "intro": "Des bungalows conçus pour offrir davantage d’intimité, afin que vous puissiez vous reposer et vous détendre. Nous disposons de huit chambres au total, où le soin du détail est essentiel.",
+  "capacity": {
+    "title": "Capacité",
+    "items": [
+      "Jusqu’à 16 adultes en hébergement (8 bungalows)",
+      "Enfants possibles selon la configuration de la réservation",
+      "Animaux acceptés",
+      "Idéal pour les petits groupes, les familles et les entreprises"
+    ]
+  },
+  "amenitiesTitle": "Prestations incluses",
+  "amenities": [
+    "Lit double (très grand)",
+    "Nécessaire de toilette",
+    "Smart TV",
+    "Bureau",
+    "Wi-Fi gratuit",
+    "Minibar",
+    "Douche à effet pluie",
+    "Carte des oreillers\n(sous réserve de disponibilité)",
+    "Climatisation",
+    "Chauffage",
+    "Porche extérieur",
+    "Téléphone",
+    "Petit-déjeuner inclus",
+    "Espaces communs et piscine"
+  ],
+  "cta": {
+    "title": "Réservez votre bungalow",
+    "text": "Vérifiez les disponibilités et choisissez les dates de votre escapade rurale à Campos de Montiel."
+  },
+  "alts": {
+    "interior": "Intérieur d’un bungalow à Los Collados",
+    "amenities": "Détail de l’hébergement rural à Los Collados",
+    "closing": "Vues de l’hébergement rural à Los Collados de San Miguel"
+  }
+}

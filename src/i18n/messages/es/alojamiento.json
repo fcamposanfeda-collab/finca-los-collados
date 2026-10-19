@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "eyebrow": "8 bungalows · hasta 16 adultos",
+    "title": "Alojamiento rural",
+    "subtitle": "Bungalows diseñados para el descanso y la privacidad en plena naturaleza manchega. Pet friendly."
+  },
+  "intro": "Bungalows especialmente diseñados con el fin de aportar mayor privacidad, asegurando su descanso y relajación. Disponemos de un total de 8 estancias, en las que destaca el especial cuidado por los detalles.",
+  "capacity": {
+    "title": "Capacidad",
+    "items": [
+      "Hasta 16 adultos en alojamiento (8 bungalows)",
+      "Posibilidad de niños según configuración de la reserva",
+      "Mascotas bienvenidas (pet friendly)",
+      "Ideal para grupos pequeños, familias y empresas"
+    ]
+  },
+  "amenitiesTitle": "Servicios incluidos",
+  "amenities": [
+    "Cama de matrimonio (extragrande)",
+    "Amenities",
+    "Smart TV",
+    "Escritorio",
+    "Wi-Fi gratuito",
+    "Minibar",
+    "Ducha efecto lluvia",
+    "Carta de almohadas\n(bajo disponibilidad)",
+    "Aire acondicionado",
+    "Calefacción",
+    "Porche exterior",
+    "Teléfono",
+    "Desayuno incluido",
+    "Zonas comunes y piscina"
+  ],
+  "cta": {
+    "title": "Reserve su bungalow",
+    "text": "Compruebe disponibilidad y elija las fechas de su escapada rural en Campos de Montiel."
+  },
+  "alts": {
+    "interior": "Interior de bungalow en Los Collados",
+    "amenities": "Detalle de alojamiento rural en Los Collados",
+    "closing": "Vistas del alojamiento rural en Los Collados de San Miguel"
+  }
+}

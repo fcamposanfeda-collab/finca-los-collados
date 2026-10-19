@@ -1,0 +1,11 @@
+{
+  "disclaimer": "Cette traduction est fournie à titre informatif. En cas de divergence, la version espagnole fait foi.",
+  "placeholderLead": "Le contenu juridique reste à migrer depuis le site WordPress actuel. Le texte intégral sera repris depuis",
+  "pending": true,
+  "titles": {
+    "politica-de-privacidad": "Politique de confidentialité",
+    "aviso-legal": "Mentions légales",
+    "politica-de-cookies": "Politique de cookies",
+    "politica-de-reservas": "Conditions de réservation"
+  }
+}

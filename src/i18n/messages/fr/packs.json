@@ -1,0 +1,62 @@
+{
+  "hero": {
+    "eyebrow": "Escapades sur mesure",
+    "title": "Formules et expériences",
+    "subtitle": "Des combinaisons pensées pour les couples, les familles et les groupes : romance, nature, gastronomie et randonnées à La Mancha."
+  },
+  "intro": "Découvrez nos propositions combinées d’hébergement, de gastronomie et d’activités. Chaque formule peut s’adapter aux dates, au groupe et à vos envies.",
+  "items": [
+    {
+      "slug": "romantico",
+      "title": "Formule romantique",
+      "description": "Une escapade à deux, avec une attention, un dîner de La Mancha et un cadre privé pour se déconnecter.",
+      "highlights": ["Hébergement en bungalow", "Dîner traditionnel", "Ambiance intime et silencieuse"]
+    },
+    {
+      "slug": "familiar",
+      "title": "Formule famille",
+      "description": "Un séjour pour les familles, avec des activités sur le domaine et des parcours simples dans les alentours.",
+      "highlights": ["Animaux acceptés", "Piscine et extérieurs", "Activités pour tous les âges"]
+    },
+    {
+      "slug": "gastronomia",
+      "title": "Formule gastronomique",
+      "description": "Les saveurs authentiques de La Mancha : migas, mijotés, produits locaux et une expérience sensorielle.",
+      "highlights": ["Menu de La Mancha", "Produits de proximité", "Traiteur à charge d’Azurea."]
+    },
+    {
+      "slug": "rutas",
+      "title": "Formule randonnées et nature",
+      "description": "Hébergement + itinéraire sur mesure à Campos de Montiel et dans les alentours culturels.",
+      "highlights": ["Nous fournissons un dossier d’itinéraire personnalisé.", "Nature et patrimoine", "Conseils de l’équipe"]
+    },
+    {
+      "slug": "caza",
+      "title": "Formule chasse et campagne (La Calerilla)",
+      "description": "Une journée de chasse en battue à pied dans notre coto de perdrix rouge, avec hébergement et cuisine traditionnelle de La Mancha au retour.",
+      "highlights": ["La Calerilla · saison oct.–fév.", "Chasse en battue à pied traditionnelle", "Casse-croûte et hébergement possible sur le domaine"]
+    },
+    {
+      "slug": "quijote",
+      "title": "Formule Quichotte et patrimoine",
+      "description": "Une escapade culturelle à La Mancha : Villanueva de los Infantes, Montizón, Torre de Juan Abad et itinéraires cervantins.",
+      "highlights": ["Itinéraire sur mesure", "Patrimoine et littérature", "Base à Los Collados"]
+    },
+    {
+      "slug": "celebracion",
+      "title": "Formule célébration intimiste",
+      "description": "Anniversaires, noces ou réunions de famille dans un cadre rural exclusif, avec menu et espaces en plein air.",
+      "highlights": ["Jusqu’à 30 int. / 50 ext.", "Menu personnalisé", "Jardins et porche du domaine"]
+    },
+    {
+      "slug": "retiro",
+      "title": "Formule retraite bien-être",
+      "description": "Yoga, mindfulness et ateliers de soin de soi en pleine nature : un espace calme pour reconnecter le corps et l’esprit en petit groupe.",
+      "highlights": ["Séances de yoga en plein air", "Ateliers bien-être et estime de soi", "Hébergement et cadre de déconnexion"]
+    }
+  ],
+  "cta": {
+    "title": "Une formule vous intéresse ?",
+    "text": "Mentionnez-le dans votre réservation ou contactez-nous pour personnaliser l’expérience."
+  }
+}

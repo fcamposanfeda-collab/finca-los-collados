@@ -1,0 +1,42 @@
+{
+  "hero": {
+    "eyebrow": "Flavours of La Mancha",
+    "title": "Dining",
+    "subtitle": "Cooking rooted in tradition and the produce of our land. A sensory experience in the countryside."
+  },
+  "lead": "We believe in a table based on tradition and the produce of our land.",
+  "subtitle": "A unique sensory experience",
+  "description": "Tasting typically La Mancha dishes that keep, in their essence, the passage of the centuries and the flavour of history.",
+  "dishes": "Partridge salad in escabeche, migas, pisto, garlic soup, lamb caldereta, rabbit al ajillo, pan de calatrava...",
+  "quote": "«Qué de migas, qué de natas, qué de guirnaldas y qué de zarandajas pastoriles, que, puesto que no me granjeen fama de discreto, no dejarán de granjearme la de ingenioso!» (Don Quixote, Ch. LXVII, Part II)",
+  "moments": {
+    "title": "Moments that stay with you",
+    "lead": "Among centuries-old olive trees, evening light and a table that speaks of La Mancha, the estate invites you to slow down and enjoy what matters.",
+    "paragraphs": [
+      "Finca Los Collados de San Miguel is not only a place to spend the night: it is a refuge in Campos de Montiel where the silence tastes of the fields, the nights smell of woodsmoke and every corner is thought so that you feel welcome from the first minute.",
+      "At the table we recover traditional La Mancha cooking with nearby produce, the season and a care that shows in every detail — the china, the presentation, the signature dessert — with the seal of the estate, our dining partner on the estate.",
+      "In the morning, a walk among olive trees; at midday, shade on the porch; at dusk, a glass looking out over the La Mancha horizon. Whether you come as a couple, as a family, with your company or with your dog, you will find space here to switch off without giving up on things done well."
+    ],
+    "videoAlt": "Atmosphere and dining at Finca Los Collados de San Miguel",
+    "mesaAlt": "A carefully laid table at Los Collados de San Miguel",
+    "galleryAria": "Dish gallery",
+    "platosEyebrow": "From the kitchen",
+    "platosTitle": "A taste of the table",
+    "links": {
+      "eventos": "Events",
+      "packs": "Packages",
+      "la-finca": "The estate"
+    }
+  },
+  "features": [
+    { "title": "Local produce", "description": "Ingredients from the La Mancha countryside and traditional recipes." },
+    { "title": "Menus to order", "description": "Options for groups, events and gastronomic packages." }
+  ],
+  "cta": {
+    "title": "Taste La Mancha at Los Collados",
+    "text": "Include the dining experience in your booking, or ask about menus for groups and events."
+  },
+  "alts": {
+    "banner": "Traditional La Mancha cuisine at Los Collados"
+  }
+}

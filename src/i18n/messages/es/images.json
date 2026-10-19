@@ -1,0 +1,24 @@
+{
+  "heroHome": "Entrada de Finca Los Collados de San Miguel al atardecer, en Campos de Montiel",
+  "gallery": {
+    "jardines": "Jardines y exteriores de la finca",
+    "porche": "Porche exterior de Los Collados",
+    "salon": "Salón biblioteca con chimenea",
+    "entrada": "Entrada principal de la finca",
+    "paisaje": "Paisaje y entorno de Campos de Montiel",
+    "edificaciones": "Vista de la finca y sus edificaciones",
+    "olivar": "Salón con vistas al olivar"
+  },
+  "platos": [
+    "Alcachofas con jamón y queso gratinado",
+    "Carne estofada con puré de patata",
+    "Pimientos del piquillo rellenos",
+    "Ensalada con confit y queso de cabra",
+    "Torrija con helado y sello de la finca",
+    "Flan casero con nata montada",
+    "Ensalada de tomate, mango y codorniz",
+    "Revuelto de espárragos trigueros",
+    "Postre de hojaldre con sello de la finca",
+    "Postre de autor con crema y aceite aromatizado"
+  ]
+}

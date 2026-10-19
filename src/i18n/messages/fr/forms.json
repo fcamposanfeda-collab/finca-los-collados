@@ -1,0 +1,40 @@
+{
+  "title": "Écrivez-nous",
+  "intro": "Nous vous répondons par e-mail dès que possible. Pour toute urgence, utilisez WhatsApp ou le téléphone.",
+  "name": "Nom",
+  "email": "E-mail",
+  "phone": "Téléphone",
+  "subject": "Motif",
+  "checkIn": "Date d’arrivée / d’événement",
+  "checkOut": "Date de départ",
+  "guests": "Nombre d’invités / d’adultes",
+  "message": "Message",
+  "submit": "Envoyer la demande",
+  "sending": "Envoi…",
+  "sendError": "L’envoi a échoué. Écrivez-nous à {email} ou sur WhatsApp.",
+  "configuredNote": "Vos données seront envoyées à {email}.",
+  "devNote": "Pour activer l’envoi automatique, configurez Web3Forms (gratuit). En attendant, le formulaire ouvrira votre client de messagerie. Aussi : {email}.",
+  "defaultSubject": "Demande depuis le site",
+  "emailLabels": {
+    "name": "Nombre",
+    "email": "Email",
+    "phone": "Teléfono",
+    "checkIn": "Fecha entrada/evento",
+    "checkOut": "Fecha salida",
+    "guests": "Invitados/adultos",
+    "language": "Idioma",
+    "subjectPrefix": "[Web Los Collados]"
+  },
+  "subjects": {
+    "general": "Demande générale",
+    "alojamiento": "Hébergement / bungalows",
+    "finca-espacios": "Privatisation du domaine — espaces uniquement",
+    "finca-completa": "Privatisation du domaine — avec hébergement",
+    "finca-fin-semana": "Privatisation du domaine — week-end",
+    "sesiones-fotograficas": "Séances photo / shootings",
+    "evento": "Événement privé",
+    "empresa": "Entreprise / team building / tournage",
+    "pack": "Formule romantique, famille ou gastronomique",
+    "caza": "Chasse à La Calerilla"
+  }
+}

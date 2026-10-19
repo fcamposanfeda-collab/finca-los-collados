@@ -1,0 +1,14 @@
+{
+  "hero": {
+    "eyebrow": "Nous sommes là pour vous aider",
+    "title": "Contact",
+    "subtitle": "Réservations, formules, événements, entreprises ou questions générales. Nous vous répondrons dès que possible."
+  },
+  "form": {
+    "title": "Prenez contact avec nous",
+    "intro": "Séjours, devis de privatisation du domaine, événements et demandes générales."
+  },
+  "alts": {
+    "porche": "Porche et extérieurs du domaine"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "eyebrow": "SMEs · teams · production",
+    "title": "Companies and teams",
+    "subtitle": "Team building, retreats, film shoots, photo shoots and content recording in a private, versatile rural setting."
+  },
+  "intro": "Los Collados is the right stage for small and medium-sized companies looking for somewhere different: away from city noise, with privacy, nature and the facilities to work, create and connect as a team.",
+  "blocks": [
+    {
+      "title": "Team building and retreats",
+      "paragraphs": [
+        "Indoor and outdoor spaces for group work, informal meetings and team days.",
+        "Room to lodge up to 16 adults and to organise extra activities on the estate and around it."
+      ]
+    },
+    {
+      "title": "Film shoots, photo shoots and content",
+      "paragraphs": [
+        "A cinematic landscape of La Mancha: plains, olive trees, rural architecture and natural light.",
+        "Ideal for filming, photo shoots, podcasts and audiovisual production for brands that want authenticity."
+      ]
+    }
+  ],
+  "featuresTitle": "Why Los Collados for your company",
+  "features": [
+    { "title": "Privacy", "description": "A secluded estate, perfect for sessions without interruption." },
+    { "title": "Versatility", "description": "Welcoming interiors and wide outdoor spaces for any format." },
+    { "title": "Lodging included", "description": "Your team can stay overnight in the bungalows after the day." },
+    { "title": "Dining", "description": "Menus for groups and catering breaks during production." }
+  ],
+  "cta": {
+    "title": "Request a tailor-made quote",
+    "text": "Tell us about your project (team, dates, type of activity) and we will send you a personal proposal.",
+    "buttonLabel": "Contact us"
+  },
+  "form": {
+    "title": "Request a quote for your company",
+    "intro": "Film shoots, team building, retreats or a day on the estate. Please give dates, team size and guest numbers."
+  },
+  "alts": {
+    "video": "The Los Collados estate for companies and teams"
+  }
+}

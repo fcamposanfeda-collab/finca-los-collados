@@ -1,0 +1,37 @@
+{
+  "hero": {
+    "eyebrow": "Rutas y actividades",
+    "title": "Experiencias",
+    "subtitle": "Rutas a medida, naturaleza, deporte y cultura manchega.\nDiseñamos su plan según tiempo, grupo y preferencias."
+  },
+  "intro": "La riqueza cultural de la zona es consabida pero difícilmente se ha recopilado de forma que el visitante pueda exprimir al máximo cada uno de los rincones que esta maravillosa tierra ofrece.",
+  "detail": "Ponemos a su disposición la confección de una ruta a medida. Solo debe indicar sus preferencias, de qué tiempo dispone y cuántas personas participarán. Nuestro equipo le sugerirá su «ruta a medida».",
+  "note": "Recomendamos incluir las actividades al efectuar la reserva, para evitar problemas de disponibilidad a su llegada.",
+  "cards": [
+    { "title": "Campo de Montiel", "description": "Rutas a pie por el entorno natural de La Mancha." },
+    { "title": "La Mancha auténtica", "description": "Pueblos, paisajes y patrimonio de la comarca." },
+    { "title": "Experiencia gastronómica", "description": "Sabores manchegos en un entorno único." },
+    { "title": "Deporte y aventura", "description": "Bicicleta, senderismo, globo y más en los alrededores." },
+    {
+      "title": "Visita a ganadería",
+      "description": "Conozca de cerca la vida rural y el cuidado del ganado en el entorno de la finca."
+    },
+    {
+      "title": "Cata de vinos de la tierra",
+      "description": "Degustación de vinos manchegos con producto local y el sabor de Campos de Montiel."
+    }
+  ],
+  "activitiesAria": "Actividades disponibles",
+  "activities": [
+    "Rutas en bicicleta",
+    "Aventura off-road",
+    "Globo aerostático",
+    "Piscina y biblioteca",
+    "Visita a ganadería",
+    "Cata de vinos"
+  ],
+  "cta": {
+    "title": "Diseñe su ruta a medida",
+    "text": "Cuéntenos qué busca y le propondremos una experiencia adaptada a su grupo."
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "heroHome": "Entrée de Finca Los Collados de San Miguel au crépuscule, à Campos de Montiel",
+  "gallery": {
+    "jardines": "Jardins et extérieurs du domaine",
+    "porche": "Porche extérieur de Los Collados",
+    "salon": "Salon bibliothèque avec cheminée",
+    "entrada": "Entrée principale du domaine",
+    "paisaje": "Paysage de Campos de Montiel",
+    "edificaciones": "Vue du domaine et de ses bâtiments",
+    "olivar": "Salon avec vue sur l’oliveraie"
+  },
+  "platos": [
+    "Artichauts au jambon et fromage gratiné",
+    "Viande mijotée et purée de pommes de terre",
+    "Poivrons del piquillo farcis",
+    "Salade au confit et fromage de chèvre",
+    "Torrija avec glace et sceau du domaine",
+    "Flan maison à la crème fouettée",
+    "Salade de tomate, mangue et caille",
+    "Brouillade aux asperges sauvages",
+    "Dessert feuilleté au sceau du domaine",
+    "Dessert d’auteur à la crème et à l’huile parfumée"
+  ]
+}

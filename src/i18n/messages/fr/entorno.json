@@ -1,0 +1,44 @@
+{
+  "hero": {
+    "eyebrow": "Castille-La Manche",
+    "title": "Alentours et territoire",
+    "subtitle": "Campos de Montiel, Villamanrique, patrimoine ibère et La Mancha la plus authentique, à quelques kilomètres de Torre de Juan Abad et de Villanueva de los Infantes."
+  },
+  "intro": "Los Collados s’inscrit dans l’un des paysages les plus représentatifs de La Mancha : plaines, dehesas, villages chargés d’histoire et un patrimoine culturel qui remonte à l’Antiquité.",
+  "places": [
+    {
+      "id": "campos-de-montiel",
+      "title": "Campos de Montiel",
+      "description": "Comarque naturelle et historique, théâtre de légendes et de nature. Idéale pour la marche, l’observation des oiseaux et un séjour à la campagne."
+    },
+    {
+      "id": "villamanrique",
+      "title": "Villamanrique",
+      "description": "Le village le plus proche du domaine. Point de départ pour découvrir la vie rurale de La Mancha et la gastronomie locale."
+    },
+    {
+      "id": "torre-de-juan-abad",
+      "title": "Torre de Juan Abad et alentours",
+      "description": "À quelques kilomètres, dans la même comarque. Une référence culturelle et gastronomique de Castille-La Manche."
+    },
+    {
+      "id": "villanueva-de-los-infantes",
+      "title": "Villanueva de los Infantes",
+      "description": "L’un des villages les plus emblématiques de La Mancha, lié à la littérature cervantine et au tourisme culturel."
+    },
+    {
+      "id": "patrimonio",
+      "title": "Patrimoine ibère et ruines",
+      "description": "Vestiges de plus de 2 500 ans d’histoire dans la région : Ibères, Romains, Wisigoths et Arabes."
+    },
+    {
+      "id": "lagunas",
+      "title": "Lagunes et nature",
+      "description": "La région offre des espaces naturels, des parcours ornithologiques et des paysages uniques pour se déconnecter."
+    }
+  ],
+  "cta": {
+    "title": "Explorez La Mancha depuis Los Collados",
+    "text": "Réservez votre séjour et nous vous aidons à concevoir des itinéraires dans le territoire."
+  }
+}

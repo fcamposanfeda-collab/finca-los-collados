@@ -1,0 +1,127 @@
+{
+  "defaultTitle": "Book the whole estate",
+  "defaultLead": "Two exclusive-use options: spaces only for days and shoots, or the whole estate with bungalow lodging for retreats and overnight events.",
+  "pricingNote": "* Price on request according to dates, guests and services. Dining, set-up and high season may vary. Catering with Azurea is quoted separately. *",
+  "whatsapp": {
+    "intro": "Hello, I would like a quote for: {title}.",
+    "price": "Price on request.",
+    "dates": "Proposed dates:",
+    "guests": "Number of guests:"
+  },
+  "packages": {
+    "finca-espacios": {
+      "title": "Whole estate — spaces only",
+      "subtitle": "Exclusive use without bungalow lodging",
+      "description": "Book the entire estate for your event, company day or shoot: gardens, porch, pool (in season), library lounge, country kitchens and outdoor areas. Ideal when your guests do not stay overnight at Los Collados.",
+      "includes": [
+        "Exclusive use of indoor and outdoor spaces",
+        "Up to 50 people outdoors / 30 indoors",
+        "Complete privacy of the estate for the day"
+      ],
+      "capacity": [
+        "Outdoor event: up to 50 people",
+        "Indoor event: up to 30 people",
+        "No overnight stay in bungalows"
+      ],
+      "pricing": {
+        "unit": "Full day (Mon–Thu)",
+        "halfDay": "Half day (4 h)",
+        "weekday": "Full day Mon–Thu",
+        "weekend": "Full day Friday–Sunday"
+      },
+      "idealFor": [
+        "One-day team building",
+        "Filming and shootings",
+        "Open-air presentations",
+        "Celebrations without an overnight stay"
+      ],
+      "inquirySubject": "Quote: whole estate, spaces only"
+    },
+    "finca-completa": {
+      "title": "Whole estate — with lodging",
+      "subtitle": "Exclusive use + 8 bungalows (16 adults)",
+      "description": "The estate fully reserved for your group: an event or retreat with overnight stay in the 8 bungalows. Perfect for company retreats, family celebrations with guests sleeping on the estate, or productions lasting several days.",
+      "includes": [
+        "8 bungalows (up to 16 adults + children according to booking)",
+        "Exclusive use of the whole estate and event spaces",
+        "Up to 50 people outdoors / 30 indoors for the event",
+        "Pet-friendly by arrangement"
+      ],
+      "capacity": [
+        "Lodging: up to 16 adults",
+        "Outdoor event: up to 50 people",
+        "Indoor event: up to 30 people"
+      ],
+      "pricing": {
+        "unit": "Per night (Mon–Thu)",
+        "weekday": "1 weekday night",
+        "weekend": "1 weekend night",
+        "halfDay": "Weekend 2 nights (Fri–Sun)"
+      },
+      "idealFor": [
+        "Small retreats and conventions",
+        "Family events with overnight stay",
+        "Multi-day filming",
+        "Company incentives"
+      ],
+      "inquirySubject": "Quote: whole estate with lodging"
+    },
+    "finca-fin-semana": {
+      "title": "Whole estate — weekend",
+      "subtitle": "Friday to Sunday · exclusive use and lodging",
+      "description": "Reserve the entire estate from Friday to Sunday: a celebration, event or retreat with overnight stay in the 8 bungalows and private use of gardens, porch, pool (in season) and rooms throughout the weekend.",
+      "includes": [
+        "2 nights’ lodging (Fri–Sun) in 8 bungalows",
+        "Exclusive use of the estate throughout the weekend",
+        "Up to 50 people outdoors / 30 indoors for the event",
+        "Indoor and outdoor spaces not shared with other guests"
+      ],
+      "capacity": [
+        "Lodging: up to 16 adults (+ children according to booking)",
+        "Outdoor event: up to 50 people",
+        "Indoor event: up to 30 people"
+      ],
+      "pricing": {
+        "unit": "Weekend (Fri–Sun, 2 nights)",
+        "weekday": "Includes lodging and exclusive use of spaces",
+        "weekend": "Dining and set-up with Azurea Catering quoted separately"
+      },
+      "idealFor": [
+        "Weddings of up to 50 guests",
+        "Golden and silver wedding anniversaries",
+        "Communions and birthdays with overnight stay",
+        "Retreats and family celebrations"
+      ],
+      "inquirySubject": "Quote: whole estate, weekend"
+    },
+    "sesiones-fotograficas": {
+      "title": "Content creation for companies",
+      "subtitle": "Hire by the hour on the estate",
+      "description": "Hourly hire of the estate for photo sessions, fashion or product shootings, content recording and filming. Indoor and outdoor settings with complete privacy and multiple locations in a single place.",
+      "includes": [
+        "Hourly hire of agreed spaces (indoor and/or outdoor)",
+        "Gardens, porch, library lounge and rural areas of the estate",
+        "Flexible hours according to production",
+        "Basic logistical support from the estate team"
+      ],
+      "capacity": [
+        "Small crews or mid-size productions",
+        "Minimum and duration according to type of session or shoot",
+        "No overnight stay in bungalows (unless booked separately)"
+      ],
+      "pricing": {
+        "unit": "Hire by the hour",
+        "halfDay": "Hourly blocks, half day or full day",
+        "weekday": "Personalised quote after enquiry on dates and spaces",
+        "priceNote": "* We assess each project individually. In some cases we can look at a collaboration or exchange; that is why the price is quoted once we know your proposal."
+      },
+      "idealFor": [
+        "Photo sessions and books",
+        "Shootings and advertising campaigns",
+        "Filming and video recording",
+        "Content for brands and social media"
+      ],
+      "inquirySubject": "Quote: photo sessions / shootings (by the hour)"
+    }
+  }
+}

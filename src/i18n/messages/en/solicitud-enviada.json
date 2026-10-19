@@ -1,0 +1,10 @@
+{
+  "heroTitle": "Request sent",
+  "heroSubtitle": "Thank you for getting in touch.",
+  "heroEyebrow": "Confirmation",
+  "lead": "We have received your request. Our team will look at it and reply as soon as possible by email or telephone.",
+  "note": "If your enquiry is urgent, you can call us now or write on WhatsApp.",
+  "backHome": "Back to home",
+  "call": "Call {phone}",
+  "alt": "You can also email {email} or call {phone}."
+}

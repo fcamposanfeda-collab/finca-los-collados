@@ -1,0 +1,74 @@
+{
+  "home": {
+    "title": "Finca Los Collados de San Miguel",
+    "description": "Finca Los Collados de San Miguel: alojamiento rural en Campos de Montiel. Bungalows pet friendly, teambuilding, rodajes, eventos pequeños y packs en Castilla-La Mancha."
+  },
+  "la-finca": {
+    "title": "La Finca | Turismo Rural en Campos de Montiel | Finca Los Collados de San Miguel",
+    "description": "Descubre Los Collados de San Miguel: finca rural con historia de más de 2.500 años, bungalows, piscina y entorno natural en Villamanrique, Ciudad Real."
+  },
+  "la-calerilla": {
+    "title": "La Calerilla | Caza de Perdiz Roja en Mano | Finca Los Collados de San Miguel",
+    "description": "La Calerilla: coto de caza de perdiz roja en Campos de Montiel. Caza en mano, temporada de octubre a febrero y alojamiento en Los Collados de San Miguel."
+  },
+  "alojamiento": {
+    "title": "Alojamiento Rural Villamanrique, Ciudad Real | 8 Bungalows Pet Friendly | Finca Los Collados de San Miguel",
+    "description": "8 bungalows rurales para hasta 16 adultos en Campos de Montiel. Pet friendly, Wi-Fi, piscina y restauración. Reserva en Los Collados de San Miguel."
+  },
+  "gastronomia": {
+    "title": "Gastronomía Manchega | Restauración Rural | Finca Los Collados de San Miguel",
+    "description": "Cocina tradicional manchega en entorno rural: migas, perdiz, caldereta y producto local en Finca Los Collados, Ciudad Real."
+  },
+  "experiencias": {
+    "title": "Experiencias y Rutas en La Mancha | Finca Los Collados de San Miguel",
+    "description": "Rutas a medida, caballo, bicicleta, golf y globo en Campos de Montiel. Actividades y experiencias en Los Collados de San Miguel."
+  },
+  "empresas": {
+    "title": "Teambuilding y Rodajes en Finca Rural | Empresas | Finca Los Collados de San Miguel",
+    "description": "Espacio rural para teambuilding, retiros de empresa, shootings, rodajes y grabación de contenido en Castilla-La Mancha. PYME y equipos."
+  },
+  "eventos": {
+    "title": "Bodas, Eventos y Celebraciones en Finca Rural | Villamanrique, Ciudad Real | Finca Los Collados de San Miguel",
+    "description": "Bodas hasta 50 invitados, comuniones, cumpleaños, empresas y shootings en finca rural exclusiva. Catering con Azurea. Villamanrique, Ciudad Real."
+  },
+  "packs": {
+    "title": "Packs Romántico, Familiar y Gastronómico | Finca Los Collados de San Miguel",
+    "description": "Packs de escapada rural: romántico, familiar, gastronomía y rutas por La Mancha en Los Collados de San Miguel."
+  },
+  "entorno": {
+    "title": "Entorno y La Mancha | Campos de Montiel | Finca Los Collados de San Miguel",
+    "description": "Turismo en Campos de Montiel: Villamanrique, patrimonio íbero, Torre de Juan Abad y Villanueva de los Infantes cerca de Los Collados."
+  },
+  "contacto": {
+    "title": "Contacto y Reservas | Finca Los Collados de San Miguel",
+    "description": "Contacte con Finca Los Collados de San Miguel. Teléfono, email y formulario para reservas, eventos, empresas y consultas."
+  },
+  "solicitud-enviada": {
+    "title": "Solicitud enviada | Finca Los Collados de San Miguel",
+    "description": "Su solicitud ha sido enviada correctamente. El equipo de Finca Los Collados de San Miguel le responderá lo antes posible."
+  },
+  "reservas-online": {
+    "title": "Reservas Online | Finca Los Collados de San Miguel",
+    "description": "Reserve en Booking.com o por WhatsApp. Finca Los Collados de San Miguel: 8 bungalows rurales en Villamanrique, Ciudad Real. Pet friendly."
+  },
+  "politica-de-privacidad": {
+    "title": "Política de privacidad | Finca Los Collados de San Miguel",
+    "description": "Política de privacidad y protección de datos de Finca Los Collados de San Miguel."
+  },
+  "aviso-legal": {
+    "title": "Aviso legal | Finca Los Collados de San Miguel",
+    "description": "Aviso legal de Finca Los Collados de San Miguel."
+  },
+  "politica-de-cookies": {
+    "title": "Política de cookies | Finca Los Collados de San Miguel",
+    "description": "Política de cookies de Finca Los Collados de San Miguel."
+  },
+  "politica-de-reservas": {
+    "title": "Política de reservas | Finca Los Collados de San Miguel",
+    "description": "Condiciones y política de reservas de Finca Los Collados de San Miguel."
+  },
+  "404": {
+    "title": "Página no encontrada | Finca Los Collados de San Miguel",
+    "description": "La página solicitada no existe. Vuelva al inicio de Finca Los Collados de San Miguel."
+  }
+}

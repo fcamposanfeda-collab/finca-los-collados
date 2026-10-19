@@ -1,0 +1,86 @@
+{
+  "hero": {
+    "eyebrow": "Campos de Montiel · Ciudad Real",
+    "title": "Finca Los Collados de San Miguel",
+    "subtitle": "Séjour à la campagne, team building, tournages et petits événements dans un cadre unique de Castille-La Manche. Animaux acceptés.",
+    "cta": "Réserver",
+    "aria": "Présentation"
+  },
+  "pillars": {
+    "title": "Un domaine, bien des expériences",
+    "aria": "Notre proposition",
+    "items": [
+      {
+        "id": "turismo",
+        "title": "Séjour à la campagne",
+        "description": "Escapades authentiques dans des bungalows au charme de La Mancha."
+      },
+      {
+        "id": "empresas",
+        "title": "Entreprises",
+        "description": "Team building, tournages et production dans un cadre privé."
+      },
+      {
+        "id": "eventos",
+        "title": "Petits événements",
+        "description": "Célébrations intimistes en extérieur ou à l’abri."
+      },
+      {
+        "id": "pet-friendly",
+        "title": "Animaux acceptés",
+        "description": "Votre compagnon est le bienvenu sur le domaine."
+      }
+    ]
+  },
+  "teasers": {
+    "title": "Découvrez Finca Los Collados de San Miguel",
+    "lead": "Chaque univers du domaine a sa page : hébergement en bungalows, gastronomie avec Azurea, célébrations en plein air, propositions pour les entreprises et bien plus. Choisissez par où commencer à organiser votre visite.",
+    "aria": "Découvrir le domaine",
+    "items": [
+      {
+        "pageKey": "la-finca",
+        "title": "Le domaine",
+        "description": "Histoire, nature et services à Campos de Montiel."
+      },
+      {
+        "pageKey": "la-calerilla",
+        "title": "La Calerilla",
+        "description": "Chasse à la perdrix rouge à Campos de Montiel."
+      },
+      {
+        "pageKey": "alojamiento",
+        "title": "Hébergement",
+        "description": "Huit bungalows, jusqu’à 16 adultes. Animaux acceptés."
+      },
+      {
+        "pageKey": "gastronomia",
+        "title": "Gastronomie",
+        "description": "Cuisine traditionnelle de La Mancha et produits du terroir."
+      },
+      {
+        "pageKey": "empresas",
+        "title": "Entreprises",
+        "description": "Team building, tournages et contenu de marque."
+      },
+      {
+        "pageKey": "eventos",
+        "title": "Événements",
+        "description": "Petites célébrations jusqu’à 50 personnes en extérieur."
+      },
+      {
+        "pageKey": "packs",
+        "title": "Formules",
+        "description": "Romantique, famille, gastronomie et randonnées."
+      },
+      {
+        "pageKey": "entorno",
+        "title": "Alentours",
+        "description": "La Mancha, Villamanrique et le patrimoine tout proche."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Prêt pour une escapade rurale ?",
+    "text": "Réservez en ligne ou écrivez-nous pour composer votre séjour, une célébration intimiste ou une journée d’entreprise, sans précipitation."
+  }
+}

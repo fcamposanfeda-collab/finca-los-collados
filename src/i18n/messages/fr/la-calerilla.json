@@ -1,0 +1,68 @@
+{
+  "hero": {
+    "eyebrow": "Chasse · Campos de Montiel",
+    "title": "La Calerilla",
+    "subtitle": "Zone cynégétique de Los Collados de San Miguel : tradition de la perdrix rouge en battue à pied, au cœur de La Mancha."
+  },
+  "intro": "La Calerilla est l’un des cotos de chasse du domaine, avec La Porrosa, dans le paysage naturel de Campos de Montiel, où la perdrix rouge (Alectoris rufa) trouve l’habitat idéal entre maquis, oliveraies et champs de céréales.",
+  "blocks": [
+    {
+      "title": "Une tradition cynégétique à La Mancha",
+      "paragraphs": [
+        "D’octobre à février, nous vivons des journées de chasse dans des parages parfaits pour entretenir la tradition de la perdrix sous ses différentes formes, avec un soin particulier pour la chasse en battue à pied.",
+        "Nos domaines La Calerilla et La Porrosa offrent le décor idéal à ceux qui cherchent l’authenticité, le respect du milieu et la qualité de pièces dont le vol frappe par sa majesté et sa verticalité."
+      ]
+    },
+    {
+      "title": "Chasse en battue à pied et autres modalités",
+      "paragraphs": [
+        "La chasse en battue à pied permet de parcourir le terrain sans se presser, accompagné de chiens d’arrêt, au rythme du champ de La Mancha. Une façon de comprendre la chasse liée au paysage, à la compagnie et à la connaissance du terrain.",
+        "Si vous souhaitez réserver une journée de chasse, nous vous recommandons de nous contacter le plus tôt possible : les dates de saison sont très demandées. Nous pouvons combiner la journée avec l’hébergement en bungalows et notre gastronomie traditionnelle."
+      ]
+    },
+    {
+      "title": "Gastronomie, confort et nature",
+      "paragraphs": [
+        "Après la journée au champ, le domaine accueille le chasseur avec le confort de ses installations : restauration avec des plats tels que la salade de perdrix en escabèche, les migas manchegas et les produits de la terre.",
+        "Les alentours sont riches en faune et flore autochtones. Qui visite La Calerilla ne vit pas seulement la chasse : il découvre un paysage vivant où cohabitent le séjour à la campagne, le monde agricole et la culture cynégétique de Castille-La Manche."
+      ]
+    }
+  ],
+  "featuresTitle": "La Calerilla en résumé",
+  "features": [
+    {
+      "title": "Perdrix rouge",
+      "description": "Espèce phare de La Calerilla, avec des pièces de grande qualité et un vol vertical."
+    },
+    {
+      "title": "Battue à pied et ojeo de perdrix",
+      "description": "Modalité traditionnelle au rythme du champ, dans le respect du terrain et de la faune."
+    },
+    {
+      "title": "Saison oct.–fév.",
+      "description": "Journées d’octobre à février. Réservez à l’avance, la demande est forte."
+    },
+    {
+      "title": "Hébergement et table",
+      "description": "Associez la chasse aux bungalows, à la cuisine traditionnelle de La Mancha et à un cadre privé."
+    }
+  ],
+  "season": {
+    "title": "Informations de saison",
+    "items": [
+      "Saison habituelle : d’octobre à février",
+      "Réservation des journées de chasse : contactez-nous dès que possible",
+      "Possibilité de combiner avec l’hébergement et la restauration sur le domaine",
+      "Gestion par Alectoris Ibérica SL"
+    ]
+  },
+  "cta": {
+    "title": "Réservez votre journée de chasse",
+    "text": "Demandez les disponibilités pour La Calerilla, ou renseignez-vous sur les dates, les modalités et la combinaison avec l’hébergement.",
+    "buttonLabel": "Demander des informations"
+  },
+  "form": {
+    "title": "Demandez votre journée de chasse",
+    "intro": "Indiquez les dates souhaitées, le nombre de tireurs et si vous souhaitez combiner avec l’hébergement ou la restauration. Les dates de saison sont très demandées."
+  }
+}

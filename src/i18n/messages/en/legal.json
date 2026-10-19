@@ -1,0 +1,11 @@
+{
+  "disclaimer": "This translation is provided for information purposes only. In the event of any discrepancy, the Spanish version shall prevail.",
+  "placeholderLead": "Legal content is still to be migrated from the current WordPress site. The full text will be transferred from",
+  "pending": true,
+  "titles": {
+    "politica-de-privacidad": "Privacy policy",
+    "aviso-legal": "Legal notice",
+    "politica-de-cookies": "Cookie policy",
+    "politica-de-reservas": "Booking policy"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "hero": {
+    "eyebrow": "Tailor-made celebrations",
+    "title": "Events",
+    "subtitle": "Weddings, communions, birthdays, companies and celebrations with character in an exclusive rural setting in Campos de Montiel."
+  },
+  "intro": "At Los Collados de San Miguel we organise all kinds of events with an intimate, personalised character: from weddings of up to 50 guests to executive meetings, shootings or photo sessions in a unique natural setting.",
+  "capacity": {
+    "title": "Capacities",
+    "items": [
+      "Lodging: up to 16 adults (+ children according to booking)",
+      "Outdoor event: up to 50 people",
+      "Indoor event: up to 30 people"
+    ]
+  },
+  "eventTypes": {
+    "title": "Types of event we host",
+    "lead": "Each celebration is tailored to the group, dates and style. These are the most usual formats on the estate:",
+    "items": [
+      {
+        "title": "Weddings",
+        "description": "Ceremonies and banquets of up to 50 guests in gardens, porch and rooms, with complete privacy."
+      },
+      {
+        "title": "Golden and silver wedding anniversaries",
+        "description": "Special anniversaries with a menu, set-up and a carefully judged atmosphere for family and friends."
+      },
+      {
+        "title": "Birthdays",
+        "description": "Family or friends’ celebrations, indoors or outdoors, with catering to order."
+      },
+      {
+        "title": "Communions",
+        "description": "Intimate gatherings after the ceremony, with space for children and a menu adapted to the group."
+      },
+      {
+        "title": "Product presentations",
+        "description": "Launches, showcookings and meetings with press or clients in a distinctive setting."
+      },
+      {
+        "title": "Companies",
+        "description": "Conventions, incentives, teambuilding and team days, with optional lodging."
+      },
+      {
+        "title": "Shootings",
+        "description": "Advertising, fashion and product campaigns with multiple settings on the same estate. Indoor and outdoor photo sessions."
+      },
+      {
+        "title": "Executive meetings",
+        "description": "Strategic gatherings in a reserved setting, with rooms and work areas."
+      }
+    ]
+  },
+  "blocks": [
+    {
+      "title": "What we offer",
+      "paragraphs": [
+        "Outdoor spaces with porch, gardens and pool for open-air celebrations.",
+        "Library lounge, dining room and indoor areas for more intimate or climate-controlled gatherings.",
+        "Bungalow lodging for guests who stay overnight, and exclusive use of the estate on booking.",
+        "Coordination with Azurea Catering for menus, set-up and waiting service at your event."
+      ]
+    }
+  ],
+  "azurea": {
+    "eyebrow": "Dining at your event",
+    "title": "Azurea Catering",
+    "paragraphs": [
+      "For weddings, communions, birthdays and celebrations on the estate we work with Azurea Catering, a Ciudad Real company specialised in reinterpreting traditional La Mancha cooking with a contemporary, creative, high-quality approach.",
+      "Azurea designs exclusive menus that can be adapted to each occasion — from cocktails and banquets to corporate service — with nearby produce and a professional team that knows the spaces of Los Collados de San Miguel thoroughly.",
+      "Catering is quoted independently of the estate hire. We advise you so that dates, set-up and logistics can be coordinated with Azurea’s team."
+    ],
+    "websiteLabel": "Visit the Azurea Catering website",
+    "services": [
+      "Weddings and banquets",
+      "Communions and baptisms",
+      "Birthdays and private celebrations",
+      "Corporate catering"
+    ],
+    "alts": {
+      "staff": "Azurea Catering staff serving at an event",
+      "presentation": "Gastronomic presentation by Azurea Catering"
+    }
+  },
+  "venuePackages": {
+    "title": "Booking options",
+    "lead": "Choose the formula that best fits your event. Price on request; catering with Azurea is quoted separately."
+  },
+  "cta": {
+    "title": "Plan your event",
+    "text": "Tell us your dates, number of guests and type of celebration. We will advise you with no obligation.",
+    "buttonLabel": "Request information"
+  },
+  "form": {
+    "title": "Plan your event",
+    "intro": "Weddings, communions, birthdays, companies, shootings or photo sessions. Give dates, guests and type of celebration."
+  },
+  "alts": {
+    "exterior": "Open-air celebration on the estate"
+  }
+}

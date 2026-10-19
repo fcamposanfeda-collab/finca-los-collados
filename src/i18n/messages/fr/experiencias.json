@@ -1,0 +1,37 @@
+{
+  "hero": {
+    "eyebrow": "Itinéraires et activités",
+    "title": "Expériences",
+    "subtitle": "Parcours sur mesure, nature, sport et culture de La Mancha.\nNous concevons votre programme selon le temps, le groupe et vos envies."
+  },
+  "intro": "La richesse culturelle de la région est bien connue, mais elle est rarement rassemblée de façon à ce que le visiteur puisse tirer le meilleur de chaque recoin que cette terre offre.",
+  "detail": "Nous pouvons composer pour vous un itinéraire sur mesure. Indiquez simplement vos préférences, le temps dont vous disposez et le nombre de participants. Notre équipe vous proposera votre « ruta a medida ».",
+  "note": "Nous recommandons d’inclure les activités au moment de la réservation, afin d’éviter les indisponibilités à votre arrivée.",
+  "cards": [
+    { "title": "Campo de Montiel", "description": "Randonnées dans le paysage naturel de La Mancha." },
+    { "title": "La Mancha authentique", "description": "Villages, paysages et patrimoine de la comarque." },
+    { "title": "Expérience gastronomique", "description": "Saveurs de La Mancha dans un cadre unique." },
+    { "title": "Sport et aventure", "description": "Vélo, randonnée, montgolfière et plus encore aux alentours." },
+    {
+      "title": "Visite d’une exploitation d’élevage",
+      "description": "Découvrez de près la vie rurale et le soin du bétail autour du domaine."
+    },
+    {
+      "title": "Dégustation de vins du terroir",
+      "description": "Dégustation de vins de La Mancha avec des produits locaux et le goût de Campos de Montiel."
+    }
+  ],
+  "activitiesAria": "Activités proposées",
+  "activities": [
+    "Parcours à vélo",
+    "Aventure off-road",
+    "Montgolfière",
+    "Piscine et bibliothèque",
+    "Visite d’élevage",
+    "Dégustation de vins"
+  ],
+  "cta": {
+    "title": "Composez votre itinéraire sur mesure",
+    "text": "Dites-nous ce que vous recherchez et nous vous proposerons une expérience adaptée à votre groupe."
+  }
+}

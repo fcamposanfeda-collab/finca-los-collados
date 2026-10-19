@@ -1,0 +1,37 @@
+{
+  "hero": {
+    "eyebrow": "Routes and activities",
+    "title": "Experiences",
+    "subtitle": "Tailor-made trails, nature, sport and the culture of La Mancha.\nWe shape your plan around time, group and tastes."
+  },
+  "intro": "The cultural wealth of the area is well known, yet it is rarely gathered in a way that lets a visitor make the most of every corner this remarkable land has to offer.",
+  "detail": "We can put together a tailor-made route for you. Simply tell us your preferences, how much time you have and how many people will take part. Our team will suggest your “ruta a medida”.",
+  "note": "We recommend adding activities when you book your stay, so that nothing is fully booked by the time you arrive.",
+  "cards": [
+    { "title": "Campo de Montiel", "description": "Walking routes through the natural landscape of La Mancha." },
+    { "title": "Authentic La Mancha", "description": "Villages, landscapes and heritage of the region." },
+    { "title": "Gastronomic experience", "description": "The flavours of La Mancha in a unique setting." },
+    { "title": "Sport and adventure", "description": "Cycling, walking, ballooning and more in the surroundings." },
+    {
+      "title": "Visit to a livestock farm",
+      "description": "See rural life and livestock care close to the estate."
+    },
+    {
+      "title": "Local wine tasting",
+      "description": "A tasting of La Mancha wines with local produce and the flavour of Campos de Montiel."
+    }
+  ],
+  "activitiesAria": "Available activities",
+  "activities": [
+    "Cycling routes",
+    "Off-road adventure",
+    "Hot-air balloon",
+    "Pool and library",
+    "Visit to a livestock farm",
+    "Wine tasting"
+  ],
+  "cta": {
+    "title": "Design your tailor-made route",
+    "text": "Tell us what you are looking for and we will propose an experience shaped around your group."
+  }
+}

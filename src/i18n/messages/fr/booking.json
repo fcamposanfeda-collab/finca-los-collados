@@ -1,0 +1,58 @@
+{
+  "widgetTitle": "Moteur de réservation — Finca Los Collados de San Miguel",
+  "bookingComLabel": "Réserver sur Booking.com",
+  "whatsappDefault": "Bonjour, je voudrais vérifier les disponibilités à Finca Los Collados de San Miguel.",
+  "whatsappCheckIn": "Arrivée : {date}",
+  "whatsappCheckOut": "Départ : {date}",
+  "whatsappAdults": "Adultes : {count}",
+  "sync": {
+    "title": "Comment nous gérons les réservations",
+    "paragraphs": [
+      "Les réservations en ligne passent par Booking.com (paiement sécurisé sur la plateforme) ou par WhatsApp et téléphone pour les formules, événements, entreprises et demandes personnalisées.",
+      "Avant de confirmer un séjour avec hébergement sur WhatsApp, nous vérifions toujours les disponibilités dans le calendrier Booking.com et bloquons les dates à la main dans l’extranet pour éviter les doubles réservations.",
+      "Pour les groupes, les événements ou plusieurs bungalows, WhatsApp est souvent la voie la plus rapide : nous vous conseillons et vous indiquons la meilleure façon de formaliser la réservation."
+    ]
+  },
+  "page": {
+    "heroTitle": "Réservation en ligne",
+    "heroSubtitle": "Réservez sur Booking.com avec disponibilités en temps réel, ou écrivez-nous sur WhatsApp pour les formules, événements et séjours sur mesure.",
+    "heroEyebrow": "Booking.com · WhatsApp · Téléphone"
+  },
+  "cta": {
+    "title": "Vous préférez nous parler ?",
+    "text": "Pour les formules, événements, entreprises ou plusieurs bungalows, écrivez-nous sur WhatsApp.",
+    "button": "WhatsApp"
+  },
+  "form": {
+    "title": "Demande par e-mail",
+    "intro": "Pour l’hébergement, les formules ou les questions générales. Nous répondons sous 24 à 48 h ouvrées."
+  },
+  "search": {
+    "title": "Vérifier les disponibilités",
+    "intro": "Choisissez les dates et le nombre d’adultes (16 max. dans 8 bungalows). La recherche ouvre notre fiche Booking.com avec les dates déjà renseignées, ou WhatsApp pour une demande personnalisée.",
+    "checkIn": "Arrivée",
+    "checkOut": "Départ",
+    "adults": "Adultes",
+    "searchWidget": "Chercher dans le moteur direct",
+    "searchBooking": "Chercher sur Booking.com",
+    "searchWhatsapp": "Demander sur WhatsApp",
+    "dateError": "La date de départ doit être postérieure à la date d’arrivée.",
+    "widgetSent": "Recherche envoyée au moteur de réservation. Consultez le calendrier ci-dessous."
+  },
+  "alternatives": {
+    "title": "Réserver aussi par",
+    "bookingTitle": "Booking.com",
+    "bookingText": "Réservez l’hébergement avec disponibilités et paiement sécurisé sur notre {link}.",
+    "bookingLink": "fiche officielle",
+    "whatsappTitle": "WhatsApp",
+    "whatsappText": "Formules, événements, entreprises ou plusieurs bungalows. Nous vous répondons dès que possible.",
+    "whatsappButton": "Écrire sur WhatsApp",
+    "phoneTitle": "Téléphone",
+    "phoneText": "Appelez-nous pour les réservations, groupes, entreprises ou événements."
+  },
+  "widget": {
+    "title": "Moteur de réservation direct",
+    "pending": "Réservation directe en préparation.",
+    "pendingText": "Utilisez le moteur de dates ci-dessus, Booking.com, WhatsApp ou le téléphone. Dès que le calendrier synchronisé avec Booking.com sera connecté, le moteur apparaîtra ici automatiquement."
+  }
+}

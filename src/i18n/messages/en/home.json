@@ -1,0 +1,86 @@
+{
+  "hero": {
+    "eyebrow": "Campos de Montiel · Ciudad Real",
+    "title": "Finca Los Collados de San Miguel",
+    "subtitle": "A countryside retreat for team building, film shoots and intimate celebrations in a unique corner of Castilla-La Mancha. Pet-friendly.",
+    "cta": "Book now",
+    "aria": "Introduction"
+  },
+  "pillars": {
+    "title": "One estate, many experiences",
+    "aria": "What we offer",
+    "items": [
+      {
+        "id": "turismo",
+        "title": "Rural getaway",
+        "description": "Authentic stays in bungalows with the charm of La Mancha."
+      },
+      {
+        "id": "empresas",
+        "title": "Corporate",
+        "description": "Team building, film shoots and production in a private setting."
+      },
+      {
+        "id": "eventos",
+        "title": "Small events",
+        "description": "Intimate celebrations outdoors or under cover."
+      },
+      {
+        "id": "pet-friendly",
+        "title": "Pet-friendly",
+        "description": "Your dog is welcome on the estate."
+      }
+    ]
+  },
+  "teasers": {
+    "title": "Discover Finca Los Collados de San Miguel",
+    "lead": "Each part of the estate has its own page: bungalow stays, dining with Azurea, open-air celebrations, corporate ideas and much more. Choose where to begin planning your visit.",
+    "aria": "Discover the estate",
+    "items": [
+      {
+        "pageKey": "la-finca",
+        "title": "The Estate",
+        "description": "History, nature and facilities in Campos de Montiel."
+      },
+      {
+        "pageKey": "la-calerilla",
+        "title": "La Calerilla",
+        "description": "Red-legged partridge shooting in Campos de Montiel."
+      },
+      {
+        "pageKey": "alojamiento",
+        "title": "Accommodation",
+        "description": "Eight bungalows, up to 16 adults. Pet-friendly."
+      },
+      {
+        "pageKey": "gastronomia",
+        "title": "Dining",
+        "description": "Traditional La Mancha cuisine and produce of the land."
+      },
+      {
+        "pageKey": "empresas",
+        "title": "Corporate",
+        "description": "Team building, film shoots and brand content."
+      },
+      {
+        "pageKey": "eventos",
+        "title": "Events",
+        "description": "Small celebrations for up to 50 guests outdoors."
+      },
+      {
+        "pageKey": "packs",
+        "title": "Packages",
+        "description": "Romantic, family, gastronomic and trail stays."
+      },
+      {
+        "pageKey": "entorno",
+        "title": "Surroundings",
+        "description": "La Mancha, Villamanrique and nearby heritage."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready for a countryside retreat?",
+    "text": "Book online or write to us to shape your stay, an intimate celebration or a corporate day at an unhurried pace."
+  }
+}

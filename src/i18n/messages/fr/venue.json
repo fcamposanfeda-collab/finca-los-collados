@@ -1,0 +1,127 @@
+{
+  "defaultTitle": "Réserver le domaine entier",
+  "defaultLead": "Deux modalités d’usage exclusif : espaces seuls pour journées et tournages, ou domaine intégral avec hébergement en bungalows pour retraites et événements avec nuitée.",
+  "pricingNote": "* Prix sur demande selon dates, invités et services. Gastronomie, mise en place et haute saison peuvent varier. Le traiteur avec Azurea est coté à part. *",
+  "whatsapp": {
+    "intro": "Bonjour, je souhaite demander un devis pour : {title}.",
+    "price": "Prix sur demande.",
+    "dates": "Dates prévues :",
+    "guests": "Nombre d’invités :"
+  },
+  "packages": {
+    "finca-espacios": {
+      "title": "Domaine complet — espaces seuls",
+      "subtitle": "Usage exclusif sans hébergement en bungalows",
+      "description": "Réservez le domaine entier pour votre événement, journée d’entreprise ou tournage : jardins, porche, piscine (selon saison), salon bibliothèque, cuisines campagnardes et espaces extérieurs. Idéal lorsque vos invités ne passent pas la nuit à Los Collados.",
+      "includes": [
+        "Usage exclusif des espaces intérieurs et extérieurs",
+        "Jusqu’à 50 personnes en extérieur / 30 en intérieur",
+        "Intimité totale du domaine pendant la journée"
+      ],
+      "capacity": [
+        "Événement extérieur : jusqu’à 50 personnes",
+        "Événement intérieur : jusqu’à 30 personnes",
+        "Sans nuitée en bungalows"
+      ],
+      "pricing": {
+        "unit": "Journée complète (lun.–jeu.)",
+        "halfDay": "Demi-journée (4 h)",
+        "weekday": "Journée complète lun.–jeu.",
+        "weekend": "Journée complète vendredi–dimanche"
+      },
+      "idealFor": [
+        "Team building d’une journée",
+        "Tournages et shootings",
+        "Présentations en plein air",
+        "Célébrations sans nuitée"
+      ],
+      "inquirySubject": "Devis : domaine complet, espaces seuls"
+    },
+    "finca-completa": {
+      "title": "Domaine complet — avec hébergement",
+      "subtitle": "Usage exclusif + 8 bungalows (16 adultes)",
+      "description": "Le domaine entièrement réservé pour votre groupe : événement ou retraite avec nuitée dans les 8 bungalows. Parfait pour les retraites d’entreprise, les célébrations familiales avec des invités qui dorment sur le domaine, ou les productions de plusieurs jours.",
+      "includes": [
+        "8 bungalows (jusqu’à 16 adultes + enfants selon réservation)",
+        "Usage exclusif de tout le domaine et des espaces d’événement",
+        "Jusqu’à 50 personnes en extérieur / 30 en intérieur pour l’événement",
+        "Animaux acceptés sous réserve"
+      ],
+      "capacity": [
+        "Hébergement : jusqu’à 16 adultes",
+        "Événement extérieur : jusqu’à 50 personnes",
+        "Événement intérieur : jusqu’à 30 personnes"
+      ],
+      "pricing": {
+        "unit": "Par nuit (lun.–jeu.)",
+        "weekday": "1 nuit en semaine",
+        "weekend": "1 nuit le week-end",
+        "halfDay": "Week-end 2 nuits (ven.–dim.)"
+      },
+      "idealFor": [
+        "Retraites et petites conventions",
+        "Événements familiaux avec nuitée",
+        "Tournages de plusieurs jours",
+        "Incentives d’entreprise"
+      ],
+      "inquirySubject": "Devis : domaine complet avec hébergement"
+    },
+    "finca-fin-semana": {
+      "title": "Domaine complet — week-end",
+      "subtitle": "Vendredi au dimanche · usage exclusif et hébergement",
+      "description": "Réservez le domaine entier du vendredi au dimanche : célébration, événement ou retraite avec nuitée dans les 8 bungalows et usage privé des jardins, du porche, de la piscine (selon saison) et des salons pendant tout le week-end.",
+      "includes": [
+        "2 nuits d’hébergement (ven.–dim.) dans 8 bungalows",
+        "Usage exclusif du domaine pendant tout le week-end",
+        "Jusqu’à 50 personnes en extérieur / 30 en intérieur pour l’événement",
+        "Espaces intérieurs et extérieurs non partagés avec d’autres hôtes"
+      ],
+      "capacity": [
+        "Hébergement : jusqu’à 16 adultes (+ enfants selon réservation)",
+        "Événement extérieur : jusqu’à 50 personnes",
+        "Événement intérieur : jusqu’à 30 personnes"
+      ],
+      "pricing": {
+        "unit": "Week-end (ven.–dim., 2 nuits)",
+        "weekday": "Comprend l’hébergement et l’usage exclusif des espaces",
+        "weekend": "Gastronomie et mise en place avec Azurea Catering sous devis séparé"
+      },
+      "idealFor": [
+        "Mariages jusqu’à 50 invités",
+        "Noces d’or et d’argent",
+        "Communions et anniversaires avec nuitée",
+        "Retraites et célébrations familiales"
+      ],
+      "inquirySubject": "Devis : domaine complet, week-end"
+    },
+    "sesiones-fotograficas": {
+      "title": "Création de contenu pour entreprises",
+      "subtitle": "Location à l’heure sur le domaine",
+      "description": "Location du domaine à l’heure pour séances photo, shootings de mode ou de produit, enregistrement de contenu et tournages. Décors intérieurs et extérieurs, intimité totale et de nombreux scénarios dans un même lieu.",
+      "includes": [
+        "Location à l’heure des espaces convenus (intérieur et/ou extérieur)",
+        "Jardins, porche, salon bibliothèque et zones rurales du domaine",
+        "Horaires souples selon la production",
+        "Soutien logistique de base de l’équipe du domaine"
+      ],
+      "capacity": [
+        "Équipes réduites ou productions moyennes",
+        "Minimum et durée selon le type de séance ou de tournage",
+        "Sans nuitée en bungalows (sauf réservation à part)"
+      ],
+      "pricing": {
+        "unit": "Location à l’heure",
+        "halfDay": "Blocs d’heures, demi-journée ou journée complète",
+        "weekday": "Devis personnalisé après demande de dates et d’espaces",
+        "priceNote": "* Nous évaluons chaque projet individuellement. Dans certains cas, nous pouvons étudier une collaboration ou un échange ; c’est pourquoi le prix est coté après connaissance de votre proposition."
+      },
+      "idealFor": [
+        "Séances photo et books",
+        "Shootings et campagnes publicitaires",
+        "Tournages et enregistrement vidéo",
+        "Contenu pour marques et réseaux sociaux"
+      ],
+      "inquirySubject": "Devis : séances photo / shootings (à l’heure)"
+    }
+  }
+}

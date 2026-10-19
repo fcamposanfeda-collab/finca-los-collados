@@ -1,0 +1,58 @@
+{
+  "widgetTitle": "Booking engine — Finca Los Collados de San Miguel",
+  "bookingComLabel": "Book on Booking.com",
+  "whatsappDefault": "Hello, I would like to check availability at Finca Los Collados de San Miguel.",
+  "whatsappCheckIn": "Arrival: {date}",
+  "whatsappCheckOut": "Departure: {date}",
+  "whatsappAdults": "Adults: {count}",
+  "sync": {
+    "title": "How we manage bookings",
+    "paragraphs": [
+      "Online bookings go through Booking.com (with secure payment on the platform) or via WhatsApp and telephone for packages, events, corporate stays and tailored enquiries.",
+      "Before we confirm a lodging stay on WhatsApp, we always check availability on the Booking.com calendar and block the dates by hand in the extranet to avoid double bookings.",
+      "For groups, events or several bungalows, WhatsApp is usually the quickest route: we will advise you and explain the best way to confirm the booking."
+    ]
+  },
+  "page": {
+    "heroTitle": "Book online",
+    "heroSubtitle": "Book on Booking.com with live availability, or write to us on WhatsApp for packages, events and tailor-made stays.",
+    "heroEyebrow": "Booking.com · WhatsApp · Telephone"
+  },
+  "cta": {
+    "title": "Would you rather speak to us?",
+    "text": "For packages, events, corporate bookings or several bungalows, please write to us on WhatsApp.",
+    "button": "WhatsApp"
+  },
+  "form": {
+    "title": "Enquire by email",
+    "intro": "For accommodation, packages or general questions. We reply within 24–48 working hours."
+  },
+  "search": {
+    "title": "Check availability",
+    "intro": "Choose dates and adults (max. 16 in 8 bungalows). The search opens our Booking.com listing with your dates filled in, or WhatsApp for a tailored enquiry.",
+    "checkIn": "Arrival",
+    "checkOut": "Departure",
+    "adults": "Adults",
+    "searchWidget": "Search the direct engine",
+    "searchBooking": "Search on Booking.com",
+    "searchWhatsapp": "Ask on WhatsApp",
+    "dateError": "The departure date must be after the arrival date.",
+    "widgetSent": "Search sent to the booking engine. Please check the calendar below."
+  },
+  "alternatives": {
+    "title": "You can also book via",
+    "bookingTitle": "Booking.com",
+    "bookingText": "Book accommodation with live availability and secure payment on our {link}.",
+    "bookingLink": "official listing",
+    "whatsappTitle": "WhatsApp",
+    "whatsappText": "Packages, events, corporate stays or several bungalows. We will reply as soon as we can.",
+    "whatsappButton": "Write on WhatsApp",
+    "phoneTitle": "Telephone",
+    "phoneText": "Call us for bookings, groups, companies or events."
+  },
+  "widget": {
+    "title": "Direct booking engine",
+    "pending": "Direct booking coming soon.",
+    "pendingText": "Please use the date search above, Booking.com, WhatsApp or the telephone. Once we connect the calendar synced with Booking.com, the engine will appear here automatically."
+  }
+}
