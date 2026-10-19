@@ -37,9 +37,9 @@ const page = copy['not-found'] as {
       (function () {
         var path = location.pathname;
         if (/^\/en(\/|$)/.test(path) && path.indexOf('/en/404') !== 0) {
-          location.replace('/en/404');
+          location.replace('/en/404/');
         } else if (/^\/fr(\/|$)/.test(path) && path.indexOf('/fr/404') !== 0) {
-          location.replace('/fr/404');
+          location.replace('/fr/404/');
         }
       })();
     </script>
