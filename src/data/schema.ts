@@ -45,7 +45,7 @@ export function lodgingBusinessJsonLd(locale: Locale, pageUrl: string): JsonLd {
     ],
     logo: absoluteAsset(business.logoPath),
     email: business.email,
-    telephone: [business.telephone, business.telephoneAlt],
+    telephone: business.telephone,
     address: postalAddress(),
     hasMap: contact.mapsUrl,
     petsAllowed: business.petsAllowed,

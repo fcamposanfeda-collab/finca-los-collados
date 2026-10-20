@@ -26,9 +26,6 @@ const common = copy.common as { copyright: string };
           <a href={`tel:${contact.phone}`} data-track="phone" data-track-source="footer">{contact.phoneDisplay}</a>
         </p>
         <p>
-          <a href={`tel:${contact.phoneAlt}`} data-track="phone" data-track-source="footer">{contact.phoneAltDisplay}</a>
-        </p>
-        <p>
           <a href={mailtoInquiryHref(locale)}>{contact.email}</a>
         </p>
       </div>

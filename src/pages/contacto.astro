@@ -42,8 +42,7 @@ const defaultSubject = inquirySubjectIds.includes(motivo as (typeof inquirySubje
               {contact.address}
             </address>
             <p>
-              <a href={`tel:${contact.phone}`} data-track="phone" data-track-source="contacto">{contact.phoneDisplay}</a><br />
-              <a href={`tel:${contact.phoneAlt}`} data-track="phone" data-track-source="contacto">{contact.phoneAltDisplay}</a>
+              <a href={`tel:${contact.phone}`} data-track="phone" data-track-source="contacto">{contact.phoneDisplay}</a>
             </p>
             <p><a href={mailtoInquiryHref(locale)}>{contact.email}</a></p>
             <p>

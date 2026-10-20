@@ -69,8 +69,7 @@ const mailtoFallbackHtml = formCopy.mailtoFallback
     '{email}',
     `<a href="mailto:${contact.email}?subject=${encodeURIComponent(mailtoSubject)}">${contact.email}</a>`,
   )
-  .replace('{phone}', `<a href="tel:${contact.phone}">${contact.phoneDisplay}</a>`)
-  .replace('{phoneAlt}', `<a href="tel:${contact.phoneAlt}">${contact.phoneAltDisplay}</a>`);
+  .replace('{phone}', `<a href="tel:${contact.phone}">${contact.phoneDisplay}</a>`);
 
 const [privacyAcceptBefore, privacyAcceptAfter] = formCopy.privacyAccept.split('{policy}');
 const [layerBeforePolicy, layerAfterPolicy] = formCopy.privacyLayer

@@ -13,7 +13,7 @@
   "sending": "Enviando…",
   "sendError": "No se pudo enviar. Escríbanos a {email} o por WhatsApp.",
   "configuredNote": "Sus datos se enviarán a {email}.",
-  "mailtoFallback": "Se ha abierto su programa de correo. Si no es así, escríbanos a {email} o llame al {phone} / {phoneAlt}.",
+  "mailtoFallback": "Se ha abierto su programa de correo. Si no es así, escríbanos a {email} o llame al {phone}.",
   "devNote": "Para activar el envío automático, configure Web3Forms (gratuito). Mientras tanto, el formulario abrirá su cliente de email. También: {email}.",
   "defaultSubject": "Consulta web",
   "emailLabels": {

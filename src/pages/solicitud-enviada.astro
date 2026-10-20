@@ -18,7 +18,7 @@ const page = copy['solicitud-enviada'] as {
   call: string;
   alt: string;
 };
-const common = copy.common as { phoneDisplay: string; phoneAltDisplay: string };
+const common = copy.common as { phoneDisplay: string };
 const callLabel = page.call.replace('{phone}', common.phoneDisplay);
 const [altBefore, altAfter] = page.alt.split('{email}');
 const afterPhone = (altAfter ?? '').split('{phone}');
@@ -47,7 +47,7 @@ const afterPhone = (altAfter ?? '').split('{phone}');
         {altBefore}
         <a href={mailtoInquiryHref(locale)}>{contact.email}</a>
         {afterPhone[0]}
-        <a href={`tel:${contact.phoneAlt}`}>{common.phoneAltDisplay}</a>
+        <a href={`tel:${contact.phone}`}>{common.phoneDisplay}</a>
         {afterPhone[1] ?? ''}
       </p>
     </div>
