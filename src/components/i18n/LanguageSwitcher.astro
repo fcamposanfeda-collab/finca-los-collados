@@ -23,11 +23,10 @@ const { locale, pageKey, href, t } = useI18n(Astro);
                 lang={meta.htmlLang}
                 hreflang={meta.htmlLang}
                 aria-current={current ? 'page' : undefined}
-                aria-label={meta.nativeName}
                 data-locale={item}
                 class:list={['language-switcher__link', { 'is-active': current }]}
               >
-                {meta.short}
+                <abbr title={meta.nativeName}>{meta.short}</abbr>
               </a>
             </li>
           </>
@@ -91,5 +90,12 @@ const { locale, pageKey, href, t } = useI18n(Astro);
   .language-switcher__link[aria-current='page'] {
     text-decoration: underline;
     text-underline-offset: 0.2em;
+  }
+
+  .language-switcher__link abbr {
+    text-decoration: none;
+    cursor: inherit;
+    font: inherit;
+    letter-spacing: inherit;
   }
 </style>

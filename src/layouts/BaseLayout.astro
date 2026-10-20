@@ -60,6 +60,18 @@ const alternates = hreflangLinks(pageKey);
           <link rel="alternate" hreflang={link.lang} href={link.url} />
         ))
     }
+    {
+      lcpVariant && (
+        <link
+          rel="preload"
+          as="image"
+          type="image/avif"
+          imagesrcset={srcset(lcpVariant.avif)}
+          imagesizes="100vw"
+          fetchpriority="high"
+        />
+      )
+    }
     <link
       rel="preload"
       href={withBase('/fonts/source-sans-3-latin-400-normal.woff2')}
@@ -88,18 +100,6 @@ const alternates = hreflangLinks(pageKey);
       type="font/woff2"
       crossorigin
     />
-    {
-      lcpVariant && (
-        <link
-          rel="preload"
-          as="image"
-          type="image/avif"
-          imagesrcset={srcset(lcpVariant.avif)}
-          imagesizes="100vw"
-          fetchpriority="high"
-        />
-      )
-    }
     <meta property="og:site_name" content={site.name} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={ogImageUrl} />

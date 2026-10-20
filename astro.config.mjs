@@ -6,6 +6,9 @@ import { hreflangLinks, pageKeyFromUrl } from './src/i18n/sitemap';
 export default defineConfig({
   site: 'https://loscolladosdesanmiguel.com',
   trailingSlash: 'always',
+  build: {
+    inlineStylesheets: 'always',
+  },
   prefetch: {
     prefetchAll: false,
     defaultStrategy: 'hover',

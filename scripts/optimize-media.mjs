@@ -68,6 +68,12 @@ const videoFiles = [
   'WhatsApp Video 2026-07-07 at 13.35.28.mp4',
 ];
 
+/** Defaults keep other clips usable; empresas (IMG_0717) is long and below the fold. */
+const videoProfile = {
+  default: { width: 720, crf: 28 },
+  'IMG_0717.mp4': { width: 540, crf: 32, duration: 18 },
+};
+
 const heroNames = new Set(['hero-entrada-atardecer.png', 'calerilla-hero.jpg', 'bungalow-interior.jpg', 'empresa-teambuilding.jpg']);
 
 function slugName(file) {
@@ -148,32 +154,29 @@ function optimizeVideos() {
     const output = join(outDir, `${id}.mp4`);
     const poster = join(outDir, `${id}.jpg`);
     const before = statSync(input).size;
+    const profile = videoProfile[file] ?? videoProfile.default;
     console.log(`video ${file} (${(before / 1024 / 1024).toFixed(1)} MB)`);
-    execFileSync(
-      ffmpeg,
-      [
-        '-y',
-        '-i',
-        input,
-        '-an',
-        '-c:v',
-        'libx264',
-        '-pix_fmt',
-        'yuv420p',
-        '-crf',
-        '28',
-        '-preset',
-        'medium',
-        '-r',
-        '24',
-        '-movflags',
-        '+faststart',
-        '-vf',
-        'scale=min(720\\,iw):-2',
-        output,
-      ],
-      { stdio: 'inherit' },
+    const args = ['-y', '-i', input];
+    if (profile.duration) args.push('-t', String(profile.duration));
+    args.push(
+      '-an',
+      '-c:v',
+      'libx264',
+      '-pix_fmt',
+      'yuv420p',
+      '-crf',
+      String(profile.crf),
+      '-preset',
+      'medium',
+      '-r',
+      '24',
+      '-movflags',
+      '+faststart',
+      '-vf',
+      `scale=min(${profile.width}\\,iw):-2`,
+      output,
     );
+    execFileSync(ffmpeg, args, { stdio: 'inherit' });
     execFileSync(
       ffmpeg,
       ['-y', '-i', input, '-ss', '00:00:01', '-frames:v', '1', '-vf', 'scale=960:-2', poster],

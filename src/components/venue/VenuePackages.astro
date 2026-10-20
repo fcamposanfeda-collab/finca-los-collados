@@ -143,7 +143,8 @@ const packages = getVenuePackages(locale).filter((pkg) => packageIds.includes(pk
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--color-accent);
+    /* #c9a96e on #faf8f5 is 2.11:1; this gold keeps the tone at ≥4.5:1 */
+    color: #8a6a32;
   }
 
   .venue-packages__card h3 {
