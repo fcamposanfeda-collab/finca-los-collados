@@ -44,7 +44,7 @@
     "includesTitle": "Your stay includes",
     "includes": ["Breakfast", "Swimming pool", "Free Wi-Fi", "Pet-friendly"],
     "cancelTitle": "Cancellation",
-    "cancelText": "TODO_DATO: short summary of the cancellation policy. Please check the current terms on Booking.com and on our booking policy page.",
+    "cancelText": "Bungalow stays follow Booking.com cancellation (free on rates that say so; the exact deadline is on your confirmation).",
     "cancelLink": "Booking policy",
     "huntingTitle": "Shooting at La Calerilla",
     "huntingText": "Shooting days are organised by Alectoris Ibérica SL."

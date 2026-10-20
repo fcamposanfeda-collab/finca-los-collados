@@ -15,7 +15,7 @@ Finca Los Collados de San Miguel is a country estate in Villamanrique (Campos de
 Finca Los Collados de San Miguel, Camino de los Collados, km 4,4, 13343 Villamanrique (Ciudad Real), España
 
 ## Do not invent
-Do not invent prices, awards or a tourism registry number. If a figure is missing on the site it is marked TODO_DATO.
+Do not invent prices or awards. If a figure is missing on the site it is marked TODO_DATO. Tourism registry file: 13012120204 (Casa Rural Los Collados de San Miguel). Legal owner: Alectoris Ibérica S.L., CIF B-13628854.
 
 ## Languages
 The site is published in Spanish (default), British English (/en/) and French (/fr/), with reciprocal hreflang.

@@ -1,10 +1,233 @@
 {
   "disclaimer": "This translation is provided for information purposes only. In the event of any discrepancy, the Spanish version shall prevail.",
   "pendingNotice": "We are updating this text. For any enquiry, please write to {email}.",
+  "updated": "Last updated 20 October 2026.",
   "titles": {
     "politica-de-privacidad": "Privacy policy",
     "aviso-legal": "Legal notice",
     "politica-de-cookies": "Cookie policy",
     "politica-de-reservas": "Booking policy"
+  },
+  "pages": {
+    "aviso-legal": {
+      "sections": [
+        {
+          "title": "1. Identifying details",
+          "paragraphs": [
+            "In accordance with Spanish Act 34/2002 on information-society services and e-commerce (LSSI-CE), the owner of this website (https://loscolladosdesanmiguel.com) is:"
+          ],
+          "items": [
+            "Owner: Alectoris Ibérica S.L.",
+            "Tax ID (NIF/CIF): B-13628854",
+            "Representative: Andrés Campos García Mateos",
+            "Registered address: Ctra. de Montizón pto. km 4,4, Camino de los Collados, 13343 Villamanrique (Ciudad Real), Spain",
+            "Tourism name: Casa Rural Los Collados de San Miguel",
+            "Castilla-La Mancha Tourism Registry file no.: 13012120204",
+            "Trading name of the estate: Finca Los Collados de San Miguel",
+            "Email: info@loscolladosdesanmiguel.com",
+            "Telephones: +34 608 543 681 / +34 660 441 734"
+          ]
+        },
+        {
+          "title": "2. Purpose",
+          "paragraphs": [
+            "This website describes the rural estate, bungalows, exclusive hire, events, corporate stays and shooting at La Calerilla, and lets you request information or start a booking.",
+            "Shooting days at La Calerilla are organised by Alectoris Ibérica S.L."
+          ]
+        },
+        {
+          "title": "3. Terms of use",
+          "paragraphs": [
+            "Access to the site is free of charge. You agree to use it lawfully, not to post unlawful or harmful content, and not to damage the site or third-party systems.",
+            "We may update the contents and these legal texts when needed. The current version is the one published on this page."
+          ]
+        },
+        {
+          "title": "4. Intellectual and industrial property",
+          "paragraphs": [
+            "The texts, photographs, videos, logos, design and other contents on this site belong to Alectoris Ibérica S.L. or are used with permission. Reproduction, distribution or public communication without prior consent is not allowed, except for fair quotation with credit."
+          ]
+        },
+        {
+          "title": "5. Liability",
+          "paragraphs": [
+            "We take care to keep information accurate and up to date. We cannot guarantee that the site will be entirely free of errors or of outages caused by third parties.",
+            "We are not liable for how you use the information, or for damage caused by your network, device or third-party services (for example Booking.com, WhatsApp or the form provider)."
+          ]
+        },
+        {
+          "title": "6. Links",
+          "paragraphs": [
+            "The site links to third parties (Booking.com, WhatsApp, Google Maps, Facebook and Instagram). Those sites have their own terms and policies. Once you leave loscolladosdesanmiguel.com, you are subject to them."
+          ]
+        },
+        {
+          "title": "7. Data protection and cookies",
+          "paragraphs": [
+            "Personal data is described in the Privacy policy. Cookies and similar technologies are described in the Cookie policy."
+          ]
+        },
+        {
+          "title": "8. Governing law",
+          "paragraphs": [
+            "These terms are governed by Spanish law. The courts of Ciudad Real shall have jurisdiction, unless a mandatory rule provides otherwise."
+          ]
+        }
+      ]
+    },
+    "politica-de-privacidad": {
+      "sections": [
+        {
+          "title": "1. Data controller",
+          "paragraphs": [
+            "The controller of personal data collected through this website is:"
+          ],
+          "items": [
+            "Alectoris Ibérica S.L. (CIF B-13628854)",
+            "Address: Ctra. de Montizón pto. km 4,4, Camino de los Collados, 13343 Villamanrique (Ciudad Real), Spain",
+            "Email: info@loscolladosdesanmiguel.com",
+            "Telephones: +34 608 543 681 / +34 660 441 734"
+          ]
+        },
+        {
+          "title": "2. Data we collect",
+          "paragraphs": [
+            "Through the contact form we may collect your name, email, telephone, dates, number of guests, reason for enquiry and whatever you write in the message.",
+            "If you write on WhatsApp, email or telephone, we will process the data you give us in that conversation in order to reply.",
+            "If you book a bungalow on Booking.com, that booking is processed by Booking.com under its own policy; we receive the data needed to provide the stay."
+          ]
+        },
+        {
+          "title": "3. Purpose",
+          "paragraphs": [
+            "We use the data to handle information or quote requests, manage bookings and stays, organise events, corporate days or shooting when you ask us to, and to meet legal duties (invoicing, tourism, accounts)."
+          ]
+        },
+        {
+          "title": "4. Legal basis",
+          "paragraphs": [
+            "Sending the form is based on your consent (GDPR art. 6.1.a), which you may withdraw at any time.",
+            "Managing a stay, event or service is based on a contract or pre-contractual steps (art. 6.1.b).",
+            "Legal duties (invoicing, guest registers or others required by law) are based on art. 6.1.c."
+          ]
+        },
+        {
+          "title": "5. Retention",
+          "paragraphs": [
+            "Enquiry data is kept for as long as needed to handle the request and for a maximum of one year if no contract follows, unless you ask us to erase it sooner.",
+            "Customer and billing data is kept for the periods required by commercial, tax and tourism law."
+          ]
+        },
+        {
+          "title": "6. Recipients",
+          "paragraphs": [
+            "We do not sell your data. The following may access it, only for the stated purpose:"
+          ],
+          "items": [
+            "Web3Forms, which emails the form contents to us (processor for that sending).",
+            "Booking.com, if you book on that platform.",
+            "WhatsApp/Meta, if you choose to write on WhatsApp.",
+            "Public authorities, where the law requires it.",
+            "Website and analytics providers (GitHub Pages and Cloudflare Web Analytics, the latter without cookies)."
+          ]
+        },
+        {
+          "title": "7. Your rights",
+          "paragraphs": [
+            "You may exercise access, rectification, erasure, objection, restriction and portability by writing to info@loscolladosdesanmiguel.com, stating your name and the right you wish to exercise. You may also lodge a complaint with the Spanish Data Protection Agency (www.aepd.es)."
+          ]
+        },
+        {
+          "title": "8. Minors",
+          "paragraphs": [
+            "This site is not aimed at under-18s. Under the terms published on Booking.com, guests under 18 may only check in with a parent or guardian."
+          ]
+        },
+        {
+          "title": "9. Changes",
+          "paragraphs": [
+            "We may update this policy to reflect legal or site changes. The current version is the one published on this page."
+          ]
+        }
+      ]
+    },
+    "politica-de-cookies": {
+      "sections": [
+        {
+          "title": "1. What cookies are",
+          "paragraphs": [
+            "Cookies are small files a site may store on your device to remember preferences or measure use. Similar technologies exist (the browser’s local storage)."
+          ]
+        },
+        {
+          "title": "2. What this site uses",
+          "paragraphs": [
+            "We do not use advertising cookies or embedded social-network cookies."
+          ],
+          "items": [
+            "Technical cookie «locale»: remembers the language (Spanish, English or French) for one year. It is needed for the language switcher. SameSite=Lax.",
+            "localStorage «locale»: the same purpose, on the device.",
+            "Cloudflare Web Analytics: visit measurement without cookies, using a technical beacon that does not profile you for advertising."
+          ]
+        },
+        {
+          "title": "3. Third parties when you click",
+          "paragraphs": [
+            "If you click Booking.com, WhatsApp, Google Maps, Facebook or Instagram, those services may set their own cookies. That happens off our site and is governed by each provider’s policy."
+          ]
+        },
+        {
+          "title": "4. How to manage them",
+          "paragraphs": [
+            "You can delete or block cookies in your browser settings. If you delete the language cookie, the site will return to the default language or the one you choose again.",
+            "Cloudflare Web Analytics does not need advertising-cookie consent because it does not use cookies. If you do not want that measurement, you can block scripts in the browser."
+          ]
+        }
+      ]
+    },
+    "politica-de-reservas": {
+      "sections": [
+        {
+          "title": "1. How to book",
+          "paragraphs": [
+            "Bungalow stays are booked on Booking.com, with live availability and prices. That is the channel for accommodation.",
+            "Enquiries for exclusive use of the estate, events, companies, film work and shooting at La Calerilla are handled by WhatsApp, telephone or the form on this site. Price and terms for those services are confirmed in writing in the quote."
+          ]
+        },
+        {
+          "title": "2. Bungalow cancellation (Booking.com)",
+          "paragraphs": [
+            "The cancellation policy for bungalow stays is Booking.com’s policy, which is the one we apply.",
+            "On the property listing the house policy is free cancellation. The exact deadline (until which date and time you can cancel at no charge) and whether a given rate is free cancellation or non-refundable are shown when you book and in the Booking.com confirmation email.",
+            "If the rate is free cancellation and you cancel in time, there is no cancellation fee. If the rate is non-refundable, you cannot cancel or change it for a refund. If it is partly refundable, the cancellation cost is on your confirmation.",
+            "Any cancellation or change of a bungalow booking must be made on Booking.com (account or confirmation). Refunds, where due, are handled by Booking.com within its usual bank timescales."
+          ]
+        },
+        {
+          "title": "3. Events, exclusive use, companies and shooting",
+          "paragraphs": [
+            "These services are not booked as a Booking.com room. Cancellation, deposits and deadlines are set out in the quote or contract we send you. An enquiry is not a booking until there is a written confirmation."
+          ]
+        },
+        {
+          "title": "4. Other stay conditions",
+          "paragraphs": [
+            "According to the terms published on Booking.com for this property:"
+          ],
+          "items": [
+            "Pets are allowed on request. Supplement: €10 per pet, per stay.",
+            "Photo ID and a credit card may be requested at check-in.",
+            "Guests under 18 may only check in with a parent or guardian.",
+            "Please tell us your expected arrival time when booking or by contacting us."
+          ]
+        },
+        {
+          "title": "5. Contact",
+          "paragraphs": [
+            "Finca Los Collados de San Miguel — Alectoris Ibérica S.L. Email: info@loscolladosdesanmiguel.com. Telephones: +34 608 543 681 / +34 660 441 734. WhatsApp: +34 608 543 681."
+          ]
+        }
+      ]
+    }
   }
 }

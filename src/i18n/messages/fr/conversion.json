@@ -44,7 +44,7 @@
     "includesTitle": "Le séjour comprend",
     "includes": ["Petit-déjeuner", "Piscine", "Wi-Fi gratuit", "Animaux acceptés"],
     "cancelTitle": "Annulation",
-    "cancelText": "TODO_DATO : résumé de la politique d’annulation. Consultez les conditions en vigueur sur Booking.com et sur notre page des conditions de réservation.",
+    "cancelText": "Les séjours en bungalow suivent l’annulation Booking.com (gratuite sur les tarifs qui l’indiquent ; le délai précis figure sur votre confirmation).",
     "cancelLink": "Conditions de réservation",
     "huntingTitle": "Chasse à La Calerilla",
     "huntingText": "Les journées de chasse sont organisées par Alectoris Ibérica SL."

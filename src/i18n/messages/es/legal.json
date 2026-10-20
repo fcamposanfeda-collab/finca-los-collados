@@ -1,10 +1,233 @@
 {
   "disclaimer": "",
   "pendingNotice": "Estamos actualizando este texto. Para cualquier consulta, escríbanos a {email}.",
+  "updated": "Texto actualizado el 20 de octubre de 2026.",
   "titles": {
     "politica-de-privacidad": "Política de privacidad",
     "aviso-legal": "Aviso legal",
     "politica-de-cookies": "Política de cookies",
     "politica-de-reservas": "Política de reservas"
+  },
+  "pages": {
+    "aviso-legal": {
+      "sections": [
+        {
+          "title": "1. Datos identificativos",
+          "paragraphs": [
+            "En cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de los datos del titular de este sitio web (https://loscolladosdesanmiguel.com):"
+          ],
+          "items": [
+            "Titular: Alectoris Ibérica S.L.",
+            "NIF/CIF: B-13628854",
+            "Representante: Andrés Campos García Mateos",
+            "Domicilio: Ctra. de Montizón pto. km 4,4, Camino de los Collados, 13343 Villamanrique (Ciudad Real), España",
+            "Denominación turística: Casa Rural Los Collados de San Miguel",
+            "N.º de expediente en el Registro de Turismo de Castilla-La Mancha: 13012120204",
+            "Marca comercial del establecimiento: Finca Los Collados de San Miguel",
+            "Correo electrónico: info@loscolladosdesanmiguel.com",
+            "Teléfonos: +34 608 543 681 / +34 660 441 734"
+          ]
+        },
+        {
+          "title": "2. Objeto",
+          "paragraphs": [
+            "Este sitio web informa sobre el alojamiento rural, los bungalows, el alquiler de la finca, los eventos, las empresas y la caza en La Calerilla, y permite solicitar información o iniciar una reserva.",
+            "Las jornadas de caza en La Calerilla las organiza Alectoris Ibérica S.L."
+          ]
+        },
+        {
+          "title": "3. Condiciones de uso",
+          "paragraphs": [
+            "El acceso a la web es gratuito. El usuario se compromete a hacer un uso lícito, a no introducir contenidos ilícitos o lesivos y a no dañar el sitio ni los sistemas de terceros.",
+            "Nos reservamos el derecho de actualizar los contenidos y estos textos legales cuando sea necesario. La versión vigente es la publicada en esta página."
+          ]
+        },
+        {
+          "title": "4. Propiedad intelectual e industrial",
+          "paragraphs": [
+            "Los textos, fotografías, vídeos, logotipos, diseño y demás contenidos de esta web son titularidad de Alectoris Ibérica S.L. o se usan con autorización. Queda prohibida su reproducción, distribución o comunicación pública sin consentimiento previo, salvo el derecho a citar con indicación de la fuente."
+          ]
+        },
+        {
+          "title": "5. Responsabilidad",
+          "paragraphs": [
+            "Procuramos que la información sea veraz y esté actualizada. No podemos garantizar la ausencia absoluta de errores o de interrupciones del servicio por causas ajenas.",
+            "No nos hacemos responsables del uso que el usuario haga de la información ni de los daños derivados de fallos en la red, el dispositivo o servicios de terceros (por ejemplo Booking.com, WhatsApp o el proveedor del formulario)."
+          ]
+        },
+        {
+          "title": "6. Enlaces",
+          "paragraphs": [
+            "La web enlaza a sitios de terceros (Booking.com, WhatsApp, Google Maps, Facebook e Instagram). Esos sitios tienen sus propias condiciones y políticas. Al salir de loscolladosdesanmiguel.com, el usuario queda sujeto a ellas."
+          ]
+        },
+        {
+          "title": "7. Protección de datos y cookies",
+          "paragraphs": [
+            "El tratamiento de datos personales se describe en la Política de privacidad. El uso de cookies y tecnologías similares se describe en la Política de cookies."
+          ]
+        },
+        {
+          "title": "8. Legislación y fuero",
+          "paragraphs": [
+            "Estas condiciones se rigen por la legislación española. Para cualquier controversia, las partes se someten a los juzgados y tribunales de Ciudad Real, salvo que una norma imperativa disponga otro fuero."
+          ]
+        }
+      ]
+    },
+    "politica-de-privacidad": {
+      "sections": [
+        {
+          "title": "1. Responsable del tratamiento",
+          "paragraphs": [
+            "El responsable del tratamiento de los datos personales recabados a través de este sitio web es:"
+          ],
+          "items": [
+            "Alectoris Ibérica S.L. (CIF B-13628854)",
+            "Domicilio: Ctra. de Montizón pto. km 4,4, Camino de los Collados, 13343 Villamanrique (Ciudad Real), España",
+            "Correo: info@loscolladosdesanmiguel.com",
+            "Teléfonos: +34 608 543 681 / +34 660 441 734"
+          ]
+        },
+        {
+          "title": "2. Datos que recabamos",
+          "paragraphs": [
+            "A través del formulario de contacto podemos recabar nombre, correo electrónico, teléfono, fechas, número de personas, motivo de la consulta e información que usted escriba en el mensaje.",
+            "Si nos escribe por WhatsApp, correo o teléfono, trataremos los datos que nos facilite en esa conversación para responderle.",
+            "Si reserva un bungalow en Booking.com, el tratamiento de esa reserva lo realiza Booking.com conforme a su propia política; nosotros recibimos los datos necesarios para prestar el alojamiento."
+          ]
+        },
+        {
+          "title": "3. Finalidad",
+          "paragraphs": [
+            "Usamos los datos para atender solicitudes de información o presupuesto, gestionar reservas y estancias, organizar eventos, empresas o jornadas de caza cuando nos lo pida, y para cumplir obligaciones legales (facturación, turismo, contabilidad)."
+          ]
+        },
+        {
+          "title": "4. Base jurídica",
+          "paragraphs": [
+            "El envío del formulario se basa en su consentimiento (art. 6.1.a del RGPD), que puede retirar en cualquier momento.",
+            "La gestión de una reserva o contrato de estancia, evento o servicio se basa en la ejecución de un contrato o de medidas precontractuales (art. 6.1.b).",
+            "El cumplimiento de obligaciones legales (facturación, registro de viajeros u otras exigidas) se basa en el art. 6.1.c."
+          ]
+        },
+        {
+          "title": "5. Conservación",
+          "paragraphs": [
+            "Los datos de consultas se conservan el tiempo necesario para tramitarlas y, como máximo, un año si no llega a haber contrato, salvo que pida su supresión antes.",
+            "Los datos de clientes y facturación se conservan durante los plazos exigidos por la normativa mercantil, fiscal y de turismo."
+          ]
+        },
+        {
+          "title": "6. Destinatarios",
+          "paragraphs": [
+            "No vendemos sus datos. Pueden acceder a ellos, solo para la finalidad indicada:"
+          ],
+          "items": [
+            "Web3Forms, que envía el contenido del formulario a nuestro correo (encargado de tratamiento del envío).",
+            "Booking.com, si usted reserva por esa plataforma.",
+            "WhatsApp/Meta, si usted elige escribirnos por WhatsApp.",
+            "Administraciones públicas, cuando una norma lo exija.",
+            "Proveedores de alojamiento web y analítica (GitHub Pages y Cloudflare Web Analytics, esta última sin cookies)."
+          ]
+        },
+        {
+          "title": "7. Derechos",
+          "paragraphs": [
+            "Puede ejercer los derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a info@loscolladosdesanmiguel.com, indicando su nombre y el derecho que desea ejercer. También puede reclamar ante la Agencia Española de Protección de Datos (www.aepd.es)."
+          ]
+        },
+        {
+          "title": "8. Menores",
+          "paragraphs": [
+            "Este sitio no está dirigido a menores de 18 años. Según las condiciones publicadas en Booking.com, los menores de 18 años solo pueden hacer el check-in acompañados de un progenitor o tutor."
+          ]
+        },
+        {
+          "title": "9. Cambios",
+          "paragraphs": [
+            "Podemos actualizar esta política para adaptarla a cambios legales o del sitio. La versión vigente es la publicada en esta página."
+          ]
+        }
+      ]
+    },
+    "politica-de-cookies": {
+      "sections": [
+        {
+          "title": "1. Qué son las cookies",
+          "paragraphs": [
+            "Las cookies son pequeños archivos que un sitio puede guardar en su dispositivo para recordar preferencias o medir el uso. También existen tecnologías similares (almacenamiento local del navegador)."
+          ]
+        },
+        {
+          "title": "2. Qué utilizamos en esta web",
+          "paragraphs": [
+            "No usamos cookies publicitarias ni de redes sociales embebidas."
+          ],
+          "items": [
+            "Cookie técnica «locale»: recuerda el idioma (español, inglés o francés) durante un año. Es necesaria para que el selector de idioma funcione. SameSite=Lax.",
+            "localStorage «locale»: misma finalidad, en el dispositivo.",
+            "Cloudflare Web Analytics: medición de visitas sin cookies, con un faro técnico que no identifica publicitariamente al usuario."
+          ]
+        },
+        {
+          "title": "3. Terceros al hacer clic",
+          "paragraphs": [
+            "Si pulsa Booking.com, WhatsApp, Google Maps, Facebook o Instagram, esos servicios pueden instalar sus propias cookies. Eso ocurre fuera de nuestra web y se rige por las políticas de cada proveedor."
+          ]
+        },
+        {
+          "title": "4. Cómo gestionarlas",
+          "paragraphs": [
+            "Puede borrar o bloquear cookies en la configuración de su navegador. Si elimina la cookie de idioma, el sitio volverá a mostrar el idioma por defecto o el que elija de nuevo.",
+            "Cloudflare Web Analytics no requiere consentimiento de cookies publicitarias porque no utiliza cookies. Si no desea esa medición, puede usar un bloqueador de scripts en el navegador."
+          ]
+        }
+      ]
+    },
+    "politica-de-reservas": {
+      "sections": [
+        {
+          "title": "1. Cómo reservar",
+          "paragraphs": [
+            "Las estancias en bungalow se reservan en Booking.com, con disponibilidad y precio en tiempo real. Esa es la vía de reserva de alojamiento.",
+            "Las consultas de finca completa, eventos, empresas, rodajes y caza en La Calerilla se tramitan por WhatsApp, teléfono o el formulario de esta web. El precio y las condiciones de esos servicios se confirman por escrito en el presupuesto."
+          ]
+        },
+        {
+          "title": "2. Cancelación de bungalows (Booking.com)",
+          "paragraphs": [
+            "La política de cancelación de las estancias en bungalow es la de Booking.com, que es la que aplicamos.",
+            "En la ficha del alojamiento la política del establecimiento figura como cancelación gratuita («Free cancellation»). El plazo concreto (hasta qué fecha y hora puede anular sin cargo) y si una tarifa concreta es gratuita o no reembolsable se muestran al reservar y en el correo de confirmación de Booking.com.",
+            "Si la tarifa es de cancelación gratuita y anula dentro de plazo, no hay cargo de cancelación. Si la tarifa es no reembolsable, no podrá anular ni modificar con reembolso. Si es parcialmente reembolsable, el coste de anulación aparece en su confirmación.",
+            "Cualquier anulación o cambio de una reserva de bungalow debe hacerse en Booking.com (cuenta o confirmación). El reembolso, cuando proceda, lo gestiona Booking.com según sus plazos (habitualmente varios días laborables, según el banco)."
+          ]
+        },
+        {
+          "title": "3. Eventos, finca completa, empresas y caza",
+          "paragraphs": [
+            "Estos servicios no se contratan como una habitación de Booking.com. La cancelación, las señales y los plazos se indican en el presupuesto o contrato que le enviemos. Si no hay documento firmado, la solicitud no genera reserva."
+          ]
+        },
+        {
+          "title": "4. Otras condiciones de la estancia",
+          "paragraphs": [
+            "Según las condiciones publicadas en Booking.com para este alojamiento:"
+          ],
+          "items": [
+            "Se admiten mascotas bajo petición. Suplemento: 10 € por mascota y estancia.",
+            "En el check-in se puede pedir documento de identidad y tarjeta de crédito.",
+            "Los menores de 18 años solo pueden hacer el check-in con un progenitor o tutor.",
+            "Conviene indicar la hora prevista de llegada en la reserva o contactándonos."
+          ]
+        },
+        {
+          "title": "5. Contacto",
+          "paragraphs": [
+            "Finca Los Collados de San Miguel — Alectoris Ibérica S.L. Correo: info@loscolladosdesanmiguel.com. Teléfonos: +34 608 543 681 / +34 660 441 734. WhatsApp: +34 608 543 681."
+          ]
+        }
+      ]
+    }
   }
 }

@@ -3,7 +3,7 @@
   "alojamiento": [
     {
       "q": "¿Se admiten perros?",
-      "a": "Sí. Los bungalows son pet friendly. TODO_DATO: suplemento, normas y si hay límite de tamaño o número de mascotas."
+      "a": "Sí. Los bungalows admiten mascotas bajo petición. Suplemento: 10 € por mascota y estancia (condiciones publicadas en Booking.com)."
     },
     {
       "q": "¿Cuántas personas caben?",
@@ -23,7 +23,7 @@
     },
     {
       "q": "¿Cuál es la política de cancelación?",
-      "a": "TODO_DATO: resumen de la política vigente en Booking.com. Consulte también nuestra política de reservas."
+      "a": "La de Booking.com, que es la misma que aplicamos: cancelación gratuita en las tarifas que así lo indiquen. El plazo concreto está en su confirmación. Detalle en Política de reservas."
     },
     {
       "q": "¿A cuánto está de Madrid?",

@@ -30,7 +30,7 @@ export const business = {
   checkinTime: null as string | null,
   checkoutTime: null as string | null,
   priceRange: null as string | null,
-  tourismRegistry: null as string | null,
+  tourismRegistry: '13012120204',
   bookingRating: {
     value: '9.7',
     count: '105',
@@ -43,9 +43,6 @@ export const business = {
 export const todosDato = [
   'TODO_DATO: hora de check-in y check-out',
   'TODO_DATO: priceRange (p. ej. €€) o tarifa orientativa de bungalow',
-  'TODO_DATO: resumen de la política de cancelación (la de Booking.com o la propia)',
-  'TODO_DATO: número de inscripción en el Registro de Turismo de Castilla-La Mancha, si es obligatorio mostrarlo',
-  'TODO_DATO: suplemento o condiciones de mascotas (si existe)',
   'TODO_DATO: número de puestos / tiradores por jornada en La Calerilla',
   'TODO_DATO: si se admiten perros de caza en el coto y en los bungalows',
 ] as const;

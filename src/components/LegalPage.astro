@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getPageMeta } from '../data/pages-meta';
-import { contact } from '../data/contact';
 import { legalContentPending } from '../data/legal';
 import { legalPageKeys, useI18n, type LegalPageKey } from '../i18n';
+import { contact } from '../data/contact';
 
 const { locale, pageKey, copy } = useI18n(Astro);
 const legalKey = (legalPageKeys.includes(pageKey as LegalPageKey) ? pageKey : 'politica-de-privacidad') as LegalPageKey;
@@ -11,9 +11,17 @@ const meta = getPageMeta(legalKey, locale);
 const legal = copy.legal as {
   disclaimer: string;
   pendingNotice: string;
+  updated: string;
   titles: Record<string, string>;
+  pages: Record<
+    string,
+    {
+      sections: { title: string; paragraphs?: string[]; items?: string[] }[];
+    }
+  >;
 };
 const legalTitle = legal.titles[legalKey];
+const page = legal.pages[legalKey];
 const [noticeBefore, noticeAfter] = legal.pendingNotice.split('{email}');
 ---
 
@@ -22,13 +30,28 @@ const [noticeBefore, noticeAfter] = legal.pendingNotice.split('{email}');
     <div class="container legal">
       <h1>{legalTitle}</h1>
       {legal.disclaimer && <p class="legal__disclaimer">{legal.disclaimer}</p>}
-      {legalContentPending && (
-        <p class="legal__notice">
-          {noticeBefore}
-          <a href={`mailto:${contact.email}`}>{contact.email}</a>
-          {noticeAfter ?? ''}
-        </p>
-      )}
+      {
+        legalContentPending ? (
+          <p class="legal__notice">
+            {noticeBefore}
+            <a href={`mailto:${contact.email}`}>{contact.email}</a>
+            {noticeAfter ?? ''}
+          </p>
+        ) : (
+          page?.sections.map((section) => (
+            <section class="legal__block">
+              <h2>{section.title}</h2>
+              {section.paragraphs?.map((p) => <p>{p}</p>)}
+              {section.items && section.items.length > 0 && (
+                <ul>
+                  {section.items.map((item) => <li>{item}</li>)}
+                </ul>
+              )}
+            </section>
+          ))
+        )
+      }
+      {!legalContentPending && legal.updated && <p class="legal__updated">{legal.updated}</p>}
     </div>
   </section>
 </BaseLayout>
@@ -44,13 +67,37 @@ const [noticeBefore, noticeAfter] = legal.pendingNotice.split('{email}');
     color: var(--color-secondary);
   }
 
+  .legal h2 {
+    margin: 2rem 0 0.75rem;
+    font-size: 1.25rem;
+    color: var(--color-secondary);
+  }
+
+  .legal p,
+  .legal li {
+    color: var(--color-text);
+    line-height: 1.7;
+  }
+
+  .legal p {
+    margin: 0 0 0.85rem;
+  }
+
+  .legal ul {
+    margin: 0 0 1rem;
+    padding-left: 1.25rem;
+    list-style: disc;
+  }
+
+  .legal li {
+    margin-bottom: 0.35rem;
+  }
+
   .legal__disclaimer {
-    margin: 0 0 1.25rem;
+    margin: 0 0 1.5rem;
     padding: 0.875rem 1rem;
     background: var(--color-bg-alt);
     border-left: 3px solid var(--color-primary);
-    color: var(--color-text);
-    line-height: 1.7;
   }
 
   .legal__notice {
@@ -58,8 +105,15 @@ const [noticeBefore, noticeAfter] = legal.pendingNotice.split('{email}');
     line-height: 1.7;
   }
 
-  .legal__notice a {
+  .legal__notice a,
+  .legal a {
     color: var(--color-primary);
     font-weight: 500;
+  }
+
+  .legal__updated {
+    margin-top: 2rem;
+    color: var(--color-muted);
+    font-size: 0.875rem;
   }
 </style>

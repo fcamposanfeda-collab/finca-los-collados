@@ -3,7 +3,7 @@
   "alojamiento": [
     {
       "q": "Are dogs allowed?",
-      "a": "Yes. The bungalows are pet-friendly. TODO_DATO: supplement, house rules and any size or number limits."
+      "a": "Yes. Pets are allowed on request. Supplement: €10 per pet, per stay (terms published on Booking.com)."
     },
     {
       "q": "How many people can stay?",
@@ -23,7 +23,7 @@
     },
     {
       "q": "What is the cancellation policy?",
-      "a": "TODO_DATO: short summary of the current Booking.com policy. Please also see our booking policy page."
+      "a": "Booking.com’s policy, which is the one we apply: free cancellation on rates that say so. The exact deadline is on your confirmation. See the Booking policy page."
     },
     {
       "q": "How far is it from Madrid?",

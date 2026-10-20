@@ -41,7 +41,7 @@
   "required": "obligatoire",
   "privacyAccept": "J’ai lu et j’accepte la {policy}.",
   "privacyPolicy": "politique de confidentialité",
-  "privacyLayer": "Responsable : Finca Los Collados de San Miguel. Finalité : traiter votre demande d’information ou de réservation. Base juridique : votre consentement. Droits : accès, rectification, suppression, opposition et autres prévus par la réglementation, en écrivant à {email}. Plus d’informations dans la {policy}.",
+  "privacyLayer": "Responsable : Alectoris Ibérica S.L. (CIF B-13628854). Finalité : traiter votre demande d’information ou de réservation. Base juridique : votre consentement. Droits : accès, rectification, suppression, opposition et autres prévus par la réglementation, en écrivant à {email}. Plus d’informations dans la {policy}.",
   "privacyError": "Veuillez accepter la politique de confidentialité pour envoyer le formulaire.",
   "requiredError": "Ce champ est obligatoire.",
   "emailError": "Veuillez indiquer une adresse e-mail valide."

@@ -3,7 +3,7 @@
   "alojamiento": [
     {
       "q": "Les chiens sont-ils acceptés ?",
-      "a": "Oui. Les bungalows acceptent les animaux. TODO_DATO : supplément, règles et éventuelles limites de taille ou de nombre."
+      "a": "Oui. Les animaux sont acceptés sur demande. Supplément : 10 € par animal et par séjour (conditions publiées sur Booking.com)."
     },
     {
       "q": "Combien de personnes peuvent séjourner ?",
@@ -23,7 +23,7 @@
     },
     {
       "q": "Quelle est la politique d’annulation ?",
-      "a": "TODO_DATO : résumé de la politique Booking.com en vigueur. Consultez aussi notre page des conditions de réservation."
+      "a": "Celle de Booking.com, que nous appliquons : annulation gratuite sur les tarifs qui l’indiquent. Le délai précis figure sur votre confirmation. Voir les conditions de réservation."
     },
     {
       "q": "À quelle distance est Madrid ?",
