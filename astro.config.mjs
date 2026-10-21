@@ -6,6 +6,27 @@ import { hreflangLinks, pageKeyFromUrl } from './src/i18n/sitemap';
 export default defineConfig({
   site: 'https://loscolladosdesanmiguel.com',
   trailingSlash: 'always',
+  redirects: {
+    // URLs antiguas que Search Console marca como 404 (export 21/10/2026)
+    '/online-bookings/': '/en/book-online/',
+    '/en/online-bookings/': '/en/book-online/',
+    '/en/reservas-online/': '/en/book-online/',
+    '/reservation-en-ligne/': '/fr/reserver-en-ligne/',
+    '/en/reservation-en-ligne/': '/fr/reserver-en-ligne/',
+    '/en/fr/reservation-en-ligne/': '/fr/reserver-en-ligne/',
+    '/rural-accommodation-in-la-mancha/': '/en/accommodation/',
+    '/en/aviso-legal/': '/en/legal-notice/',
+    '/en/politica-de-privacidad/': '/en/privacy-policy/',
+    '/en/politica-de-cookies/': '/en/cookie-policy/',
+    '/cinegetica-2022/': '/experiencias/',
+    '/en/cinegetica-2022/': '/en/experiences/',
+    '/la-fauna-no-da-tregua/': '/experiencias/',
+    '/en/la-fauna-no-da-tregua/': '/en/experiences/',
+    '/ultimo-dia-de-temporada/': '/experiencias/',
+    '/en/ultimo-dia-de-temporada/': '/en/experiences/',
+    '/manifestacion-mundo-rural/': '/experiencias/',
+    '/en/manifestacion-mundo-rural/': '/en/experiences/',
+  },
   build: {
     inlineStylesheets: 'always',
   },
