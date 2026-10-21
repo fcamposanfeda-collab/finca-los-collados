@@ -128,7 +128,7 @@
             "Booking.com, si usted reserva por esa plataforma.",
             "WhatsApp/Meta, si usted elige escribirnos por WhatsApp.",
             "Administraciones públicas, cuando una norma lo exija.",
-            "Proveedores de alojamiento web y analítica (GitHub Pages y Cloudflare Web Analytics, esta última sin cookies)."
+            "Proveedores de alojamiento web y analítica (GitHub Pages, Cloudflare Web Analytics y Umami, estas últimas sin cookies)."
           ]
         },
         {
@@ -167,7 +167,8 @@
           "items": [
             "Cookie técnica «locale»: recuerda el idioma (español, inglés o francés) durante un año. Es necesaria para que el selector de idioma funcione. SameSite=Lax.",
             "localStorage «locale»: misma finalidad, en el dispositivo.",
-            "Cloudflare Web Analytics: medición de visitas sin cookies, con un faro técnico que no identifica publicitariamente al usuario."
+            "Cloudflare Web Analytics: medición de visitas sin cookies, con un faro técnico que no identifica publicitariamente al usuario.",
+            "Umami (Umami Software, servidores en la UE): medición de visitas y de clics en botones de contacto, sin cookies ni identificadores persistentes."
           ]
         },
         {
@@ -180,7 +181,7 @@
           "title": "4. Cómo gestionarlas",
           "paragraphs": [
             "Puede borrar o bloquear cookies en la configuración de su navegador. Si elimina la cookie de idioma, el sitio volverá a mostrar el idioma por defecto o el que elija de nuevo.",
-            "Cloudflare Web Analytics no requiere consentimiento de cookies publicitarias porque no utiliza cookies. Si no desea esa medición, puede usar un bloqueador de scripts en el navegador."
+            "Cloudflare Web Analytics y Umami no requieren consentimiento de cookies publicitarias porque no utilizan cookies. Si no desea esa medición, puede usar un bloqueador de scripts en el navegador."
           ]
         }
       ]

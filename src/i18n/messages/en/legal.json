@@ -128,7 +128,7 @@
             "Booking.com, if you book on that platform.",
             "WhatsApp/Meta, if you choose to write on WhatsApp.",
             "Public authorities, where the law requires it.",
-            "Website and analytics providers (GitHub Pages and Cloudflare Web Analytics, the latter without cookies)."
+            "Website and analytics providers (GitHub Pages, Cloudflare Web Analytics and Umami, the latter two without cookies)."
           ]
         },
         {
@@ -167,7 +167,8 @@
           "items": [
             "Technical cookie «locale»: remembers the language (Spanish, English or French) for one year. It is needed for the language switcher. SameSite=Lax.",
             "localStorage «locale»: the same purpose, on the device.",
-            "Cloudflare Web Analytics: visit measurement without cookies, using a technical beacon that does not profile you for advertising."
+            "Cloudflare Web Analytics: visit measurement without cookies, using a technical beacon that does not profile you for advertising.",
+            "Umami (Umami Software, EU servers): measurement of visits and of clicks on contact buttons, without cookies or persistent identifiers."
           ]
         },
         {
@@ -180,7 +181,7 @@
           "title": "4. How to manage them",
           "paragraphs": [
             "You can delete or block cookies in your browser settings. If you delete the language cookie, the site will return to the default language or the one you choose again.",
-            "Cloudflare Web Analytics does not need advertising-cookie consent because it does not use cookies. If you do not want that measurement, you can block scripts in the browser."
+            "Cloudflare Web Analytics and Umami do not need advertising-cookie consent because they do not use cookies. If you do not want that measurement, you can block scripts in the browser."
           ]
         }
       ]

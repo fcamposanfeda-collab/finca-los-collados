@@ -128,7 +128,7 @@
             "Booking.com, si vous réservez sur cette plateforme.",
             "WhatsApp/Meta, si vous choisissez de nous écrire sur WhatsApp.",
             "Les administrations, lorsque la loi l’exige.",
-            "Les prestataires d’hébergement et d’analytics (GitHub Pages et Cloudflare Web Analytics, ce dernier sans cookies)."
+            "Les prestataires d’hébergement et d’analytics (GitHub Pages, Cloudflare Web Analytics et Umami, ces derniers sans cookies)."
           ]
         },
         {
@@ -167,7 +167,8 @@
           "items": [
             "Cookie technique « locale » : mémorise la langue (espagnol, anglais ou français) pendant un an. Il est nécessaire au sélecteur de langue. SameSite=Lax.",
             "localStorage « locale » : même finalité, sur l’appareil.",
-            "Cloudflare Web Analytics : mesure des visites sans cookies, via une balise technique qui ne vous profile pas à des fins publicitaires."
+            "Cloudflare Web Analytics : mesure des visites sans cookies, via une balise technique qui ne vous profile pas à des fins publicitaires.",
+            "Umami (Umami Software, serveurs dans l’UE) : mesure des visites et des clics sur les boutons de contact, sans cookies ni identifiants persistants."
           ]
         },
         {
@@ -180,7 +181,7 @@
           "title": "4. Comment les gérer",
           "paragraphs": [
             "Vous pouvez supprimer ou bloquer les cookies dans les réglages du navigateur. Si vous supprimez le cookie de langue, le site reviendra à la langue par défaut ou à celle que vous choisirez de nouveau.",
-            "Cloudflare Web Analytics n’exige pas de consentement aux cookies publicitaires, car il n’utilise pas de cookies. Si vous ne souhaitez pas cette mesure, vous pouvez bloquer les scripts dans le navigateur."
+            "Cloudflare Web Analytics et Umami n’exigent pas de consentement aux cookies publicitaires, car ils n’utilisent pas de cookies. Si vous ne souhaitez pas cette mesure, vous pouvez bloquer les scripts dans le navigateur."
           ]
         }
       ]

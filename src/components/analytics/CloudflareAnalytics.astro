@@ -5,6 +5,9 @@ interface Props {
 }
 
 const token = import.meta.env.PUBLIC_CLOUDFLARE_WEB_ANALYTICS_TOKEN ?? '';
+const umamiId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID ?? '';
+const umamiEnabled = Boolean(umamiId);
+const umamiScriptSrc = umamiEnabled ? 'https://cloud.umami.is/script.js' : '';
 const { locale, pageKey } = Astro.props;
 ---
 
@@ -23,16 +26,75 @@ const { locale, pageKey } = Astro.props;
   )
 }
 
-<script is:inline define:vars={{ locale, pageKey }}>
+{
+  umamiEnabled && (
+    <script
+      is:inline
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id={umamiId}
+      data-domains="loscolladosdesanmiguel.com,www.loscolladosdesanmiguel.com"
+    />
+  )
+}
+
+<script is:inline define:vars={{ locale, pageKey, umamiEnabled, umamiScriptSrc }}>
+  window.__umamiQueue = window.__umamiQueue || [];
+
+  function umamiProps(payload) {
+    const props = { locale: payload.locale, page: payload.page };
+    if (payload.source) props.source = payload.source;
+    return props;
+  }
+
+  function flushUmamiQueue() {
+    try {
+      if (!window.umami || typeof window.umami.track !== 'function') return false;
+      const queue = window.__umamiQueue || [];
+      window.__umamiQueue = [];
+      for (let i = 0; i < queue.length; i++) {
+        try {
+          window.umami.track(queue[i][0], queue[i][1]);
+        } catch (error) {}
+      }
+      return true;
+    } catch (error) {
+      return false;
+    }
+  }
+
+  if (umamiEnabled) {
+    try {
+      document.querySelectorAll('script[src="' + umamiScriptSrc + '"]').forEach(function (el) {
+        el.addEventListener('load', function () {
+          flushUmamiQueue();
+        });
+      });
+      const started = Date.now();
+      const timer = setInterval(function () {
+        if (flushUmamiQueue() || Date.now() - started > 10000) {
+          clearInterval(timer);
+        }
+      }, 200);
+    } catch (error) {}
+  }
+
   window.trackConversion = function trackConversion(name, props) {
     const payload = Object.assign({ locale: locale, page: pageKey }, props || {});
+    if (umamiEnabled) {
+      try {
+        const eventProps = umamiProps(payload);
+        if (window.umami && typeof window.umami.track === 'function') {
+          window.umami.track(name, eventProps);
+        } else {
+          window.__umamiQueue.push([name, eventProps]);
+        }
+      } catch (error) {}
+    }
     try {
-      if (window.zaraz && typeof window.zaraz.track === 'function') {
-        window.zaraz.track(name, payload);
-      }
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(Object.assign({ event: name }, payload));
     } catch (error) {}
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push(Object.assign({ event: name }, payload));
   };
 
   document.addEventListener(
@@ -42,7 +104,6 @@ const { locale, pageKey } = Astro.props;
       if (!target) return;
       window.trackConversion(target.getAttribute('data-track'), {
         source: target.getAttribute('data-track-source') || 'link',
-        href: target.getAttribute('href') || '',
       });
     },
     true,
