@@ -2,7 +2,9 @@ import { business } from './business';
 import { contact } from './contact';
 import { site } from './site';
 import { booking } from './booking';
+import { hunting } from './hunting';
 import { images } from './images';
+import { getHuntingHeroLoop, getHuntingJornada } from './media';
 import { absoluteUrl, localeMeta, msg, pagePathname, type Locale, type PageKey } from '../i18n';
 import { withBase } from '../utils/paths';
 
@@ -181,6 +183,54 @@ export function serviceJsonLd(locale: Locale, pageKey: PageKey, pageUrl: string)
   };
 }
 
+export function huntingVideoJsonLd(locale: Locale, pageKey: PageKey): JsonLd[] {
+  if (pageKey !== 'la-calerilla') return [];
+  const jornada = (msg(locale)['la-calerilla'] as {
+    jornada?: {
+      loopName: string;
+      loopDescription: string;
+      videoName: string;
+      videoDescription: string;
+    };
+  }).jornada;
+  if (!jornada) return [];
+
+  const items: JsonLd[] = [];
+  const loop = getHuntingHeroLoop();
+  const longform = getHuntingJornada();
+  const credit = (msg(locale).conversion as { videoCredit: string }).videoCredit;
+
+  if (loop.desktop) {
+    items.push({
+      '@type': 'VideoObject',
+      name: jornada.loopName,
+      description: jornada.loopDescription,
+      thumbnailUrl: absoluteAsset(images.hero.laCalerillaLoop),
+      uploadDate: hunting.videoPublished,
+      duration: hunting.loopDuration,
+      contentUrl: absoluteAsset(loop.desktop),
+      inLanguage: localeMeta[locale].bcp47,
+      creditText: credit,
+    });
+  }
+
+  if (longform.src) {
+    items.push({
+      '@type': 'VideoObject',
+      name: jornada.videoName,
+      description: jornada.videoDescription,
+      thumbnailUrl: absoluteAsset(images.laCalerilla.jornadaPoster),
+      uploadDate: hunting.videoPublished,
+      duration: hunting.jornadaDuration,
+      contentUrl: absoluteAsset(longform.src),
+      inLanguage: localeMeta[locale].bcp47,
+      creditText: credit,
+    });
+  }
+
+  return items;
+}
+
 export function jsonLdGraph(locale: Locale, pageKey: PageKey, pageUrl: string, isHome: boolean) {
   const graph: JsonLd[] = [lodgingBusinessJsonLd(locale, isHome ? site.url : pageUrl)];
   if (isHome) {
@@ -192,5 +242,6 @@ export function jsonLdGraph(locale: Locale, pageKey: PageKey, pageUrl: string, i
   if (faq) graph.push(faq);
   const service = serviceJsonLd(locale, pageKey, pageUrl);
   if (service) graph.push(service);
+  graph.push(...huntingVideoJsonLd(locale, pageKey));
   return graph;
 }

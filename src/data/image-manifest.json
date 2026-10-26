@@ -82,6 +82,56 @@
       }
     ]
   },
+  "/images/calerilla-hero-loop.jpg": {
+    "width": 848,
+    "height": 480,
+    "fallback": "/images/opt/calerilla-hero-loop/848.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/calerilla-hero-loop/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/calerilla-hero-loop/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/calerilla-hero-loop/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/calerilla-hero-loop/768.webp"
+      }
+    ]
+  },
+  "/images/calerilla-jornada-poster.jpg": {
+    "width": 848,
+    "height": 480,
+    "fallback": "/images/opt/calerilla-jornada-poster/848.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/calerilla-jornada-poster/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/calerilla-jornada-poster/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/calerilla-jornada-poster/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/calerilla-jornada-poster/768.webp"
+      }
+    ]
+  },
   "/images/bungalow-interior.jpg": {
     "width": 1600,
     "height": 1067,

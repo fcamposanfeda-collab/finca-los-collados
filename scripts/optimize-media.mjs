@@ -13,6 +13,8 @@ const imageFiles = [
   'hero-entrada-atardecer.png',
   'hero-casa-panorama.png',
   'calerilla-hero.jpg',
+  'calerilla-hero-loop.jpg',
+  'calerilla-jornada-poster.jpg',
   'bungalow-interior.jpg',
   'gastronomia.jpg',
   'campo-montiel.png',
@@ -78,6 +80,7 @@ const heroNames = new Set([
   'hero-entrada-atardecer.png',
   'hero-casa-panorama.png',
   'calerilla-hero.jpg',
+  'calerilla-hero-loop.jpg',
   'bungalow-interior.jpg',
   'gastronomia.jpg',
   'campo-montiel.png',
@@ -219,10 +222,116 @@ function mkdirSyncSafe(dir) {
   mkdirSync(dir, { recursive: true });
 }
 
+function runFfmpeg(args) {
+  if (!ffmpeg) throw new Error('ffmpeg-static not found');
+  execFileSync(ffmpeg, args, { stdio: 'inherit' });
+}
+
+/**
+ * Native 848×480 sources: do not upscale to 1280.
+ * Loop clips from Fase 0 frame table (v2-009, v1-008, v2-010, v2-014).
+ */
+function encodeHuntingVideos() {
+  if (!ffmpeg) {
+    console.warn('ffmpeg-static not found; skipping hunting videos');
+    return;
+  }
+  const v1 = join(root, 'public', 'videos', 'calerilla-caceria-1.mp4');
+  const v2 = join(root, 'public', 'videos', 'calerilla-caceria-2.mp4');
+  if (!existsSync(v1) || !existsSync(v2)) {
+    console.warn('skip hunting videos: source mp4 missing');
+    return;
+  }
+
+  const outDir = join(root, 'public', 'videos', 'opt');
+  mkdirSyncSafe(outDir);
+  mkdirSyncSafe(join(root, 'public', 'images'));
+
+  const loop848 = join(outDir, 'calerilla-hero-loop-848.mp4');
+  const loop720 = join(outDir, 'calerilla-hero-loop-720.mp4');
+  const jornada = join(outDir, 'calerilla-jornada.mp4');
+  const posterStill = join(root, 'public', 'images', 'calerilla-hero-loop.jpg');
+  const jornadaStill = join(root, 'public', 'images', 'calerilla-jornada-poster.jpg');
+
+  const trimPad = (label, start, duration) =>
+    `[${label}:v]trim=start=${start}:duration=${duration},setpts=PTS-STARTPTS,scale=848:480:force_original_aspect_ratio=decrease,pad=848:480:(ow-iw)/2:(oh-ih)/2,fps=24,setsar=1[${label}o]`;
+
+  console.log('hunting hero loop 848');
+  runFfmpeg([
+    '-y',
+    '-i', v1,
+    '-i', v1,
+    '-i', v2,
+    '-i', v2,
+    '-filter_complex',
+    `${trimPad('0', 23, 3.5)};${trimPad('1', 47, 3.2)};${trimPad('2', 36.8, 3.3)};${trimPad('3', 50.5, 3.3)};[0o][1o][2o][3o]concat=n=4:v=1:a=0,format=yuv420p[v]`,
+    '-map', '[v]',
+    '-an',
+    '-c:v', 'libx264',
+    '-crf', '28',
+    '-preset', 'medium',
+    '-movflags', '+faststart',
+    loop848,
+  ]);
+
+  console.log('hunting hero loop 720');
+  runFfmpeg([
+    '-y',
+    '-i', loop848,
+    '-an',
+    '-c:v', 'libx264',
+    '-crf', '30',
+    '-preset', 'medium',
+    '-vf', 'scale=720:-2',
+    '-movflags', '+faststart',
+    loop720,
+  ]);
+
+  console.log('hunting hero poster');
+  runFfmpeg(['-y', '-i', loop848, '-ss', '4.8', '-frames:v', '1', '-q:v', '2', posterStill]);
+
+  console.log('hunting jornada 848');
+  runFfmpeg([
+    '-y',
+    '-i', v1,
+    '-i', v2,
+    '-filter_complex',
+    '[0:v]trim=start=22:duration=38,setpts=PTS-STARTPTS,scale=848:480:force_original_aspect_ratio=decrease,pad=848:480:(ow-iw)/2:(oh-ih)/2,fps=24,setsar=1[v0];' +
+      '[1:v]trim=start=36:duration=22,setpts=PTS-STARTPTS,scale=848:480:force_original_aspect_ratio=decrease,pad=848:480:(ow-iw)/2:(oh-ih)/2,fps=24,setsar=1[v1];' +
+      '[v0][v1]concat=n=2:v=1:a=0,format=yuv420p[v]',
+    '-map', '[v]',
+    '-an',
+    '-c:v', 'libx264',
+    '-crf', '28',
+    '-preset', 'medium',
+    '-movflags', '+faststart',
+    jornada,
+  ]);
+
+  console.log('hunting jornada poster');
+  runFfmpeg(['-y', '-i', jornada, '-ss', '2', '-frames:v', '1', '-q:v', '2', jornadaStill]);
+
+  const loopSize = existsSync(loop848) ? statSync(loop848).size / (1024 * 1024) : 0;
+  const loop720Size = existsSync(loop720) ? statSync(loop720).size / (1024 * 1024) : 0;
+  const jornadaSize = existsSync(jornada) ? statSync(jornada).size / (1024 * 1024) : 0;
+  console.log(
+    `hunting sizes loop848=${loopSize.toFixed(2)}MB loop720=${loop720Size.toFixed(2)}MB jornada=${jornadaSize.toFixed(2)}MB`,
+  );
+}
+
 await mkdir(join(root, 'public', 'images', 'opt'), { recursive: true });
 await mkdir(join(root, 'public', 'videos', 'opt'), { recursive: true });
-await optimizeImages();
-if (!process.argv.includes('--images-only')) {
-  optimizeVideos();
+
+const huntingOnly = process.argv.includes('--hunting-only');
+const imagesOnly = process.argv.includes('--images-only');
+
+if (!imagesOnly) {
+  encodeHuntingVideos();
+}
+if (!huntingOnly) {
+  await optimizeImages();
+  if (!imagesOnly) {
+    optimizeVideos();
+  }
 }
 console.log('optimize-media done');

@@ -32,6 +32,11 @@ interface Props {
   closingVideo?: string;
   closingVideoAlt?: string;
   closingVideoPosition?: string;
+  heroVideoDesktop?: string;
+  heroVideoMobile?: string;
+  heroPauseLabel?: string;
+  heroPlayLabel?: string;
+  heroVideoCredit?: string;
   index?: boolean;
 }
 
@@ -60,6 +65,11 @@ const {
   closingVideo,
   closingVideoAlt,
   closingVideoPosition,
+  heroVideoDesktop,
+  heroVideoMobile,
+  heroPauseLabel,
+  heroPlayLabel,
+  heroVideoCredit,
   index = true,
 } = Astro.props;
 ---
@@ -77,6 +87,11 @@ const {
     secondaryLabel={heroSecondaryLabel}
     secondaryHref={heroSecondaryHref}
     secondaryTrack={heroSecondaryTrack}
+    videoDesktop={heroVideoDesktop}
+    videoMobile={heroVideoMobile}
+    pauseLabel={heroPauseLabel}
+    playLabel={heroPlayLabel}
+    videoCredit={heroVideoCredit}
   />
   <div class="container">
     <Breadcrumbs />

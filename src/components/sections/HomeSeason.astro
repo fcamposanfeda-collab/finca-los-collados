@@ -1,0 +1,69 @@
+---
+import { hunting, isInGeneralHuntingSeason } from '../../data/hunting';
+import { images } from '../../data/images';
+import ContentImage from '../ui/ContentImage.astro';
+import { useI18n } from '../../i18n';
+
+const { href, t } = useI18n(Astro);
+const inSeason = isInGeneralHuntingSeason();
+const title = inSeason
+  ? t('home.seasonBlock.inTitle', { season: hunting.seasonLabel })
+  : t('home.seasonBlock.outTitle');
+const text = inSeason ? t('home.seasonBlock.inText') : t('home.seasonBlock.outText');
+const eyebrow = inSeason ? t('home.seasonBlock.inEyebrow') : t('home.seasonBlock.outEyebrow');
+---
+
+<section class="section section--alt home-season" aria-label={t('home.seasonBlock.aria')}>
+  <div class="container text-image">
+    <div class="page-content__inner">
+      <p class="home-season__eyebrow">{eyebrow}</p>
+      <h2 class="section__title">{title}</h2>
+      <p class="home-season__text">{text}</p>
+      <a
+        href={href('la-calerilla')}
+        class="btn"
+        data-track="nav"
+        data-track-source="home-season"
+      >
+        {t('home.seasonBlock.cta')}
+      </a>
+    </div>
+    <div class="text-image__media">
+      <ContentImage
+        src={images.hero.laCalerillaLoop}
+        alt={t('images.calerillaLoop')}
+        aspect="wide"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .home-season__eyebrow {
+    margin: 0 0 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: var(--letter-eyebrow);
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+
+  .home-season .section__title {
+    margin-bottom: 0.85rem;
+  }
+
+  .home-season__text {
+    margin: 0 0 1.5rem;
+    max-width: var(--measure);
+    color: var(--color-muted);
+  }
+
+  .home-season .text-image__media :global(.content-image),
+  .home-season .text-image__media :global(picture),
+  .home-season .text-image__media :global(img) {
+    width: 100%;
+    height: 100%;
+    min-height: 18rem;
+    object-fit: cover;
+  }
+</style>

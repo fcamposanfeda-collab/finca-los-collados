@@ -47,6 +47,17 @@
       "description": "Combine la cacería con bungalows, restauración manchega y entorno privado."
     }
   ],
+  "jornada": {
+    "title": "Así es una jornada",
+    "text": "Ojeadores, puestos y bandos de perdiz roja en La Calerilla.",
+    "aria": "Vídeo de una jornada de caza en La Calerilla",
+    "transcriptLabel": "Guion",
+    "transcript": "Montaje de una jornada en La Calerilla: ojeadores avanzan por el campo, cazadores en puestos entre cereal y encinas, y bandos de perdiz roja.",
+    "loopName": "La Calerilla · ojeo de perdiz roja",
+    "loopDescription": "Bucle de una jornada de ojeo en La Calerilla: encinas, ojeadores y bandos de perdiz roja.",
+    "videoName": "Así es una jornada en La Calerilla",
+    "videoDescription": "Ojeadores, puestos y perdiz roja en una jornada de caza en La Calerilla, Campos de Montiel."
+  },
   "season": {
     "title": "Información de temporada",
     "items": [

@@ -47,6 +47,17 @@
       "description": "Associez la chasse aux bungalows, à la cuisine traditionnelle de La Mancha et à un cadre privé."
     }
   ],
+  "jornada": {
+    "title": "Une journée de chasse",
+    "text": "Rabatteurs, postes et battue de perdreaux rouges à La Calerilla.",
+    "aria": "Vidéo d’une journée de battue à La Calerilla",
+    "transcriptLabel": "Transcription",
+    "transcript": "Une journée à La Calerilla : les rabatteurs avancent dans le terrain, les chasseurs aux postes entre céréales et chênes verts, et des compagnies de perdreaux rouges.",
+    "loopName": "La Calerilla · battue de perdreaux rouges",
+    "loopDescription": "Boucle muette d’une battue à La Calerilla : chênes verts, rabatteurs et compagnies de perdreaux rouges.",
+    "videoName": "Une journée de battue à La Calerilla",
+    "videoDescription": "Rabatteurs, postes et perdreaux rouges lors d’une journée de chasse à La Calerilla, Campos de Montiel."
+  },
   "season": {
     "title": "Informations de saison",
     "items": [

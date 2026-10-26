@@ -14,6 +14,11 @@ interface Props {
   secondaryLabel?: string;
   secondaryHref?: string;
   secondaryTrack?: string;
+  videoDesktop?: string;
+  videoMobile?: string;
+  pauseLabel?: string;
+  playLabel?: string;
+  videoCredit?: string;
 }
 
 const {
@@ -29,7 +34,14 @@ const {
   secondaryLabel,
   secondaryHref,
   secondaryTrack,
+  videoDesktop,
+  videoMobile,
+  pauseLabel,
+  playLabel,
+  videoCredit,
 } = Astro.props;
+
+const hasLoop = Boolean(videoDesktop || videoMobile);
 
 function isHttp(url?: string) {
   return Boolean(url && url.startsWith('http'));
@@ -39,6 +51,7 @@ function isHttp(url?: string) {
 <section
   class:list={['page-hero', { 'page-hero--compact': compact, 'page-hero--photo': Boolean(imageSrc) }]}
   aria-labelledby="page-hero-title"
+  data-page-hero-video={hasLoop ? '' : undefined}
 >
   {
     imageSrc && (
@@ -52,6 +65,20 @@ function isHttp(url?: string) {
         fetchpriority="high"
         sizes="100vw"
       />
+    )
+  }
+  {
+    hasLoop && (
+      <video
+        class="page-hero__video"
+        muted
+        loop
+        playsinline
+        preload="none"
+        aria-hidden="true"
+        data-src-desktop={videoDesktop}
+        data-src-mobile={videoMobile}
+      ></video>
     )
   }
   <div class="page-hero__overlay"></div>
@@ -89,8 +116,109 @@ function isHttp(url?: string) {
         </div>
       ) : null
     }
+    {
+      hasLoop && pauseLabel && playLabel && (
+        <div class="page-hero__chrome">
+          {videoCredit && <p class="page-hero__credit">{videoCredit}</p>}
+          <button
+            type="button"
+            class="page-hero__pause"
+            data-hero-pause
+            hidden
+            data-pause-label={pauseLabel}
+            data-play-label={playLabel}
+          >
+            {pauseLabel}
+          </button>
+        </div>
+      )
+    }
   </div>
 </section>
+
+{hasLoop && (
+  <script>
+    function prefersReducedMotion() {
+      return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+
+    function saveData() {
+      const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
+      return Boolean(connection?.saveData);
+    }
+
+    function afterPaint(callback: () => void) {
+      requestAnimationFrame(() => requestAnimationFrame(callback));
+    }
+
+    function loopSrc(video: HTMLVideoElement) {
+      const mobile = window.matchMedia('(max-width: 767px)').matches;
+      const chosen = mobile ? video.dataset.srcMobile : video.dataset.srcDesktop;
+      return chosen || video.dataset.srcDesktop || video.dataset.srcMobile || '';
+    }
+
+    function bindPause(hero: HTMLElement, video: HTMLVideoElement) {
+      const button = hero.querySelector<HTMLButtonElement>('[data-hero-pause]');
+      if (!button) return;
+      const pauseLabel = button.dataset.pauseLabel ?? '';
+      const playLabel = button.dataset.playLabel ?? '';
+
+      const sync = () => {
+        const paused = video.paused;
+        button.hidden = false;
+        button.textContent = paused ? playLabel : pauseLabel;
+      };
+
+      button.addEventListener('click', () => {
+        if (video.paused) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+        sync();
+      });
+      video.addEventListener('play', sync);
+      video.addEventListener('pause', sync);
+    }
+
+    function loadLoop(hero: HTMLElement) {
+      if (hero.dataset.heroVideoReady === 'true') return;
+      const video = hero.querySelector<HTMLVideoElement>('.page-hero__video');
+      if (!video) return;
+      if (prefersReducedMotion() || saveData()) return;
+
+      const src = loopSrc(video);
+      if (!src) return;
+      hero.dataset.heroVideoReady = 'true';
+      video.src = src;
+      bindPause(hero, video);
+      video.addEventListener(
+        'loadeddata',
+        () => {
+          video
+            .play()
+            .then(() => hero.classList.add('is-video-on'))
+            .catch(() => {});
+        },
+        { once: true },
+      );
+      video.load();
+    }
+
+    function startWhenPosterReady(hero: HTMLElement) {
+      const img = hero.querySelector('img');
+      const start = () => afterPaint(() => loadLoop(hero));
+      if (!img || img.complete) {
+        start();
+        return;
+      }
+      img.addEventListener('load', start, { once: true });
+      img.addEventListener('error', start, { once: true });
+    }
+
+    document.querySelectorAll<HTMLElement>('[data-page-hero-video]').forEach(startWhenPosterReady);
+  </script>
+)}
 
 <style>
   .page-hero {
@@ -167,7 +295,8 @@ function isHttp(url?: string) {
   }
 
   .page-hero :global(picture.page-hero__img),
-  .page-hero :global(img.page-hero__img) {
+  .page-hero :global(img.page-hero__img),
+  .page-hero__video {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -175,13 +304,59 @@ function isHttp(url?: string) {
   }
 
   .page-hero :global(.page-hero__img img),
-  .page-hero :global(img.page-hero__img) {
+  .page-hero :global(img.page-hero__img),
+  .page-hero__video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
     max-width: none;
+  }
+
+  .page-hero__video {
+    z-index: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .page-hero.is-video-on .page-hero__video {
     opacity: 1;
+  }
+
+  .page-hero__chrome {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1rem;
+    margin-top: 1.1rem;
+  }
+
+  .page-hero__credit {
+    margin: 0;
+    flex: 1 1 12rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+    color: rgb(244 239 230 / 0.72);
+  }
+
+  .page-hero__pause {
+    padding: 0.4rem 0.7rem;
+    border: 1px solid rgb(244 239 230 / 0.55);
+    border-radius: var(--radius);
+    background: rgb(28 25 20 / 0.45);
+    color: var(--color-on-dark);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .page-hero__pause:hover,
+  .page-hero__pause:focus-visible {
+    border-color: var(--color-on-dark);
+    background: rgb(28 25 20 / 0.7);
   }
 
   @media (min-width: 768px) {
@@ -213,5 +388,12 @@ function isHttp(url?: string) {
     color: var(--color-text);
     background: var(--color-on-primary);
     border-color: var(--color-on-primary);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .page-hero__video,
+    .page-hero__chrome {
+      display: none;
+    }
   }
 </style>

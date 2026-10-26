@@ -79,6 +79,16 @@
       }
     ]
   },
+  "seasonBlock": {
+    "aria": "Shooting season at La Calerilla",
+    "inEyebrow": "Season open",
+    "inTitle": "Red-legged partridge season {season}",
+    "inText": "La Calerilla offers driven days, walked-up shooting and call hunting. Combine the day with a Bungalow Suite, estate dining and a transfer from Madrid.",
+    "outEyebrow": "Next season",
+    "outTitle": "Reserve next season",
+    "outText": "The general shooting season is closed. Ask for dates for the next one, with lodging and dining on the estate.",
+    "cta": "See La Calerilla"
+  },
   "cta": {
     "title": "Ready for a countryside retreat?",
     "text": "Book online or write to us to shape your stay, an intimate celebration or a corporate day at an unhurried pace."

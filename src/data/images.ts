@@ -16,6 +16,7 @@ const imagesRaw = {
     home: '/images/hero-entrada-atardecer.png',
     laFinca: '/images/hero-casa-panorama.png',
     laCalerilla: '/images/calerilla-hero.jpg',
+    laCalerillaLoop: '/images/calerilla-hero-loop.jpg',
     alojamiento: '/images/bungalow-interior.jpg',
     gastronomia: '/images/gastronomia.jpg',
     experiencias: '/images/campo-montiel.png',
@@ -29,6 +30,8 @@ const imagesRaw = {
 
   laCalerilla: {
     hero: '/images/calerilla-hero.jpg',
+    loopPoster: '/images/calerilla-hero-loop.jpg',
+    jornadaPoster: '/images/calerilla-jornada-poster.jpg',
     campo: '/images/calerilla-temporada.jpg',
     perdiz: '/images/calerilla-perdiz.png',
     gastronomia: '/images/gastronomia.jpg',

@@ -47,6 +47,17 @@
       "description": "Combine the day with bungalows, traditional La Mancha dining and a private setting."
     }
   ],
+  "jornada": {
+    "title": "A day in the field",
+    "text": "Beaters, pegs and driven red-legged partridge at La Calerilla.",
+    "aria": "Video of a driven partridge day at La Calerilla",
+    "transcriptLabel": "Transcript",
+    "transcript": "A day at La Calerilla: beaters moving through the ground, guns at pegs among cereal and holm oaks, and coveys of red-legged partridge.",
+    "loopName": "La Calerilla · driven red-legged partridge",
+    "loopDescription": "Muted loop of a driven day at La Calerilla: holm oaks, beaters and coveys of red-legged partridge.",
+    "videoName": "A driven day at La Calerilla",
+    "videoDescription": "Beaters, pegs and red-legged partridge on a shooting day at La Calerilla, Campos de Montiel."
+  },
   "season": {
     "title": "Season information",
     "items": [
