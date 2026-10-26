@@ -223,7 +223,7 @@ const { t } = useI18n(Astro);
   .image-carousel {
     position: relative;
     width: 100%;
-    border-radius: 0.5rem;
+    border-radius: var(--radius);
     overflow: hidden;
     background: var(--color-bg-alt);
   }
@@ -241,9 +241,8 @@ const { t } = useI18n(Astro);
 
   .image-carousel--gallery .image-carousel__frame {
     overflow: hidden;
-    border-radius: 0.5rem;
+    border-radius: var(--radius);
     background: var(--color-bg-alt);
-    box-shadow: 0 12px 40px rgba(44, 36, 25, 0.08);
   }
 
   .image-carousel__viewport {
@@ -252,7 +251,7 @@ const { t } = useI18n(Astro);
   }
 
   .image-carousel--landscape .image-carousel__viewport {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3 / 2;
     min-height: 16rem;
   }
 
@@ -289,16 +288,15 @@ const { t } = useI18n(Astro);
     width: 2.5rem;
     height: 2.5rem;
     padding: 0;
-    border: none;
-    border-radius: 50%;
-    background: rgb(255 255 255 / 0.92);
-    color: var(--color-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: rgb(247 243 236 / 0.92);
+    color: var(--color-text);
     font-size: 1.75rem;
     line-height: 1;
     cursor: pointer;
     transform: translateY(-50%);
-    box-shadow: 0 2px 8px rgb(0 0 0 / 0.12);
-    transition: background 0.2s ease, transform 0.2s ease;
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
   }
 
   .image-carousel--gallery .image-carousel__btn {
@@ -397,6 +395,6 @@ const { t } = useI18n(Astro);
   }
 
   .image-carousel--gallery .image-carousel__dot:hover {
-    background: var(--color-accent);
+    background: var(--color-primary-dark);
   }
 </style>

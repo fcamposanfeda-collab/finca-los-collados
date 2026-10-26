@@ -74,7 +74,29 @@ const videoProfile = {
   'IMG_0717.mp4': { width: 540, crf: 32, duration: 18 },
 };
 
-const heroNames = new Set(['hero-entrada-atardecer.png', 'calerilla-hero.jpg', 'bungalow-interior.jpg', 'empresa-teambuilding.jpg']);
+const heroNames = new Set([
+  'hero-entrada-atardecer.png',
+  'hero-casa-panorama.png',
+  'calerilla-hero.jpg',
+  'bungalow-interior.jpg',
+  'gastronomia.jpg',
+  'campo-montiel.png',
+  'empresa-teambuilding.jpg',
+  'evento-celebracion.jpg',
+  'evento-jardines.jpg',
+  'entorno-hero.jpg',
+  'porche-exterior.jpg',
+  'bungalow-detalle.jpg',
+  'hero-finca.jpg',
+]);
+
+const logoNames = new Set(['logo-cabecera.png', 'logo-finca-los-collados.png']);
+
+/** Same warm grade for every photograph; logos stay untouched. Crop is CSS by block type. */
+function applyLook(pipeline, skip) {
+  if (skip) return pipeline;
+  return pipeline.modulate({ brightness: 1.015, saturation: 0.93 });
+}
 
 function slugName(file) {
   return basename(file, extname(file))
@@ -95,6 +117,7 @@ async function optimizeImages() {
     const origW = meta.width || 1600;
     const origH = meta.height || 900;
     const isHero = heroNames.has(file);
+    const isLogo = logoNames.has(file);
     const isCalerilla = file === 'calerilla-hero.jpg';
     const avifQuality = isCalerilla ? 38 : isHero ? 45 : 48;
     const webpQuality = isCalerilla ? 58 : isHero ? 64 : 68;
@@ -105,7 +128,10 @@ async function optimizeImages() {
 
     const sources = { avif: [], webp: [] };
     for (const width of usedWidths) {
-      const resized = sharp(input).resize({ width, withoutEnlargement: true });
+      const resized = applyLook(
+        sharp(input).resize({ width, withoutEnlargement: true }),
+        isLogo,
+      );
       const avifName = `${width}.avif`;
       const webpName = `${width}.webp`;
       await resized.clone().avif({ quality: avifQuality }).toFile(join(outDir, avifName));
@@ -116,8 +142,10 @@ async function optimizeImages() {
 
     const fallbackWidth = Math.min(1100, origW);
     const fallbackName = `${fallbackWidth}.jpg`;
-    await sharp(input)
-      .resize({ width: fallbackWidth, withoutEnlargement: true })
+    await applyLook(
+      sharp(input).resize({ width: fallbackWidth, withoutEnlargement: true }),
+      isLogo,
+    )
       .jpeg({ quality: isCalerilla ? 62 : 72, mozjpeg: true })
       .toFile(join(outDir, fallbackName));
 
@@ -194,5 +222,7 @@ function mkdirSyncSafe(dir) {
 await mkdir(join(root, 'public', 'images', 'opt'), { recursive: true });
 await mkdir(join(root, 'public', 'videos', 'opt'), { recursive: true });
 await optimizeImages();
-optimizeVideos();
+if (!process.argv.includes('--images-only')) {
+  optimizeVideos();
+}
 console.log('optimize-media done');

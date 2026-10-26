@@ -33,22 +33,26 @@ const related = conv.related[pageKey] ?? [];
   .related-pages__list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.75rem;
+    justify-content: flex-start;
+    gap: 0.5rem 1rem;
   }
 
   .related-pages__list a {
     display: inline-flex;
-    padding: 0.55rem 1rem;
+    padding: 0.375rem 0.75rem;
     border: 1px solid var(--color-border);
-    border-radius: 999px;
-    font-weight: 600;
+    border-radius: var(--radius);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     color: var(--color-primary);
-    background: var(--color-bg);
+    background: transparent;
+    transition: border-color var(--transition-fast), color var(--transition-fast);
   }
 
   .related-pages__list a:hover {
     border-color: var(--color-primary);
-    background: var(--color-bg-alt);
+    color: var(--color-text);
   }
 </style>

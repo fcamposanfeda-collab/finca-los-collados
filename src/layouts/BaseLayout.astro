@@ -13,9 +13,11 @@ import {
   absoluteUrl,
   alternateLocales,
   hreflangLinks,
+  legalPageKeys,
   localeMeta,
   pagePathname,
   useI18n,
+  type LegalPageKey,
 } from '../i18n';
 
 interface Props {
@@ -36,6 +38,7 @@ const ogImageUrl = ogImagePath.startsWith('http')
   ? ogImagePath
   : new URL(ogImagePath, Astro.site ?? new URL(site.url)).href;
 const structuredGraph = jsonLdGraph(locale, pageKey, canonicalURL, pageKey === 'home');
+const overlayHeader = !legalPageKeys.includes(pageKey as LegalPageKey);
 
 const alternates = hreflangLinks(pageKey);
 ---
@@ -47,7 +50,7 @@ const alternates = hreflangLinks(pageKey);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="robots" content={index ? 'index, follow' : 'noindex, follow'} />
-    <meta name="theme-color" content="#4a6741" />
+    <meta name="theme-color" content="#2f3f2a" />
     <meta name="author" content={site.name} />
     <link rel="icon" type="image/png" sizes="32x32" href={withBase('/favicon-32.png')} />
     <link rel="icon" type="image/png" sizes="192x192" href={withBase('/favicon-192.png')} />
@@ -81,21 +84,21 @@ const alternates = hreflangLinks(pageKey);
     />
     <link
       rel="preload"
-      href={withBase('/fonts/source-sans-3-latin-600-normal.woff2')}
+      href={withBase('/fonts/source-sans-3-latin-500-normal.woff2')}
       as="font"
       type="font/woff2"
       crossorigin
     />
     <link
       rel="preload"
-      href={withBase('/fonts/playfair-display-latin-700-normal.woff2')}
+      href={withBase('/fonts/playfair-display-latin-400-normal.woff2')}
       as="font"
       type="font/woff2"
       crossorigin
     />
     <link
       rel="preload"
-      href={withBase('/fonts/playfair-display-latin-600-normal.woff2')}
+      href={withBase('/fonts/playfair-display-latin-500-normal.woff2')}
       as="font"
       type="font/woff2"
       crossorigin
@@ -124,7 +127,7 @@ const alternates = hreflangLinks(pageKey);
     }
     <title>{title}</title>
   </head>
-  <body>
+  <body class:list={[{ 'has-hero': overlayHeader }]}>
     <a class="skip-link" href="#main-content">{t('common.skipLink')}</a>
     <Header />
     <main id="main-content" tabindex="-1">

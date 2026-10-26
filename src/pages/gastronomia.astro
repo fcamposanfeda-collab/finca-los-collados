@@ -39,7 +39,7 @@ const page = copy.gastronomia as {
         <ContentImage src={images.experiencias.gastronomia} alt={page.alts.banner} aspect="natural" />
       </div>
       <p class="page-content__lead">{page.lead}</p>
-      <p style="font-style: italic; color: var(--color-accent); margin-bottom: 1.5rem;">{page.subtitle}</p>
+      <p class="gastronomia-subtitle">{page.subtitle}</p>
       <p>{page.description}</p>
       <p style="font-weight: 500; color: var(--color-text);">{page.dishes}</p>
       <blockquote class="gastronomia-quote">{page.quote}</blockquote>
@@ -72,6 +72,12 @@ const page = copy.gastronomia as {
 </ContentPage>
 
 <style>
+  .gastronomia-subtitle {
+    font-style: italic;
+    color: var(--color-muted);
+    margin-bottom: 1.5rem;
+  }
+
   .gastronomia-video :global(video) {
     height: clamp(12rem, 32vw, 24rem);
   }
