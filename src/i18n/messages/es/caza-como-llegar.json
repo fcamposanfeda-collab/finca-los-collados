@@ -1,0 +1,20 @@
+{
+  "hero": {
+    "eyebrow": "La Calerilla",
+    "title": "Cómo llegar",
+    "subtitle": "Villamanrique, Ciudad Real. 247 km y unas 3 h 25 min desde Madrid."
+  },
+  "intro": "La finca está en Villamanrique, Campos de Montiel (Ciudad Real). Desde Madrid hay unos 247 km y 3 h 25 min en coche (OSRM / OpenStreetMap, 19/10/2026, desde el casco de Villamanrique).",
+  "points": [
+    "Dirección y mapa: página de contacto.",
+    "Contacto caza: info@loscolladosdesanmiguel.com · +34 608 543 681."
+  ],
+  "notes": [
+    "TODO_DATO: recogida en Madrid."
+  ],
+  "cta": {
+    "title": "Solicite el dossier",
+    "text": "Fechas de caza y cómo prefiere llegar. Sin precios publicados.",
+    "buttonLabel": "Solicitar dossier"
+  }
+}

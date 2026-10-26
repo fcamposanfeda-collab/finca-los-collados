@@ -33,27 +33,91 @@
   "la-calerilla": [
     {
       "q": "¿Cuál es la temporada de caza de perdiz?",
-      "a": "La temporada habitual es de octubre a febrero. Las fechas se solicitan con antelación porque hay mucha demanda."
+      "a": "La temporada general 2026-27 va del 8 de octubre de 2026 al 8 de febrero de 2027. Las fechas se solicitan con antelación."
     },
     {
-      "q": "¿Qué modalidades se cazan?",
-      "a": "La modalidad principal es la caza en mano de perdiz roja. También hay ojeo de perdiz. TODO_DATO: otras modalidades si las hay."
+      "q": "¿Qué modalidades hay?",
+      "a": "Ojeo de perdiz, caza en mano, reclamo y sueltas."
+    },
+    {
+      "q": "¿Cómo es el ojeo?",
+      "a": "Mínimo 6 puestos. Cupos de 250, 400 o 600 piezas, a tres tiros por perdiz. Puesto de grupo o individual."
+    },
+    {
+      "q": "¿Qué incluye un ojeo?",
+      "a": "Ojeadores, kit, 10 perdices por puesto (pueden pelarse), Bungalow Suite con desayuno, taco, almuerzo y cena. A la carta: licencia y seguro, cartuchos, arma, secretario y cargador."
+    },
+    {
+      "q": "¿Cómo es la caza en mano?",
+      "a": "Seis piezas por cazador, conejo o perdiz."
     },
     {
       "q": "¿Quién organiza las jornadas?",
-      "a": "Las jornadas de caza las organiza Alectoris Ibérica SL."
+      "a": "Alectoris Ibérica SL."
     },
     {
       "q": "¿Se puede combinar con alojamiento?",
-      "a": "Sí. Puede combinar la jornada con bungalows y restauración en Finca Los Collados de San Miguel."
+      "a": "El ojeo ya incluye Bungalow Suite en alojamiento y desayuno. Puede pedir noches extra. El reclamo se ofrece sin alojamiento ni taco."
     },
     {
-      "q": "¿Cómo se reserva un día de caza?",
-      "a": "Por WhatsApp o con el formulario de La Calerilla, indicando fechas y número de tiradores."
+      "q": "¿Cómo se reserva?",
+      "a": "Solicite un dossier por WhatsApp o formulario. La reserva de caza se confirma con una señal del 50 %."
+    },
+    {
+      "q": "¿A cuánto está de Madrid?",
+      "a": "Villamanrique, Ciudad Real. Unos 247 km y 3 h 25 min en coche (OSRM / OpenStreetMap, 19/10/2026)."
     },
     {
       "q": "¿Se admiten perros de caza?",
       "a": "TODO_DATO: condiciones para perros de muestra en el coto y en los bungalows."
+    }
+  ],
+  "caza-ojeo-perdiz": [
+    {
+      "q": "¿Cuántos puestos hacen falta?",
+      "a": "Mínimo 6 puestos."
+    },
+    {
+      "q": "¿Qué cupos hay?",
+      "a": "250, 400 o 600 piezas, a tres tiros por perdiz."
+    },
+    {
+      "q": "¿El puesto es individual?",
+      "a": "Puede ser de grupo o individual."
+    },
+    {
+      "q": "¿Qué no está incluido?",
+      "a": "Licencia y seguro, cartuchos, alquiler de arma, secretario y cargador. La finca puede facilitar el alquiler de cargador."
+    }
+  ],
+  "caza-en-mano": [
+    {
+      "q": "¿Cuál es el cupo en mano?",
+      "a": "Seis piezas por cazador, conejo o perdiz."
+    },
+    {
+      "q": "¿Se combina con ojeo?",
+      "a": "Son modalidades distintas. Puede consultar ambas en el dossier."
+    }
+  ],
+  "caza-estancia": [
+    {
+      "q": "¿El bungalow va con el ojeo?",
+      "a": "Sí: Bungalow Suite en alojamiento y desayuno, más taco, almuerzo y cena el día de caza."
+    },
+    {
+      "q": "¿Cuántas personas alojáis?",
+      "a": "8 bungalows, hasta 16 adultos."
+    }
+  ],
+  "caza-como-llegar": [
+    {
+      "q": "¿Dónde está el coto?",
+      "a": "Villamanrique, Ciudad Real, Campos de Montiel."
+    },
+    {
+      "q": "¿Cuánto se tarda desde Madrid?",
+      "a": "Unos 247 km y 3 h 25 min en coche (OSRM / OpenStreetMap, 19/10/2026)."
     }
   ],
   "eventos": [

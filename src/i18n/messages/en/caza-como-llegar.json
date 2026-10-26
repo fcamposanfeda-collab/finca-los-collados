@@ -1,0 +1,20 @@
+{
+  "hero": {
+    "eyebrow": "La Calerilla",
+    "title": "Getting here",
+    "subtitle": "Villamanrique, Ciudad Real. 247 km and about 3 h 25 min from Madrid."
+  },
+  "intro": "The estate is in Villamanrique, Campos de Montiel (Ciudad Real). From Madrid it is about 247 km and 3 h 25 min by car (OSRM / OpenStreetMap, 19 Oct 2026, from Villamanrique village).",
+  "points": [
+    "Address and map: contact page.",
+    "Shooting desk: info@loscolladosdesanmiguel.com · +34 608 543 681."
+  ],
+  "notes": [
+    "TODO_DATO: pickup in Madrid."
+  ],
+  "cta": {
+    "title": "Request the dossier",
+    "text": "Shooting dates and how you prefer to arrive. No published prices.",
+    "buttonLabel": "Request a dossier"
+  }
+}

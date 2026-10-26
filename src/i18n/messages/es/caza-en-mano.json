@@ -1,0 +1,22 @@
+{
+  "hero": {
+    "eyebrow": "La Calerilla",
+    "title": "Caza en mano",
+    "subtitle": "Seis piezas por cazador, conejo o perdiz, en el coto de Villamanrique."
+  },
+  "intro": "La caza en mano recorre el terreno a pie. En La Calerilla, el cupo es de seis piezas por cazador, conejo o perdiz.",
+  "points": [
+    "Seis piezas por cazador: conejo o perdiz.",
+    "Modalidad junto al ojeo, el reclamo y las sueltas.",
+    "Puede combinarse con Bungalow Suite y mesa en la finca."
+  ],
+  "notes": [
+    "TODO_DATO: condiciones para perros de muestra en el coto y en los bungalows.",
+    "TODO_DATO: horarios de la jornada."
+  ],
+  "cta": {
+    "title": "Solicite el dossier",
+    "text": "Fechas y número de cazadores. Sin precios publicados.",
+    "buttonLabel": "Solicitar dossier"
+  }
+}

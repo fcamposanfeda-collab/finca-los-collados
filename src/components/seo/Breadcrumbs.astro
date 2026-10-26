@@ -1,10 +1,13 @@
 ---
-import { useI18n } from '../../i18n';
+import { useI18n, type PageKey } from '../../i18n';
+import { isHuntingChild } from '../../data/hunting';
 
 const { pageKey, href, copy } = useI18n(Astro);
 const conv = copy.conversion as { breadcrumbAria: string; breadcrumbHome: string };
 const navLabels = copy.nav as Record<string, string>;
+const huntingChild = isHuntingChild(pageKey);
 const current = navLabels[pageKey] ?? pageKey;
+const cazaLabel = navLabels.caza ?? navLabels['la-calerilla'] ?? pageKey;
 const show = pageKey !== 'home';
 ---
 
@@ -15,9 +18,26 @@ const show = pageKey !== 'home';
         <li>
           <a href={href('home')}>{conv.breadcrumbHome}</a>
         </li>
-        <li>
-          <span aria-current="page">{current}</span>
-        </li>
+        {
+          huntingChild ? (
+            <>
+              <li>
+                <a href={href('la-calerilla' as PageKey)}>{cazaLabel}</a>
+              </li>
+              <li>
+                <span aria-current="page">{current}</span>
+              </li>
+            </>
+          ) : pageKey === 'la-calerilla' ? (
+            <li>
+              <span aria-current="page">{cazaLabel}</span>
+            </li>
+          ) : (
+            <li>
+              <span aria-current="page">{current}</span>
+            </li>
+          )
+        }
       </ol>
     </nav>
   )

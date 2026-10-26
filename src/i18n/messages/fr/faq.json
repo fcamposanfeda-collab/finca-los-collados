@@ -33,27 +33,91 @@
   "la-calerilla": [
     {
       "q": "Quelle est la saison de chasse à la perdrix ?",
-      "a": "La saison habituelle va d’octobre à février. Il convient de demander les dates à l’avance, la demande étant forte."
+      "a": "La saison générale 2026-27 va du 8 octobre 2026 au 8 février 2027. Les dates se demandent à l’avance."
     },
     {
-      "q": "Quelles modalités de chasse sont proposées ?",
-      "a": "La modalité principale est la chasse devant soi à la perdrix rouge. Il existe aussi des battues de perdrix. TODO_DATO : autres modalités le cas échéant."
+      "q": "Quelles modalités sont proposées ?",
+      "a": "Battue de perdreaux, chasse devant soi, chasse au poste et lâchers."
     },
     {
-      "q": "Qui organise les journées de chasse ?",
-      "a": "Les journées de chasse sont organisées par Alectoris Ibérica SL."
+      "q": "Comment se passe la battue ?",
+      "a": "Minimum 6 postes. Tableaux de 250, 400 ou 600 pièces, trois coups par perdrix. Poste de groupe ou individuel."
     },
     {
-      "q": "Peut-on combiner avec l’hébergement ?",
-      "a": "Oui. Vous pouvez associer la journée à des bungalows et à la restauration de Finca Los Collados de San Miguel."
+      "q": "Que comprend une battue ?",
+      "a": "Rabatteurs, kit, 10 perdrix par poste (peuvent être plumées), Bungalow Suite avec petit-déjeuner, taco, déjeuner et dîner. À la carte : permis et assurance, cartouches, arme, secrétaire et chargeur."
     },
     {
-      "q": "Comment réserver une journée de chasse ?",
-      "a": "Par WhatsApp ou via le formulaire de La Calerilla, en indiquant les dates et le nombre de fusils."
+      "q": "Qu’est-ce que la chasse devant soi ?",
+      "a": "Six pièces par fusil, lapin ou perdrix."
+    },
+    {
+      "q": "Qui organise les journées ?",
+      "a": "Alectoris Ibérica SL."
+    },
+    {
+      "q": "Peut-on loger au domaine ?",
+      "a": "La battue comprend déjà la Bungalow Suite, nuit et petit-déjeuner. Des nuits supplémentaires peuvent être demandées. La chasse au poste se propose sans hébergement ni taco."
+    },
+    {
+      "q": "Comment réserver ?",
+      "a": "Demandez un dossier par WhatsApp ou formulaire. La réservation de chasse se confirme avec un acompte de 50 %."
+    },
+    {
+      "q": "À quelle distance est Madrid ?",
+      "a": "Villamanrique, Ciudad Real. Environ 247 km et 3 h 25 min en voiture (OSRM / OpenStreetMap, 19/10/2026)."
     },
     {
       "q": "Les chiens de chasse sont-ils acceptés ?",
       "a": "TODO_DATO : conditions pour les chiens d’arrêt sur le territoire et dans les bungalows."
+    }
+  ],
+  "caza-ojeo-perdiz": [
+    {
+      "q": "Combien de postes faut-il ?",
+      "a": "Minimum 6 postes."
+    },
+    {
+      "q": "Quels tableaux sont proposés ?",
+      "a": "250, 400 ou 600 pièces, trois coups par perdrix."
+    },
+    {
+      "q": "Le poste est-il individuel ?",
+      "a": "Il peut être de groupe ou individuel."
+    },
+    {
+      "q": "Qu’est-ce qui n’est pas compris ?",
+      "a": "Permis et assurance, cartouches, location d’arme, secrétaire et chargeur. Le domaine peut organiser la location du chargeur."
+    }
+  ],
+  "caza-en-mano": [
+    {
+      "q": "Quel est le tableau en chasse devant soi ?",
+      "a": "Six pièces par fusil, lapin ou perdrix."
+    },
+    {
+      "q": "Peut-on la combiner avec une battue ?",
+      "a": "Ce sont des modalités distinctes. Le dossier peut couvrir les deux."
+    }
+  ],
+  "caza-estancia": [
+    {
+      "q": "Le bungalow est-il compris en battue ?",
+      "a": "Oui : Bungalow Suite, nuit et petit-déjeuner, plus taco, déjeuner et dîner le jour de chasse."
+    },
+    {
+      "q": "Combien de personnes pouvez-vous loger ?",
+      "a": "8 bungalows, jusqu’à 16 adultes."
+    }
+  ],
+  "caza-como-llegar": [
+    {
+      "q": "Où se trouve le territoire ?",
+      "a": "Villamanrique, Ciudad Real, Campos de Montiel."
+    },
+    {
+      "q": "Combien de temps depuis Madrid ?",
+      "a": "Environ 247 km et 3 h 25 min en voiture (OSRM / OpenStreetMap, 19/10/2026)."
     }
   ],
   "eventos": [

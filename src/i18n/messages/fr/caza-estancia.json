@@ -1,0 +1,23 @@
+{
+  "hero": {
+    "eyebrow": "La Calerilla",
+    "title": "Chasse et séjour",
+    "subtitle": "Battue avec Bungalow Suite, petit-déjeuner, taco, déjeuner et dîner à Los Collados."
+  },
+  "intro": "En battue, la journée comprend la Bungalow Suite en chambre d’hôtes, le taco, le déjeuner et le dîner. Le domaine compte 8 bungalows, jusqu’à 16 adultes.",
+  "points": [
+    "Bungalow Suite, nuit et petit-déjeuner, comprise en battue.",
+    "Taco, déjeuner et dîner le jour de chasse.",
+    "Cuisine manchega au domaine : perdrix en escabeche, migas et produit du pays.",
+    "La chasse au poste se propose en journée sans hébergement ni taco."
+  ],
+  "notes": [
+    "TODO_DATO : prise en charge à Madrid.",
+    "Réservation de chasse avec un acompte de 50 %."
+  ],
+  "cta": {
+    "title": "Demandez chasse et séjour",
+    "text": "Indiquez dates, postes et si vous avez besoin de nuits supplémentaires en bungalow.",
+    "buttonLabel": "Demander un dossier"
+  }
+}

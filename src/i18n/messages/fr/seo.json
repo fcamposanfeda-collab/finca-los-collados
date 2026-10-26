@@ -12,8 +12,24 @@
     "description": "Finca Los Collados de San Miguel : domaine rural de plus de 2 500 ans d’histoire, bungalows, piscine et nature à Villamanrique, Ciudad Real, Espagne."
   },
   "la-calerilla": {
-    "title": "La Calerilla | Chasse devant soi | Los Collados",
-    "description": "La Calerilla : chasse à la perdrix rouge à Campos de Montiel, saison d’octobre à février, avec hébergement à Finca Los Collados de San Miguel."
+    "title": "Chasse de la perdrix rouge en Espagne | La Calerilla",
+    "description": "Battues, chasse devant soi, chasse au poste et lâchers à Villamanrique. Bungalow Suite et table à Los Collados de San Miguel."
+  },
+  "caza-ojeo-perdiz": {
+    "title": "Battue de perdreaux rouges | La Calerilla",
+    "description": "Battue de perdrix rouge à Campos de Montiel : minimum 6 postes, tableaux 250, 400 ou 600, rabatteurs et Bungalow Suite. Demandez le dossier."
+  },
+  "caza-en-mano": {
+    "title": "Chasse devant soi à la perdrix | La Calerilla",
+    "description": "Chasse devant soi à La Calerilla : six pièces par fusil, lapin ou perdrix, à Villamanrique, Espagne."
+  },
+  "caza-estancia": {
+    "title": "Chasse et séjour | La Calerilla",
+    "description": "Battue de perdrix avec Bungalow Suite, petit-déjeuner, taco, déjeuner et dîner à Finca Los Collados de San Miguel."
+  },
+  "caza-como-llegar": {
+    "title": "Accès à La Calerilla | Villamanrique",
+    "description": "La Calerilla se trouve à Villamanrique, Ciudad Real : 247 km et 3 h 25 min depuis Madrid. Contact chasse et dossier."
   },
   "alojamiento": {
     "title": "Bungalows ruraux | Los Collados de San Miguel",

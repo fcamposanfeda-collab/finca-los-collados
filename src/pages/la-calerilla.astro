@@ -1,42 +1,60 @@
 ---
 import ContentPage from '../components/ui/ContentPage.astro';
-import TextImageMedia from '../components/ui/TextImageMedia.astro';
-import HuntingJornada from '../components/sections/HuntingJornada.astro';
+import ImageCarousel from '../components/ui/ImageCarousel.astro';
 import { getPageMeta } from '../data/pages-meta';
 import { images } from '../data/images';
-import { getHuntingHeroLoop, getHuntingJornada } from '../data/media';
+import { getHuntingHeroLoop } from '../data/media';
 import ContactForm from '../components/forms/ContactForm.astro';
 import TrustBlock from '../components/conversion/TrustBlock.astro';
 import { buildPageWhatsAppUrl } from '../data/booking';
 import { contactFormUrl } from '../data/forms';
-import { useI18n } from '../i18n';
+import {
+  hunting,
+  formatHuntingDay,
+  visibleLines,
+} from '../data/hunting';
+import { useI18n, type PageKey } from '../i18n';
 
-const { locale, copy, t } = useI18n(Astro);
+const { locale, copy, t, href, meta: localeMeta } = useI18n(Astro);
 const meta = getPageMeta('la-calerilla', locale);
 const heroLoop = getHuntingHeroLoop();
-const jornadaVideo = getHuntingJornada();
 const page = copy['la-calerilla'] as {
   hero: { eyebrow: string; title: string; subtitle: string };
   intro: string;
-  blocks: { title: string; paragraphs: string[] }[];
-  featuresTitle: string;
-  features: { title: string; description: string }[];
-  season: { title: string; items: string[] };
-  jornada: {
-    title: string;
-    text: string;
-    aria: string;
-    transcriptLabel: string;
-    transcript: string;
-  };
+  modalitiesTitle: string;
+  modalities: { pageKey: PageKey; title: string; text: string }[];
+  ojeoTitle: string;
+  ojeoIncludesTitle: string;
+  ojeoIncludes: string[];
+  ojeoExtraTitle: string;
+  ojeoExtra: string[];
+  reserveNote: string;
+  seasonTitle: string;
+  seasonBody: string;
+  seasonItems: string[];
+  galleryTitle: string;
   cta: { title: string; text: string; buttonLabel: string };
   form: { title: string; intro: string };
 };
-const blockImages = [
-  images.laCalerilla.campo,
-  images.laCalerilla.perdiz,
-  images.laCalerilla.gastronomia,
+const seasonTitle = page.seasonTitle.replace('{season}', hunting.seasonLabel);
+const seasonBody = page.seasonBody
+  .replace('{start}', formatHuntingDay(hunting.general.start, localeMeta.bcp47))
+  .replace('{end}', formatHuntingDay(hunting.general.end, localeMeta.bcp47));
+const seasonItems = visibleLines(page.seasonItems);
+const galleryAlts = [
+  t('images.calerillaLoop'),
+  t('images.calerillaJornada'),
+  page.modalities[0]?.title ?? '',
+  page.modalities[1]?.title ?? '',
+  page.hero.title,
+  page.ojeoIncludesTitle,
+  page.cta.title,
+  page.galleryTitle,
 ];
+const slides = images.laCalerilla.gallery.map((src, index) => ({
+  src,
+  alt: galleryAlts[index] ?? page.galleryTitle,
+}));
 ---
 
 <ContentPage
@@ -52,12 +70,12 @@ const blockImages = [
   heroPauseLabel={t('conversion.pauseVideo')}
   heroPlayLabel={t('conversion.playVideo')}
   heroVideoCredit={t('conversion.videoCredit')}
-  heroCtaLabel={t('common.whatsapp')}
-  heroCtaHref={buildPageWhatsAppUrl('la-calerilla', locale)}
-  heroCtaTrack="whatsapp"
-  heroSecondaryLabel={page.cta.buttonLabel}
-  heroSecondaryHref={contactFormUrl(locale, 'caza')}
-  heroSecondaryTrack="form"
+  heroCtaLabel={t('common.requestDossier')}
+  heroCtaHref={contactFormUrl(locale, 'caza')}
+  heroCtaTrack="form"
+  heroSecondaryLabel={t('common.whatsapp')}
+  heroSecondaryHref={buildPageWhatsAppUrl('la-calerilla', locale)}
+  heroSecondaryTrack="whatsapp"
   ctaTitle={page.cta.title}
   ctaText={page.cta.text}
   ctaButtonLabel={t('common.whatsapp')}
@@ -70,53 +88,61 @@ const blockImages = [
   <section class="page-content">
     <div class="container page-content__inner page-content__inner--wide">
       <p class="page-content__lead">{page.intro}</p>
-      <h2 class="section__title">{page.season.title}</h2>
-      <ul class="capacity-list" style="max-width: 32rem; margin-inline: auto;">
-        {page.season.items.map((item) => <li>{item}</li>)}
+      <h2 class="section__title">{page.modalitiesTitle}</h2>
+      <div class="feature-grid feature-grid--4">
+        {
+          page.modalities.map((item) =>
+            item.pageKey === 'la-calerilla' ? (
+              <article class="feature-grid__card">
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ) : (
+              <article class="feature-grid__card">
+                <h3>
+                  <a href={href(item.pageKey)}>{item.title}</a>
+                </h3>
+                <p>{item.text}</p>
+              </article>
+            ),
+          )
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="page-content page-content--alt section--alt">
+    <div class="container page-content__inner">
+      <h2 class="section__title">{page.ojeoTitle}</h2>
+      <h3>{page.ojeoIncludesTitle}</h3>
+      <ul class="capacity-list">
+        {page.ojeoIncludes.map((item) => <li>{item}</li>)}
+      </ul>
+      <h3>{page.ojeoExtraTitle}</h3>
+      <ul class="capacity-list">
+        {page.ojeoExtra.map((item) => <li>{item}</li>)}
+      </ul>
+      <p>{page.reserveNote}</p>
+      <p>
+        <a href={href('caza-ojeo-perdiz')} class="btn">{t('common.seeMore')}</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="page-content">
+    <div class="container page-content__inner">
+      <h2 class="section__title">{seasonTitle}</h2>
+      <p>{seasonBody}</p>
+      <ul class="capacity-list">
+        {seasonItems.map((item) => <li>{item}</li>)}
       </ul>
     </div>
   </section>
 
-  {
-    jornadaVideo.src && (
-      <HuntingJornada
-        src={jornadaVideo.src}
-        poster={images.laCalerilla.jornadaPoster}
-        title={page.jornada.title}
-        text={page.jornada.text}
-        aria={page.jornada.aria}
-        transcriptLabel={page.jornada.transcriptLabel}
-        transcript={page.jornada.transcript}
-        credit={t('conversion.videoCredit')}
-      />
-    )
-  }
-
-  {
-    page.blocks.map((block, index) => (
-      <section class:list={['page-content', { 'page-content--alt section--alt': index % 2 === 1 }]}>
-        <div class:list={['container text-image', { 'text-image--media-left': index === 1 }]}>
-          <div class="page-content__inner">
-            <h2>{block.title}</h2>
-            {block.paragraphs.map((p) => <p>{p}</p>)}
-          </div>
-          <TextImageMedia src={blockImages[index] ?? images.laCalerilla.campo} alt={block.title} />
-        </div>
-      </section>
-    ))
-  }
-
   <section class="page-content page-content--alt section--alt">
-    <div class="container page-content__inner page-content__inner--wide">
-      <h2 class="section__title">{page.featuresTitle}</h2>
-      <div class="feature-grid feature-grid--4">
-        {page.features.map((feature) => (
-          <article class="feature-grid__card">
-            <h3>{feature.title}</h3>
-            <p>{feature.description}</p>
-          </article>
-        ))}
-      </div>
+    <div class="container">
+      <h2 class="section__title">{page.galleryTitle}</h2>
+      <ImageCarousel slides={slides} id="calerilla-gallery" variant="gallery" />
     </div>
   </section>
 

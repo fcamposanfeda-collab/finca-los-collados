@@ -33,27 +33,91 @@
   "la-calerilla": [
     {
       "q": "When is the partridge season?",
-      "a": "The usual season runs from October to February. Dates should be requested well in advance as demand is high."
+      "a": "The 2026-27 general season runs from 8 October 2026 to 8 February 2027. Dates should be requested early."
     },
     {
-      "q": "Which types of shooting are offered?",
-      "a": "The main discipline is walked-up red-legged partridge shooting. Driven partridge days are also available. TODO_DATO: any other disciplines."
+      "q": "Which disciplines are offered?",
+      "a": "Driven partridge, walked-up shooting, call hunting and releases."
     },
     {
-      "q": "Who organises the shooting days?",
-      "a": "Shooting days are organised by Alectoris Ibérica SL."
+      "q": "What is a driven day?",
+      "a": "Minimum 6 pegs. Bags of 250, 400 or 600 birds, three shots per partridge. Team peg or individual peg."
     },
     {
-      "q": "Can shooting be combined with lodging?",
-      "a": "Yes. You can combine a day in the field with bungalows and dining at Finca Los Collados de San Miguel."
+      "q": "What does a driven day include?",
+      "a": "Beaters, kit, 10 birds per peg (can be plucked), Bungalow Suite with breakfast, field snack, lunch and dinner. À la carte: licence and insurance, cartridges, gun hire, secretary and loader."
     },
     {
-      "q": "How do I book a shooting day?",
-      "a": "Via WhatsApp or the La Calerilla form, with preferred dates and the number of guns."
+      "q": "What is walked-up shooting?",
+      "a": "Six head per gun, rabbit or partridge."
+    },
+    {
+      "q": "Who organises the days?",
+      "a": "Alectoris Ibérica SL."
+    },
+    {
+      "q": "Can I stay on the estate?",
+      "a": "A driven day already includes a Bungalow Suite, bed and breakfast. Extra nights can be requested. Call hunting is offered without lodging or field snack."
+    },
+    {
+      "q": "How do I book?",
+      "a": "Request a dossier by WhatsApp or the form. A hunting booking is confirmed with a 50 % deposit."
+    },
+    {
+      "q": "How far is it from Madrid?",
+      "a": "Villamanrique, Ciudad Real. About 247 km and 3 h 25 min by car (OSRM / OpenStreetMap, 19 Oct 2026)."
     },
     {
       "q": "Are shooting dogs allowed?",
       "a": "TODO_DATO: conditions for pointing dogs on the shoot and in the bungalows."
+    }
+  ],
+  "caza-ojeo-perdiz": [
+    {
+      "q": "How many pegs are needed?",
+      "a": "A minimum of 6 pegs."
+    },
+    {
+      "q": "What bags are offered?",
+      "a": "250, 400 or 600 birds, three shots per partridge."
+    },
+    {
+      "q": "Is the peg individual?",
+      "a": "It can be a team peg or an individual peg."
+    },
+    {
+      "q": "What is not included?",
+      "a": "Licence and insurance, cartridges, gun hire, secretary and loader. The estate can arrange loader hire."
+    }
+  ],
+  "caza-en-mano": [
+    {
+      "q": "What is the walked-up bag?",
+      "a": "Six head per gun, rabbit or partridge."
+    },
+    {
+      "q": "Can it be combined with a driven day?",
+      "a": "They are separate disciplines. Both can be covered in the dossier."
+    }
+  ],
+  "caza-estancia": [
+    {
+      "q": "Is the bungalow part of the driven day?",
+      "a": "Yes: Bungalow Suite, bed and breakfast, plus field snack, lunch and dinner on the shooting day."
+    },
+    {
+      "q": "How many people can stay?",
+      "a": "8 bungalows, up to 16 adults."
+    }
+  ],
+  "caza-como-llegar": [
+    {
+      "q": "Where is the shoot?",
+      "a": "Villamanrique, Ciudad Real, Campos de Montiel."
+    },
+    {
+      "q": "How long from Madrid?",
+      "a": "About 247 km and 3 h 25 min by car (OSRM / OpenStreetMap, 19 Oct 2026)."
     }
   ],
   "eventos": [

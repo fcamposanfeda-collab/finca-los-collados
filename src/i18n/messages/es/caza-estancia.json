@@ -1,0 +1,23 @@
+{
+  "hero": {
+    "eyebrow": "La Calerilla",
+    "title": "Caza y alojamiento",
+    "subtitle": "Ojeo con Bungalow Suite, desayuno, taco, almuerzo y cena en Los Collados."
+  },
+  "intro": "En el ojeo, la jornada incluye Bungalow Suite en alojamiento y desayuno, taco, almuerzo y cena. El alojamiento de la finca son 8 bungalows, hasta 16 adultos.",
+  "points": [
+    "Bungalow Suite en régimen de alojamiento y desayuno, incluida en el ojeo.",
+    "Taco, almuerzo y cena el día de caza.",
+    "Mesa manchega en la finca: perdiz en escabeche, migas y producto de la tierra.",
+    "El reclamo se ofrece como jornada sin alojamiento ni taco."
+  ],
+  "notes": [
+    "TODO_DATO: recogida en Madrid.",
+    "Reserva de caza con señal del 50 %."
+  ],
+  "cta": {
+    "title": "Solicite caza y estancia",
+    "text": "Indique fechas, puestos y si necesita más noches en bungalow.",
+    "buttonLabel": "Solicitar dossier"
+  }
+}

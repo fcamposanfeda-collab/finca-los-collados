@@ -1,3 +1,5 @@
+import type { PageKey } from '../i18n';
+
 /**
  * Temporada cinegética (Orden de vedas CLM, DOCM 12/06/2026).
  * Actualizar este archivo cada temporada. No publicar importes.
@@ -27,4 +29,35 @@ function isoDay(date: Date): string {
 export function isInGeneralHuntingSeason(date = new Date()): boolean {
   const day = isoDay(date);
   return day >= hunting.general.start && day <= hunting.general.end;
+}
+
+export const huntingChildKeys = [
+  'caza-ojeo-perdiz',
+  'caza-en-mano',
+  'caza-estancia',
+  'caza-como-llegar',
+] as const satisfies readonly PageKey[];
+
+export type HuntingChildKey = (typeof huntingChildKeys)[number];
+
+export function isHuntingChild(pageKey: PageKey): pageKey is HuntingChildKey {
+  return (huntingChildKeys as readonly string[]).includes(pageKey);
+}
+
+export function visibleFaqItems<T extends { q: string; a: string }>(items: T[]): T[] {
+  return items.filter((item) => !item.q.includes('TODO_DATO') && !item.a.includes('TODO_DATO'));
+}
+
+export function visibleLines(items: string[]): string[] {
+  return items.filter((item) => !item.includes('TODO_DATO'));
+}
+
+export function formatHuntingDay(iso: string, locale: string): string {
+  const [year, month, day] = iso.split('-').map(Number);
+  return new Date(Date.UTC(year, month - 1, day)).toLocaleDateString(locale, {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  });
 }

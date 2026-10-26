@@ -12,7 +12,11 @@ export const mainNav: NavItem[] = [
     pageKey: 'alojamiento',
     children: ['la-finca', 'gastronomia', 'experiencias', 'entorno'],
   },
-  { pageKey: 'la-calerilla', labelKey: 'caza' },
+  {
+    pageKey: 'la-calerilla',
+    labelKey: 'caza',
+    children: ['caza-ojeo-perdiz', 'caza-en-mano', 'caza-estancia', 'caza-como-llegar'],
+  },
   { pageKey: 'empresas' },
   { pageKey: 'eventos' },
   { pageKey: 'packs' },

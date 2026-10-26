@@ -2,7 +2,7 @@ import { business } from './business';
 import { contact } from './contact';
 import { site } from './site';
 import { booking } from './booking';
-import { hunting } from './hunting';
+import { hunting, isHuntingChild, visibleFaqItems } from './hunting';
 import { images } from './images';
 import { getHuntingHeroLoop, getHuntingJornada } from './media';
 import { absoluteUrl, localeMeta, msg, pagePathname, type Locale, type PageKey } from '../i18n';
@@ -118,34 +118,53 @@ export function breadcrumbJsonLd(locale: Locale, pageKey: PageKey, pageUrl: stri
   if (pageKey === 'home') return null;
   const nav = msg(locale).nav as Record<string, string>;
   const homeLabel = (msg(locale).conversion as { breadcrumbHome: string }).breadcrumbHome;
+  const cazaLabel = nav.caza ?? nav['la-calerilla'] ?? pageKey;
+  const items: JsonLd[] = [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: homeLabel,
+      item: absoluteUrl(pagePathname('home', locale)),
+    },
+  ];
+  if (isHuntingChild(pageKey)) {
+    items.push({
+      '@type': 'ListItem',
+      position: 2,
+      name: cazaLabel,
+      item: absoluteUrl(pagePathname('la-calerilla', locale)),
+    });
+    items.push({
+      '@type': 'ListItem',
+      position: 3,
+      name: nav[pageKey] ?? pageKey,
+      item: pageUrl,
+    });
+  } else {
+    items.push({
+      '@type': 'ListItem',
+      position: 2,
+      name: pageKey === 'la-calerilla' ? cazaLabel : (nav[pageKey] ?? pageKey),
+      item: pageUrl,
+    });
+  }
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: homeLabel,
-        item: absoluteUrl(pagePathname('home', locale)),
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: nav[pageKey] ?? pageKey,
-        item: pageUrl,
-      },
-    ],
+    itemListElement: items,
   };
 }
 
 export function faqJsonLd(locale: Locale, pageKey: PageKey): JsonLd | null {
   const faq = msg(locale).faq as Record<string, unknown>;
-  const items = faq[pageKey];
-  if (!Array.isArray(items) || items.length === 0) return null;
+  const items = visibleFaqItems(
+    Array.isArray(faq[pageKey]) ? (faq[pageKey] as { q: string; a: string }[]) : [],
+  );
+  if (items.length === 0) return null;
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: (items as { q: string; a: string }[]).map((item) => ({
+    mainEntity: items.map((item) => ({
       '@type': 'Question',
       name: item.q,
       acceptedAnswer: {
@@ -158,6 +177,10 @@ export function faqJsonLd(locale: Locale, pageKey: PageKey): JsonLd | null {
 
 const servicePages: Partial<Record<PageKey, { type: string; nameKey: string }>> = {
   'la-calerilla': { type: 'Service', nameKey: 'la-calerilla' },
+  'caza-ojeo-perdiz': { type: 'Service', nameKey: 'caza-ojeo-perdiz' },
+  'caza-en-mano': { type: 'Service', nameKey: 'caza-en-mano' },
+  'caza-estancia': { type: 'Service', nameKey: 'caza-estancia' },
+  'caza-como-llegar': { type: 'Service', nameKey: 'caza-como-llegar' },
   eventos: { type: 'Service', nameKey: 'eventos' },
   empresas: { type: 'Service', nameKey: 'empresas' },
   packs: { type: 'Offer', nameKey: 'packs' },
@@ -184,48 +207,47 @@ export function serviceJsonLd(locale: Locale, pageKey: PageKey, pageUrl: string)
 }
 
 export function huntingVideoJsonLd(locale: Locale, pageKey: PageKey): JsonLd[] {
-  if (pageKey !== 'la-calerilla') return [];
-  const jornada = (msg(locale)['la-calerilla'] as {
-    jornada?: {
-      loopName: string;
-      loopDescription: string;
-      videoName: string;
-      videoDescription: string;
-    };
-  }).jornada;
-  if (!jornada) return [];
-
-  const items: JsonLd[] = [];
-  const loop = getHuntingHeroLoop();
-  const longform = getHuntingJornada();
   const credit = (msg(locale).conversion as { videoCredit: string }).videoCredit;
+  const items: JsonLd[] = [];
 
-  if (loop.desktop) {
-    items.push({
-      '@type': 'VideoObject',
-      name: jornada.loopName,
-      description: jornada.loopDescription,
-      thumbnailUrl: absoluteAsset(images.hero.laCalerillaLoop),
-      uploadDate: hunting.videoPublished,
-      duration: hunting.loopDuration,
-      contentUrl: absoluteAsset(loop.desktop),
-      inLanguage: localeMeta[locale].bcp47,
-      creditText: credit,
-    });
+  if (pageKey === 'la-calerilla') {
+    const loopCopy = (msg(locale)['la-calerilla'] as {
+      jornada?: { loopName: string; loopDescription: string };
+    }).jornada;
+    const loop = getHuntingHeroLoop();
+    if (loopCopy && loop.desktop) {
+      items.push({
+        '@type': 'VideoObject',
+        name: loopCopy.loopName,
+        description: loopCopy.loopDescription,
+        thumbnailUrl: absoluteAsset(images.hero.laCalerillaLoop),
+        uploadDate: hunting.videoPublished,
+        duration: hunting.loopDuration,
+        contentUrl: absoluteAsset(loop.desktop),
+        inLanguage: localeMeta[locale].bcp47,
+        creditText: credit,
+      });
+    }
   }
 
-  if (longform.src) {
-    items.push({
-      '@type': 'VideoObject',
-      name: jornada.videoName,
-      description: jornada.videoDescription,
-      thumbnailUrl: absoluteAsset(images.laCalerilla.jornadaPoster),
-      uploadDate: hunting.videoPublished,
-      duration: hunting.jornadaDuration,
-      contentUrl: absoluteAsset(longform.src),
-      inLanguage: localeMeta[locale].bcp47,
-      creditText: credit,
-    });
+  if (pageKey === 'caza-ojeo-perdiz') {
+    const longCopy = (msg(locale)['caza-ojeo-perdiz'] as {
+      jornada?: { videoName: string; videoDescription: string };
+    }).jornada;
+    const longform = getHuntingJornada();
+    if (longCopy && longform.src) {
+      items.push({
+        '@type': 'VideoObject',
+        name: longCopy.videoName,
+        description: longCopy.videoDescription,
+        thumbnailUrl: absoluteAsset(images.laCalerilla.jornadaPoster),
+        uploadDate: hunting.videoPublished,
+        duration: hunting.jornadaDuration,
+        contentUrl: absoluteAsset(longform.src),
+        inLanguage: localeMeta[locale].bcp47,
+        creditText: credit,
+      });
+    }
   }
 
   return items;

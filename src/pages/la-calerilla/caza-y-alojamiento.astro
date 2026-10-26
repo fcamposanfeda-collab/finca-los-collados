@@ -1,0 +1,73 @@
+---
+import ContentPage from '../../components/ui/ContentPage.astro';
+import TrustBlock from '../../components/conversion/TrustBlock.astro';
+import ContactForm from '../../components/forms/ContactForm.astro';
+import { getPageMeta } from '../../data/pages-meta';
+import { images } from '../../data/images';
+import { visibleLines } from '../../data/hunting';
+import { buildPageWhatsAppUrl } from '../../data/booking';
+import { contactFormUrl } from '../../data/forms';
+import { useI18n } from '../../i18n';
+
+const { locale, copy, t } = useI18n(Astro);
+const meta = getPageMeta('caza-estancia', locale);
+const page = copy['caza-estancia'] as {
+  hero: { eyebrow: string; title: string; subtitle: string };
+  intro: string;
+  points: string[];
+  notes: string[];
+  cta: { title: string; text: string; buttonLabel: string };
+};
+const notes = visibleLines(page.notes);
+---
+
+<ContentPage
+  title={meta.title}
+  description={meta.description}
+  heroTitle={page.hero.title}
+  heroSubtitle={page.hero.subtitle}
+  heroEyebrow={page.hero.eyebrow}
+  heroImage={images.hero.alojamiento}
+  heroCtaLabel={t('common.requestDossier')}
+  heroCtaHref={contactFormUrl(locale, 'caza')}
+  heroCtaTrack="form"
+  heroSecondaryLabel={t('common.whatsapp')}
+  heroSecondaryHref={buildPageWhatsAppUrl('caza-estancia', locale)}
+  heroSecondaryTrack="whatsapp"
+  ctaTitle={page.cta.title}
+  ctaText={page.cta.text}
+  ctaButtonLabel={t('common.whatsapp')}
+  ctaButtonHref={buildPageWhatsAppUrl('caza-estancia', locale)}
+  ctaPrimaryTrack="whatsapp"
+  extraLabel={page.cta.buttonLabel}
+  extraHref="#solicitud-caza"
+  extraTrack="form"
+>
+  <section class="page-content">
+    <div class="container page-content__inner">
+      <p class="page-content__lead">{page.intro}</p>
+      <ul class="capacity-list">
+        {page.points.map((item) => <li>{item}</li>)}
+      </ul>
+      {
+        notes.length > 0 && (
+          <ul class="capacity-list">
+            {notes.map((item) => <li>{item}</li>)}
+          </ul>
+        )
+      }
+    </div>
+  </section>
+  <TrustBlock showHunting />
+  <div id="solicitud-caza">
+    <ContactForm
+      title={page.cta.title}
+      intro={page.cta.text}
+      showPhone={true}
+      showDates={true}
+      showGuests={true}
+      defaultSubject="caza"
+      formId="caza"
+    />
+  </div>
+</ContentPage>

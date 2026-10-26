@@ -1,0 +1,22 @@
+{
+  "hero": {
+    "eyebrow": "La Calerilla",
+    "title": "Chasse devant soi",
+    "subtitle": "Six pièces par fusil, lapin ou perdrix, sur le territoire de Villamanrique."
+  },
+  "intro": "La chasse devant soi parcourt le terrain à pied. À La Calerilla, le tableau est de six pièces par fusil, lapin ou perdrix.",
+  "points": [
+    "Six pièces par fusil : lapin ou perdrix.",
+    "Proposée avec la battue, la chasse au poste et les lâchers.",
+    "Peut se combiner avec une Bungalow Suite et la table du domaine."
+  ],
+  "notes": [
+    "TODO_DATO : conditions pour les chiens d’arrêt sur le territoire et dans les bungalows.",
+    "TODO_DATO : horaires de la journée."
+  ],
+  "cta": {
+    "title": "Demandez le dossier",
+    "text": "Dates et nombre de fusils. Pas de prix publiés.",
+    "buttonLabel": "Demander un dossier"
+  }
+}

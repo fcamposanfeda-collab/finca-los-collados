@@ -35,6 +35,16 @@ const imagesRaw = {
     campo: '/images/calerilla-temporada.jpg',
     perdiz: '/images/calerilla-perdiz.png',
     gastronomia: '/images/gastronomia.jpg',
+    gallery: [
+      '/images/calerilla-hero-loop.jpg',
+      '/images/calerilla-jornada-poster.jpg',
+      '/images/calerilla-temporada.jpg',
+      '/images/calerilla-perdiz.png',
+      '/images/calerilla-hero.jpg',
+      '/images/gastronomia.jpg',
+      '/images/bungalow-interior.jpg',
+      '/images/finca-paisaje.jpg',
+    ],
   },
 
   laFinca: {
