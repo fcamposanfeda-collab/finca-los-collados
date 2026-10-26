@@ -93,27 +93,29 @@ const {
     playLabel={heroPlayLabel}
     videoCredit={heroVideoCredit}
   />
-  <div class="container">
-    <Breadcrumbs />
+  <div class="page-below-hero">
+    <div class="container">
+      <Breadcrumbs />
+    </div>
+    <slot />
+    <FaqSection />
+    <RelatedPages />
+    {
+      ctaTitle && ctaText && (
+        <CtaBanner
+          title={ctaTitle}
+          text={ctaText}
+          buttonLabel={ctaButtonLabel}
+          buttonHref={ctaButtonHref}
+          primaryTrack={ctaPrimaryTrack}
+          extraLabel={extraLabel}
+          extraHref={extraHref}
+          extraTrack={extraTrack}
+        />
+      )
+    }
+    {closingVideo && closingVideoAlt && (
+      <FullWidthVideo src={closingVideo} alt={closingVideoAlt} objectPosition={closingVideoPosition} />
+    )}
   </div>
-  <slot />
-  <FaqSection />
-  <RelatedPages />
-  {
-    ctaTitle && ctaText && (
-      <CtaBanner
-        title={ctaTitle}
-        text={ctaText}
-        buttonLabel={ctaButtonLabel}
-        buttonHref={ctaButtonHref}
-        primaryTrack={ctaPrimaryTrack}
-        extraLabel={extraLabel}
-        extraHref={extraHref}
-        extraTrack={extraTrack}
-      />
-    )
-  }
-  {closingVideo && closingVideoAlt && (
-    <FullWidthVideo src={closingVideo} alt={closingVideoAlt} objectPosition={closingVideoPosition} />
-  )}
 </BaseLayout>

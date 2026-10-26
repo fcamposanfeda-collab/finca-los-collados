@@ -48,6 +48,20 @@ const alternates = hreflangLinks(pageKey);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {
+      lcpVariant && (
+        <>
+          <link
+            rel="preload"
+            as="image"
+            type="image/avif"
+            imagesrcset={srcset(lcpVariant.avif)}
+            imagesizes="100vw"
+            fetchpriority="high"
+          />
+        </>
+      )
+    }
     <meta name="description" content={description} />
     <meta name="robots" content={index ? 'index, follow' : 'noindex, follow'} />
     <meta name="theme-color" content="#2f3f2a" />
@@ -63,18 +77,6 @@ const alternates = hreflangLinks(pageKey);
           <link rel="alternate" hreflang={link.lang} href={link.url} />
         ))
     }
-    {
-      lcpVariant && (
-        <link
-          rel="preload"
-          as="image"
-          type="image/avif"
-          imagesrcset={srcset(lcpVariant.avif)}
-          imagesizes="100vw"
-          fetchpriority="high"
-        />
-      )
-    }
     <link
       rel="preload"
       href={withBase('/fonts/source-sans-3-latin-400-normal.woff2')}
@@ -82,13 +84,17 @@ const alternates = hreflangLinks(pageKey);
       type="font/woff2"
       crossorigin
     />
-    <link
-      rel="preload"
-      href={withBase('/fonts/source-sans-3-latin-500-normal.woff2')}
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
+    {
+      pageKey !== 'la-calerilla' && (
+        <link
+          rel="preload"
+          href={withBase('/fonts/source-sans-3-latin-500-normal.woff2')}
+          as="font"
+          type="font/woff2"
+          crossorigin
+        />
+      )
+    }
     <link
       rel="preload"
       href={withBase('/fonts/playfair-display-latin-400-normal.woff2')}
@@ -96,13 +102,17 @@ const alternates = hreflangLinks(pageKey);
       type="font/woff2"
       crossorigin
     />
-    <link
-      rel="preload"
-      href={withBase('/fonts/playfair-display-latin-500-normal.woff2')}
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
+    {
+      pageKey !== 'la-calerilla' && (
+        <link
+          rel="preload"
+          href={withBase('/fonts/playfair-display-latin-500-normal.woff2')}
+          as="font"
+          type="font/woff2"
+          crossorigin
+        />
+      )
+    }
     <meta property="og:site_name" content={site.name} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={ogImageUrl} />

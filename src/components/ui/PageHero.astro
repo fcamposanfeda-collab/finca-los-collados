@@ -124,7 +124,6 @@ function isHttp(url?: string) {
             type="button"
             class="page-hero__pause"
             data-hero-pause
-            hidden
             data-pause-label={pauseLabel}
             data-play-label={playLabel}
           >
@@ -165,7 +164,6 @@ function isHttp(url?: string) {
 
       const sync = () => {
         const paused = video.paused;
-        button.hidden = false;
         button.textContent = paused ? playLabel : pauseLabel;
       };
 
@@ -207,7 +205,10 @@ function isHttp(url?: string) {
 
     function startWhenPosterReady(hero: HTMLElement) {
       const img = hero.querySelector('img');
-      const start = () => afterPaint(() => loadLoop(hero));
+      const start = () =>
+        afterPaint(() => {
+          window.setTimeout(() => loadLoop(hero), 2800);
+        });
       if (!img || img.complete) {
         start();
         return;
@@ -323,6 +324,10 @@ function isHttp(url?: string) {
     opacity: 1;
   }
 
+  .page-hero.is-video-on .page-hero__pause {
+    visibility: visible;
+  }
+
   .page-hero__chrome {
     position: relative;
     z-index: 3;
@@ -342,6 +347,7 @@ function isHttp(url?: string) {
   }
 
   .page-hero__pause {
+    visibility: hidden;
     padding: 0.4rem 0.7rem;
     border: 1px solid rgb(244 239 230 / 0.55);
     border-radius: var(--radius);

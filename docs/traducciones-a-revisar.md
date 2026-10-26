@@ -12,7 +12,7 @@ Lista para revisión humana antes de publicar EN/FR. No publicar en producción 
 ## Términos de glosario (dejar sin traducir)
 
 - Finca Los Collados de San Miguel, Los Collados
-- La Calerilla, La Porrosa
+- La Calerilla
 - Azurea / Azurea Catering
 - Villamanrique, Campos de Montiel, Villanueva de los Infantes, Torre de Juan Abad, Montizón, Ciudad Real
 - La Mancha (no «the Manche» / no «la Manche»)

@@ -189,6 +189,11 @@ button {
   opacity: 1;
 }
 
+.page-below-hero > :nth-child(n + 3) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 36rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

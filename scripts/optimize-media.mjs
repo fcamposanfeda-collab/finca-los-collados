@@ -236,8 +236,8 @@ function encodeHuntingVideos() {
     console.warn('ffmpeg-static not found; skipping hunting videos');
     return;
   }
-  const v1 = join(root, 'public', 'videos', 'calerilla-caceria-1.mp4');
-  const v2 = join(root, 'public', 'videos', 'calerilla-caceria-2.mp4');
+  const v1 = join(root, 'media-src', 'videos', 'calerilla-caceria-1.mp4');
+  const v2 = join(root, 'media-src', 'videos', 'calerilla-caceria-2.mp4');
   if (!existsSync(v1) || !existsSync(v2)) {
     console.warn('skip hunting videos: source mp4 missing');
     return;
@@ -252,6 +252,17 @@ function encodeHuntingVideos() {
   const jornada = join(outDir, 'calerilla-jornada.mp4');
   const posterStill = join(root, 'public', 'images', 'calerilla-hero-loop.jpg');
   const jornadaStill = join(root, 'public', 'images', 'calerilla-jornada-poster.jpg');
+
+  if (
+    existsSync(loop848) &&
+    existsSync(loop720) &&
+    existsSync(jornada) &&
+    existsSync(posterStill) &&
+    existsSync(jornadaStill)
+  ) {
+    console.log('skip hunting videos: derivatives already present');
+    return;
+  }
 
   const trimPad = (label, start, duration) =>
     `[${label}:v]trim=start=${start}:duration=${duration},setpts=PTS-STARTPTS,scale=848:480:force_original_aspect_ratio=decrease,pad=848:480:(ow-iw)/2:(oh-ih)/2,fps=24,setsar=1[${label}o]`;
