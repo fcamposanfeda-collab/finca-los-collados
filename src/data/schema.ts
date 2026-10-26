@@ -5,6 +5,7 @@ import { booking } from './booking';
 import { images } from './images';
 import { absoluteUrl, localeMeta, msg, pagePathname, type Locale, type PageKey } from '../i18n';
 import { withBase } from '../utils/paths';
+import { visibleFaqItems } from './todoDato';
 
 type JsonLd = Record<string, unknown>;
 
@@ -138,12 +139,14 @@ export function breadcrumbJsonLd(locale: Locale, pageKey: PageKey, pageUrl: stri
 
 export function faqJsonLd(locale: Locale, pageKey: PageKey): JsonLd | null {
   const faq = msg(locale).faq as Record<string, unknown>;
-  const items = faq[pageKey];
-  if (!Array.isArray(items) || items.length === 0) return null;
+  const items = visibleFaqItems(
+    Array.isArray(faq[pageKey]) ? (faq[pageKey] as { q: string; a: string }[]) : [],
+  );
+  if (items.length === 0) return null;
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: (items as { q: string; a: string }[]).map((item) => ({
+    mainEntity: items.map((item) => ({
       '@type': 'Question',
       name: item.q,
       acceptedAnswer: {
