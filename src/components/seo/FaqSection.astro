@@ -1,5 +1,6 @@
 ---
 import { useI18n, type PageKey } from '../../i18n';
+import { visibleFaqItems } from '../../data/todoDato';
 
 interface Props {
   page?: PageKey;
@@ -9,7 +10,7 @@ const { pageKey, copy } = useI18n(Astro);
 const faqPage = (Astro.props.page ?? pageKey) as string;
 const faqCopy = copy.faq as Record<string, unknown>;
 const items = Array.isArray(faqCopy[faqPage])
-  ? (faqCopy[faqPage] as { q: string; a: string }[])
+  ? visibleFaqItems(faqCopy[faqPage] as { q: string; a: string }[])
   : [];
 const title = faqCopy.title as string;
 ---
