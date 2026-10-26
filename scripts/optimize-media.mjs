@@ -1,5 +1,5 @@
 import { mkdir, writeFile } from 'node:fs/promises';
-import { existsSync, mkdirSync, statSync } from 'node:fs';
+import { existsSync, mkdirSync, statSync, writeFileSync } from 'node:fs';
 import { basename, dirname, extname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
@@ -7,7 +7,7 @@ import sharp from 'sharp';
 import ffmpeg from 'ffmpeg-static';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const widths = [480, 768, 1100, 1600];
+const widths = [480, 768, 1100, 1536, 1600, 2000];
 
 const imageFiles = [
   'hero-entrada-atardecer.png',
@@ -252,8 +252,10 @@ function encodeHuntingVideos() {
   const jornada = join(outDir, 'calerilla-jornada.mp4');
   const posterStill = join(root, 'public', 'images', 'calerilla-hero-loop.jpg');
   const jornadaStill = join(root, 'public', 'images', 'calerilla-jornada-poster.jpg');
+  const stamp = join(outDir, 'hunting.v2');
 
   if (
+    existsSync(stamp) &&
     existsSync(loop848) &&
     existsSync(loop720) &&
     existsSync(jornada) &&
@@ -275,7 +277,7 @@ function encodeHuntingVideos() {
     '-i', v2,
     '-i', v2,
     '-filter_complex',
-    `${trimPad('0', 23, 3.5)};${trimPad('1', 47, 3.2)};${trimPad('2', 36.8, 3.3)};${trimPad('3', 50.5, 3.3)};[0o][1o][2o][3o]concat=n=4:v=1:a=0,format=yuv420p[v]`,
+    `${trimPad('0', 23, 3.5)};${trimPad('1', 47, 3.2)};${trimPad('2', 36.8, 3.3)};${trimPad('3', 50.5, 3.3)};[0o][1o][2o][3o]concat=n=4:v=1:a=0,crop=688:480:160:0,format=yuv420p[v]`,
     '-map', '[v]',
     '-an',
     '-c:v', 'libx264',
@@ -293,7 +295,7 @@ function encodeHuntingVideos() {
     '-c:v', 'libx264',
     '-crf', '30',
     '-preset', 'medium',
-    '-vf', 'scale=720:-2',
+    '-vf', 'scale=640:-2',
     '-movflags', '+faststart',
     loop720,
   ]);
@@ -309,7 +311,7 @@ function encodeHuntingVideos() {
     '-filter_complex',
     '[0:v]trim=start=22:duration=38,setpts=PTS-STARTPTS,scale=848:480:force_original_aspect_ratio=decrease,pad=848:480:(ow-iw)/2:(oh-ih)/2,fps=24,setsar=1[v0];' +
       '[1:v]trim=start=36:duration=22,setpts=PTS-STARTPTS,scale=848:480:force_original_aspect_ratio=decrease,pad=848:480:(ow-iw)/2:(oh-ih)/2,fps=24,setsar=1[v1];' +
-      '[v0][v1]concat=n=2:v=1:a=0,format=yuv420p[v]',
+      '[v0][v1]concat=n=2:v=1:a=0,crop=688:480:160:0,format=yuv420p[v]',
     '-map', '[v]',
     '-an',
     '-c:v', 'libx264',
@@ -328,6 +330,7 @@ function encodeHuntingVideos() {
   console.log(
     `hunting sizes loop848=${loopSize.toFixed(2)}MB loop720=${loop720Size.toFixed(2)}MB jornada=${jornadaSize.toFixed(2)}MB`,
   );
+  writeFileSync(stamp, '2\n');
 }
 
 await mkdir(join(root, 'public', 'images', 'opt'), { recursive: true });

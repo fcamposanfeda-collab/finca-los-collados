@@ -14,7 +14,11 @@ interface Props {
   heroSubtitle?: string;
   heroEyebrow?: string;
   heroImage?: string;
+  heroImageMobile?: string;
   heroImageAlt?: string;
+  heroImageAltMobile?: string;
+  heroStillOnDesktop?: boolean;
+  heroPhotoCredit?: string;
   heroCtaLabel?: string;
   heroCtaHref?: string;
   heroCtaTrack?: string;
@@ -47,7 +51,11 @@ const {
   heroSubtitle,
   heroEyebrow,
   heroImage,
+  heroImageMobile,
   heroImageAlt,
+  heroImageAltMobile,
+  heroStillOnDesktop = false,
+  heroPhotoCredit,
   heroCtaLabel,
   heroCtaHref,
   heroCtaTrack,
@@ -74,13 +82,23 @@ const {
 } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description} index={index} lcpSrc={heroImage}>
+<BaseLayout
+  title={title}
+  description={description}
+  index={index}
+  lcpSrc={heroStillOnDesktop ? (heroImageMobile ?? heroImage) : heroImage}
+  lcpSrcDesktop={heroStillOnDesktop ? heroImage : undefined}
+>
   <PageHero
     title={heroTitle}
     subtitle={heroSubtitle}
     eyebrow={heroEyebrow}
     imageSrc={heroImage}
+    imageSrcMobile={heroImageMobile}
     imageAlt={heroImageAlt}
+    imageAltMobile={heroImageAltMobile}
+    stillOnDesktop={heroStillOnDesktop}
+    photoCredit={heroPhotoCredit}
     ctaLabel={heroCtaLabel}
     ctaHref={heroCtaHref}
     ctaTrack={heroCtaTrack}

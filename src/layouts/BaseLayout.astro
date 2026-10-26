@@ -26,10 +26,12 @@ interface Props {
   ogImage?: string;
   index?: boolean;
   lcpSrc?: string;
+  lcpSrcDesktop?: string;
 }
 
-const { title, description, ogImage = site.ogImage, index = true, lcpSrc } = Astro.props;
+const { title, description, ogImage = site.ogImage, index = true, lcpSrc, lcpSrcDesktop } = Astro.props;
 const lcpVariant = lcpSrc ? getImageVariant(lcpSrc) : null;
+const lcpDesktopVariant = lcpSrcDesktop ? getImageVariant(lcpSrcDesktop) : null;
 const { locale, pageKey, t } = useI18n(Astro);
 const meta = localeMeta[locale];
 const canonicalURL = absoluteUrl(pagePathname(pageKey, locale));
@@ -50,16 +52,28 @@ const alternates = hreflangLinks(pageKey);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     {
       lcpVariant && (
-        <>
-          <link
-            rel="preload"
-            as="image"
-            type="image/avif"
-            imagesrcset={srcset(lcpVariant.avif)}
-            imagesizes="100vw"
-            fetchpriority="high"
-          />
-        </>
+        <link
+          rel="preload"
+          as="image"
+          type="image/avif"
+          imagesrcset={srcset(lcpVariant.avif)}
+          imagesizes="100vw"
+          fetchpriority="high"
+          media={lcpDesktopVariant ? '(max-width: 1023px)' : undefined}
+        />
+      )
+    }
+    {
+      lcpDesktopVariant && (
+        <link
+          rel="preload"
+          as="image"
+          type="image/avif"
+          imagesrcset={srcset(lcpDesktopVariant.avif)}
+          imagesizes="100vw"
+          fetchpriority="high"
+          media="(min-width: 1024px)"
+        />
       )
     }
     <meta name="description" content={description} />

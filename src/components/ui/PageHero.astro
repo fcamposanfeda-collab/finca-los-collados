@@ -7,7 +7,11 @@ interface Props {
   eyebrow?: string;
   compact?: boolean;
   imageSrc?: string;
+  imageSrcMobile?: string;
   imageAlt?: string;
+  imageAltMobile?: string;
+  stillOnDesktop?: boolean;
+  photoCredit?: string;
   ctaLabel?: string;
   ctaHref?: string;
   ctaTrack?: string;
@@ -27,7 +31,11 @@ const {
   eyebrow,
   compact = false,
   imageSrc,
+  imageSrcMobile,
   imageAlt = '',
+  imageAltMobile,
+  stillOnDesktop = false,
+  photoCredit,
   ctaLabel,
   ctaHref,
   ctaTrack,
@@ -41,7 +49,10 @@ const {
   videoCredit,
 } = Astro.props;
 
+const mobilePoster = imageSrcMobile ?? imageSrc;
+const desktopStill = imageSrc;
 const hasLoop = Boolean(videoDesktop || videoMobile);
+const mobileAlt = imageAltMobile || imageAlt;
 
 function isHttp(url?: string) {
   return Boolean(url && url.startsWith('http'));
@@ -49,16 +60,38 @@ function isHttp(url?: string) {
 ---
 
 <section
-  class:list={['page-hero', { 'page-hero--compact': compact, 'page-hero--photo': Boolean(imageSrc) }]}
+  class:list={[
+    'page-hero',
+    {
+      'page-hero--compact': compact,
+      'page-hero--photo': Boolean(desktopStill || mobilePoster),
+      'page-hero--still-desktop': stillOnDesktop,
+    },
+  ]}
   aria-labelledby="page-hero-title"
   data-page-hero-video={hasLoop ? '' : undefined}
+  data-still-desktop={stillOnDesktop ? '' : undefined}
 >
   {
-    imageSrc && (
+    stillOnDesktop && desktopStill && (
       <OptimizedImage
-        class="page-hero__img"
-        src={imageSrc}
+        class="page-hero__img page-hero__img--desktop"
+        src={desktopStill}
         alt={imageAlt}
+        width={1536}
+        height={1024}
+        loading="eager"
+        fetchpriority="high"
+        sizes="100vw"
+      />
+    )
+  }
+  {
+    mobilePoster && (
+      <OptimizedImage
+        class:list={['page-hero__img', { 'page-hero__img--mobile': stillOnDesktop }]}
+        src={mobilePoster}
+        alt={stillOnDesktop ? mobileAlt : imageAlt}
         width={1600}
         height={900}
         loading="eager"
@@ -117,18 +150,21 @@ function isHttp(url?: string) {
       ) : null
     }
     {
-      hasLoop && pauseLabel && playLabel && (
+      ((hasLoop && pauseLabel && playLabel) || photoCredit) && (
         <div class="page-hero__chrome">
-          {videoCredit && <p class="page-hero__credit">{videoCredit}</p>}
-          <button
-            type="button"
-            class="page-hero__pause"
-            data-hero-pause
-            data-pause-label={pauseLabel}
-            data-play-label={playLabel}
-          >
-            {pauseLabel}
-          </button>
+          {photoCredit && <p class="page-hero__credit page-hero__credit--photo">{photoCredit}</p>}
+          {videoCredit && hasLoop && <p class="page-hero__credit page-hero__credit--video">{videoCredit}</p>}
+          {hasLoop && pauseLabel && playLabel && (
+            <button
+              type="button"
+              class="page-hero__pause"
+              data-hero-pause
+              data-pause-label={pauseLabel}
+              data-play-label={playLabel}
+            >
+              {pauseLabel}
+            </button>
+          )}
         </div>
       )
     }
@@ -151,9 +187,9 @@ function isHttp(url?: string) {
     }
 
     function loopSrc(video: HTMLVideoElement) {
-      const mobile = window.matchMedia('(max-width: 767px)').matches;
-      const chosen = mobile ? video.dataset.srcMobile : video.dataset.srcDesktop;
-      return chosen || video.dataset.srcDesktop || video.dataset.srcMobile || '';
+      const narrow = window.matchMedia('(max-width: 1023px)').matches;
+      const chosen = narrow ? video.dataset.srcMobile : video.dataset.srcDesktop;
+      return chosen || video.dataset.srcMobile || video.dataset.srcDesktop || '';
     }
 
     function bindPause(hero: HTMLElement, video: HTMLVideoElement) {
@@ -181,6 +217,9 @@ function isHttp(url?: string) {
 
     function loadLoop(hero: HTMLElement) {
       if (hero.dataset.heroVideoReady === 'true') return;
+      if (hero.hasAttribute('data-still-desktop') && window.matchMedia('(min-width: 1024px)').matches) {
+        return;
+      }
       const video = hero.querySelector<HTMLVideoElement>('.page-hero__video');
       if (!video) return;
       if (prefersReducedMotion() || saveData()) return;
@@ -292,7 +331,9 @@ function isHttp(url?: string) {
 
   .page-hero--photo {
     overflow: hidden;
-    background: var(--color-secondary);
+    background: var(--color-secondary) no-repeat center / cover;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .page-hero :global(picture.page-hero__img),
@@ -302,6 +343,10 @@ function isHttp(url?: string) {
     inset: 0;
     width: 100%;
     height: 100%;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   }
 
   .page-hero :global(.page-hero__img img),
@@ -309,9 +354,14 @@ function isHttp(url?: string) {
   .page-hero__video {
     width: 100%;
     height: 100%;
+    max-width: none;
     object-fit: cover;
     object-position: center;
-    max-width: none;
+    background-repeat: no-repeat;
+  }
+
+  .page-hero :global(.page-hero__img--desktop) {
+    display: none;
   }
 
   .page-hero__video {
@@ -368,6 +418,25 @@ function isHttp(url?: string) {
   @media (min-width: 768px) {
     .page-hero__content {
       padding-bottom: 3.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .page-hero--still-desktop :global(.page-hero__img--desktop) {
+      display: block;
+    }
+
+    .page-hero--still-desktop :global(.page-hero__img--mobile),
+    .page-hero--still-desktop .page-hero__video,
+    .page-hero--still-desktop .page-hero__pause,
+    .page-hero--still-desktop .page-hero__credit--video {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .page-hero__credit--photo {
+      display: none;
     }
   }
 

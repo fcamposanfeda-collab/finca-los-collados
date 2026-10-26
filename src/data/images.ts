@@ -2,6 +2,9 @@
  * Catálogo de imágenes del sitio.
  * Origen principal: web actual loscolladosdesanmiguel.com (WordPress).
  * Los textos alt viven en las traducciones (`images` y páginas), no aquí.
+ *
+ * Fotos de banco: solo Unsplash o Pexels (licencia sin atribución obligatoria).
+ * Nunca Wikimedia CC BY-SA ni otras licencias que exijan crédito.
  */
 import { withBase } from '../utils/paths';
 
