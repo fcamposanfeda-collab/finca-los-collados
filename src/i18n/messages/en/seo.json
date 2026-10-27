@@ -8,24 +8,29 @@
     "description": "Finca Los Collados de San Miguel is a country estate with 2,500 years of history, bungalows, a pool and open landscape in Villamanrique, Ciudad Real, Spain."
   },
   "la-calerilla": {
-    "title": "Driven red-legged partridge shooting in Spain | La Calerilla",
-    "description": "Driven days, walked-up shooting, call hunting and releases at Villamanrique. Bungalow Suite and dining at Los Collados de San Miguel."
+    "title": "Driven partridge shooting Spain | La Calerilla · Los Collados",
+    "description": "Driven partridge shooting in Spain: red-legged partridge at Villamanrique, Campo de Montiel. La Calerilla · Los Collados.",
+    "serviceType": "Driven red-legged partridge shooting"
   },
   "caza-ojeo-perdiz": {
-    "title": "Driven partridge shooting | La Calerilla",
-    "description": "Driven red-legged partridge in Campo de Montiel: minimum 6 pegs, bags of 250, 400 or 600, beaters and Bungalow Suite. Request a dossier."
+    "title": "Driven red-legged partridge in La Mancha | La Calerilla",
+    "description": "Driven red-legged partridge in La Mancha: 6 pegs minimum, bags of 250, 400 or 600, beaters and Bungalow Suite. La Calerilla.",
+    "serviceType": "Driven partridge shooting"
   },
   "caza-en-mano": {
-    "title": "Walked-up partridge shooting | La Calerilla",
-    "description": "Walked-up shooting at La Calerilla: six head per gun, rabbit or partridge, in Villamanrique, Spain."
+    "title": "Walked-up, call hunting and releases | La Calerilla",
+    "description": "Walked-up partridge shooting, call hunting and releases at La Calerilla, Villamanrique, Spain. Los Collados de San Miguel.",
+    "serviceType": "Walked-up partridge shooting"
   },
   "caza-estancia": {
-    "title": "Shooting and stay | La Calerilla",
-    "description": "A driven partridge day with Bungalow Suite, breakfast, field snack, lunch and dinner at Finca Los Collados de San Miguel."
+    "title": "Partridge shooting with lodging | Los Collados",
+    "description": "Partridge shooting with lodging: a driven day, Bungalow Suite, breakfast, field snack, lunch and dinner at Los Collados.",
+    "serviceType": "Partridge shooting with lodging"
   },
   "caza-como-llegar": {
-    "title": "Getting to La Calerilla | Villamanrique",
-    "description": "La Calerilla is in Villamanrique, Ciudad Real: 247 km and 3 h 25 min from Madrid. Shooting contact and dossier."
+    "title": "Getting to La Calerilla: Madrid pickup and private aircraft",
+    "description": "Getting to La Calerilla: Villamanrique, 247 km from Madrid. Pickup from airport, Atocha or hotel, and private aircraft. Los Collados.",
+    "serviceType": "Madrid pickup and access to La Calerilla"
   },
   "alojamiento": {
     "title": "Pet-friendly rural bungalows, Villamanrique | Los Collados",

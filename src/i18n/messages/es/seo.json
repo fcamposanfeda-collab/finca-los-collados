@@ -8,24 +8,29 @@
     "description": "Descubre Los Collados de San Miguel: finca rural con historia de más de 2.500 años, bungalows, piscina y entorno natural en Villamanrique, Ciudad Real."
   },
   "la-calerilla": {
-    "title": "Caza de perdiz roja en La Mancha | La Calerilla",
-    "description": "Ojeo, caza en mano, reclamo y sueltas de perdiz roja en Villamanrique. Bungalow Suite y mesa en Los Collados de San Miguel."
+    "title": "Caza de perdiz roja en Ciudad Real | La Calerilla · Los Collados",
+    "description": "Caza de perdiz roja en Ciudad Real: ojeo, en mano, reclamo y sueltas en Villamanrique, Campo de Montiel. La Calerilla · Los Collados.",
+    "serviceType": "Caza de perdiz roja"
   },
   "caza-ojeo-perdiz": {
-    "title": "Ojeo de perdiz roja | La Calerilla",
-    "description": "Ojeo de perdiz en Campo de Montiel: mínimo 6 puestos, cupos 250, 400 o 600, ojeadores y Bungalow Suite. Solicite dossier."
+    "title": "Ojeo de perdiz roja en La Mancha · cupos y jornada | La Calerilla",
+    "description": "Ojeo de perdiz roja en La Mancha: mínimo 6 puestos, cupos 250, 400 o 600 y Bungalow Suite. Solicite el dossier. La Calerilla.",
+    "serviceType": "Ojeo de perdiz roja"
   },
   "caza-en-mano": {
-    "title": "Caza en mano de perdiz | La Calerilla",
-    "description": "Caza en mano en La Calerilla: seis piezas por cazador, conejo o perdiz, en Villamanrique, Ciudad Real."
+    "title": "Caza en mano, reclamo y sueltas de perdiz | La Calerilla",
+    "description": "Caza en mano, reclamo y sueltas de perdiz en La Calerilla, Villamanrique. Seis piezas por cazador. Los Collados de San Miguel.",
+    "serviceType": "Caza en mano de perdiz"
   },
   "caza-estancia": {
-    "title": "Caza y alojamiento | La Calerilla",
-    "description": "Ojeo de perdiz con Bungalow Suite, desayuno, taco, almuerzo y cena en Finca Los Collados de San Miguel."
+    "title": "Caza de perdiz con alojamiento en finca | Los Collados",
+    "description": "Caza de perdiz con alojamiento: ojeo, Bungalow Suite, desayuno, taco, comida y cena en Finca Los Collados de San Miguel.",
+    "serviceType": "Caza de perdiz con alojamiento"
   },
   "caza-como-llegar": {
-    "title": "Cómo llegar a La Calerilla | Villamanrique",
-    "description": "La Calerilla está en Villamanrique, Ciudad Real: 247 km y 3 h 25 min desde Madrid. Contacto de caza y dossier."
+    "title": "Cómo llegar a La Calerilla: recogida en Madrid y avión privado",
+    "description": "Cómo llegar a La Calerilla: Villamanrique, 247 km desde Madrid. Recogida en aeropuerto, Atocha u hotel, y avión privado. Los Collados.",
+    "serviceType": "Recogida en Madrid y acceso a La Calerilla"
   },
   "alojamiento": {
     "title": "Alojamiento rural Villamanrique | Los Collados de San Miguel",

@@ -41,6 +41,24 @@ export function isInGeneralHuntingSeason(date = new Date()): boolean {
   return day >= hunting.general.start && day <= hunting.general.end;
 }
 
+export const huntingModalityOffers = [
+  { id: 'ojeo', pageKey: 'caza-ojeo-perdiz', season: 'general' },
+  { id: 'en-mano', pageKey: 'caza-en-mano', season: 'general' },
+  { id: 'reclamo', pageKey: 'caza-en-mano', season: 'reclamo' },
+  { id: 'sueltas', pageKey: 'caza-en-mano', season: 'general' },
+] as const satisfies readonly {
+  id: string;
+  pageKey: PageKey;
+  season: 'general' | 'reclamo';
+}[];
+
+export const huntingOffersByPage: Partial<Record<PageKey, readonly string[]>> = {
+  'la-calerilla': ['ojeo', 'en-mano', 'reclamo', 'sueltas'],
+  'caza-ojeo-perdiz': ['ojeo'],
+  'caza-en-mano': ['en-mano', 'reclamo', 'sueltas'],
+  'caza-estancia': ['ojeo'],
+};
+
 export const huntingChildKeys = [
   'caza-ojeo-perdiz',
   'caza-en-mano',
