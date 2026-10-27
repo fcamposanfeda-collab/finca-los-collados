@@ -229,6 +229,7 @@ function runFfmpeg(args) {
 
 /**
  * Native 848×480 sources: do not upscale to 1280.
+ * Burned-in estate logo sits top-left (~160×110). Crop 200 px from the left.
  * Loop clips from Fase 0 frame table (v2-009, v1-008, v2-010, v2-014).
  */
 function encodeHuntingVideos() {
@@ -252,7 +253,7 @@ function encodeHuntingVideos() {
   const jornada = join(outDir, 'calerilla-jornada.mp4');
   const posterStill = join(root, 'public', 'images', 'calerilla-hero-loop.jpg');
   const jornadaStill = join(root, 'public', 'images', 'calerilla-jornada-poster.jpg');
-  const stamp = join(outDir, 'hunting.v2');
+  const stamp = join(outDir, 'hunting.v3');
 
   if (
     existsSync(stamp) &&
@@ -277,7 +278,7 @@ function encodeHuntingVideos() {
     '-i', v2,
     '-i', v2,
     '-filter_complex',
-    `${trimPad('0', 23, 3.5)};${trimPad('1', 47, 3.2)};${trimPad('2', 36.8, 3.3)};${trimPad('3', 50.5, 3.3)};[0o][1o][2o][3o]concat=n=4:v=1:a=0,crop=688:480:160:0,format=yuv420p[v]`,
+    `${trimPad('0', 23, 3.5)};${trimPad('1', 47, 3.2)};${trimPad('2', 36.8, 3.3)};${trimPad('3', 50.5, 3.3)};[0o][1o][2o][3o]concat=n=4:v=1:a=0,crop=640:480:200:0,format=yuv420p[v]`,
     '-map', '[v]',
     '-an',
     '-c:v', 'libx264',
@@ -311,7 +312,7 @@ function encodeHuntingVideos() {
     '-filter_complex',
     '[0:v]trim=start=22:duration=38,setpts=PTS-STARTPTS,scale=848:480:force_original_aspect_ratio=decrease,pad=848:480:(ow-iw)/2:(oh-ih)/2,fps=24,setsar=1[v0];' +
       '[1:v]trim=start=36:duration=22,setpts=PTS-STARTPTS,scale=848:480:force_original_aspect_ratio=decrease,pad=848:480:(ow-iw)/2:(oh-ih)/2,fps=24,setsar=1[v1];' +
-      '[v0][v1]concat=n=2:v=1:a=0,crop=688:480:160:0,format=yuv420p[v]',
+      '[v0][v1]concat=n=2:v=1:a=0,crop=640:480:200:0,format=yuv420p[v]',
     '-map', '[v]',
     '-an',
     '-c:v', 'libx264',

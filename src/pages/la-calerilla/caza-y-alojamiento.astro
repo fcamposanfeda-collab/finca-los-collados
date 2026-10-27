@@ -9,12 +9,14 @@ import { buildPageWhatsAppUrl } from '../../data/booking';
 import { contactFormUrl } from '../../data/forms';
 import { useI18n } from '../../i18n';
 
-const { locale, copy, t } = useI18n(Astro);
+const { locale, copy, t, href } = useI18n(Astro);
 const meta = getPageMeta('caza-estancia', locale);
 const page = copy['caza-estancia'] as {
   hero: { eyebrow: string; title: string; subtitle: string };
   intro: string;
   points: string[];
+  linksTitle: string;
+  links: { pageKey: 'alojamiento' | 'gastronomia' | 'experiencias' | 'entorno' | 'packs' | 'empresas'; label: string }[];
   notes: string[];
   cta: { title: string; text: string; buttonLabel: string };
 };
@@ -49,6 +51,14 @@ const notes = visibleLines(page.notes);
       <ul class="capacity-list">
         {page.points.map((item) => <li>{item}</li>)}
       </ul>
+      <h2>{page.linksTitle}</h2>
+      <ul class="capacity-list">
+        {page.links.map((item) => (
+          <li>
+            <a href={href(item.pageKey)}>{item.label}</a>
+          </li>
+        ))}
+      </ul>
       {
         notes.length > 0 && (
           <ul class="capacity-list">
@@ -58,7 +68,7 @@ const notes = visibleLines(page.notes);
       }
     </div>
   </section>
-  <TrustBlock showHunting />
+  <TrustBlock variant="hunting" />
   <div id="solicitud-caza">
     <ContactForm
       title={page.cta.title}

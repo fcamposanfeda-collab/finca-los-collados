@@ -4,21 +4,30 @@ import TrustBlock from '../../components/conversion/TrustBlock.astro';
 import ContactForm from '../../components/forms/ContactForm.astro';
 import { getPageMeta } from '../../data/pages-meta';
 import { images } from '../../data/images';
-import { visibleLines } from '../../data/hunting';
+import { hunting, formatHuntingDay, visibleLines } from '../../data/hunting';
 import { buildPageWhatsAppUrl } from '../../data/booking';
 import { contactFormUrl } from '../../data/forms';
 import { useI18n } from '../../i18n';
 
-const { locale, copy, t } = useI18n(Astro);
+const { locale, copy, t, meta: localeMeta } = useI18n(Astro);
 const meta = getPageMeta('caza-en-mano', locale);
 const page = copy['caza-en-mano'] as {
   hero: { eyebrow: string; title: string; subtitle: string };
   intro: string;
   points: string[];
+  reclamoTitle: string;
+  reclamo: string;
+  sueltasTitle: string;
+  sueltas: string;
   notes: string[];
   cta: { title: string; text: string; buttonLabel: string };
 };
 const notes = visibleLines(page.notes);
+const reclamo = page.reclamo
+  .replace('{lowStart}', formatHuntingDay(hunting.reclamoMale.lowAltitude.start, localeMeta.bcp47))
+  .replace('{lowEnd}', formatHuntingDay(hunting.reclamoMale.lowAltitude.end, localeMeta.bcp47))
+  .replace('{otherStart}', formatHuntingDay(hunting.reclamoMale.other.start, localeMeta.bcp47))
+  .replace('{otherEnd}', formatHuntingDay(hunting.reclamoMale.other.end, localeMeta.bcp47));
 ---
 
 <ContentPage
@@ -49,6 +58,10 @@ const notes = visibleLines(page.notes);
       <ul class="capacity-list">
         {page.points.map((item) => <li>{item}</li>)}
       </ul>
+      <h2>{page.reclamoTitle}</h2>
+      <p>{reclamo}</p>
+      <h2>{page.sueltasTitle}</h2>
+      <p>{page.sueltas}</p>
       {
         notes.length > 0 && (
           <ul class="capacity-list">
@@ -58,7 +71,7 @@ const notes = visibleLines(page.notes);
       }
     </div>
   </section>
-  <TrustBlock showHunting />
+  <TrustBlock variant="hunting" />
   <div id="solicitud-caza">
     <ContactForm
       title={page.cta.title}

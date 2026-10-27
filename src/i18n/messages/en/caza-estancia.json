@@ -4,15 +4,25 @@
     "title": "Shooting and stay",
     "subtitle": "A driven day with Bungalow Suite, breakfast, field snack, lunch and dinner at Los Collados."
   },
-  "intro": "On a driven day the package includes a Bungalow Suite on a bed-and-breakfast basis, the field snack, lunch and dinner. The estate has 8 bungalows, for up to 16 adults.",
+  "intro": "On a driven day the package includes a Bungalow Suite with breakfast, field snack, lunch and dinner. The estate has 8 bungalows, for up to 16 adults.",
   "points": [
-    "Bungalow Suite, bed and breakfast, included on a driven day.",
+    "Bungalow Suite with breakfast, field snack, lunch and dinner, included on a driven day.",
     "Field snack, lunch and dinner on the shooting day.",
     "Manchego cooking on the estate: partridge in escabeche, migas and local produce.",
-    "Call hunting is offered as a day without lodging or field snack."
+    "Call hunting is offered as a day without lodging or field snack.",
+    "Private party: exclusive use of the estate, 8 bungalows, up to 16 adults."
+  ],
+  "linksTitle": "Also on the estate",
+  "links": [
+    { "pageKey": "alojamiento", "label": "Accommodation" },
+    { "pageKey": "gastronomia", "label": "Dining" },
+    { "pageKey": "experiencias", "label": "Experiences" },
+    { "pageKey": "entorno", "label": "Surroundings" },
+    { "pageKey": "packs", "label": "Packages" },
+    { "pageKey": "empresas", "label": "Corporate" }
   ],
   "notes": [
-    "TODO_DATO: pickup in Madrid.",
+    "Pickup in Madrid: airport, Atocha or hotel, on request.",
     "Shooting booking with a 50 % deposit."
   ],
   "cta": {

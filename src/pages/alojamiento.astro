@@ -7,7 +7,7 @@ import { images } from '../data/images';
 import { bookingComPropertyUrl, buildPageWhatsAppUrl } from '../data/booking';
 import { useI18n } from '../i18n';
 
-const { locale, copy, t } = useI18n(Astro);
+const { locale, copy, t, href } = useI18n(Astro);
 const meta = getPageMeta('alojamiento', locale);
 const page = copy.alojamiento as {
   hero: { eyebrow: string; title: string; subtitle: string };
@@ -15,6 +15,7 @@ const page = copy.alojamiento as {
   capacity: { title: string; items: string[] };
   amenitiesTitle: string;
   amenities: string[];
+  huntingLink: { text: string; label: string };
   cta: { title: string; text: string };
   alts: { interior: string; amenities: string; closing: string };
 };
@@ -53,6 +54,10 @@ const col2 = page.amenities.slice(mid);
     <div class="container text-image">
       <div class="page-content__inner">
         <p class="page-content__lead">{page.intro}</p>
+        <p>
+          {page.huntingLink.text}{' '}
+          <a href={href('la-calerilla')}>{page.huntingLink.label}</a>
+        </p>
         <h2>{page.capacity.title}</h2>
         <ul class="capacity-list">
           {page.capacity.items.map((item) => <li>{item}</li>)}

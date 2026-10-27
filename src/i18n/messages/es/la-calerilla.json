@@ -4,7 +4,7 @@
     "title": "Caza de perdiz roja en La Mancha",
     "subtitle": "Coto en Villamanrique, Campos de Montiel. Ojeo, caza en mano, reclamo y sueltas, con Bungalow Suite y mesa en la finca."
   },
-  "intro": "La Calerilla es el coto de caza de Finca Los Collados de San Miguel, en Villamanrique (Ciudad Real). La perdiz roja (Alectoris rufa) encuentra monte bajo, olivares y cereal. Las jornadas las organiza Alectoris Ibérica SL.",
+  "intro": "La Calerilla es el coto de perdiz roja de Finca Los Collados de San Miguel, en Villamanrique (Campos de Montiel, Ciudad Real). Ojeo, caza en mano, reclamo y sueltas, con temporada general del 8 de octubre de 2026 al 8 de febrero de 2027. El ojeo incluye Bungalow Suite con desayuno, taco, comida y cena en la propia finca. Recogida en Madrid (aeropuerto, Atocha u hotel). Las jornadas las organiza Alectoris Ibérica SL.",
   "modalitiesTitle": "Modalidades",
   "modalities": [
     {
@@ -18,32 +18,40 @@
       "text": "Seis piezas por cazador, conejo o perdiz, al ritmo del campo."
     },
     {
-      "pageKey": "la-calerilla",
+      "pageKey": "caza-en-mano",
       "title": "Reclamo",
       "text": "Jornada de reclamo de macho, sin alojamiento ni taco. Temporada según la orden de vedas de Castilla-La Mancha."
     },
     {
-      "pageKey": "la-calerilla",
+      "pageKey": "caza-en-mano",
       "title": "Sueltas",
       "text": "Mínimo 100 aves. El taco está incluido."
     }
   ],
+  "experience": {
+    "title": "La experiencia completa",
+    "steps": [
+      "Recogida en Madrid",
+      "Llegada y cena en Bungalow Suite",
+      "Jornada de caza con taco en el campo",
+      "Descanso y cocina manchega"
+    ]
+  },
   "ojeoTitle": "Ojeo: qué incluye y qué es a la carta",
   "ojeoIncludesTitle": "Incluido",
   "ojeoIncludes": [
     "Ojeadores",
-    "Kit",
-    "10 perdices por puesto (pueden entregarse peladas)",
-    "Bungalow Suite en régimen de alojamiento y desayuno",
-    "Taco, almuerzo y cena"
+    "Material de cacería: perchas, pantallas, avisperos",
+    "Percha de 10 perdices por cazador (pueden entregarse peladas)",
+    "Bungalow Suite con desayuno, taco, comida y cena"
   ],
   "ojeoExtraTitle": "A la carta",
   "ojeoExtra": [
-    "Licencia y seguro",
+    "Licencia y seguro obligatorios",
     "Cartuchos",
-    "Alquiler de arma",
+    "Alquiler de escopetas",
     "Secretario",
-    "Cargador (la finca puede facilitar el alquiler)"
+    "Cargador"
   ],
   "reserveNote": "La reserva de caza se confirma con una señal del 50 %.",
   "seasonTitle": "Temporada {season}",
@@ -56,7 +64,7 @@
   "galleryTitle": "La Calerilla",
   "cta": {
     "title": "Solicite el dossier de caza",
-    "text": "Indique fechas, número de puestos o cazadores y si desea combinar con estancia. Sin tarifas publicadas: el dossier se envía a consulta.",
+    "text": "Indique fechas, número de puestos o cazadores y si desea combinar con estancia. Le enviamos el dossier de la temporada con todas las condiciones.",
     "buttonLabel": "Solicitar dossier"
   },
   "form": {

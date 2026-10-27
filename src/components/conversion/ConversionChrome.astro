@@ -1,28 +1,36 @@
 ---
 import { contact } from '../../data/contact';
 import { bookingComPropertyUrl, buildPageWhatsAppUrl } from '../../data/booking';
+import { contactFormUrl } from '../../data/forms';
+import { isHuntingPage } from '../../data/hunting';
 import { useI18n } from '../../i18n';
 
 const { locale, pageKey, href, copy } = useI18n(Astro);
 const conv = copy.conversion as {
   fabAria: string;
   barAria: string;
+  barHuntingAria: string;
   barReserve: string;
+  barDossier: string;
   barWhatsapp: string;
   barCall: string;
 };
+const huntingPage = isHuntingPage(pageKey);
 const whatsappUrl = buildPageWhatsAppUrl(pageKey, locale);
 const bookingUrl = bookingComPropertyUrl(locale);
-const reserveHref = pageKey === 'alojamiento' || pageKey === 'packs' || pageKey === 'home' || pageKey === 'reservas-online'
-  ? bookingUrl
-  : href('contacto') + '?motivo=' + (
-      pageKey === 'la-calerilla' ? 'caza'
-        : pageKey === 'eventos' ? 'eventos'
+const reserveHref = huntingPage
+  ? contactFormUrl(locale, 'caza')
+  : pageKey === 'alojamiento' || pageKey === 'packs' || pageKey === 'home' || pageKey === 'reservas-online'
+    ? bookingUrl
+    : href('contacto') + '?motivo=' + (
+        pageKey === 'eventos' ? 'eventos'
           : pageKey === 'empresas' ? 'empresas'
             : pageKey === 'la-finca' ? 'finca-completa'
               : 'general'
-    );
+      );
 const reserveExternal = reserveHref.startsWith('http');
+const barAria = huntingPage ? conv.barHuntingAria : conv.barAria;
+const barPrimaryLabel = huntingPage ? conv.barDossier : conv.barReserve;
 ---
 
 <a
@@ -42,7 +50,7 @@ const reserveExternal = reserveHref.startsWith('http');
   </svg>
 </a>
 
-<nav class="reserve-bar" aria-label={conv.barAria}>
+<nav class="reserve-bar" aria-label={barAria}>
   <a
     href={reserveHref}
     class="reserve-bar__btn"
@@ -51,7 +59,7 @@ const reserveExternal = reserveHref.startsWith('http');
     target={reserveExternal ? '_blank' : undefined}
     rel={reserveExternal ? 'noopener noreferrer' : undefined}
   >
-    {conv.barReserve}
+    {barPrimaryLabel}
   </a>
   <a
     href={whatsappUrl}

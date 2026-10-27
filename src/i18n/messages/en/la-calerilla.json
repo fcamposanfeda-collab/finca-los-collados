@@ -4,7 +4,7 @@
     "title": "Driven red-legged partridge shooting in Spain",
     "subtitle": "Shoot at Villamanrique, Campos de Montiel. Driven days, walked-up shooting, call hunting and releases, with a Bungalow Suite and dining on the estate."
   },
-  "intro": "La Calerilla is the shoot of Finca Los Collados de San Miguel, in Villamanrique (Ciudad Real). Red-legged partridge (Alectoris rufa) hold in scrub, olive groves and cereal. Days are organised by Alectoris Ibérica SL.",
+  "intro": "La Calerilla is the red-legged partridge shoot of Finca Los Collados de San Miguel, in Villamanrique (Campos de Montiel, Ciudad Real). Driven days, walked-up shooting, call hunting and releases, with a general season from 8 October 2026 to 8 February 2027. A driven day includes a Bungalow Suite with breakfast, field snack, lunch and dinner on the estate. Pickup in Madrid (airport, Atocha or hotel). Days are organised by Alectoris Ibérica SL.",
   "modalitiesTitle": "Disciplines",
   "modalities": [
     {
@@ -18,32 +18,40 @@
       "text": "Six head per gun, rabbit or partridge, at the pace of the ground."
     },
     {
-      "pageKey": "la-calerilla",
+      "pageKey": "caza-en-mano",
       "title": "Call hunting",
       "text": "A cock-call day, without lodging or the field snack. Season as set in the Castilla-La Mancha shooting order."
     },
     {
-      "pageKey": "la-calerilla",
+      "pageKey": "caza-en-mano",
       "title": "Releases",
       "text": "Minimum 100 birds. The field snack is included."
     }
   ],
+  "experience": {
+    "title": "The full day",
+    "steps": [
+      "Pickup in Madrid",
+      "Arrival and dinner in a Bungalow Suite",
+      "Shooting day with a field snack",
+      "Rest and Manchego cooking"
+    ]
+  },
   "ojeoTitle": "Driven days: included and à la carte",
   "ojeoIncludesTitle": "Included",
   "ojeoIncludes": [
     "Beaters",
-    "Kit",
-    "10 birds per peg (can be delivered plucked)",
-    "Bungalow Suite on a bed-and-breakfast basis",
-    "Field snack, lunch and dinner"
+    "Hunting equipment: bird rails, screens and peg markers",
+    "A peg of 10 partridges per gun (can be delivered plucked)",
+    "Bungalow Suite with breakfast, field snack, lunch and dinner"
   ],
   "ojeoExtraTitle": "À la carte",
   "ojeoExtra": [
-    "Licence and insurance",
+    "Compulsory licence and insurance",
     "Cartridges",
-    "Gun hire",
+    "Shotgun hire",
     "Secretary",
-    "Loader (the estate can arrange hire)"
+    "Loader"
   ],
   "reserveNote": "A hunting booking is confirmed with a 50 % deposit.",
   "seasonTitle": "Season {season}",
@@ -56,7 +64,7 @@
   "galleryTitle": "La Calerilla",
   "cta": {
     "title": "Request the shooting dossier",
-    "text": "Give dates, number of pegs or guns, and whether you want to stay. No published rates: the dossier is sent on request.",
+    "text": "Give dates, number of pegs or guns, and whether you want to stay. We send you the season dossier with all the terms.",
     "buttonLabel": "Request a dossier"
   },
   "form": {

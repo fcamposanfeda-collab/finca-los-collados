@@ -22,6 +22,7 @@ const heroLoop = getHuntingHeroLoop();
 const page = copy['la-calerilla'] as {
   hero: { eyebrow: string; title: string; subtitle: string };
   intro: string;
+  experience: { title: string; steps: string[] };
   modalitiesTitle: string;
   modalities: { pageKey: PageKey; title: string; text: string }[];
   ojeoTitle: string;
@@ -44,14 +45,12 @@ const seasonBody = page.seasonBody
   .replace('{end}', formatHuntingDay(hunting.general.end, localeMeta.bcp47));
 const seasonItems = visibleLines(page.seasonItems);
 const galleryAlts = [
-  t('images.calerillaLoop'),
-  t('images.calerillaJornada'),
-  page.modalities[0]?.title ?? '',
-  page.modalities[1]?.title ?? '',
-  page.hero.title,
-  page.ojeoIncludesTitle,
-  page.cta.title,
-  page.galleryTitle,
+  t('images.calerillaDesktop'),
+  t('images.calerillaTemporada'),
+  t('images.calerillaPerdiz'),
+  t('images.calerillaMesa'),
+  t('images.calerillaBungalow'),
+  t('images.gallery.paisaje'),
 ];
 const slides = images.laCalerilla.gallery.map((src, index) => ({
   src,
@@ -103,6 +102,10 @@ const slides = images.laCalerilla.gallery.map((src, index) => ({
   <section class="page-content">
     <div class="container page-content__inner page-content__inner--wide">
       <p class="page-content__lead">{page.intro}</p>
+      <h2 class="section__title">{page.experience.title}</h2>
+      <ol class="capacity-list">
+        {page.experience.steps.map((step) => <li>{step}</li>)}
+      </ol>
       <h2 class="section__title">{page.modalitiesTitle}</h2>
       <div class="feature-grid feature-grid--4">
         {
@@ -161,7 +164,7 @@ const slides = images.laCalerilla.gallery.map((src, index) => ({
     </div>
   </section>
 
-  <TrustBlock showHunting />
+  <TrustBlock variant="hunting" />
   <div id="solicitud-caza">
     <ContactForm
       title={page.form.title}

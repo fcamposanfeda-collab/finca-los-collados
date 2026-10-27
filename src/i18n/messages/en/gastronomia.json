@@ -32,6 +32,10 @@
     { "title": "Local produce", "description": "Ingredients from the La Mancha countryside and traditional recipes." },
     { "title": "Tailored menus", "description": "Options for groups, events and gastronomic packages." }
   ],
+  "huntingLink": {
+    "text": "A driven partridge day on the estate includes the field snack, lunch and dinner.",
+    "label": "Red-legged partridge shooting at La Calerilla"
+  },
   "cta": {
     "title": "Taste La Mancha at Los Collados",
     "text": "Include the dining experience in your booking, or ask about menus for groups and events."

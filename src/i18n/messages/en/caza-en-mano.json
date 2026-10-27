@@ -10,8 +10,12 @@
     "Offered alongside driven days, call hunting and releases.",
     "It can be combined with a Bungalow Suite and dining on the estate."
   ],
+  "reclamoTitle": "Call hunting",
+  "reclamo": "A cock-call day, without lodging or the field snack. From {lowStart} to {lowEnd} below 800 m, or from {otherStart} to {otherEnd} in the other bands of the Castilla-La Mancha shooting order.",
+  "sueltasTitle": "Releases",
+  "sueltas": "Minimum 100 birds. The field snack is included.",
   "notes": [
-    "TODO_DATO: conditions for pointing dogs on the shoot and in the bungalows.",
+    "Dogs are welcome on the shoot and in the bungalows.",
     "TODO_DATO: hours of the day."
   ],
   "cta": {

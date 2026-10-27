@@ -6,7 +6,7 @@
   },
   "intro": "Finca Los Collados de San Miguel is in Villamanrique, Ciudad Real, in Campos de Montiel (Castilla-La Mancha). It is a base for Villanueva de los Infantes, the Ruidera Lagoons, Valdepeñas and touring La Mancha. Book your stay and we will help you plan the visit.",
   "distancesTitle": "Driving distances",
-  "distancesNote": "Approximate driving distances from Villamanrique village (38.546 N, 2.998 W). Source: OSRM / OpenStreetMap, checked 19 Oct 2026. The last stretch to the estate is Camino de los Collados, km 4,4.",
+  "distancesNote": "Approximate driving distances from Villamanrique village. The last stretch to the estate is Camino de los Collados, km 4,4.",
   "distances": [
     { "place": "Villanueva de los Infantes", "detail": "27 km · 34 min" },
     { "place": "Ruidera Lagoons", "detail": "62 km · 1 h 10 min" },
@@ -47,6 +47,10 @@
       "description": "The region offers natural spaces, birdwatching routes and distinctive landscapes in which to switch off."
     }
   ],
+  "huntingLink": {
+    "text": "La Calerilla is in Villamanrique: 247 km and about 3 h 25 min from Madrid.",
+    "label": "Getting to La Calerilla"
+  },
   "cta": {
     "title": "Explore La Mancha from Los Collados",
     "text": "Book your stay and we will help you plan routes through the territory."

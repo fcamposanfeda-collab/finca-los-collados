@@ -38,6 +38,10 @@
       "description": "Options pour les groupes, les événements et les formules gastronomiques."
     }
   ],
+  "huntingLink": {
+    "text": "La battue de perdreaux au domaine comprend taco, déjeuner et dîner manchega.",
+    "label": "Chasse de la perdrix rouge à La Calerilla"
+  },
   "cta": {
     "title": "Goûtez La Mancha à Los Collados",
     "text": "Incluez l’expérience gastronomique dans votre réservation, ou renseignez-vous sur les menus pour groupes et événements."

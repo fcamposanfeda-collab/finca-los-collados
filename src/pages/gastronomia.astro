@@ -7,7 +7,7 @@ import { getPageMeta } from '../data/pages-meta';
 import { images } from '../data/images';
 import { useI18n } from '../i18n';
 
-const { locale, copy } = useI18n(Astro);
+const { locale, copy, href } = useI18n(Astro);
 const meta = getPageMeta('gastronomia', locale);
 const page = copy.gastronomia as {
   hero: { eyebrow: string; title: string; subtitle: string };
@@ -16,6 +16,7 @@ const page = copy.gastronomia as {
   description: string;
   dishes: string;
   quote: string;
+  huntingLink: { text: string; label: string };
   features: { title: string; description: string }[];
   moments: { videoAlt: string };
   cta: { title: string; text: string };
@@ -39,6 +40,10 @@ const page = copy.gastronomia as {
         <ContentImage src={images.experiencias.gastronomia} alt={page.alts.banner} aspect="natural" />
       </div>
       <p class="page-content__lead">{page.lead}</p>
+      <p>
+        {page.huntingLink.text}{' '}
+        <a href={href('la-calerilla')}>{page.huntingLink.label}</a>
+      </p>
       <p class="gastronomia-subtitle">{page.subtitle}</p>
       <p>{page.description}</p>
       <p style="font-weight: 500; color: var(--color-text);">{page.dishes}</p>

@@ -32,6 +32,10 @@
     { "title": "Producto local", "description": "Ingredientes de la tierra manchega y recetas de tradición." },
     { "title": "Menús a medida", "description": "Opciones para grupos, eventos y packs gastronómicos." }
   ],
+  "huntingLink": {
+    "text": "El ojeo de perdiz roja en la finca incluye taco, almuerzo y cena manchega.",
+    "label": "Caza de perdiz roja en La Calerilla"
+  },
   "cta": {
     "title": "Saboree La Mancha en Los Collados",
     "text": "Incluya la experiencia gastronómica en su reserva o consulte menús para grupos y eventos."

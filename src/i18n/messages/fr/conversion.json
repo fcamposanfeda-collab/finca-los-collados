@@ -1,7 +1,9 @@
 {
   "fabAria": "Écrire sur WhatsApp à Finca Los Collados de San Miguel",
   "barAria": "Réserver, WhatsApp ou appeler",
+  "barHuntingAria": "Dossier, WhatsApp ou appeler",
   "barReserve": "Réserver",
+  "barDossier": "Dossier",
   "barWhatsapp": "WhatsApp",
   "barCall": "Appeler",
   "playVideo": "Lire la vidéo",
@@ -57,6 +59,13 @@
     "cancelText": "Les séjours en bungalow suivent l’annulation Booking.com (gratuite sur les tarifs qui l’indiquent ; le délai précis figure sur votre confirmation).",
     "cancelLink": "Conditions de réservation",
     "huntingTitle": "Chasse à La Calerilla",
-    "huntingText": "Les journées de chasse sont organisées par Alectoris Ibérica SL."
+    "huntingText": "Les journées de chasse sont organisées par Alectoris Ibérica SL.",
+    "huntingBlockTitle": "La Calerilla",
+    "huntingItems": [
+      "Organisé par Alectoris Ibérica SL",
+      "Bungalow Suite au domaine",
+      "Booking 9,7/10",
+      "Chiens bienvenus"
+    ]
   }
 }

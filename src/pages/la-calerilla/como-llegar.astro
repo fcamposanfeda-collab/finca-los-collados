@@ -1,10 +1,12 @@
 ---
 import ContentPage from '../../components/ui/ContentPage.astro';
+import ContentImage from '../../components/ui/ContentImage.astro';
 import TrustBlock from '../../components/conversion/TrustBlock.astro';
 import ContactForm from '../../components/forms/ContactForm.astro';
 import { getPageMeta } from '../../data/pages-meta';
 import { images } from '../../data/images';
-import { visibleLines } from '../../data/hunting';
+import { huntingDocs, visibleLines } from '../../data/hunting';
+import { contact } from '../../data/contact';
 import { buildPageWhatsAppUrl } from '../../data/booking';
 import { contactFormUrl } from '../../data/forms';
 import { useI18n } from '../../i18n';
@@ -15,6 +17,14 @@ const page = copy['caza-como-llegar'] as {
   hero: { eyebrow: string; title: string; subtitle: string };
   intro: string;
   points: string[];
+  travelTitle: string;
+  travel: string[];
+  docsTitle: string;
+  docsNote: string;
+  clmLicenceLabel: string;
+  teaLabel: string;
+  mapLabel: string;
+  mapAlt: string;
   notes: string[];
   cta: { title: string; text: string; buttonLabel: string };
 };
@@ -49,6 +59,20 @@ const notes = visibleLines(page.notes);
       <ul class="capacity-list">
         {page.points.map((item) => <li>{item}</li>)}
       </ul>
+      <h2>{page.travelTitle}</h2>
+      <ul class="capacity-list">
+        {page.travel.map((item) => <li>{item}</li>)}
+      </ul>
+      <h2>{page.docsTitle}</h2>
+      <p>{page.docsNote}</p>
+      <ul class="capacity-list">
+        <li>
+          <a href={huntingDocs.clmLicence} rel="noopener noreferrer" target="_blank">{page.clmLicenceLabel}</a>
+        </li>
+        <li>
+          <a href={huntingDocs.europeanFirearmsPass} rel="noopener noreferrer" target="_blank">{page.teaLabel}</a>
+        </li>
+      </ul>
       {
         notes.length > 0 && (
           <ul class="capacity-list">
@@ -56,9 +80,13 @@ const notes = visibleLines(page.notes);
           </ul>
         )
       }
+      <p>
+        <a href={contact.mapsUrl} rel="noopener noreferrer" target="_blank">{page.mapLabel}</a>
+      </p>
+      <ContentImage src={images.hero.entorno} alt={page.mapAlt} />
     </div>
   </section>
-  <TrustBlock showHunting />
+  <TrustBlock variant="hunting" />
   <div id="solicitud-caza">
     <ContactForm
       title={page.cta.title}

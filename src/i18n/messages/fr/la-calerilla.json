@@ -4,7 +4,7 @@
     "title": "Chasse de la perdrix rouge en Espagne",
     "subtitle": "Territoire à Villamanrique, Campos de Montiel. Battues, chasse devant soi, chasse au poste et lâchers, avec Bungalow Suite et table du domaine."
   },
-  "intro": "La Calerilla est le territoire de chasse de Finca Los Collados de San Miguel, à Villamanrique (Ciudad Real). La perdrix rouge (Alectoris rufa) tient dans le matorral, les oliveraies et les céréales. Les journées sont organisées par Alectoris Ibérica SL.",
+  "intro": "La Calerilla est le territoire de perdrix rouge de Finca Los Collados de San Miguel, à Villamanrique (Campos de Montiel, Ciudad Real). Battues, chasse devant soi, chasse au poste et lâchers, saison générale du 8 octobre 2026 au 8 février 2027. La battue comprend la Bungalow Suite avec petit-déjeuner, taco, déjeuner et dîner au domaine. Prise en charge à Madrid (aéroport, Atocha ou hôtel). Les journées sont organisées par Alectoris Ibérica SL.",
   "modalitiesTitle": "Modalités",
   "modalities": [
     {
@@ -18,32 +18,40 @@
       "text": "Six pièces par fusil, lapin ou perdrix, au rythme du terrain."
     },
     {
-      "pageKey": "la-calerilla",
+      "pageKey": "caza-en-mano",
       "title": "Chasse au poste",
       "text": "Journée de chasse au poste de coq, sans hébergement ni taco. Saison selon l’arrêté d’ouverture de Castille-La Manche."
     },
     {
-      "pageKey": "la-calerilla",
+      "pageKey": "caza-en-mano",
       "title": "Lâchers",
       "text": "Minimum 100 oiseaux. Le taco est compris."
     }
   ],
+  "experience": {
+    "title": "L’expérience complète",
+    "steps": [
+      "Prise en charge à Madrid",
+      "Arrivée et dîner en Bungalow Suite",
+      "Journée de chasse avec taco au champ",
+      "Repos et cuisine manchega"
+    ]
+  },
   "ojeoTitle": "Battue : compris et à la carte",
   "ojeoIncludesTitle": "Compris",
   "ojeoIncludes": [
     "Rabatteurs",
-    "Kit",
-    "10 perdrix par poste (peuvent être livrées plumées)",
-    "Bungalow Suite en chambre d’hôtes (nuit et petit-déjeuner)",
-    "Taco, déjeuner et dîner"
+    "Matériel de chasse : perches, écrans et postes",
+    "Perche de 10 perdreaux par chasseur (peuvent être livrées plumées)",
+    "Bungalow Suite avec petit-déjeuner, taco, déjeuner et dîner"
   ],
   "ojeoExtraTitle": "À la carte",
   "ojeoExtra": [
-    "Permis et assurance",
+    "Permis et assurance obligatoires",
     "Cartouches",
-    "Location d’arme",
+    "Location de fusils",
     "Secrétaire",
-    "Chargeur (le domaine peut organiser la location)"
+    "Chargeur"
   ],
   "reserveNote": "La réservation de chasse se confirme avec un acompte de 50 %.",
   "seasonTitle": "Saison {season}",
@@ -56,7 +64,7 @@
   "galleryTitle": "La Calerilla",
   "cta": {
     "title": "Demandez le dossier de chasse",
-    "text": "Indiquez les dates, le nombre de postes ou de fusils, et si vous souhaitez séjourner. Pas de tarifs publiés : le dossier part sur demande.",
+    "text": "Indiquez les dates, le nombre de postes ou de fusils, et si vous souhaitez séjourner. Nous vous envoyons le dossier de la saison avec toutes les conditions.",
     "buttonLabel": "Demander un dossier"
   },
   "form": {

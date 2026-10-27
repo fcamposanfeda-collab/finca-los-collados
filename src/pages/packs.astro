@@ -6,7 +6,7 @@ import { images } from '../data/images';
 import { bookingComPropertyUrl, buildPageWhatsAppUrl } from '../data/booking';
 import { useI18n } from '../i18n';
 
-const { locale, copy, t } = useI18n(Astro);
+const { locale, copy, t, href } = useI18n(Astro);
 const meta = getPageMeta('packs', locale);
 const page = copy.packs as {
   hero: { eyebrow: string; title: string; subtitle: string };
@@ -49,7 +49,9 @@ const page = copy.packs as {
                 <ContentImage src={images.packs[pack.slug] ?? images.hero.packs} alt={pack.title} />
               </div>
               <div class="card-body">
-                <h3>{pack.title}</h3>
+                <h3>
+                  {pack.slug === 'caza' ? <a href={href('la-calerilla')}>{pack.title}</a> : pack.title}
+                </h3>
                 <p>{pack.description}</p>
                 <ul class="packs-grid__highlights">
                   {pack.highlights.map((item) => <li>{item}</li>)}

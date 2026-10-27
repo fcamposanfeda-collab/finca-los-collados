@@ -23,7 +23,7 @@ const { src, poster, title, text, credit } = Astro.props;
         autoplay
         preload="metadata"
         poster={poster}
-        width="688"
+        width="640"
         height="480"
       >
         <source src={src} type="video/mp4" />
@@ -62,10 +62,10 @@ const { src, poster, title, text, credit } = Astro.props;
 
   .hunting-loop__video {
     display: block;
-    width: 688px;
+    width: 640px;
     max-width: 100%;
     height: auto;
-    aspect-ratio: 688 / 480;
+    aspect-ratio: 640 / 480;
     object-fit: cover;
     object-position: center;
     background: var(--color-footer-bg) no-repeat center / cover;

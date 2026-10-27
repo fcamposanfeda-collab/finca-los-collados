@@ -4,14 +4,25 @@
     "title": "Getting here",
     "subtitle": "Villamanrique, Ciudad Real. 247 km and about 3 h 25 min from Madrid."
   },
-  "intro": "The estate is in Villamanrique, Campos de Montiel (Ciudad Real). From Madrid it is about 247 km and 3 h 25 min by car (OSRM / OpenStreetMap, 19 Oct 2026, from Villamanrique village).",
+  "intro": "The estate is in Villamanrique, Campos de Montiel (Ciudad Real). From Madrid it is about 247 km and 3 h 25 min by car.",
   "points": [
-    "Address and map: contact page.",
+    "Address: Camino de los Collados, km 4,4, 13343 Villamanrique (Ciudad Real).",
     "Shooting desk: info@loscolladosdesanmiguel.com · +34 608 543 681."
   ],
-  "notes": [
-    "TODO_DATO: pickup in Madrid."
+  "travelTitle": "Arrival",
+  "travel": [
+    "By car from Madrid: 247 km, about 3 h 25 min.",
+    "Pickup in Madrid: Adolfo Suárez Madrid-Barajas airport, Atocha station or hotel, on request.",
+    "We can coordinate a private-aircraft arrival and the transfer to the estate, on request.",
+    "Helicopter transfer with an authorised operator, on request."
   ],
+  "docsTitle": "Visiting guns",
+  "docsNote": "A Castilla-La Mancha shooting licence and compulsory insurance are required. You may bring a gun with a European Firearms Pass or hire a gun on the estate. We do not publish fees or processing times.",
+  "clmLicenceLabel": "Castilla-La Mancha shooting licences · JCCM",
+  "teaLabel": "European Firearms Pass · Guardia Civil",
+  "mapLabel": "Open location in Google Maps",
+  "mapAlt": "Campos de Montiel, access to Finca Los Collados de San Miguel",
+  "notes": [],
   "cta": {
     "title": "Request the dossier",
     "text": "Shooting dates and how you prefer to arrive. No published prices.",

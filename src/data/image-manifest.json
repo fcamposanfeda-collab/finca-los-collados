@@ -91,9 +91,9 @@
     ]
   },
   "/images/calerilla-hero-loop.jpg": {
-    "width": 688,
+    "width": 640,
     "height": 480,
-    "fallback": "/images/opt/calerilla-hero-loop/688.jpg",
+    "fallback": "/images/opt/calerilla-hero-loop/640.jpg",
     "avif": [
       {
         "w": 480,
@@ -108,9 +108,9 @@
     ]
   },
   "/images/calerilla-jornada-poster.jpg": {
-    "width": 688,
+    "width": 640,
     "height": 480,
-    "fallback": "/images/opt/calerilla-jornada-poster/688.jpg",
+    "fallback": "/images/opt/calerilla-jornada-poster/640.jpg",
     "avif": [
       {
         "w": 480,

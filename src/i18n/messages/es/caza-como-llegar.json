@@ -4,14 +4,25 @@
     "title": "Cómo llegar",
     "subtitle": "Villamanrique, Ciudad Real. 247 km y unas 3 h 25 min desde Madrid."
   },
-  "intro": "La finca está en Villamanrique, Campos de Montiel (Ciudad Real). Desde Madrid hay unos 247 km y 3 h 25 min en coche (OSRM / OpenStreetMap, 19/10/2026, desde el casco de Villamanrique).",
+  "intro": "La finca está en Villamanrique, Campos de Montiel (Ciudad Real). Desde Madrid hay unos 247 km y 3 h 25 min en coche.",
   "points": [
-    "Dirección y mapa: página de contacto.",
+    "Dirección: Camino de los Collados, km 4,4, 13343 Villamanrique (Ciudad Real).",
     "Contacto caza: info@loscolladosdesanmiguel.com · +34 608 543 681."
   ],
-  "notes": [
-    "TODO_DATO: recogida en Madrid."
+  "travelTitle": "Llegada",
+  "travel": [
+    "En coche desde Madrid: 247 km, unas 3 h 25 min.",
+    "Recogida en Madrid: aeropuerto Adolfo Suárez Madrid-Barajas, estación de Atocha u hotel, bajo petición.",
+    "Coordinamos la llegada en avión privado y el traslado a la finca, bajo petición.",
+    "Traslado en helicóptero con operador autorizado, bajo petición."
   ],
+  "docsTitle": "Cazadores extranjeros",
+  "docsNote": "Hace falta licencia de caza de Castilla-La Mancha y seguro obligatorio. Puede traer arma con Tarjeta Europea de Armas de Fuego o alquilar escopeta en la finca. No publicamos plazos ni importes.",
+  "clmLicenceLabel": "Licencias de caza · JCCM",
+  "teaLabel": "Tarjeta Europea de Armas de Fuego · Guardia Civil",
+  "mapLabel": "Ver ubicación en Google Maps",
+  "mapAlt": "Campos de Montiel, acceso a Finca Los Collados de San Miguel",
+  "notes": [],
   "cta": {
     "title": "Solicite el dossier",
     "text": "Fechas de caza y cómo prefiere llegar. Sin precios publicados.",

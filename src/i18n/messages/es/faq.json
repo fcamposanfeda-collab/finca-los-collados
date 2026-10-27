@@ -27,7 +27,7 @@
     },
     {
       "q": "¿A cuánto está de Madrid?",
-      "a": "La finca está en Villamanrique, Ciudad Real. Unos 247 km y 3 h 25 min en coche desde Madrid (OSRM / OpenStreetMap, 19/10/2026, desde el casco de Villamanrique)."
+      "a": "La finca está en Villamanrique, Ciudad Real. Unos 247 km y 3 h 25 min en coche desde Madrid."
     }
   ],
   "la-calerilla": [
@@ -45,7 +45,7 @@
     },
     {
       "q": "¿Qué incluye un ojeo?",
-      "a": "Ojeadores, kit, 10 perdices por puesto (pueden pelarse), Bungalow Suite con desayuno, taco, almuerzo y cena. A la carta: licencia y seguro, cartuchos, arma, secretario y cargador."
+      "a": "Ojeadores, material de cacería (perchas, pantallas, avisperos), percha de 10 perdices por cazador (pueden entregarse peladas) y Bungalow Suite con desayuno, taco, comida y cena. A la carta: licencia y seguro obligatorios, cartuchos, alquiler de escopetas, secretario y cargador."
     },
     {
       "q": "¿Cómo es la caza en mano?",
@@ -57,7 +57,7 @@
     },
     {
       "q": "¿Se puede combinar con alojamiento?",
-      "a": "El ojeo ya incluye Bungalow Suite en alojamiento y desayuno. Puede pedir noches extra. El reclamo se ofrece sin alojamiento ni taco."
+      "a": "El ojeo ya incluye Bungalow Suite con desayuno, taco, comida y cena. Puede pedir noches extra. El reclamo se ofrece sin alojamiento ni taco."
     },
     {
       "q": "¿Cómo se reserva?",
@@ -65,11 +65,31 @@
     },
     {
       "q": "¿A cuánto está de Madrid?",
-      "a": "Villamanrique, Ciudad Real. Unos 247 km y 3 h 25 min en coche (OSRM / OpenStreetMap, 19/10/2026)."
+      "a": "Villamanrique, Ciudad Real. Unos 247 km y 3 h 25 min en coche."
+    },
+    {
+      "q": "¿Publican precios?",
+      "a": "Le enviamos el dossier de la temporada con todas las condiciones."
+    },
+    {
+      "q": "¿Hace falta licencia?",
+      "a": "Licencia de caza de Castilla-La Mancha y seguro obligatorio. Enlaces oficiales en Cómo llegar. No publicamos plazos ni importes. Puede alquilar escopeta en la finca."
+    },
+    {
+      "q": "¿Y cazadores extranjeros?",
+      "a": "Tarjeta Europea de Armas de Fuego o alquiler de escopeta en la finca. Detalle en Cómo llegar."
+    },
+    {
+      "q": "¿Pueden venir acompañantes no cazadores?",
+      "a": "Sí. El ojeo incluye Bungalow Suite. Pueden usar la mesa, las experiencias y el entorno."
+    },
+    {
+      "q": "¿Cómo son el reclamo y las sueltas?",
+      "a": "Reclamo: jornada de macho, sin alojamiento ni taco. Sueltas: mínimo 100 aves, taco incluido."
     },
     {
       "q": "¿Se admiten perros de caza?",
-      "a": "TODO_DATO: condiciones para perros de muestra en el coto y en los bungalows."
+      "a": "Sí. Perros bienvenidos en el coto y en los bungalows."
     }
   ],
   "caza-ojeo-perdiz": [
@@ -87,7 +107,7 @@
     },
     {
       "q": "¿Qué no está incluido?",
-      "a": "Licencia y seguro, cartuchos, alquiler de arma, secretario y cargador. La finca puede facilitar el alquiler de cargador."
+      "a": "Licencia y seguro obligatorios, cartuchos, alquiler de escopetas, secretario y cargador."
     }
   ],
   "caza-en-mano": [
@@ -98,12 +118,20 @@
     {
       "q": "¿Se combina con ojeo?",
       "a": "Son modalidades distintas. Puede consultar ambas en el dossier."
+    },
+    {
+      "q": "¿El reclamo incluye alojamiento?",
+      "a": "No. El reclamo de macho es jornada sin alojamiento ni taco."
+    },
+    {
+      "q": "¿Qué incluyen las sueltas?",
+      "a": "Mínimo 100 aves. El taco está incluido."
     }
   ],
   "caza-estancia": [
     {
       "q": "¿El bungalow va con el ojeo?",
-      "a": "Sí: Bungalow Suite en alojamiento y desayuno, más taco, almuerzo y cena el día de caza."
+      "a": "Sí: Bungalow Suite con desayuno, taco, comida y cena."
     },
     {
       "q": "¿Cuántas personas alojáis?",
@@ -117,7 +145,19 @@
     },
     {
       "q": "¿Cuánto se tarda desde Madrid?",
-      "a": "Unos 247 km y 3 h 25 min en coche (OSRM / OpenStreetMap, 19/10/2026)."
+      "a": "Unos 247 km y 3 h 25 min en coche."
+    },
+    {
+      "q": "¿Hay recogida en Madrid?",
+      "a": "Sí. Recogida en el aeropuerto Adolfo Suárez Madrid-Barajas, en Atocha o en hotel, bajo petición."
+    },
+    {
+      "q": "¿Se puede llegar en avión privado o helicóptero?",
+      "a": "Sí, bajo petición. Coordinamos la llegada y el traslado a la finca. No nombramos aeródromos."
+    },
+    {
+      "q": "¿Qué documentación hace falta?",
+      "a": "Licencia de Castilla-La Mancha, seguro obligatorio y, si trae arma, Tarjeta Europea de Armas de Fuego. Enlaces oficiales en esta página. También puede alquilar escopeta en la finca."
     }
   ],
   "eventos": [
