@@ -2,9 +2,9 @@
   "hero": {
     "eyebrow": "Castilla-La Mancha",
     "title": "Surroundings and landscape",
-    "subtitle": "Campos de Montiel, Villamanrique, Iberian heritage and the most authentic La Mancha, a few kilometres from Torre de Juan Abad and Villanueva de los Infantes."
+    "subtitle": "Campo de Montiel, Villamanrique, Iberian heritage and the most authentic La Mancha, a few kilometres from Torre de Juan Abad and Villanueva de los Infantes."
   },
-  "intro": "Finca Los Collados de San Miguel is in Villamanrique, Ciudad Real, in Campos de Montiel (Castilla-La Mancha). It is a base for Villanueva de los Infantes, the Ruidera Lagoons, Valdepeñas and touring La Mancha. Book your stay and we will help you plan the visit.",
+  "intro": "Finca Los Collados de San Miguel is in Villamanrique, Ciudad Real, in Campo de Montiel (Castilla-La Mancha). It is a base for Villanueva de los Infantes, the Ruidera Lagoons, Valdepeñas and touring La Mancha. Book your stay and we will help you plan the visit.",
   "distancesTitle": "Driving distances",
   "distancesNote": "Approximate driving distances from Villamanrique village. The last stretch to the estate is Camino de los Collados, km 4,4.",
   "distances": [
@@ -18,7 +18,7 @@
   "places": [
     {
       "id": "campos-de-montiel",
-      "title": "Campos de Montiel",
+      "title": "Campo de Montiel",
       "description": "A natural and historic region, a setting of legend and open country. Ideal for walking, birdwatching and a rural getaway."
     },
     {
