@@ -3,25 +3,28 @@ import path from 'node:path';
 import sharp from 'sharp';
 
 const imagesDir = path.resolve('public/images');
-const backupDir = path.join(imagesDir, '_originals-gastronomia-platos');
+const backupDir = path.resolve('media-src/images/_originals-gastronomia-platos');
 
 if (!fs.existsSync(backupDir)) {
-  fs.mkdirSync(backupDir, { recursive: true });
+  console.error(`Missing originals folder: ${path.relative(process.cwd(), backupDir)}`);
+  process.exit(1);
 }
 
 const files = fs
-  .readdirSync(imagesDir)
+  .readdirSync(backupDir)
   .filter((name) => /^gastronomia-plato-\d{2}\.png$/i.test(name))
   .sort();
 
-for (const file of files) {
-  const input = path.join(imagesDir, file);
-  const backup = path.join(backupDir, file);
-  const output = path.join(imagesDir, file.replace(/\.png$/i, '.webp'));
+if (files.length === 0) {
+  console.error('No gastronomia-plato-NN.png files in originals folder');
+  process.exit(1);
+}
 
-  if (!fs.existsSync(backup)) {
-    fs.copyFileSync(input, backup);
-  }
+fs.mkdirSync(imagesDir, { recursive: true });
+
+for (const file of files) {
+  const input = path.join(backupDir, file);
+  const output = path.join(imagesDir, file.replace(/\.png$/i, '.webp'));
 
   await sharp(input)
     .rotate()
@@ -44,4 +47,4 @@ for (const file of files) {
   console.log(`enhanced ${file} -> ${path.basename(output)}`);
 }
 
-console.log(`Done. Originals backed up in ${path.relative(process.cwd(), backupDir)}`);
+console.log(`Done. Sources read from ${path.relative(process.cwd(), backupDir)}`);

@@ -109,10 +109,16 @@ function slugName(file) {
     .replace(/^-|-$/g, '');
 }
 
+function resolveSource(kind, file) {
+  const fromSrc = join(root, 'media-src', kind, file);
+  if (existsSync(fromSrc)) return fromSrc;
+  return join(root, 'public', kind, file);
+}
+
 async function optimizeImages() {
   const manifest = {};
   for (const file of imageFiles) {
-    const input = join(root, 'public', 'images', file);
+    const input = resolveSource('images', file);
     if (!existsSync(input)) {
       console.warn(`skip missing image ${file}`);
       continue;
@@ -177,7 +183,7 @@ function optimizeVideos() {
   mkdirSyncSafe(outDir);
 
   for (const file of videoFiles) {
-    const input = join(root, 'public', 'videos', file);
+    const input = resolveSource('videos', file);
     if (!existsSync(input)) {
       console.warn(`skip missing video ${file}`);
       continue;
