@@ -1,5 +1,7 @@
 ---
 import OptimizedImage from './OptimizedImage.astro';
+import { getImageVariant, srcset } from '../../data/media';
+import { withBase } from '../../utils/paths';
 
 interface Props {
   title: string;
@@ -7,13 +9,22 @@ interface Props {
   eyebrow?: string;
   compact?: boolean;
   imageSrc?: string;
+  imageSrcMobile?: string;
   imageAlt?: string;
+  imageAltMobile?: string;
+  stillOnDesktop?: boolean;
+  photoCredit?: string;
   ctaLabel?: string;
   ctaHref?: string;
   ctaTrack?: string;
   secondaryLabel?: string;
   secondaryHref?: string;
   secondaryTrack?: string;
+  videoDesktop?: string;
+  videoMobile?: string;
+  pauseLabel?: string;
+  playLabel?: string;
+  videoCredit?: string;
 }
 
 const {
@@ -22,14 +33,31 @@ const {
   eyebrow,
   compact = false,
   imageSrc,
+  imageSrcMobile,
   imageAlt = '',
+  imageAltMobile,
+  stillOnDesktop = false,
+  photoCredit,
   ctaLabel,
   ctaHref,
   ctaTrack,
   secondaryLabel,
   secondaryHref,
   secondaryTrack,
+  videoDesktop,
+  videoMobile,
+  pauseLabel,
+  playLabel,
+  videoCredit,
 } = Astro.props;
+
+const mobilePoster = imageSrcMobile ?? imageSrc;
+const desktopStill = imageSrc;
+const hasLoop = Boolean(videoDesktop || videoMobile);
+const mobileAlt = imageAltMobile || imageAlt;
+const desktopVariant = stillOnDesktop && desktopStill ? getImageVariant(desktopStill) : null;
+const mobileVariant = stillOnDesktop && mobilePoster ? getImageVariant(mobilePoster) : null;
+const artDirected = Boolean(desktopVariant && mobileVariant && desktopStill !== mobilePoster);
 
 function isHttp(url?: string) {
   return Boolean(url && url.startsWith('http'));
@@ -37,21 +65,86 @@ function isHttp(url?: string) {
 ---
 
 <section
-  class:list={['page-hero', { 'page-hero--compact': compact, 'page-hero--photo': Boolean(imageSrc) }]}
+  class:list={[
+    'page-hero',
+    {
+      'page-hero--compact': compact,
+      'page-hero--photo': Boolean(desktopStill || mobilePoster),
+      'page-hero--still-desktop': stillOnDesktop,
+    },
+  ]}
   aria-labelledby="page-hero-title"
+  data-page-hero-video={hasLoop ? '' : undefined}
+  data-still-desktop={stillOnDesktop ? '' : undefined}
 >
   {
-    imageSrc && (
-      <OptimizedImage
-        class="page-hero__img"
-        src={imageSrc}
-        alt={imageAlt}
-        width={1600}
-        height={900}
-        loading="eager"
-        fetchpriority="high"
-        sizes="100vw"
-      />
+    artDirected && desktopVariant && mobileVariant ? (
+      <picture class="page-hero__img">
+        <source
+          media="(min-width: 1024px)"
+          type="image/avif"
+          srcset={srcset(desktopVariant.avif)}
+          sizes="100vw"
+        />
+        <source
+          media="(min-width: 1024px)"
+          type="image/webp"
+          srcset={srcset(desktopVariant.webp)}
+          sizes="100vw"
+        />
+        <source type="image/avif" srcset={srcset(mobileVariant.avif)} sizes="100vw" />
+        <source type="image/webp" srcset={srcset(mobileVariant.webp)} sizes="100vw" />
+        <img
+          src={withBase(mobileVariant.fallback)}
+          alt={mobileAlt}
+          width={mobileVariant.width}
+          height={mobileVariant.height}
+          loading="eager"
+          decoding="sync"
+          fetchpriority="high"
+        />
+      </picture>
+    ) : (
+      <>
+        {stillOnDesktop && desktopStill && (
+          <OptimizedImage
+            class="page-hero__img page-hero__img--desktop"
+            src={desktopStill}
+            alt={imageAlt}
+            width={1536}
+            height={1024}
+            loading="eager"
+            fetchpriority="high"
+            sizes="100vw"
+          />
+        )}
+        {mobilePoster && (
+          <OptimizedImage
+            class:list={['page-hero__img', { 'page-hero__img--mobile': stillOnDesktop }]}
+            src={mobilePoster}
+            alt={stillOnDesktop ? mobileAlt : imageAlt}
+            width={1600}
+            height={900}
+            loading="eager"
+            fetchpriority="high"
+            sizes="100vw"
+          />
+        )}
+      </>
+    )
+  }
+  {
+    hasLoop && (
+      <video
+        class="page-hero__video"
+        muted
+        loop
+        playsinline
+        preload="none"
+        aria-hidden="true"
+        data-src-desktop={videoDesktop}
+        data-src-mobile={videoMobile}
+      ></video>
     )
   }
   <div class="page-hero__overlay"></div>
@@ -89,88 +182,295 @@ function isHttp(url?: string) {
         </div>
       ) : null
     }
+    {
+      ((hasLoop && pauseLabel && playLabel) || photoCredit) && (
+        <div class="page-hero__chrome">
+          {photoCredit && <p class="page-hero__credit page-hero__credit--photo">{photoCredit}</p>}
+          {videoCredit && hasLoop && <p class="page-hero__credit page-hero__credit--video">{videoCredit}</p>}
+          {hasLoop && pauseLabel && playLabel && (
+            <button
+              type="button"
+              class="page-hero__pause"
+              data-hero-pause
+              data-pause-label={pauseLabel}
+              data-play-label={playLabel}
+            >
+              {pauseLabel}
+            </button>
+          )}
+        </div>
+      )
+    }
   </div>
 </section>
+
+{hasLoop && (
+  <script>
+    function prefersReducedMotion() {
+      return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+
+    function saveData() {
+      const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
+      return Boolean(connection?.saveData);
+    }
+
+    function afterPaint(callback: () => void) {
+      requestAnimationFrame(() => requestAnimationFrame(callback));
+    }
+
+    function loopSrc(video: HTMLVideoElement) {
+      const narrow = window.matchMedia('(max-width: 1023px)').matches;
+      const chosen = narrow ? video.dataset.srcMobile : video.dataset.srcDesktop;
+      return chosen || video.dataset.srcMobile || video.dataset.srcDesktop || '';
+    }
+
+    function bindPause(hero: HTMLElement, video: HTMLVideoElement) {
+      const button = hero.querySelector<HTMLButtonElement>('[data-hero-pause]');
+      if (!button) return;
+      const pauseLabel = button.dataset.pauseLabel ?? '';
+      const playLabel = button.dataset.playLabel ?? '';
+
+      const sync = () => {
+        const paused = video.paused;
+        button.textContent = paused ? playLabel : pauseLabel;
+      };
+
+      button.addEventListener('click', () => {
+        if (video.paused) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+        sync();
+      });
+      video.addEventListener('play', sync);
+      video.addEventListener('pause', sync);
+    }
+
+    function loadLoop(hero: HTMLElement) {
+      if (hero.dataset.heroVideoReady === 'true') return;
+      if (hero.hasAttribute('data-still-desktop') && window.matchMedia('(min-width: 1024px)').matches) {
+        return;
+      }
+      const video = hero.querySelector<HTMLVideoElement>('.page-hero__video');
+      if (!video) return;
+      if (prefersReducedMotion() || saveData()) return;
+
+      const src = loopSrc(video);
+      if (!src) return;
+      hero.dataset.heroVideoReady = 'true';
+      video.src = src;
+      bindPause(hero, video);
+      video.addEventListener(
+        'loadeddata',
+        () => {
+          video
+            .play()
+            .then(() => hero.classList.add('is-video-on'))
+            .catch(() => {});
+        },
+        { once: true },
+      );
+      video.load();
+    }
+
+    function startWhenPosterReady(hero: HTMLElement) {
+      const img = hero.querySelector('img');
+      const start = () =>
+        afterPaint(() => {
+          window.setTimeout(() => loadLoop(hero), 2800);
+        });
+      if (!img || img.complete) {
+        start();
+        return;
+      }
+      img.addEventListener('load', start, { once: true });
+      img.addEventListener('error', start, { once: true });
+    }
+
+    document.querySelectorAll<HTMLElement>('[data-page-hero-video]').forEach(startWhenPosterReady);
+  </script>
+)}
 
 <style>
   .page-hero {
     position: relative;
     display: flex;
-    align-items: center;
-    min-height: clamp(16rem, 40vh, 22rem);
-    background:
-      linear-gradient(135deg, rgba(44, 36, 25, 0.82), rgba(74, 103, 65, 0.72)),
-      radial-gradient(ellipse at 80% 20%, rgba(201, 169, 110, 0.2), transparent 55%),
-      var(--color-secondary);
-    color: var(--color-on-primary);
+    align-items: flex-end;
+    margin-top: calc(-1 * var(--header-height));
+    min-height: 28rem;
+    height: 100svh;
+    max-height: 40rem;
+    background: var(--color-footer-bg);
+    color: var(--color-on-dark);
   }
 
   .page-hero--compact {
-    min-height: clamp(14rem, 32vh, 18rem);
+    align-items: center;
+    min-height: 18rem;
+    height: auto;
+    max-height: 28rem;
   }
 
   .page-hero__overlay {
     position: absolute;
     inset: 0;
     z-index: 1;
-    background:
-      linear-gradient(135deg, rgba(44, 36, 25, 0.82), rgba(74, 103, 65, 0.72)),
-      linear-gradient(to top, rgba(44, 36, 25, 0.35), transparent 65%);
+    background: linear-gradient(
+      to top,
+      var(--color-hero-veil-strong) 0%,
+      var(--color-hero-veil) 42%,
+      rgb(28 25 20 / 0.28) 100%
+    );
   }
 
   .page-hero__content {
     position: relative;
     z-index: 2;
-    max-width: 48rem;
-    padding-block: 3rem;
+    max-width: var(--container-text);
+    padding-block: 3.5rem 3.25rem;
+    padding-top: calc(var(--header-height) + 2.5rem);
+    padding-bottom: calc(1.5rem + 3.25rem + env(safe-area-inset-bottom, 0px));
   }
 
   .page-hero__eyebrow {
-    margin: 0 0 0.75rem;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
+    margin: 0 0 0.85rem;
+    font-family: var(--font-primary);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: var(--letter-eyebrow);
     text-transform: uppercase;
     color: var(--color-accent);
   }
 
   .page-hero__title {
-    margin: 0 0 0.75rem;
-    font-size: clamp(1.875rem, 4vw, 2.75rem);
-    color: var(--color-on-primary);
-    line-height: 1.15;
+    margin: 0 0 0.85rem;
+    font-weight: 400;
+    font-size: clamp(1.85rem, 5vw, 3.35rem);
+    color: var(--color-on-dark);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
   }
 
   .page-hero__subtitle {
     margin: 0;
-    max-width: 40rem;
-    font-size: clamp(1rem, 2vw, 1.125rem);
-    color: rgba(255, 255, 255, 0.9);
+    max-width: 36rem;
+    font-size: clamp(1.0625rem, 2vw, 1.2rem);
+    color: rgb(244 239 230 / 0.88);
     line-height: 1.6;
     white-space: pre-line;
   }
 
   .page-hero--photo {
     overflow: hidden;
-    background: var(--color-secondary);
+    background: var(--color-secondary) no-repeat center / cover;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .page-hero :global(picture.page-hero__img),
-  .page-hero :global(img.page-hero__img) {
+  .page-hero :global(img.page-hero__img),
+  .page-hero__video {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   }
 
   .page-hero :global(.page-hero__img img),
-  .page-hero :global(img.page-hero__img) {
+  .page-hero :global(img.page-hero__img),
+  .page-hero__video {
     width: 100%;
     height: 100%;
+    max-width: none;
     object-fit: cover;
     object-position: center;
-    max-width: none;
+    background-repeat: no-repeat;
+  }
+
+  .page-hero :global(.page-hero__img--desktop) {
+    display: none;
+  }
+
+  .page-hero__video {
+    z-index: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .page-hero.is-video-on .page-hero__video {
     opacity: 1;
+  }
+
+  .page-hero.is-video-on .page-hero__pause {
+    visibility: visible;
+  }
+
+  .page-hero__chrome {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1rem;
+    margin-top: 1.1rem;
+  }
+
+  .page-hero__credit {
+    margin: 0;
+    flex: 1 1 12rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+    color: rgb(244 239 230 / 0.72);
+  }
+
+  .page-hero__pause {
+    visibility: hidden;
+    padding: 0.4rem 0.7rem;
+    border: 1px solid rgb(244 239 230 / 0.55);
+    border-radius: var(--radius);
+    background: rgb(28 25 20 / 0.45);
+    color: var(--color-on-dark);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .page-hero__pause:hover,
+  .page-hero__pause:focus-visible {
+    border-color: var(--color-on-dark);
+    background: rgb(28 25 20 / 0.7);
+  }
+
+  @media (min-width: 768px) {
+    .page-hero__content {
+      padding-bottom: 3.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .page-hero--still-desktop :global(.page-hero__img--desktop) {
+      display: block;
+    }
+
+    .page-hero--still-desktop :global(.page-hero__img--mobile),
+    .page-hero--still-desktop .page-hero__video,
+    .page-hero--still-desktop .page-hero__pause,
+    .page-hero--still-desktop .page-hero__credit--video {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .page-hero__credit--photo {
+      display: none;
+    }
   }
 
   .page-hero__actions {
@@ -196,5 +496,12 @@ function isHttp(url?: string) {
     color: var(--color-text);
     background: var(--color-on-primary);
     border-color: var(--color-on-primary);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .page-hero__video,
+    .page-hero__chrome {
+      display: none;
+    }
   }
 </style>

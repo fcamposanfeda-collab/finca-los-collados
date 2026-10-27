@@ -40,6 +40,10 @@
       "description": "Menus pour groupes et pauses traiteur pendant la production."
     }
   ],
+  "huntingLink": {
+    "text": "Nous organisons aussi des battues de perdreaux pour les entreprises.",
+    "label": "Chasse de la perdrix rouge à La Calerilla"
+  },
   "cta": {
     "title": "Demandez un devis sur mesure",
     "text": "Expliquez-nous votre projet (équipe, dates, type d’activité) et nous vous enverrons une proposition personnalisée.",

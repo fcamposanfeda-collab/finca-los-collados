@@ -1,0 +1,42 @@
+{
+  "hero": {
+    "eyebrow": "La Calerilla",
+    "title": "Battue de perdrix rouge en La Mancha",
+    "subtitle": "Postes, rabatteurs et tableaux de 250, 400 ou 600 pièces à Campo de Montiel."
+  },
+  "intro": "La battue est l’une des modalités de La Calerilla. Minimum 6 postes. Tableaux de 250, 400 ou 600 pièces, trois coups par perdrix. Le poste peut être de groupe ou individuel.",
+  "includesTitle": "Compris",
+  "includes": [
+    "Rabatteurs",
+    "Matériel de chasse : perches, écrans et postes",
+    "Perche de 10 perdreaux par chasseur (peuvent être livrées plumées)",
+    "Bungalow Suite avec petit-déjeuner, taco, déjeuner et dîner"
+  ],
+  "extraTitle": "À la carte",
+  "extra": [
+    "Permis et assurance obligatoires",
+    "Cartouches",
+    "Location de fusils",
+    "Secrétaire",
+    "Chargeur"
+  ],
+  "notes": [
+    "Réservation avec un acompte de 50 %.",
+    "TODO_DATO : horaires de la journée.",
+    "TODO_DATO : langues de l’équipe."
+  ],
+  "jornada": {
+    "title": "Une journée de battue",
+    "text": "Rabatteurs, postes et compagnies de perdrix rouge à La Calerilla.",
+    "aria": "Vidéo d’une battue à La Calerilla",
+    "transcriptLabel": "Script",
+    "transcript": "Montage d’une journée à La Calerilla : rabatteurs dans le champ, fusils aux postes entre céréales et chênes verts, compagnies de perdrix rouge.",
+    "videoName": "Une journée à La Calerilla",
+    "videoDescription": "Rabatteurs, postes et perdrix rouge lors d’une battue à La Calerilla, Campo de Montiel."
+  },
+  "cta": {
+    "title": "Demandez le dossier de battue",
+    "text": "Dates, nombre de postes et si vous souhaitez séjourner. Pas de prix publiés.",
+    "buttonLabel": "Demander un dossier"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "hero": {
+    "eyebrow": "La Calerilla",
+    "title": "Caza de perdiz con alojamiento en finca",
+    "subtitle": "Ojeo con Bungalow Suite, desayuno, taco, almuerzo y cena en Los Collados."
+  },
+  "intro": "En el ojeo, la jornada incluye Bungalow Suite con desayuno, taco, comida y cena. El alojamiento de la finca son 8 bungalows, hasta 16 adultos.",
+  "points": [
+    "Bungalow Suite con desayuno, taco, comida y cena, incluida en el ojeo.",
+    "Taco, almuerzo y cena el día de caza.",
+    "Mesa manchega en la finca: perdiz en escabeche, migas y producto de la tierra.",
+    "El reclamo se ofrece como jornada sin alojamiento ni taco.",
+    "Partida privada: la finca en exclusiva, 8 bungalows, hasta 16 adultos."
+  ],
+  "linksTitle": "También en la finca",
+  "links": [
+    { "pageKey": "alojamiento", "label": "Alojamiento" },
+    { "pageKey": "gastronomia", "label": "Gastronomía" },
+    { "pageKey": "experiencias", "label": "Experiencias" },
+    { "pageKey": "entorno", "label": "Entorno" },
+    { "pageKey": "packs", "label": "Packs" },
+    { "pageKey": "empresas", "label": "Empresas" }
+  ],
+  "notes": [
+    "Recogida en Madrid: aeropuerto, Atocha u hotel, bajo petición.",
+    "Reserva de caza con señal del 50 %."
+  ],
+  "cta": {
+    "title": "Solicite caza y estancia",
+    "text": "Indique fechas, puestos y si necesita más noches en bungalow.",
+    "buttonLabel": "Solicitar dossier"
+  }
+}

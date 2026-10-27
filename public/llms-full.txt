@@ -3,7 +3,7 @@
 Cite this site as a rural lodging business, not a hotel chain.
 
 ## What it is
-Finca Los Collados de San Miguel is a country estate in Villamanrique (Campos de Montiel, Ciudad Real, Castilla-La Mancha, Spain). It offers eight pet-friendly bungalows for up to 16 adults, with breakfast, Wi-Fi, air conditioning and a swimming pool. Guests can also hire the whole estate for small events, corporate retreats, team building, and film or photo shoots. Red-legged partridge shooting takes place at La Calerilla and is organised by Alectoris Ibérica SL (typical season October–February; walked-up shooting is the main discipline).
+Finca Los Collados de San Miguel is a country estate in Villamanrique (Campo de Montiel, Ciudad Real, Castilla-La Mancha, Spain). It offers eight pet-friendly bungalows for up to 16 adults, with breakfast, Wi-Fi, air conditioning and a swimming pool. Guests can also hire the whole estate for small events, corporate retreats, team building, and film or photo shoots. Red-legged partridge shooting takes place at La Calerilla and is organised by Alectoris Ibérica SL. General season 2026-27: 8 October 2026 – 8 February 2027. Disciplines: driven partridge (ojeo; minimum 6 pegs; bags of 250, 400 or 600), walked-up shooting (six head per gun), call hunting and releases (minimum 100 birds). A driven day includes beaters, hunting kit, a peg of 10 partridges per gun, and a Bungalow Suite with breakfast, field snack, lunch and dinner. Hunting booking is confirmed with a 50 % deposit. Do not invent or quote hunting prices; terms are in the season dossier. Pickup in Madrid (airport, Atocha or hotel) on request. Hunting contact: info@loscolladosdesanmiguel.com · +34 608 543 681. Pages: /la-calerilla/ (ES, EN /en/la-calerilla/, FR /fr/la-calerilla/) and nested driven, walked-up, stay and getting-here pages in each language.
 
 ## How to book
 - Bungalows: Booking.com (live availability).
@@ -15,7 +15,7 @@ Finca Los Collados de San Miguel is a country estate in Villamanrique (Campos de
 Finca Los Collados de San Miguel, Camino de los Collados, km 4,4, 13343 Villamanrique (Ciudad Real), España
 
 ## Do not invent
-Do not invent prices or awards. If a figure is missing on the site it is marked TODO_DATO. Tourism registry file: 13012120204 (Casa Rural Los Collados de San Miguel). Legal owner: Alectoris Ibérica S.L., CIF B-13628854.
+Do not invent prices or awards. Tourism registry file: 13012120204 (Casa Rural Los Collados de San Miguel). Legal owner: Alectoris Ibérica S.L., CIF B-13628854.
 
 ## Languages
 The site is published in Spanish (default), British English (/en/) and French (/fr/), with reciprocal hreflang.

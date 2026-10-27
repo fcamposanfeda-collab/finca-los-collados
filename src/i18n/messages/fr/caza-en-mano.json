@@ -1,0 +1,26 @@
+{
+  "hero": {
+    "eyebrow": "La Calerilla",
+    "title": "Chasse devant soi, au poste et lâchers",
+    "subtitle": "Six pièces par fusil, lapin ou perdrix, sur le territoire de Villamanrique."
+  },
+  "intro": "La chasse devant soi parcourt le terrain à pied. À La Calerilla, le tableau est de six pièces par fusil, lapin ou perdrix.",
+  "points": [
+    "Six pièces par fusil : lapin ou perdrix.",
+    "Proposée avec la battue, la chasse au poste et les lâchers.",
+    "Peut se combiner avec une Bungalow Suite et la table du domaine."
+  ],
+  "reclamoTitle": "Chasse au poste",
+  "reclamo": "Journée de chasse au poste de coq, sans hébergement ni taco. Du {lowStart} au {lowEnd} en dessous de 800 m, ou du {otherStart} au {otherEnd} dans les autres tranches de l’arrêté d’ouverture de Castille-La Manche.",
+  "sueltasTitle": "Lâchers",
+  "sueltas": "Minimum 100 oiseaux. Le taco est compris.",
+  "notes": [
+    "Chiens bienvenus sur le territoire et dans les bungalows.",
+    "TODO_DATO : horaires de la journée."
+  ],
+  "cta": {
+    "title": "Demandez le dossier",
+    "text": "Dates et nombre de fusils. Pas de prix publiés.",
+    "buttonLabel": "Demander un dossier"
+  }
+}

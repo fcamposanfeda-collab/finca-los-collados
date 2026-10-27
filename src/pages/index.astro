@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getPageMeta } from '../data/pages-meta';
 import Hero from '../components/sections/Hero.astro';
+import HomeSeason from '../components/sections/HomeSeason.astro';
 import HomePillars from '../components/sections/HomePillars.astro';
 import HomeTeasers from '../components/sections/HomeTeasers.astro';
 import CtaBanner from '../components/ui/CtaBanner.astro';
@@ -21,6 +22,7 @@ const bookingLabel = (copy.booking as { bookingComLabel: string }).bookingComLab
   <HomePillars />
   <HomeTeasers />
   <TrustBlock />
+  <HomeSeason />
   <CtaBanner
     title={cta.title}
     text={cta.text}

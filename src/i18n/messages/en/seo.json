@@ -1,19 +1,40 @@
 {
   "home": {
     "title": "Rural bungalows in Ciudad Real | Los Collados",
-    "description": "Pet-friendly rural bungalows in Campos de Montiel. Exclusive estate hire, team building, film shoots and small events at Finca Los Collados de San Miguel."
+    "description": "Pet-friendly rural bungalows in Campo de Montiel. Exclusive estate hire, team building, film shoots and small events at Finca Los Collados de San Miguel."
   },
   "la-finca": {
     "title": "The Estate | Rural Retreat in La Mancha | Los Collados",
     "description": "Finca Los Collados de San Miguel is a country estate with 2,500 years of history, bungalows, a pool and open landscape in Villamanrique, Ciudad Real, Spain."
   },
   "la-calerilla": {
-    "title": "La Calerilla | Walked-up shooting | Los Collados",
-    "description": "La Calerilla: red-legged partridge shooting in Campos de Montiel, season from October to February, with lodging at Finca Los Collados de San Miguel."
+    "title": "Driven partridge shooting Spain | La Calerilla · Los Collados",
+    "description": "Driven partridge shooting in Spain: red-legged partridge at Villamanrique, Campo de Montiel. La Calerilla · Los Collados.",
+    "serviceType": "Driven red-legged partridge shooting"
+  },
+  "caza-ojeo-perdiz": {
+    "title": "Driven red-legged partridge in La Mancha | La Calerilla",
+    "description": "Driven red-legged partridge in La Mancha: 6 pegs minimum, bags of 250, 400 or 600, beaters and Bungalow Suite. La Calerilla.",
+    "serviceType": "Driven partridge shooting"
+  },
+  "caza-en-mano": {
+    "title": "Walked-up, call hunting and releases | La Calerilla",
+    "description": "Walked-up partridge shooting, call hunting and releases at La Calerilla, Villamanrique, Spain. Los Collados de San Miguel.",
+    "serviceType": "Walked-up partridge shooting"
+  },
+  "caza-estancia": {
+    "title": "Partridge shooting with lodging | Los Collados",
+    "description": "Partridge shooting with lodging: a driven day, Bungalow Suite, breakfast, field snack, lunch and dinner at Los Collados.",
+    "serviceType": "Partridge shooting with lodging"
+  },
+  "caza-como-llegar": {
+    "title": "Getting to La Calerilla: Madrid pickup and private aircraft",
+    "description": "Getting to La Calerilla: Villamanrique, 247 km from Madrid. Pickup from airport, Atocha or hotel, and private aircraft. Los Collados.",
+    "serviceType": "Madrid pickup and access to La Calerilla"
   },
   "alojamiento": {
     "title": "Pet-friendly rural bungalows, Villamanrique | Los Collados",
-    "description": "Eight pet-friendly rural bungalows for up to 16 adults in Campos de Montiel. Wi-Fi, pool, rain shower and breakfast included near Villamanrique, Spain."
+    "description": "Eight pet-friendly rural bungalows for up to 16 adults in Campo de Montiel. Wi-Fi, pool, rain shower and breakfast included near Villamanrique, Spain."
   },
   "gastronomia": {
     "title": "La Mancha cuisine | Los Collados de San Miguel",
@@ -21,7 +42,7 @@
   },
   "experiencias": {
     "title": "Experiences & Trails in La Mancha | Los Collados",
-    "description": "Tailor-made routes, horse riding, cycling, golf and ballooning in Campos de Montiel. Rural experiences at Finca Los Collados de San Miguel, Spain."
+    "description": "Tailor-made routes, horse riding, cycling, golf and ballooning in Campo de Montiel. Rural experiences at Finca Los Collados de San Miguel, Spain."
   },
   "empresas": {
     "title": "Team building and film shoots | Los Collados",
@@ -33,11 +54,11 @@
   },
   "packs": {
     "title": "Romantic, family and food packages | Los Collados",
-    "description": "Rural getaway packages in La Mancha: romantic, family, gastronomic and trail stays at Finca Los Collados de San Miguel, Campos de Montiel, Spain."
+    "description": "Rural getaway packages in La Mancha: romantic, family, gastronomic and trail stays at Finca Los Collados de San Miguel, Campo de Montiel, Spain."
   },
   "entorno": {
-    "title": "Campos de Montiel | Los Collados de San Miguel",
-    "description": "Explore Campos de Montiel: Villamanrique, Iberian heritage, Torre de Juan Abad and Villanueva de los Infantes, a short drive from Los Collados."
+    "title": "Campo de Montiel | Los Collados de San Miguel",
+    "description": "Explore Campo de Montiel: Villamanrique, Iberian heritage, Torre de Juan Abad and Villanueva de los Infantes, a short drive from Los Collados."
   },
   "contacto": {
     "title": "Contact & Bookings | Los Collados de San Miguel",

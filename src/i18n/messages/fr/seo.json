@@ -5,19 +5,40 @@
   },
   "home": {
     "title": "Gîte rural avec bungalows, Ciudad Real | Los Collados",
-    "description": "Séjour rural à Campos de Montiel : bungalows animaux acceptés, privatisation du domaine, team building et événements à Los Collados de San Miguel."
+    "description": "Séjour rural à Campo de Montiel : bungalows animaux acceptés, privatisation du domaine, team building et événements à Los Collados de San Miguel."
   },
   "la-finca": {
     "title": "Le domaine | La Mancha | Los Collados de San Miguel",
     "description": "Finca Los Collados de San Miguel : domaine rural de plus de 2 500 ans d’histoire, bungalows, piscine et nature à Villamanrique, Ciudad Real, Espagne."
   },
   "la-calerilla": {
-    "title": "La Calerilla | Chasse devant soi | Los Collados",
-    "description": "La Calerilla : chasse à la perdrix rouge à Campos de Montiel, saison d’octobre à février, avec hébergement à Finca Los Collados de San Miguel."
+    "title": "Chasse aux perdreaux rouges en Espagne | La Calerilla",
+    "description": "Chasse aux perdreaux rouges en Espagne : battue, devant soi, au poste et lâchers à Villamanrique, Campo de Montiel. La Calerilla · Los Collados.",
+    "serviceType": "Chasse de la perdrix rouge"
+  },
+  "caza-ojeo-perdiz": {
+    "title": "Battue de perdrix rouge en La Mancha | La Calerilla",
+    "description": "Battue de perdrix rouge en La Mancha : 6 postes minimum, tableaux 250, 400 ou 600, rabatteurs et Bungalow Suite. La Calerilla.",
+    "serviceType": "Battue de perdrix rouge"
+  },
+  "caza-en-mano": {
+    "title": "Chasse devant soi, au poste et lâchers | La Calerilla",
+    "description": "Chasse devant soi, au poste et lâchers de perdrix à La Calerilla, Villamanrique, Espagne. Los Collados de San Miguel.",
+    "serviceType": "Chasse devant soi à la perdrix"
+  },
+  "caza-estancia": {
+    "title": "Chasse à la perdrix avec séjour | Los Collados",
+    "description": "Chasse à la perdrix avec séjour : battue, Bungalow Suite, petit-déjeuner, taco, déjeuner et dîner à Los Collados de San Miguel.",
+    "serviceType": "Chasse à la perdrix avec séjour"
+  },
+  "caza-como-llegar": {
+    "title": "Accès à La Calerilla : navette Madrid et avion privé",
+    "description": "Accès à La Calerilla : Villamanrique, 247 km depuis Madrid. Navette aéroport, Atocha ou hôtel, et avion privé. Los Collados.",
+    "serviceType": "Accès à La Calerilla et navette Madrid"
   },
   "alojamiento": {
     "title": "Bungalows ruraux | Los Collados de San Miguel",
-    "description": "Huit bungalows ruraux pour 16 adultes à Campos de Montiel. Animaux acceptés, Wi-Fi, piscine, douche à effet pluie et petit-déjeuner inclus, Espagne."
+    "description": "Huit bungalows ruraux pour 16 adultes à Campo de Montiel. Animaux acceptés, Wi-Fi, piscine, douche à effet pluie et petit-déjeuner inclus, Espagne."
   },
   "gastronomia": {
     "title": "Cuisine de La Mancha | Los Collados de San Miguel",
@@ -25,7 +46,7 @@
   },
   "experiencias": {
     "title": "Expériences dans La Mancha | Los Collados de San Miguel",
-    "description": "Itinéraires sur mesure, cheval, vélo, golf et montgolfière à Campos de Montiel. Expériences rurales à Finca Los Collados de San Miguel, Espagne."
+    "description": "Itinéraires sur mesure, cheval, vélo, golf et montgolfière à Campo de Montiel. Expériences rurales à Finca Los Collados de San Miguel, Espagne."
   },
   "empresas": {
     "title": "Team building et tournages | Los Collados",
@@ -40,8 +61,8 @@
     "description": "Formules de séjour à la campagne à La Mancha : romantique, famille, gastronomie et randonnées à Finca Los Collados de San Miguel, Espagne."
   },
   "entorno": {
-    "title": "Campos de Montiel | Los Collados de San Miguel",
-    "description": "Découvrez Campos de Montiel : Villamanrique, patrimoine ibère, Torre de Juan Abad et Villanueva de los Infantes, tout près de Los Collados."
+    "title": "Campo de Montiel | Los Collados de San Miguel",
+    "description": "Découvrez Campo de Montiel : Villamanrique, patrimoine ibère, Torre de Juan Abad et Villanueva de los Infantes, tout près de Los Collados."
   },
   "contacto": {
     "title": "Contact et réservations | Los Collados",

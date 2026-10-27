@@ -24,7 +24,53 @@
     "checkOut": "Fecha salida",
     "guests": "Invitados/adultos",
     "language": "Idioma",
+    "country": "País",
+    "contactLanguage": "Idioma de contacto",
+    "modality": "Modalidad",
+    "datesFlexible": "Fechas flexibles",
+    "pegs": "Puestos o cazadores",
+    "companions": "Acompañantes no cazadores",
+    "pickup": "Recogida en Madrid",
+    "arrival": "Avión o helicóptero",
+    "dossier": "Dossier de temporada",
     "subjectPrefix": "[Web Los Collados]"
+  },
+  "hunting": {
+    "country": "País",
+    "language": "Idioma de contacto",
+    "languages": {
+      "es": "Español",
+      "en": "English",
+      "fr": "Français"
+    },
+    "modality": "Modalidad",
+    "modalityPlaceholder": "Seleccione",
+    "modalities": {
+      "ojeo": "Ojeo de perdiz",
+      "en-mano": "Caza en mano",
+      "reclamo": "Reclamo",
+      "sueltas": "Sueltas",
+      "unknown": "No lo sé"
+    },
+    "checkIn": "Fecha preferida de llegada",
+    "checkOut": "Fecha de salida (opcional)",
+    "datesFlexible": "Fechas flexibles",
+    "pegs": "Número de puestos o cazadores",
+    "companions": "Acompañantes no cazadores",
+    "pickup": "¿Necesita recogida en Madrid?",
+    "pickupOptions": {
+      "yes": "Sí",
+      "no": "No",
+      "unsure": "Aún no lo sé"
+    },
+    "arrival": "¿Llega en avión privado o helicóptero?",
+    "arrivalOptions": {
+      "no": "No",
+      "plane": "Avión privado",
+      "helicopter": "Helicóptero",
+      "unsure": "Aún no lo sé"
+    },
+    "dossier": "Quiero recibir el dossier de la temporada"
   },
   "subjects": {
     "general": "Consulta general",

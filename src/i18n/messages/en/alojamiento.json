@@ -4,7 +4,7 @@
     "title": "Pet-friendly rural bungalows in Villamanrique",
     "subtitle": "Bungalows designed for rest and privacy in the heart of the La Mancha countryside. Pet-friendly."
   },
-  "intro": "Finca Los Collados de San Miguel is a country house with eight pet-friendly bungalows in Villamanrique, Ciudad Real, in Campos de Montiel. We sleep up to 16 adults, with breakfast, Wi-Fi and a pool. Book on Booking.com or message us on WhatsApp.",
+  "intro": "Finca Los Collados de San Miguel is a country house with eight pet-friendly bungalows in Villamanrique, Ciudad Real, in Campo de Montiel. We sleep up to 16 adults, with breakfast, Wi-Fi and a pool. Book on Booking.com or message us on WhatsApp.",
   "capacity": {
     "title": "Capacity",
     "items": [
@@ -31,9 +31,13 @@
     "Breakfast included",
     "Shared areas and swimming pool"
   ],
+  "huntingLink": {
+    "text": "In season, a driven partridge day on the estate includes a Bungalow Suite.",
+    "label": "Red-legged partridge shooting at La Calerilla"
+  },
   "cta": {
     "title": "Book your bungalow",
-    "text": "Check availability and choose the dates for your rural getaway in Campos de Montiel."
+    "text": "Check availability and choose the dates for your rural getaway in Campo de Montiel."
   },
   "alts": {
     "interior": "Interior of a bungalow at Los Collados",

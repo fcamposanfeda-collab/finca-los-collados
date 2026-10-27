@@ -73,18 +73,23 @@ const { locale, pageKey, href, t } = useI18n(Astro);
   }
 
   .language-switcher__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.5rem;
+    min-height: 1.5rem;
     font-size: 0.8125rem;
     font-weight: 600;
     letter-spacing: 0.04em;
     color: var(--color-text);
-    padding: 0.25rem 0.1rem;
+    padding: 0.4rem 0.5rem;
     transition: color var(--transition-fast);
   }
 
   .language-switcher__link:hover,
   .language-switcher__link.is-active,
   .language-switcher__link[aria-current='page'] {
-    color: #4a6741;
+    color: var(--color-primary);
   }
 
   .language-switcher__link[aria-current='page'] {

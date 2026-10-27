@@ -1,0 +1,42 @@
+{
+  "hero": {
+    "eyebrow": "La Calerilla",
+    "title": "Ojeo de perdiz roja",
+    "subtitle": "Puestos, ojeadores y cupos de 250, 400 o 600 piezas en Campo de Montiel."
+  },
+  "intro": "El ojeo es una de las modalidades de La Calerilla. Mínimo 6 puestos. Cupos de 250, 400 o 600 piezas, a tres tiros por perdiz. El puesto puede ser de grupo o individual.",
+  "includesTitle": "Incluido",
+  "includes": [
+    "Ojeadores",
+    "Material de cacería: perchas, pantallas, avisperos",
+    "Percha de 10 perdices por cazador (pueden entregarse peladas)",
+    "Bungalow Suite con desayuno, taco, comida y cena"
+  ],
+  "extraTitle": "A la carta",
+  "extra": [
+    "Licencia y seguro obligatorios",
+    "Cartuchos",
+    "Alquiler de escopetas",
+    "Secretario",
+    "Cargador"
+  ],
+  "notes": [
+    "Reserva con señal del 50 %.",
+    "TODO_DATO: horarios de la jornada.",
+    "TODO_DATO: idiomas del equipo."
+  ],
+  "jornada": {
+    "title": "Así es una jornada de ojeo",
+    "text": "Ojeadores, puestos y bandos de perdiz roja en La Calerilla.",
+    "aria": "Vídeo de una jornada de ojeo en La Calerilla",
+    "transcriptLabel": "Guion",
+    "transcript": "Montaje de una jornada en La Calerilla: ojeadores avanzan por el campo, cazadores en puestos entre cereal y encinas, y bandos de perdiz roja.",
+    "videoName": "Así es una jornada en La Calerilla",
+    "videoDescription": "Ojeadores, puestos y perdiz roja en una jornada de ojeo en La Calerilla, Campo de Montiel."
+  },
+  "cta": {
+    "title": "Solicite el dossier de ojeo",
+    "text": "Fechas, número de puestos y si desea estancia. Sin precios publicados.",
+    "buttonLabel": "Solicitar dossier"
+  }
+}

@@ -1,0 +1,97 @@
+---
+interface Props {
+  src: string;
+  poster: string;
+  title: string;
+  text: string;
+  aria: string;
+  transcriptLabel: string;
+  transcript: string;
+  credit: string;
+}
+
+const { src, poster, title, text, aria, transcriptLabel, transcript, credit } = Astro.props;
+---
+
+<section class="section hunting-jornada" aria-labelledby="hunting-jornada-title">
+  <div class="container hunting-jornada__inner">
+    <h2 id="hunting-jornada-title" class="section__title">{title}</h2>
+    <p class="hunting-jornada__lead">{text}</p>
+    <figure class="hunting-jornada__figure">
+      <video
+        class="hunting-jornada__video"
+        controls
+        playsinline
+        preload="none"
+        poster={poster}
+        aria-label={aria}
+        width="640"
+        height="480"
+      >
+        <source src={src} type="video/mp4" />
+      </video>
+      <figcaption class="hunting-jornada__caption">
+        <p class="hunting-jornada__credit">{credit}</p>
+        <details class="hunting-jornada__transcript">
+          <summary>{transcriptLabel}</summary>
+          <p>{transcript}</p>
+        </details>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<style>
+  .hunting-jornada__inner {
+    max-width: 52rem;
+  }
+
+  .hunting-jornada__lead {
+    margin: 0 0 1.5rem;
+    max-width: var(--measure);
+    color: var(--color-muted);
+  }
+
+  .hunting-jornada__figure {
+    margin: 0 auto;
+    max-width: 848px;
+    width: fit-content;
+  }
+
+  .hunting-jornada__video {
+    display: block;
+    width: 640px;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 640 / 480;
+    object-fit: cover;
+    object-position: center;
+    background: var(--color-footer-bg) no-repeat center / cover;
+    background-repeat: no-repeat;
+    border-radius: var(--radius);
+  }
+
+  .hunting-jornada__caption {
+    margin-top: 0.75rem;
+  }
+
+  .hunting-jornada__credit {
+    margin: 0 0 0.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: var(--color-muted);
+  }
+
+  .hunting-jornada__transcript summary {
+    cursor: pointer;
+    font-size: 0.8125rem;
+    color: var(--color-text);
+  }
+
+  .hunting-jornada__transcript p {
+    margin: 0.5rem 0 0;
+    max-width: var(--measure);
+    font-size: 0.9375rem;
+    color: var(--color-muted);
+  }
+</style>

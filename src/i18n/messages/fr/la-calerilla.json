@@ -1,68 +1,78 @@
 {
   "hero": {
-    "eyebrow": "Chasse · Campos de Montiel",
-    "title": "La Calerilla",
-    "subtitle": "Zone cynégétique de Los Collados de San Miguel : tradition de la perdrix rouge à la chasse devant soi, au cœur de La Mancha."
+    "eyebrow": "La Calerilla",
+    "title": "Chasse de la perdrix rouge en Espagne",
+    "subtitle": "Territoire à Villamanrique, Campo de Montiel. Battues, chasse devant soi, chasse au poste et lâchers, avec Bungalow Suite et table du domaine."
   },
-  "intro": "La Calerilla est l’un des territoires de chasse du domaine, avec La Porrosa, dans le paysage naturel de Campos de Montiel, où la perdrix rouge (Alectoris rufa) trouve l’habitat idéal entre maquis, oliveraies et champs de céréales.",
-  "blocks": [
+  "intro": "La Calerilla est le territoire de perdrix rouge de Finca Los Collados de San Miguel, à Villamanrique (Campo de Montiel, Ciudad Real). Battues, chasse devant soi, chasse au poste et lâchers, saison générale du 8 octobre 2026 au 8 février 2027. La battue comprend la Bungalow Suite avec petit-déjeuner, taco, déjeuner et dîner au domaine. Prise en charge à Madrid (aéroport, Atocha ou hôtel). Les journées sont organisées par Alectoris Ibérica SL.",
+  "modalitiesTitle": "Modalités",
+  "modalities": [
     {
-      "title": "Une tradition cynégétique à La Mancha",
-      "paragraphs": [
-        "D’octobre à février, nous vivons des journées de chasse dans des parages parfaits pour entretenir la tradition de la perdrix sous ses différentes formes, avec un soin particulier pour la chasse devant soi.",
-        "Nos domaines La Calerilla et La Porrosa offrent le décor idéal à ceux qui cherchent l’authenticité, le respect du milieu et la qualité de pièces dont le vol frappe par sa majesté et sa verticalité."
-      ]
+      "pageKey": "caza-ojeo-perdiz",
+      "title": "Battue de perdreaux",
+      "text": "Minimum 6 postes. Tableaux de 250, 400 ou 600 pièces, trois coups par perdrix. Poste de groupe ou poste individuel."
     },
     {
-      "title": "Chasse devant soi et autres modalités",
-      "paragraphs": [
-        "La chasse devant soi permet de parcourir le terrain sans se presser, accompagné de chiens d’arrêt, au rythme du champ de La Mancha. Une façon de comprendre la chasse liée au paysage, à la compagnie et à la connaissance du terrain.",
-        "Si vous souhaitez réserver une journée de chasse, nous vous recommandons de nous contacter le plus tôt possible : les dates de saison sont très demandées. Nous pouvons combiner la journée avec l’hébergement en bungalows et notre gastronomie traditionnelle."
-      ]
+      "pageKey": "caza-en-mano",
+      "title": "Chasse devant soi",
+      "text": "Six pièces par fusil, lapin ou perdrix, au rythme du terrain."
     },
     {
-      "title": "Gastronomie, confort et nature",
-      "paragraphs": [
-        "Après la journée au champ, le domaine accueille le chasseur avec le confort de ses installations : restauration avec des plats tels que la salade de perdrix en escabèche, les migas manchegas et les produits de la terre.",
-        "Les alentours sont riches en faune et flore autochtones. Qui visite La Calerilla ne vit pas seulement la chasse : il découvre un paysage vivant où cohabitent le séjour à la campagne, le monde agricole et la culture cynégétique de Castille-La Manche."
-      ]
+      "pageKey": "caza-en-mano",
+      "title": "Chasse au poste",
+      "text": "Journée de chasse au poste de coq, sans hébergement ni taco. Saison selon l’arrêté d’ouverture de Castille-La Manche."
+    },
+    {
+      "pageKey": "caza-en-mano",
+      "title": "Lâchers",
+      "text": "Minimum 100 oiseaux. Le taco est compris."
     }
   ],
-  "featuresTitle": "La Calerilla en résumé",
-  "features": [
-    {
-      "title": "Perdrix rouge",
-      "description": "Espèce phare de La Calerilla, avec des pièces de grande qualité et un vol vertical."
-    },
-    {
-      "title": "Chasse devant soi et battue de perdrix",
-      "description": "Modalité traditionnelle au rythme du champ, dans le respect du terrain et de la faune."
-    },
-    {
-      "title": "Saison oct.–fév.",
-      "description": "Journées d’octobre à février. Réservez à l’avance, la demande est forte."
-    },
-    {
-      "title": "Hébergement et table",
-      "description": "Associez la chasse aux bungalows, à la cuisine traditionnelle de La Mancha et à un cadre privé."
-    }
-  ],
-  "season": {
-    "title": "Informations de saison",
-    "items": [
-      "Saison habituelle : d’octobre à février",
-      "Réservation des journées de chasse : contactez-nous dès que possible",
-      "Possibilité de combiner avec l’hébergement et la restauration sur le domaine",
-      "Gestion par Alectoris Ibérica SL"
+  "experience": {
+    "title": "L’expérience complète",
+    "steps": [
+      "Prise en charge à Madrid",
+      "Arrivée et dîner en Bungalow Suite",
+      "Journée de chasse avec taco au champ",
+      "Repos et cuisine manchega"
     ]
   },
+  "ojeoTitle": "Battue : compris et à la carte",
+  "ojeoIncludesTitle": "Compris",
+  "ojeoIncludes": [
+    "Rabatteurs",
+    "Matériel de chasse : perches, écrans et postes",
+    "Perche de 10 perdreaux par chasseur (peuvent être livrées plumées)",
+    "Bungalow Suite avec petit-déjeuner, taco, déjeuner et dîner"
+  ],
+  "ojeoExtraTitle": "À la carte",
+  "ojeoExtra": [
+    "Permis et assurance obligatoires",
+    "Cartouches",
+    "Location de fusils",
+    "Secrétaire",
+    "Chargeur"
+  ],
+  "reserveNote": "La réservation de chasse se confirme avec un acompte de 50 %.",
+  "seasonTitle": "Saison {season}",
+  "seasonBody": "Saison générale de chasse : du {start} au {end}.",
+  "seasonItems": [
+    "Chasse au poste de coq : du 10 janvier au 20 février 2027 en dessous de 800 m, ou du 23 janvier au 5 mars 2027 dans les autres tranches de l’arrêté.",
+    "TODO_DATO : tranche d’altitude qui correspond à Villamanrique.",
+    "Contact chasse : info@loscolladosdesanmiguel.com · +34 608 543 681"
+  ],
+  "galleryTitle": "La Calerilla",
   "cta": {
-    "title": "Réservez votre journée de chasse",
-    "text": "Demandez les disponibilités pour La Calerilla, ou renseignez-vous sur les dates, les modalités et la combinaison avec l’hébergement.",
-    "buttonLabel": "Demander des informations"
+    "title": "Demandez le dossier de chasse",
+    "text": "Indiquez les dates, le nombre de postes ou de fusils, et si vous souhaitez séjourner. Nous vous envoyons le dossier de la saison avec toutes les conditions.",
+    "buttonLabel": "Demander un dossier"
   },
   "form": {
-    "title": "Demandez votre journée de chasse",
-    "intro": "Indiquez les dates souhaitées, le nombre de tireurs et si vous souhaitez combiner avec l’hébergement ou la restauration. Les dates de saison sont très demandées."
+    "title": "Demander un dossier",
+    "intro": "Dates souhaitées, nombre de fusils et si vous souhaitez une Bungalow Suite ou la table. Les dates de saison se demandent tôt."
+  },
+  "jornada": {
+    "loopName": "La Calerilla · battue de perdreaux rouges",
+    "loopDescription": "Boucle d’une battue à La Calerilla : chênes verts, rabatteurs et compagnies de perdrix rouge."
   }
 }

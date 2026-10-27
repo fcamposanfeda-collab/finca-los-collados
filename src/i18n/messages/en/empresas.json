@@ -28,6 +28,10 @@
     { "title": "Lodging included", "description": "Your team can stay overnight in the bungalows after the day." },
     { "title": "Dining", "description": "Menus for groups and catering breaks during production." }
   ],
+  "huntingLink": {
+    "text": "We also organise driven partridge days for companies.",
+    "label": "Red-legged partridge shooting at La Calerilla"
+  },
   "cta": {
     "title": "Request a tailor-made quote",
     "text": "Tell us about your project (team, dates, type of activity) and we will send you a personal proposal.",

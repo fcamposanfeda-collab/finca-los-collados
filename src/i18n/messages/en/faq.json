@@ -27,33 +27,137 @@
     },
     {
       "q": "How far is it from Madrid?",
-      "a": "The estate is in Villamanrique, Ciudad Real. About 247 km and 3 h 25 min by car from Madrid (OSRM / OpenStreetMap, 19 Oct 2026, from Villamanrique village)."
+      "a": "The estate is in Villamanrique, Ciudad Real. About 247 km and 3 h 25 min by car from Madrid."
     }
   ],
   "la-calerilla": [
     {
       "q": "When is the partridge season?",
-      "a": "The usual season runs from October to February. Dates should be requested well in advance as demand is high."
+      "a": "The 2026-27 general season runs from 8 October 2026 to 8 February 2027. Dates should be requested early."
     },
     {
-      "q": "Which types of shooting are offered?",
-      "a": "The main discipline is walked-up red-legged partridge shooting. Driven partridge days are also available. TODO_DATO: any other disciplines."
+      "q": "Which disciplines are offered?",
+      "a": "Driven partridge, walked-up shooting, call hunting and releases."
     },
     {
-      "q": "Who organises the shooting days?",
-      "a": "Shooting days are organised by Alectoris Ibérica SL."
+      "q": "What is a driven day?",
+      "a": "Minimum 6 pegs. Bags of 250, 400 or 600 birds, three shots per partridge. Team peg or individual peg."
     },
     {
-      "q": "Can shooting be combined with lodging?",
-      "a": "Yes. You can combine a day in the field with bungalows and dining at Finca Los Collados de San Miguel."
+      "q": "What does a driven day include?",
+      "a": "Beaters, hunting equipment (bird rails, screens and peg markers), a peg of 10 partridges per gun (can be delivered plucked) and a Bungalow Suite with breakfast, field snack, lunch and dinner. À la carte: compulsory licence and insurance, cartridges, shotgun hire, secretary and loader."
     },
     {
-      "q": "How do I book a shooting day?",
-      "a": "Via WhatsApp or the La Calerilla form, with preferred dates and the number of guns."
+      "q": "What is walked-up shooting?",
+      "a": "Six head per gun, rabbit or partridge."
+    },
+    {
+      "q": "Who organises the days?",
+      "a": "Alectoris Ibérica SL."
+    },
+    {
+      "q": "Can I stay on the estate?",
+      "a": "A driven day already includes a Bungalow Suite with breakfast, field snack, lunch and dinner. Extra nights can be requested. Call hunting is offered without lodging or field snack."
+    },
+    {
+      "q": "How do I book?",
+      "a": "Request a dossier by WhatsApp or the form. A hunting booking is confirmed with a 50 % deposit."
+    },
+    {
+      "q": "How far is it from Madrid?",
+      "a": "Villamanrique, Ciudad Real. About 247 km and 3 h 25 min by car."
+    },
+    {
+      "q": "Do you publish prices?",
+      "a": "We send you the season dossier with all the terms."
+    },
+    {
+      "q": "Is a licence required?",
+      "a": "A Castilla-La Mancha shooting licence and compulsory insurance. Official links are on Getting here. You can hire a shotgun on the estate."
+    },
+    {
+      "q": "What about visiting guns from abroad?",
+      "a": "A European Firearms Pass, or gun hire on the estate. See Getting here."
+    },
+    {
+      "q": "Can non-shooting guests come?",
+      "a": "Yes. A driven day includes a Bungalow Suite. Guests can use dining, experiences and the surroundings."
+    },
+    {
+      "q": "What about call hunting and releases?",
+      "a": "Call hunting: a cock-call day without lodging or field snack. Releases: minimum 100 birds, field snack included."
     },
     {
       "q": "Are shooting dogs allowed?",
-      "a": "TODO_DATO: conditions for pointing dogs on the shoot and in the bungalows."
+      "a": "Yes. Dogs are welcome on the shoot and in the bungalows."
+    }
+  ],
+  "caza-ojeo-perdiz": [
+    {
+      "q": "How many pegs are needed?",
+      "a": "A minimum of 6 pegs."
+    },
+    {
+      "q": "What bags are offered?",
+      "a": "250, 400 or 600 birds, three shots per partridge."
+    },
+    {
+      "q": "Is the peg individual?",
+      "a": "It can be a team peg or an individual peg."
+    },
+    {
+      "q": "What is not included?",
+      "a": "Compulsory licence and insurance, cartridges, shotgun hire, secretary and loader."
+    }
+  ],
+  "caza-en-mano": [
+    {
+      "q": "What is the walked-up bag?",
+      "a": "Six head per gun, rabbit or partridge."
+    },
+    {
+      "q": "Can it be combined with a driven day?",
+      "a": "They are separate disciplines. Both can be covered in the dossier."
+    },
+    {
+      "q": "Does call hunting include lodging?",
+      "a": "No. A cock-call day is without lodging or the field snack."
+    },
+    {
+      "q": "What do releases include?",
+      "a": "Minimum 100 birds. The field snack is included."
+    }
+  ],
+  "caza-estancia": [
+    {
+      "q": "Is the bungalow part of the driven day?",
+      "a": "Yes: a Bungalow Suite with breakfast, field snack, lunch and dinner."
+    },
+    {
+      "q": "How many people can stay?",
+      "a": "8 bungalows, up to 16 adults."
+    }
+  ],
+  "caza-como-llegar": [
+    {
+      "q": "Where is the shoot?",
+      "a": "Villamanrique, Ciudad Real, Campo de Montiel."
+    },
+    {
+      "q": "How long from Madrid?",
+      "a": "About 247 km and 3 h 25 min by car."
+    },
+    {
+      "q": "Is there a pickup in Madrid?",
+      "a": "Yes. Pickup at Adolfo Suárez Madrid-Barajas airport, at Atocha or at a hotel, on request."
+    },
+    {
+      "q": "Can I arrive by private aircraft or helicopter?",
+      "a": "Yes, on request. We coordinate arrival and the transfer to the estate. We do not name airfields."
+    },
+    {
+      "q": "What paperwork is needed?",
+      "a": "A Castilla-La Mancha licence, compulsory insurance and, if you bring a gun, a European Firearms Pass. Official links are on this page. You can also hire a gun on the estate."
     }
   ],
   "eventos": [

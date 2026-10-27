@@ -72,8 +72,8 @@ const slides = images.gastronomiaMoments.platos.map((plato, index) => ({
 <style>
   .gastronomia-moments__header {
     max-width: 42rem;
-    margin-inline: auto;
-    text-align: center;
+    margin-inline: 0;
+    text-align: left;
     margin-bottom: 2.5rem;
   }
 
@@ -145,25 +145,25 @@ const slides = images.gastronomiaMoments.platos.map((plato, index) => ({
 
   .gastronomia-moments__platos-header {
     max-width: 36rem;
-    margin: 0 auto 1.5rem;
-    text-align: center;
+    margin: 0 0 1.5rem;
+    text-align: left;
   }
 
   .gastronomia-moments__eyebrow {
     margin: 0 0 0.5rem;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: var(--letter-eyebrow);
     text-transform: uppercase;
-    color: var(--color-accent);
+    color: var(--color-muted);
   }
 
   .gastronomia-moments__platos-title {
     margin: 0;
     font-family: var(--font-heading);
     font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-    font-weight: 600;
-    color: var(--color-secondary);
+    font-weight: 500;
+    color: var(--color-text);
   }
 
   @media (min-width: 768px) {

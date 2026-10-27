@@ -2,6 +2,9 @@
  * Catálogo de imágenes del sitio.
  * Origen principal: web actual loscolladosdesanmiguel.com (WordPress).
  * Los textos alt viven en las traducciones (`images` y páginas), no aquí.
+ *
+ * Fotos de banco: solo Unsplash o Pexels (licencia sin atribución obligatoria).
+ * Nunca Wikimedia CC BY-SA ni otras licencias que exijan crédito.
  */
 import { withBase } from '../utils/paths';
 
@@ -16,6 +19,7 @@ const imagesRaw = {
     home: '/images/hero-entrada-atardecer.png',
     laFinca: '/images/hero-casa-panorama.png',
     laCalerilla: '/images/calerilla-hero.jpg',
+    laCalerillaLoop: '/images/calerilla-hero-loop.jpg',
     alojamiento: '/images/bungalow-interior.jpg',
     gastronomia: '/images/gastronomia.jpg',
     experiencias: '/images/campo-montiel.png',
@@ -29,9 +33,20 @@ const imagesRaw = {
 
   laCalerilla: {
     hero: '/images/calerilla-hero.jpg',
+    loopPoster: '/images/calerilla-hero-loop.jpg',
+    jornadaPoster: '/images/calerilla-jornada-poster.jpg',
     campo: '/images/calerilla-temporada.jpg',
     perdiz: '/images/calerilla-perdiz.png',
+    perdizRoja: '/images/perdiz-web.png',
     gastronomia: '/images/gastronomia.jpg',
+    gallery: [
+      '/images/calerilla-hero.jpg',
+      '/images/calerilla-temporada.jpg',
+      '/images/calerilla-perdiz.png',
+      '/images/gastronomia.jpg',
+      '/images/bungalow-interior.jpg',
+      '/images/finca-paisaje.jpg',
+    ],
   },
 
   laFinca: {

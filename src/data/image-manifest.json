@@ -65,6 +65,10 @@
       {
         "w": 1100,
         "src": "/images/opt/calerilla-hero/1100.avif"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/calerilla-hero/1536.avif"
       }
     ],
     "webp": [
@@ -79,6 +83,44 @@
       {
         "w": 1100,
         "src": "/images/opt/calerilla-hero/1100.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/calerilla-hero/1536.webp"
+      }
+    ]
+  },
+  "/images/calerilla-hero-loop.jpg": {
+    "width": 640,
+    "height": 480,
+    "fallback": "/images/opt/calerilla-hero-loop/640.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/calerilla-hero-loop/480.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/calerilla-hero-loop/480.webp"
+      }
+    ]
+  },
+  "/images/calerilla-jornada-poster.jpg": {
+    "width": 640,
+    "height": 480,
+    "fallback": "/images/opt/calerilla-jornada-poster/640.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/calerilla-jornada-poster/480.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/calerilla-jornada-poster/480.webp"
       }
     ]
   },
@@ -100,6 +142,10 @@
         "src": "/images/opt/bungalow-interior/1100.avif"
       },
       {
+        "w": 1536,
+        "src": "/images/opt/bungalow-interior/1536.avif"
+      },
+      {
         "w": 1600,
         "src": "/images/opt/bungalow-interior/1600.avif"
       }
@@ -116,6 +162,10 @@
       {
         "w": 1100,
         "src": "/images/opt/bungalow-interior/1100.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/bungalow-interior/1536.webp"
       },
       {
         "w": 1600,
@@ -189,6 +239,10 @@
       {
         "w": 1100,
         "src": "/images/opt/empresa-teambuilding/1100.avif"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/empresa-teambuilding/1536.avif"
       }
     ],
     "webp": [
@@ -203,6 +257,10 @@
       {
         "w": 1100,
         "src": "/images/opt/empresa-teambuilding/1100.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/empresa-teambuilding/1536.webp"
       }
     ]
   },
@@ -222,6 +280,10 @@
       {
         "w": 1100,
         "src": "/images/opt/evento-celebracion/1100.avif"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/evento-celebracion/1536.avif"
       }
     ],
     "webp": [
@@ -236,6 +298,10 @@
       {
         "w": 1100,
         "src": "/images/opt/evento-celebracion/1100.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/evento-celebracion/1536.webp"
       }
     ]
   },
@@ -257,6 +323,10 @@
         "src": "/images/opt/evento-jardines/1100.avif"
       },
       {
+        "w": 1536,
+        "src": "/images/opt/evento-jardines/1536.avif"
+      },
+      {
         "w": 1600,
         "src": "/images/opt/evento-jardines/1600.avif"
       }
@@ -273,6 +343,10 @@
       {
         "w": 1100,
         "src": "/images/opt/evento-jardines/1100.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/evento-jardines/1536.webp"
       },
       {
         "w": 1600,
@@ -298,8 +372,16 @@
         "src": "/images/opt/entorno-hero/1100.avif"
       },
       {
+        "w": 1536,
+        "src": "/images/opt/entorno-hero/1536.avif"
+      },
+      {
         "w": 1600,
         "src": "/images/opt/entorno-hero/1600.avif"
+      },
+      {
+        "w": 2000,
+        "src": "/images/opt/entorno-hero/2000.avif"
       }
     ],
     "webp": [
@@ -316,8 +398,16 @@
         "src": "/images/opt/entorno-hero/1100.webp"
       },
       {
+        "w": 1536,
+        "src": "/images/opt/entorno-hero/1536.webp"
+      },
+      {
         "w": 1600,
         "src": "/images/opt/entorno-hero/1600.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/opt/entorno-hero/2000.webp"
       }
     ]
   },
@@ -364,6 +454,10 @@
         "src": "/images/opt/bungalow-detalle/1100.avif"
       },
       {
+        "w": 1536,
+        "src": "/images/opt/bungalow-detalle/1536.avif"
+      },
+      {
         "w": 1600,
         "src": "/images/opt/bungalow-detalle/1600.avif"
       }
@@ -380,6 +474,10 @@
       {
         "w": 1100,
         "src": "/images/opt/bungalow-detalle/1100.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/bungalow-detalle/1536.webp"
       },
       {
         "w": 1600,
@@ -437,6 +535,55 @@
       }
     ]
   },
+  "/images/perdiz-web.png": {
+    "width": 1920,
+    "height": 1080,
+    "fallback": "/images/opt/perdiz-web/1100.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/perdiz-web/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/perdiz-web/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/perdiz-web/1100.avif"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/perdiz-web/1536.avif"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/perdiz-web/1600.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/perdiz-web/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/perdiz-web/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/perdiz-web/1100.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/perdiz-web/1536.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/perdiz-web/1600.webp"
+      }
+    ]
+  },
   "/images/finca-paisaje.jpg": {
     "width": 1600,
     "height": 1067,
@@ -455,6 +602,10 @@
         "src": "/images/opt/finca-paisaje/1100.avif"
       },
       {
+        "w": 1536,
+        "src": "/images/opt/finca-paisaje/1536.avif"
+      },
+      {
         "w": 1600,
         "src": "/images/opt/finca-paisaje/1600.avif"
       }
@@ -471,6 +622,10 @@
       {
         "w": 1100,
         "src": "/images/opt/finca-paisaje/1100.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/finca-paisaje/1536.webp"
       },
       {
         "w": 1600,
@@ -496,6 +651,10 @@
         "src": "/images/opt/salon-biblioteca/1100.avif"
       },
       {
+        "w": 1536,
+        "src": "/images/opt/salon-biblioteca/1536.avif"
+      },
+      {
         "w": 1600,
         "src": "/images/opt/salon-biblioteca/1600.avif"
       }
@@ -512,6 +671,10 @@
       {
         "w": 1100,
         "src": "/images/opt/salon-biblioteca/1100.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/salon-biblioteca/1536.webp"
       },
       {
         "w": 1600,
@@ -537,6 +700,10 @@
         "src": "/images/opt/hero-finca/1100.avif"
       },
       {
+        "w": 1536,
+        "src": "/images/opt/hero-finca/1536.avif"
+      },
+      {
         "w": 1600,
         "src": "/images/opt/hero-finca/1600.avif"
       }
@@ -553,6 +720,10 @@
       {
         "w": 1100,
         "src": "/images/opt/hero-finca/1100.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/hero-finca/1536.webp"
       },
       {
         "w": 1600,
@@ -578,8 +749,16 @@
         "src": "/images/opt/img-0031/1100.avif"
       },
       {
+        "w": 1536,
+        "src": "/images/opt/img-0031/1536.avif"
+      },
+      {
         "w": 1600,
         "src": "/images/opt/img-0031/1600.avif"
+      },
+      {
+        "w": 2000,
+        "src": "/images/opt/img-0031/2000.avif"
       }
     ],
     "webp": [
@@ -596,8 +775,16 @@
         "src": "/images/opt/img-0031/1100.webp"
       },
       {
+        "w": 1536,
+        "src": "/images/opt/img-0031/1536.webp"
+      },
+      {
         "w": 1600,
         "src": "/images/opt/img-0031/1600.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/opt/img-0031/2000.webp"
       }
     ]
   },
@@ -619,8 +806,16 @@
         "src": "/images/opt/img-0035/1100.avif"
       },
       {
+        "w": 1536,
+        "src": "/images/opt/img-0035/1536.avif"
+      },
+      {
         "w": 1600,
         "src": "/images/opt/img-0035/1600.avif"
+      },
+      {
+        "w": 2000,
+        "src": "/images/opt/img-0035/2000.avif"
       }
     ],
     "webp": [
@@ -637,8 +832,16 @@
         "src": "/images/opt/img-0035/1100.webp"
       },
       {
+        "w": 1536,
+        "src": "/images/opt/img-0035/1536.webp"
+      },
+      {
         "w": 1600,
         "src": "/images/opt/img-0035/1600.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/opt/img-0035/2000.webp"
       }
     ]
   },
@@ -658,6 +861,10 @@
       {
         "w": 1100,
         "src": "/images/opt/rodaje-finca/1100.avif"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/rodaje-finca/1536.avif"
       }
     ],
     "webp": [
@@ -672,6 +879,10 @@
       {
         "w": 1100,
         "src": "/images/opt/rodaje-finca/1100.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/rodaje-finca/1536.webp"
       }
     ]
   },
@@ -826,6 +1037,10 @@
         "src": "/images/opt/villanueva-infantes/1100.avif"
       },
       {
+        "w": 1536,
+        "src": "/images/opt/villanueva-infantes/1536.avif"
+      },
+      {
         "w": 1600,
         "src": "/images/opt/villanueva-infantes/1600.avif"
       }
@@ -842,6 +1057,10 @@
       {
         "w": 1100,
         "src": "/images/opt/villanueva-infantes/1100.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/villanueva-infantes/1536.webp"
       },
       {
         "w": 1600,
@@ -867,6 +1086,10 @@
         "src": "/images/opt/bicicleta/1100.avif"
       },
       {
+        "w": 1536,
+        "src": "/images/opt/bicicleta/1536.avif"
+      },
+      {
         "w": 1600,
         "src": "/images/opt/bicicleta/1600.avif"
       }
@@ -883,6 +1106,10 @@
       {
         "w": 1100,
         "src": "/images/opt/bicicleta/1100.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/bicicleta/1536.webp"
       },
       {
         "w": 1600,
@@ -908,6 +1135,10 @@
         "src": "/images/opt/experiencia-ganaderia/1100.avif"
       },
       {
+        "w": 1536,
+        "src": "/images/opt/experiencia-ganaderia/1536.avif"
+      },
+      {
         "w": 1600,
         "src": "/images/opt/experiencia-ganaderia/1600.avif"
       }
@@ -924,6 +1155,10 @@
       {
         "w": 1100,
         "src": "/images/opt/experiencia-ganaderia/1100.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/experiencia-ganaderia/1536.webp"
       },
       {
         "w": 1600,
@@ -949,6 +1184,10 @@
         "src": "/images/opt/experiencia-cata-vinos/1100.avif"
       },
       {
+        "w": 1536,
+        "src": "/images/opt/experiencia-cata-vinos/1536.avif"
+      },
+      {
         "w": 1600,
         "src": "/images/opt/experiencia-cata-vinos/1600.avif"
       }
@@ -965,6 +1204,10 @@
       {
         "w": 1100,
         "src": "/images/opt/experiencia-cata-vinos/1100.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/experiencia-cata-vinos/1536.webp"
       },
       {
         "w": 1600,
@@ -990,6 +1233,10 @@
         "src": "/images/opt/villamanrique-iglesia/1100.avif"
       },
       {
+        "w": 1536,
+        "src": "/images/opt/villamanrique-iglesia/1536.avif"
+      },
+      {
         "w": 1600,
         "src": "/images/opt/villamanrique-iglesia/1600.avif"
       }
@@ -1006,6 +1253,10 @@
       {
         "w": 1100,
         "src": "/images/opt/villamanrique-iglesia/1100.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/villamanrique-iglesia/1536.webp"
       },
       {
         "w": 1600,
@@ -1048,6 +1299,10 @@
         "src": "/images/opt/castillo-montizon/1100.avif"
       },
       {
+        "w": 1536,
+        "src": "/images/opt/castillo-montizon/1536.avif"
+      },
+      {
         "w": 1600,
         "src": "/images/opt/castillo-montizon/1600.avif"
       }
@@ -1064,6 +1319,10 @@
       {
         "w": 1100,
         "src": "/images/opt/castillo-montizon/1100.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/castillo-montizon/1536.webp"
       },
       {
         "w": 1600,
@@ -1114,6 +1373,10 @@
         "src": "/images/opt/pack-familiar/1100.avif"
       },
       {
+        "w": 1536,
+        "src": "/images/opt/pack-familiar/1536.avif"
+      },
+      {
         "w": 1600,
         "src": "/images/opt/pack-familiar/1600.avif"
       }
@@ -1130,6 +1393,10 @@
       {
         "w": 1100,
         "src": "/images/opt/pack-familiar/1100.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/pack-familiar/1536.webp"
       },
       {
         "w": 1600,

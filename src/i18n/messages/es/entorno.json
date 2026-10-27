@@ -2,11 +2,11 @@
   "hero": {
     "eyebrow": "Castilla-La Mancha",
     "title": "Entorno y territorio",
-    "subtitle": "Campos de Montiel, Villamanrique, patrimonio íbero y la Mancha más auténtica a pocos kilómetros de Torre de Juan Abad y Villanueva de los Infantes."
+    "subtitle": "Campo de Montiel, Villamanrique, patrimonio íbero y la Mancha más auténtica a pocos kilómetros de Torre de Juan Abad y Villanueva de los Infantes."
   },
-  "intro": "Finca Los Collados de San Miguel está en Villamanrique, Ciudad Real, en Campos de Montiel (Castilla-La Mancha). Es el punto de partida para Villanueva de los Infantes, las Lagunas de Ruidera, Valdepeñas y rutas por La Mancha. Reserve alojamiento y organice su visita con nosotros.",
+  "intro": "Finca Los Collados de San Miguel está en Villamanrique, Ciudad Real, en Campo de Montiel (Castilla-La Mancha). Es el punto de partida para Villanueva de los Infantes, las Lagunas de Ruidera, Valdepeñas y rutas por La Mancha. Reserve alojamiento y organice su visita con nosotros.",
   "distancesTitle": "Distancias en coche",
-  "distancesNote": "Kilómetros y tiempos aproximados por carretera desde el casco de Villamanrique (38,546 N, 2,998 O). Fuente: OSRM / OpenStreetMap, consulta 19/10/2026. El acceso final a la finca es Camino de los Collados, km 4,4.",
+  "distancesNote": "Kilómetros y tiempos aproximados por carretera desde el casco de Villamanrique. El acceso final a la finca es Camino de los Collados, km 4,4.",
   "distances": [
     { "place": "Villanueva de los Infantes", "detail": "27 km · 34 min" },
     { "place": "Lagunas de Ruidera", "detail": "62 km · 1 h 10 min" },
@@ -18,7 +18,7 @@
   "places": [
     {
       "id": "campos-de-montiel",
-      "title": "Campos de Montiel",
+      "title": "Campo de Montiel",
       "description": "Comarca natural e histórica, escenario de leyenda y naturaleza. Ideal para rutas a pie, observación de aves y turismo rural."
     },
     {
@@ -47,6 +47,10 @@
       "description": "La región ofrece espacios naturales, rutas ornitológicas y paisajes únicos para desconectar."
     }
   ],
+  "huntingLink": {
+    "text": "La Calerilla está en Villamanrique: 247 km y unas 3 h 25 min desde Madrid.",
+    "label": "Cómo llegar a La Calerilla"
+  },
   "cta": {
     "title": "Explore La Mancha desde Los Collados",
     "text": "Reserve su estancia y le ayudamos a diseñar rutas por el territorio."

@@ -28,6 +28,10 @@
     { "title": "Alojamiento incluido", "description": "Su equipo puede pernoctar en los bungalows tras la jornada." },
     { "title": "Gastronomía", "description": "Menús para grupos y pausas catering durante la producción." }
   ],
+  "huntingLink": {
+    "text": "También organizamos jornadas de ojeo de perdiz roja para empresas.",
+    "label": "Caza de perdiz roja en La Calerilla"
+  },
   "cta": {
     "title": "Solicite un presupuesto a medida",
     "text": "Explíquenos su proyecto (equipo, fechas, tipo de actividad) y le enviaremos una propuesta personalizada.",

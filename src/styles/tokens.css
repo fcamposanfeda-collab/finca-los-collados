@@ -1,31 +1,43 @@
 :root {
-  /* Colores — paleta rural / La Mancha */
-  --color-text: #2c2419;
-  --color-primary: #4a6741;
-  --color-primary-dark: #3a5234;
-  --color-secondary: #6b4c35;
+  /* Paleta — lujo discreto, finca de caza / La Mancha */
+  --color-text: #1c1914;
+  --color-primary: #2f3f2a;
+  --color-primary-dark: #24321f;
+  --color-secondary: #5a4636;
   --color-accent: #c9a96e;
-  --color-bg: #faf8f5;
-  --color-bg-alt: #f0ebe3;
-  --color-on-primary: #ffffff;
-  --color-border: #e0d8cc;
-  --color-muted: #6b6358;
-  --color-footer-bg: #2c2419;
+  --color-bg: #f7f3ec;
+  --color-bg-alt: #efe8dc;
+  --color-on-primary: #f7f3ec;
+  --color-on-dark: #f4efe6;
+  --color-border: #d8d0c4;
+  --color-muted: #5a544c;
+  --color-footer-bg: #1c1914;
+  --color-header-scrolled: #f7f3ec;
+  --color-hero-veil: rgba(28, 25, 20, 0.55);
+  --color-hero-veil-strong: rgba(28, 25, 20, 0.78);
 
   /* Tipografía */
   --font-primary: 'Source Sans 3', system-ui, sans-serif;
   --font-heading: 'Playfair Display', Georgia, serif;
+  --font-size-body: 1.0625rem;
+  --font-size-body-desktop: 1.125rem;
+  --line-height-body: 1.65;
+  --measure: 68ch;
+  --letter-eyebrow: 0.16em;
 
   /* Layout */
-  --container-max: 1140px;
-  --section-padding-mobile: 3rem;
-  --section-padding-desktop: 5rem;
+  --container-max: 1280px;
+  --container-text: 42rem;
+  --section-padding-mobile: 3.5rem;
+  --section-padding-desktop: 7rem;
   --header-height: 4.5rem;
+  --radius: 2px;
 
   /* Breakpoints (referencia) */
   --bp-md: 768px;
   --bp-lg: 1024px;
 
-  /* Transiciones */
-  --transition-fast: 150ms ease;
+  /* Transiciones — solo opacity / transform en UI */
+  --transition-fast: 180ms ease;
+  --transition-med: 220ms ease;
 }

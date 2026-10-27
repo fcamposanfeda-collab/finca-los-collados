@@ -14,7 +14,11 @@ interface Props {
   heroSubtitle?: string;
   heroEyebrow?: string;
   heroImage?: string;
+  heroImageMobile?: string;
   heroImageAlt?: string;
+  heroImageAltMobile?: string;
+  heroStillOnDesktop?: boolean;
+  heroPhotoCredit?: string;
   heroCtaLabel?: string;
   heroCtaHref?: string;
   heroCtaTrack?: string;
@@ -32,6 +36,11 @@ interface Props {
   closingVideo?: string;
   closingVideoAlt?: string;
   closingVideoPosition?: string;
+  heroVideoDesktop?: string;
+  heroVideoMobile?: string;
+  heroPauseLabel?: string;
+  heroPlayLabel?: string;
+  heroVideoCredit?: string;
   index?: boolean;
 }
 
@@ -42,7 +51,11 @@ const {
   heroSubtitle,
   heroEyebrow,
   heroImage,
+  heroImageMobile,
   heroImageAlt,
+  heroImageAltMobile,
+  heroStillOnDesktop = false,
+  heroPhotoCredit,
   heroCtaLabel,
   heroCtaHref,
   heroCtaTrack,
@@ -60,45 +73,67 @@ const {
   closingVideo,
   closingVideoAlt,
   closingVideoPosition,
+  heroVideoDesktop,
+  heroVideoMobile,
+  heroPauseLabel,
+  heroPlayLabel,
+  heroVideoCredit,
   index = true,
 } = Astro.props;
 ---
 
-<BaseLayout title={title} description={description} index={index} lcpSrc={heroImage}>
+<BaseLayout
+  title={title}
+  description={description}
+  index={index}
+  lcpSrc={heroStillOnDesktop ? (heroImageMobile ?? heroImage) : heroImage}
+  lcpSrcDesktop={heroStillOnDesktop ? heroImage : undefined}
+>
   <PageHero
     title={heroTitle}
     subtitle={heroSubtitle}
     eyebrow={heroEyebrow}
     imageSrc={heroImage}
+    imageSrcMobile={heroImageMobile}
     imageAlt={heroImageAlt}
+    imageAltMobile={heroImageAltMobile}
+    stillOnDesktop={heroStillOnDesktop}
+    photoCredit={heroPhotoCredit}
     ctaLabel={heroCtaLabel}
     ctaHref={heroCtaHref}
     ctaTrack={heroCtaTrack}
     secondaryLabel={heroSecondaryLabel}
     secondaryHref={heroSecondaryHref}
     secondaryTrack={heroSecondaryTrack}
+    videoDesktop={heroVideoDesktop}
+    videoMobile={heroVideoMobile}
+    pauseLabel={heroPauseLabel}
+    playLabel={heroPlayLabel}
+    videoCredit={heroVideoCredit}
   />
-  <div class="container">
-    <Breadcrumbs />
+  <div class="page-below-hero">
+    <div class="container">
+      <Breadcrumbs />
+    </div>
+    <slot />
+    <FaqSection />
+    <RelatedPages />
+    {
+      ctaTitle && ctaText && (
+        <CtaBanner
+          title={ctaTitle}
+          text={ctaText}
+          buttonLabel={ctaButtonLabel}
+          buttonHref={ctaButtonHref}
+          primaryTrack={ctaPrimaryTrack}
+          extraLabel={extraLabel}
+          extraHref={extraHref}
+          extraTrack={extraTrack}
+        />
+      )
+    }
+    {closingVideo && closingVideoAlt && (
+      <FullWidthVideo src={closingVideo} alt={closingVideoAlt} objectPosition={closingVideoPosition} />
+    )}
   </div>
-  <slot />
-  <FaqSection />
-  <RelatedPages />
-  {
-    ctaTitle && ctaText && (
-      <CtaBanner
-        title={ctaTitle}
-        text={ctaText}
-        buttonLabel={ctaButtonLabel}
-        buttonHref={ctaButtonHref}
-        primaryTrack={ctaPrimaryTrack}
-        extraLabel={extraLabel}
-        extraHref={extraHref}
-        extraTrack={extraTrack}
-      />
-    )
-  }
-  {closingVideo && closingVideoAlt && (
-    <FullWidthVideo src={closingVideo} alt={closingVideoAlt} objectPosition={closingVideoPosition} />
-  )}
 </BaseLayout>

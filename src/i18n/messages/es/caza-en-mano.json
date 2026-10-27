@@ -1,0 +1,26 @@
+{
+  "hero": {
+    "eyebrow": "La Calerilla",
+    "title": "Caza en mano, reclamo y sueltas",
+    "subtitle": "Seis piezas por cazador, conejo o perdiz, en el coto de Villamanrique."
+  },
+  "intro": "La caza en mano recorre el terreno a pie. En La Calerilla, el cupo es de seis piezas por cazador, conejo o perdiz.",
+  "points": [
+    "Seis piezas por cazador: conejo o perdiz.",
+    "Modalidad junto al ojeo, el reclamo y las sueltas.",
+    "Puede combinarse con Bungalow Suite y mesa en la finca."
+  ],
+  "reclamoTitle": "Reclamo",
+  "reclamo": "Jornada de reclamo de macho, sin alojamiento ni taco. Del {lowStart} al {lowEnd} por debajo de 800 m, o del {otherStart} al {otherEnd} en el resto de tramos de la orden de vedas de Castilla-La Mancha.",
+  "sueltasTitle": "Sueltas",
+  "sueltas": "Mínimo 100 aves. El taco está incluido.",
+  "notes": [
+    "Perros bienvenidos en el coto y en los bungalows.",
+    "TODO_DATO: horarios de la jornada."
+  ],
+  "cta": {
+    "title": "Solicite el dossier",
+    "text": "Fechas y número de cazadores. Sin precios publicados.",
+    "buttonLabel": "Solicitar dossier"
+  }
+}

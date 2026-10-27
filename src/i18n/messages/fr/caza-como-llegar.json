@@ -1,0 +1,31 @@
+{
+  "hero": {
+    "eyebrow": "La Calerilla",
+    "title": "Accès à La Calerilla",
+    "subtitle": "Villamanrique, Ciudad Real. 247 km et environ 3 h 25 min depuis Madrid."
+  },
+  "intro": "Le domaine se trouve à Villamanrique, Campo de Montiel (Ciudad Real). Depuis Madrid : environ 247 km et 3 h 25 min en voiture.",
+  "points": [
+    "Adresse : Camino de los Collados, km 4,4, 13343 Villamanrique (Ciudad Real).",
+    "Contact chasse : info@loscolladosdesanmiguel.com · +34 608 543 681."
+  ],
+  "travelTitle": "Arrivée",
+  "travel": [
+    "En voiture depuis Madrid : 247 km, environ 3 h 25 min.",
+    "Prise en charge à Madrid : aéroport Adolfo Suárez Madrid-Barajas, gare d’Atocha ou hôtel, sur demande.",
+    "Nous coordonnons l’arrivée en avion privé et le transfert au domaine, sur demande.",
+    "Transfert en hélicoptère avec un opérateur autorisé, sur demande."
+  ],
+  "docsTitle": "Chasseurs étrangers",
+  "docsNote": "Permis de chasse de Castille-La Manche et assurance obligatoire. Vous pouvez apporter une arme avec la carte européenne d’armes à feu ou louer un fusil au domaine.",
+  "clmLicenceLabel": "Permis de chasse · JCCM",
+  "teaLabel": "Carte européenne d’armes à feu · Guardia Civil",
+  "mapLabel": "Voir l’emplacement sur Google Maps",
+  "mapAlt": "Campo de Montiel, accès à Finca Los Collados de San Miguel",
+  "notes": [],
+  "cta": {
+    "title": "Demandez le dossier",
+    "text": "Dates de chasse et comment vous préférez arriver. Pas de prix publiés.",
+    "buttonLabel": "Demander un dossier"
+  }
+}

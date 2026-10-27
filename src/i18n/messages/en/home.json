@@ -1,6 +1,6 @@
 {
   "hero": {
-    "eyebrow": "Campos de Montiel · Ciudad Real",
+    "eyebrow": "Campo de Montiel · Ciudad Real",
     "title": "Finca Los Collados de San Miguel",
     "subtitle": "Rural tourism, team building, film and photo shoots and small events in a unique corner of Castilla-La Mancha. Pet-friendly.",
     "cta": "Book now",
@@ -40,12 +40,12 @@
       {
         "pageKey": "la-finca",
         "title": "The Estate",
-        "description": "History, nature and facilities in Campos de Montiel."
+        "description": "History, nature and facilities in Campo de Montiel."
       },
       {
         "pageKey": "la-calerilla",
         "title": "La Calerilla",
-        "description": "Walked-up red-legged partridge shooting in Campos de Montiel."
+        "description": "Driven days, walked-up shooting, call hunting and red-legged partridge releases in Campo de Montiel."
       },
       {
         "pageKey": "alojamiento",
@@ -78,6 +78,16 @@
         "description": "La Mancha, Villamanrique and nearby heritage."
       }
     ]
+  },
+  "seasonBlock": {
+    "aria": "Shooting season at La Calerilla",
+    "inEyebrow": "Season open",
+    "inTitle": "Red-legged partridge season {season}",
+    "inText": "La Calerilla offers driven days, walked-up shooting and call hunting. Combine the day with a Bungalow Suite and estate dining.",
+    "outEyebrow": "Next season",
+    "outTitle": "Reserve next season",
+    "outText": "The general shooting season is closed. Ask for dates for the next one, with lodging and dining on the estate.",
+    "cta": "See La Calerilla"
   },
   "cta": {
     "title": "Ready for a countryside retreat?",

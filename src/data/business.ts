@@ -42,7 +42,6 @@ export const todosDato = [
   'TODO_DATO: hora de check-in y check-out',
   'TODO_DATO: priceRange (p. ej. €€) o tarifa orientativa de bungalow',
   'TODO_DATO: número de puestos / tiradores por jornada en La Calerilla',
-  'TODO_DATO: si se admiten perros de caza en el coto y en los bungalows',
 ] as const;
 
 export function formattedAddress(_includeCountry = false): string {

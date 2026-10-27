@@ -1,0 +1,26 @@
+{
+  "hero": {
+    "eyebrow": "La Calerilla",
+    "title": "Walked-up, call hunting and releases",
+    "subtitle": "Six head per gun, rabbit or partridge, on the Villamanrique ground."
+  },
+  "intro": "Walked-up shooting covers the ground on foot. At La Calerilla the bag is six head per gun, rabbit or partridge.",
+  "points": [
+    "Six head per gun: rabbit or partridge.",
+    "Offered alongside driven days, call hunting and releases.",
+    "It can be combined with a Bungalow Suite and dining on the estate."
+  ],
+  "reclamoTitle": "Call hunting",
+  "reclamo": "A cock-call day, without lodging or the field snack. From {lowStart} to {lowEnd} below 800 m, or from {otherStart} to {otherEnd} in the other bands of the Castilla-La Mancha shooting order.",
+  "sueltasTitle": "Releases",
+  "sueltas": "Minimum 100 birds. The field snack is included.",
+  "notes": [
+    "Dogs are welcome on the shoot and in the bungalows.",
+    "TODO_DATO: hours of the day."
+  ],
+  "cta": {
+    "title": "Request the dossier",
+    "text": "Dates and number of guns. No published prices.",
+    "buttonLabel": "Request a dossier"
+  }
+}

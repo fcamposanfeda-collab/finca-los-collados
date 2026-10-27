@@ -23,6 +23,7 @@ const {
   width,
   height,
 } = Astro.props;
+const decoding = fetchpriority === 'high' || loading === 'eager' ? 'sync' : 'async';
 
 const variant = getImageVariant(src);
 const imgSrc = variant ? withBase(variant.fallback) : src;
@@ -41,7 +42,7 @@ const imgHeight = variant?.height ?? height;
         width={imgWidth}
         height={imgHeight}
         loading={loading}
-        decoding="async"
+        decoding={decoding}
         fetchpriority={fetchpriority}
       />
     </picture>
@@ -53,7 +54,7 @@ const imgHeight = variant?.height ?? height;
       width={imgWidth}
       height={imgHeight}
       loading={loading}
-      decoding="async"
+      decoding={decoding}
       fetchpriority={fetchpriority}
     />
   )

@@ -24,3 +24,7 @@ pnpm-debug.log*
 # generated media derivatives (created at build)
 public/images/opt/
 public/videos/opt/
+
+# local working screenshots and scripts (keep copies, do not commit)
+capturas/
+tmp-*

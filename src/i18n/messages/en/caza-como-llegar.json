@@ -1,0 +1,31 @@
+{
+  "hero": {
+    "eyebrow": "La Calerilla",
+    "title": "Getting to La Calerilla",
+    "subtitle": "Villamanrique, Ciudad Real. 247 km and about 3 h 25 min from Madrid."
+  },
+  "intro": "The estate is in Villamanrique, Campo de Montiel (Ciudad Real). From Madrid it is about 247 km and 3 h 25 min by car.",
+  "points": [
+    "Address: Camino de los Collados, km 4,4, 13343 Villamanrique (Ciudad Real).",
+    "Shooting desk: info@loscolladosdesanmiguel.com · +34 608 543 681."
+  ],
+  "travelTitle": "Arrival",
+  "travel": [
+    "By car from Madrid: 247 km, about 3 h 25 min.",
+    "Pickup in Madrid: Adolfo Suárez Madrid-Barajas airport, Atocha station or hotel, on request.",
+    "We can coordinate a private-aircraft arrival and the transfer to the estate, on request.",
+    "Helicopter transfer with an authorised operator, on request."
+  ],
+  "docsTitle": "Visiting guns",
+  "docsNote": "A Castilla-La Mancha shooting licence and compulsory insurance are required. You may bring a gun with a European Firearms Pass or hire a gun on the estate.",
+  "clmLicenceLabel": "Castilla-La Mancha shooting licences · JCCM",
+  "teaLabel": "European Firearms Pass · Guardia Civil",
+  "mapLabel": "Open location in Google Maps",
+  "mapAlt": "Campo de Montiel, access to Finca Los Collados de San Miguel",
+  "notes": [],
+  "cta": {
+    "title": "Request the dossier",
+    "text": "Shooting dates and how you prefer to arrive. No published prices.",
+    "buttonLabel": "Request a dossier"
+  }
+}

@@ -1,30 +1,42 @@
 {
   "fabAria": "Écrire sur WhatsApp à Finca Los Collados de San Miguel",
   "barAria": "Réserver, WhatsApp ou appeler",
+  "barHuntingAria": "Dossier, WhatsApp ou appeler",
   "barReserve": "Réserver",
+  "barDossier": "Dossier",
   "barWhatsapp": "WhatsApp",
   "barCall": "Appeler",
   "playVideo": "Lire la vidéo",
+  "pauseVideo": "Mettre la vidéo en pause",
+  "videoCredit": "Vidéo : Certeros Ballesteros · Huntser",
   "breadcrumbAria": "Fil d’Ariane",
   "breadcrumbHome": "Accueil",
   "relatedTitle": "Vous aimerez aussi",
   "related": {
-    "alojamiento": ["packs", "gastronomia", "la-finca"],
-    "la-calerilla": ["alojamiento", "packs", "gastronomia"],
+    "alojamiento": ["packs", "gastronomia", "la-calerilla"],
+    "la-calerilla": ["caza-ojeo-perdiz", "caza-estancia", "alojamiento"],
+    "caza-ojeo-perdiz": ["caza-en-mano", "caza-estancia", "alojamiento"],
+    "caza-en-mano": ["caza-ojeo-perdiz", "caza-estancia", "alojamiento"],
+    "caza-estancia": ["caza-ojeo-perdiz", "alojamiento", "gastronomia"],
+    "caza-como-llegar": ["la-calerilla", "entorno", "alojamiento"],
     "eventos": ["empresas", "la-finca", "gastronomia"],
-    "empresas": ["eventos", "alojamiento", "la-finca"],
-    "packs": ["alojamiento", "gastronomia", "experiencias"],
+    "empresas": ["eventos", "alojamiento", "la-calerilla"],
+    "packs": ["alojamiento", "gastronomia", "la-calerilla"],
     "la-finca": ["alojamiento", "eventos", "la-calerilla"],
-    "gastronomia": ["packs", "alojamiento", "eventos"],
+    "gastronomia": ["packs", "alojamiento", "la-calerilla"],
     "experiencias": ["entorno", "packs", "alojamiento"],
-    "entorno": ["experiencias", "la-finca", "alojamiento"]
+    "entorno": ["experiencias", "la-calerilla", "alojamiento"]
   },
   "updatedOn": "Mis à jour le {date}",
   "whatsappMessages": {
     "default": "Bonjour, je souhaiterais connaître les disponibilités à Finca Los Collados de San Miguel.",
     "home": "Bonjour, j’ai consulté le site de Finca Los Collados de San Miguel et souhaiterais plus d’informations.",
     "alojamiento": "Bonjour, je souhaiterais réserver un bungalow à Finca Los Collados de San Miguel.",
-    "la-calerilla": "Bonjour, je souhaiterais des informations sur la chasse à La Calerilla (Finca Los Collados de San Miguel).",
+    "la-calerilla": "Bonjour, je souhaiterais le dossier de chasse de La Calerilla (Finca Los Collados de San Miguel).",
+    "caza-ojeo-perdiz": "Bonjour, je souhaiterais le dossier de battue de perdreaux à La Calerilla (Finca Los Collados de San Miguel).",
+    "caza-en-mano": "Bonjour, je souhaiterais le dossier de chasse devant soi à La Calerilla (Finca Los Collados de San Miguel).",
+    "caza-estancia": "Bonjour, je souhaiterais le dossier chasse et séjour à La Calerilla (Finca Los Collados de San Miguel).",
+    "caza-como-llegar": "Bonjour, je souhaiterais le dossier de chasse de La Calerilla et l’accès (Finca Los Collados de San Miguel).",
     "eventos": "Bonjour, je souhaiterais des informations pour un événement à Finca Los Collados de San Miguel.",
     "empresas": "Bonjour, je souhaiterais des informations pour une entreprise / un team building à Finca Los Collados de San Miguel.",
     "packs": "Bonjour, je souhaiterais des informations sur les formules de séjour à Finca Los Collados de San Miguel.",
@@ -47,6 +59,13 @@
     "cancelText": "Les séjours en bungalow suivent l’annulation Booking.com (gratuite sur les tarifs qui l’indiquent ; le délai précis figure sur votre confirmation).",
     "cancelLink": "Conditions de réservation",
     "huntingTitle": "Chasse à La Calerilla",
-    "huntingText": "Les journées de chasse sont organisées par Alectoris Ibérica SL."
+    "huntingText": "Les journées de chasse sont organisées par Alectoris Ibérica SL.",
+    "huntingBlockTitle": "Pourquoi chasser à La Calerilla",
+    "huntingItems": [
+      "Organisé par Alectoris Ibérica SL",
+      "Bungalow Suite au domaine",
+      "Booking 9,7/10",
+      "Chiens bienvenus"
+    ]
   }
 }

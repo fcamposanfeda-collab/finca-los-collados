@@ -1,0 +1,42 @@
+{
+  "hero": {
+    "eyebrow": "La Calerilla",
+    "title": "Driven partridge shooting in La Mancha",
+    "subtitle": "Pegs, beaters and bags of 250, 400 or 600 birds in Campo de Montiel."
+  },
+  "intro": "Driven days are one of the disciplines at La Calerilla. Minimum 6 pegs. Bags of 250, 400 or 600 birds, three shots per partridge. The peg may be shared or individual.",
+  "includesTitle": "Included",
+  "includes": [
+    "Beaters",
+    "Hunting equipment: bird rails, screens and peg markers",
+    "A peg of 10 partridges per gun (can be delivered plucked)",
+    "Bungalow Suite with breakfast, field snack, lunch and dinner"
+  ],
+  "extraTitle": "À la carte",
+  "extra": [
+    "Compulsory licence and insurance",
+    "Cartridges",
+    "Shotgun hire",
+    "Secretary",
+    "Loader"
+  ],
+  "notes": [
+    "Booking with a 50 % deposit.",
+    "TODO_DATO: hours of the day.",
+    "TODO_DATO: languages spoken by the team."
+  ],
+  "jornada": {
+    "title": "A driven day",
+    "text": "Beaters, pegs and coveys of red-legged partridge at La Calerilla.",
+    "aria": "Video of a driven day at La Calerilla",
+    "transcriptLabel": "Transcript",
+    "transcript": "A driven day at La Calerilla: beaters moving through the ground, guns on pegs among cereal and holm oaks, and coveys of red-legged partridge.",
+    "videoName": "A day at La Calerilla",
+    "videoDescription": "Beaters, pegs and red-legged partridge on a driven day at La Calerilla, Campo de Montiel."
+  },
+  "cta": {
+    "title": "Request the driven-day dossier",
+    "text": "Dates, number of pegs and whether you wish to stay. No published prices.",
+    "buttonLabel": "Request a dossier"
+  }
+}

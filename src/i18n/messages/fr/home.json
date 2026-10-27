@@ -1,6 +1,6 @@
 {
   "hero": {
-    "eyebrow": "Campos de Montiel · Ciudad Real",
+    "eyebrow": "Campo de Montiel · Ciudad Real",
     "title": "Finca Los Collados de San Miguel",
     "subtitle": "Séjour à la campagne, team building, tournages et séances photo, et petits événements dans un cadre unique de Castille-La Manche. Animaux acceptés.",
     "cta": "Réserver",
@@ -40,12 +40,12 @@
       {
         "pageKey": "la-finca",
         "title": "Le domaine",
-        "description": "Histoire, nature et services à Campos de Montiel."
+        "description": "Histoire, nature et services à Campo de Montiel."
       },
       {
         "pageKey": "la-calerilla",
         "title": "La Calerilla",
-        "description": "Chasse devant soi à la perdrix rouge à Campos de Montiel."
+        "description": "Battues, chasse devant soi, chasse au poste et lâchers de perdrix rouge à Campo de Montiel."
       },
       {
         "pageKey": "alojamiento",
@@ -78,6 +78,16 @@
         "description": "La Mancha, Villamanrique et le patrimoine tout proche."
       }
     ]
+  },
+  "seasonBlock": {
+    "aria": "Saison de chasse à La Calerilla",
+    "inEyebrow": "Saison ouverte",
+    "inTitle": "Saison de perdrix rouge {season}",
+    "inText": "La Calerilla propose battues, chasse devant soi et chasse au poste. Combinez la journée avec une Bungalow Suite et la table du domaine.",
+    "outEyebrow": "Prochaine saison",
+    "outTitle": "Réservez la prochaine saison",
+    "outText": "La saison générale de chasse est close. Demandez les dates de la suivante, avec hébergement et table sur le domaine.",
+    "cta": "Voir La Calerilla"
   },
   "cta": {
     "title": "Prêt pour une escapade rurale ?",

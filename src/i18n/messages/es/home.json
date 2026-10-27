@@ -1,6 +1,6 @@
 {
   "hero": {
-    "eyebrow": "Campos de Montiel · Ciudad Real",
+    "eyebrow": "Campo de Montiel · Ciudad Real",
     "title": "Finca Los Collados de San Miguel",
     "subtitle": "Turismo rural, teambuilding, rodajes y eventos pequeños en un entorno único de Castilla-La Mancha. Pet friendly.",
     "cta": "Reservar",
@@ -40,12 +40,12 @@
       {
         "pageKey": "la-finca",
         "title": "La Finca",
-        "description": "Historia, naturaleza y servicios en Campos de Montiel."
+        "description": "Historia, naturaleza y servicios en Campo de Montiel."
       },
       {
         "pageKey": "la-calerilla",
         "title": "La Calerilla",
-        "description": "Caza de perdiz roja en mano en Campos de Montiel."
+        "description": "Ojeo, caza en mano, reclamo y sueltas de perdiz roja en Campo de Montiel."
       },
       {
         "pageKey": "alojamiento",
@@ -78,6 +78,16 @@
         "description": "La Mancha, Villamanrique y patrimonio cercano."
       }
     ]
+  },
+  "seasonBlock": {
+    "aria": "Temporada de caza en La Calerilla",
+    "inEyebrow": "Temporada abierta",
+    "inTitle": "Temporada de perdiz roja {season}",
+    "inText": "La Calerilla recibe ojeos, jornadas en mano y reclamo. Combine la cacería con Bungalow Suite y mesa manchega.",
+    "outEyebrow": "Próxima temporada",
+    "outTitle": "Reserve la próxima temporada",
+    "outText": "La temporada general de caza está cerrada. Solicite fechas para la próxima, con alojamiento y mesa en la finca.",
+    "cta": "Ver La Calerilla"
   },
   "cta": {
     "title": "¿Listo para su escapada rural?",

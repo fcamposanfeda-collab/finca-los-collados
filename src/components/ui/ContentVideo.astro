@@ -45,7 +45,7 @@ const playLabel = (useI18n(Astro).copy.conversion as { playVideo: string }).play
   .content-video {
     position: relative;
     overflow: hidden;
-    border-radius: 0.5rem;
+    border-radius: var(--radius);
     background: var(--color-bg-alt);
   }
 
@@ -86,7 +86,7 @@ const playLabel = (useI18n(Astro).copy.conversion as { playVideo: string }).play
 
   .content-video--landscape {
     min-height: 16rem;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3 / 2;
   }
 
   .content-video--wide {

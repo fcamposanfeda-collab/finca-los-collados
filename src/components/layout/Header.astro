@@ -8,9 +8,13 @@ import LanguageSwitcher from '../i18n/LanguageSwitcher.astro';
 
 const { locale, pageKey, href, t, copy } = useI18n(Astro);
 const navLabels = copy.nav as Record<string, string>;
+
+function itemLabel(item: (typeof mainNav)[number]) {
+  return navLabels[item.labelKey ?? item.pageKey] ?? item.pageKey;
+}
 ---
 
-<header class="site-header">
+<header class="site-header" data-site-header>
   <div class="container site-header__inner">
     <a href={href('home')} class="site-header__brand" aria-label={t('common.homeAria', { name: site.name })}>
       <img
@@ -50,13 +54,13 @@ const navLabels = copy.nav as Record<string, string>;
                       { 'is-active': isActiveNavItem(item, pageKey) },
                     ]}
                   >
-                    {navLabels[item.pageKey]}
+                    {itemLabel(item)}
                   </a>
                   <button
                     type="button"
                     class="site-header__submenu-toggle"
                     aria-expanded="false"
-                    aria-label={t('common.showSections', { label: navLabels[item.pageKey] })}
+                    aria-label={t('common.showSections', { label: itemLabel(item) })}
                     data-submenu-toggle
                   >
                     <span aria-hidden="true"></span>
@@ -89,7 +93,7 @@ const navLabels = copy.nav as Record<string, string>;
                     { 'is-active': isActiveNav(item.pageKey, pageKey) },
                   ]}
                 >
-                  {navLabels[item.pageKey]}
+                  {itemLabel(item)}
                 </a>
               </li>
             ),
@@ -103,10 +107,17 @@ const navLabels = copy.nav as Record<string, string>;
 </header>
 
 <script>
+  const header = document.querySelector<HTMLElement>('[data-site-header]');
   const toggle = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');
   const menu = document.querySelector<HTMLElement>('[data-nav-menu]');
   const labelOpen = toggle?.dataset.labelOpen ?? '';
   const labelClose = toggle?.dataset.labelClose ?? '';
+
+  const syncScrolled = () => {
+    header?.classList.toggle('is-scrolled', window.scrollY > 8);
+  };
+  syncScrolled();
+  window.addEventListener('scroll', syncScrolled, { passive: true });
 
   toggle?.addEventListener('click', () => {
     const isOpen = toggle.getAttribute('aria-expanded') === 'true';
@@ -148,13 +159,25 @@ const navLabels = copy.nav as Record<string, string>;
 
 <style>
   .site-header {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 100;
     height: var(--header-height);
-    background: rgba(250, 248, 245, 0.95);
+    background: var(--color-header-scrolled);
     border-bottom: 1px solid var(--color-border);
-    backdrop-filter: blur(8px);
+    box-shadow: 0 1px 0 rgb(28 25 20 / 0.06);
+    transition:
+      background var(--transition-fast),
+      border-color var(--transition-fast),
+      box-shadow var(--transition-fast);
+  }
+
+  :global(body.has-hero:not(.nav-open)) .site-header:not(.is-scrolled) {
+    background: transparent;
+    border-bottom-color: transparent;
+    box-shadow: none;
   }
 
   .site-header__inner {
@@ -179,6 +202,11 @@ const navLabels = copy.nav as Record<string, string>;
     max-width: min(100%, 16rem);
     object-fit: contain;
     object-position: left center;
+    transition: filter var(--transition-fast);
+  }
+
+  :global(body.has-hero:not(.nav-open)) .site-header:not(.is-scrolled) .site-header__logo {
+    filter: brightness(0) invert(1);
   }
 
   .site-header__toggle {
@@ -198,7 +226,13 @@ const navLabels = copy.nav as Record<string, string>;
     width: 1.5rem;
     height: 2px;
     background: var(--color-text);
-    transition: transform var(--transition-fast);
+    transition:
+      transform var(--transition-fast),
+      background var(--transition-fast);
+  }
+
+  :global(body.has-hero:not(.nav-open)) .site-header:not(.is-scrolled) .site-header__toggle span {
+    background: var(--color-on-dark);
   }
 
   .site-header__nav {
@@ -225,16 +259,52 @@ const navLabels = copy.nav as Record<string, string>;
   }
 
   .site-header__link {
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
     font-weight: 500;
+    letter-spacing: 0.04em;
     color: var(--color-text);
     white-space: nowrap;
-    transition: color var(--transition-fast);
+    transition: color var(--transition-fast), opacity var(--transition-fast);
   }
 
   .site-header__link:hover,
   .site-header__link.is-active {
     color: var(--color-primary);
+  }
+
+  :global(body.has-hero:not(.nav-open)) .site-header:not(.is-scrolled) .site-header__link {
+    color: var(--color-on-dark);
+  }
+
+  :global(body.has-hero:not(.nav-open)) .site-header:not(.is-scrolled) .site-header__link:hover,
+  :global(body.has-hero:not(.nav-open)) .site-header:not(.is-scrolled) .site-header__link.is-active {
+    color: var(--color-accent);
+  }
+
+  :global(body.has-hero:not(.nav-open)) .site-header:not(.is-scrolled) :global(.language-switcher__link),
+  :global(body.has-hero:not(.nav-open)) .site-header:not(.is-scrolled) :global(.language-switcher__sep) {
+    color: var(--color-on-dark);
+  }
+
+  :global(body.has-hero:not(.nav-open)) .site-header:not(.is-scrolled) :global(.language-switcher__link:hover),
+  :global(body.has-hero:not(.nav-open)) .site-header:not(.is-scrolled) :global(.language-switcher__link.is-active),
+  :global(body.has-hero:not(.nav-open)) .site-header:not(.is-scrolled) :global(.language-switcher__link[aria-current='page']) {
+    color: var(--color-accent);
+  }
+
+  :global(body.has-hero:not(.nav-open)) .site-header:not(.is-scrolled) .site-header__cta {
+    background: transparent;
+    color: var(--color-on-dark);
+    border-color: var(--color-on-dark);
+  }
+
+  :global(body.has-hero:not(.nav-open)) .site-header:not(.is-scrolled) .site-header__cta:hover {
+    background: var(--color-on-dark);
+    color: var(--color-text);
+  }
+
+  :global(body.has-hero:not(.nav-open)) .site-header:not(.is-scrolled) .site-header__submenu-toggle {
+    color: var(--color-on-dark);
   }
 
   .site-header__submenu-toggle {
@@ -310,8 +380,7 @@ const navLabels = copy.nav as Record<string, string>;
       padding: 0.5rem 0;
       background: var(--color-bg);
       border: 1px solid var(--color-border);
-      border-radius: 0.5rem;
-      box-shadow: 0 8px 24px rgba(44, 36, 25, 0.1);
+      border-radius: var(--radius);
     }
 
     .site-header__submenu::before {

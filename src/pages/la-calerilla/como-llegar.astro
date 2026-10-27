@@ -1,0 +1,100 @@
+---
+import ContentPage from '../../components/ui/ContentPage.astro';
+import ContentImage from '../../components/ui/ContentImage.astro';
+import TrustBlock from '../../components/conversion/TrustBlock.astro';
+import ContactForm from '../../components/forms/ContactForm.astro';
+import { getPageMeta } from '../../data/pages-meta';
+import { images } from '../../data/images';
+import { huntingDocs, visibleLines } from '../../data/hunting';
+import { contact } from '../../data/contact';
+import { buildPageWhatsAppUrl } from '../../data/booking';
+import { useI18n } from '../../i18n';
+
+const { locale, copy, t } = useI18n(Astro);
+const meta = getPageMeta('caza-como-llegar', locale);
+const page = copy['caza-como-llegar'] as {
+  hero: { eyebrow: string; title: string; subtitle: string };
+  intro: string;
+  points: string[];
+  travelTitle: string;
+  travel: string[];
+  docsTitle: string;
+  docsNote: string;
+  clmLicenceLabel: string;
+  teaLabel: string;
+  mapLabel: string;
+  mapAlt: string;
+  notes: string[];
+  cta: { title: string; text: string; buttonLabel: string };
+};
+const notes = visibleLines(page.notes);
+---
+
+<ContentPage
+  title={meta.title}
+  description={meta.description}
+  heroTitle={page.hero.title}
+  heroSubtitle={page.hero.subtitle}
+  heroEyebrow={page.hero.eyebrow}
+  heroImage={images.hero.entorno}
+  heroCtaLabel={t('common.requestDossier')}
+  heroCtaHref="#solicitud-caza"
+  heroCtaTrack="dossier"
+  heroSecondaryLabel={t('common.whatsapp')}
+  heroSecondaryHref={buildPageWhatsAppUrl('caza-como-llegar', locale)}
+  heroSecondaryTrack="whatsapp"
+  ctaTitle={page.cta.title}
+  ctaText={page.cta.text}
+  ctaButtonLabel={t('common.whatsapp')}
+  ctaButtonHref={buildPageWhatsAppUrl('caza-como-llegar', locale)}
+  ctaPrimaryTrack="whatsapp"
+  extraLabel={page.cta.buttonLabel}
+  extraHref="#solicitud-caza"
+  extraTrack="dossier"
+>
+  <section class="page-content">
+    <div class="container page-content__inner">
+      <p class="page-content__lead">{page.intro}</p>
+      <ul class="capacity-list">
+        {page.points.map((item) => <li>{item}</li>)}
+      </ul>
+      <h2>{page.travelTitle}</h2>
+      <ul class="capacity-list">
+        {page.travel.map((item) => <li>{item}</li>)}
+      </ul>
+      <h2>{page.docsTitle}</h2>
+      <p>{page.docsNote}</p>
+      <ul class="capacity-list">
+        <li>
+          <a href={huntingDocs.clmLicence} rel="noopener noreferrer" target="_blank">{page.clmLicenceLabel}</a>
+        </li>
+        <li>
+          <a href={huntingDocs.europeanFirearmsPass} rel="noopener noreferrer" target="_blank">{page.teaLabel}</a>
+        </li>
+      </ul>
+      {
+        notes.length > 0 && (
+          <ul class="capacity-list">
+            {notes.map((item) => <li>{item}</li>)}
+          </ul>
+        )
+      }
+      <p>
+        <a href={contact.mapsUrl} rel="noopener noreferrer" target="_blank">{page.mapLabel}</a>
+      </p>
+      <ContentImage src={images.hero.entorno} alt={page.mapAlt} />
+    </div>
+  </section>
+  <TrustBlock variant="hunting" />
+  <div id="solicitud-caza">
+    <ContactForm
+      title={page.cta.title}
+      intro={page.cta.text}
+      showPhone={true}
+      showDates={true}
+      showGuests={true}
+      defaultSubject="caza"
+      formId="caza"
+    />
+  </div>
+</ContentPage>

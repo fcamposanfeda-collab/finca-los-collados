@@ -2,13 +2,20 @@ import type { PageKey } from '../i18n';
 
 export type NavItem = {
   pageKey: PageKey;
+  /** i18n nav key when the label differs from the pageKey (e.g. Caza). */
+  labelKey?: string;
   children?: PageKey[];
 };
 
 export const mainNav: NavItem[] = [
   {
     pageKey: 'alojamiento',
-    children: ['la-finca', 'la-calerilla', 'gastronomia', 'experiencias', 'entorno'],
+    children: ['la-finca', 'gastronomia', 'experiencias', 'entorno'],
+  },
+  {
+    pageKey: 'la-calerilla',
+    labelKey: 'caza',
+    children: ['caza-ojeo-perdiz', 'caza-en-mano', 'caza-estancia', 'caza-como-llegar'],
   },
   { pageKey: 'empresas' },
   { pageKey: 'eventos' },

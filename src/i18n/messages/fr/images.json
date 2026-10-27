@@ -1,11 +1,18 @@
 {
-  "heroHome": "Entrée de Finca Los Collados de San Miguel au crépuscule, à Campos de Montiel",
+  "heroHome": "Entrée de Finca Los Collados de San Miguel au crépuscule, à Campo de Montiel",
+  "calerillaLoop": "Chasseurs et rabatteurs dans le terrain de La Calerilla, Campo de Montiel",
+  "calerillaDesktop": "Paysage du Campo de Montiel au crépuscule, chênes verts, oliveraies et une maison blanche",
+  "calerillaJornada": "Journée de battue de perdreaux rouges à La Calerilla",
+  "calerillaTemporada": "Terrain de La Calerilla en saison de chasse",
+  "calerillaPerdiz": "Perdrix rouge à La Calerilla",
+  "calerillaMesa": "Table manchega à Finca Los Collados de San Miguel",
+  "calerillaBungalow": "Intérieur d’une Bungalow Suite à Los Collados",
   "gallery": {
     "jardines": "Jardins et extérieurs du domaine",
     "porche": "Porche extérieur de Los Collados",
     "salon": "Salon bibliothèque avec cheminée",
     "entrada": "Entrée principale du domaine",
-    "paisaje": "Paysage de Campos de Montiel",
+    "paisaje": "Paysage de Campo de Montiel",
     "edificaciones": "Vue du domaine et de ses bâtiments",
     "olivar": "Salon avec vue sur l’oliveraie"
   },

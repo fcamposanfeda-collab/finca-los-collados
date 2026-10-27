@@ -1,68 +1,78 @@
 {
   "hero": {
-    "eyebrow": "Shooting · Campos de Montiel",
-    "title": "La Calerilla",
-    "subtitle": "The shooting ground of Los Collados de San Miguel: the tradition of red-legged partridge walked-up, in the heart of La Mancha."
+    "eyebrow": "La Calerilla",
+    "title": "Driven red-legged partridge shooting in Spain",
+    "subtitle": "Shoot at Villamanrique, Campo de Montiel. Driven days, walked-up shooting, call hunting and releases, with a Bungalow Suite and dining on the estate."
   },
-  "intro": "La Calerilla is one of the estate’s shoots, together with La Porrosa, in the natural landscape of Campos de Montiel, where the red-legged partridge (Alectoris rufa) finds the right habitat among scrub, olive groves and cereal fields.",
-  "blocks": [
+  "intro": "La Calerilla is the red-legged partridge shoot of Finca Los Collados de San Miguel, in Villamanrique (Campo de Montiel, Ciudad Real). Driven days, walked-up shooting, call hunting and releases, with a general season from 8 October 2026 to 8 February 2027. A driven day includes a Bungalow Suite with breakfast, field snack, lunch and dinner on the estate. Pickup in Madrid (airport, Atocha or hotel). Days are organised by Alectoris Ibérica SL.",
+  "modalitiesTitle": "Disciplines",
+  "modalities": [
     {
-      "title": "A shooting tradition in La Mancha",
-      "paragraphs": [
-        "From October to February we enjoy shooting days in country that is perfect for keeping the partridge tradition alive in its different forms, with particular care for walked-up shooting.",
-        "Our estates La Calerilla and La Porrosa are the right stage for those who want authenticity, respect for the land and birds whose flight is striking for its height and verticality."
-      ]
+      "pageKey": "caza-ojeo-perdiz",
+      "title": "Driven partridge",
+      "text": "Minimum 6 pegs. Bags of 250, 400 or 600 birds, three shots per partridge. Team peg or individual peg."
     },
     {
-      "title": "Walked-up shooting and other forms",
-      "paragraphs": [
-        "Walked-up shooting lets you cover the ground at an unhurried pace, with pointing dogs, in the rhythm of the La Mancha countryside. A way of understanding the sport that is bound to the landscape, to company and to knowledge of the ground.",
-        "If you wish to book a shooting day, we recommend getting in touch as early as you can: season dates are in high demand. We can combine the day with bungalow lodging and our traditional cooking."
-      ]
+      "pageKey": "caza-en-mano",
+      "title": "Walked-up shooting",
+      "text": "Six head per gun, rabbit or partridge, at the pace of the ground."
     },
     {
-      "title": "Dining, comfort and nature",
-      "paragraphs": [
-        "After the day in the field, the estate welcomes the guns with the comfort of its rooms: dining with dishes such as partridge salad in escabeche, migas manchegas and produce of the land.",
-        "The surroundings are rich in native fauna and flora. A visit to La Calerilla is not only about the shoot: it is a living landscape where rural tourism, farming and the shooting culture of Castilla-La Mancha sit side by side."
-      ]
+      "pageKey": "caza-en-mano",
+      "title": "Call hunting",
+      "text": "A cock-call day, without lodging or the field snack. Season as set in the Castilla-La Mancha shooting order."
+    },
+    {
+      "pageKey": "caza-en-mano",
+      "title": "Releases",
+      "text": "Minimum 100 birds. The field snack is included."
     }
   ],
-  "featuresTitle": "La Calerilla at a glance",
-  "features": [
-    {
-      "title": "Red-legged partridge",
-      "description": "The star species of La Calerilla, with birds of great quality and a vertical flight."
-    },
-    {
-      "title": "Walked-up and driven partridge",
-      "description": "A traditional day at the pace of the countryside, with respect for the land and the wildlife."
-    },
-    {
-      "title": "Season Oct.–Feb.",
-      "description": "Days from October to February. Book ahead: demand is high."
-    },
-    {
-      "title": "Lodging and table",
-      "description": "Combine the day with bungalows, traditional La Mancha dining and a private setting."
-    }
-  ],
-  "season": {
-    "title": "Season information",
-    "items": [
-      "Usual season: October to February",
-      "Booking shooting days: please get in touch as early as possible",
-      "Option to combine with lodging and dining on the estate",
-      "Managed through Alectoris Ibérica SL"
+  "experience": {
+    "title": "The full day",
+    "steps": [
+      "Pickup in Madrid",
+      "Arrival and dinner in a Bungalow Suite",
+      "Shooting day with a field snack",
+      "Rest and Manchego cooking"
     ]
   },
+  "ojeoTitle": "Driven days: included and à la carte",
+  "ojeoIncludesTitle": "Included",
+  "ojeoIncludes": [
+    "Beaters",
+    "Hunting equipment: bird rails, screens and peg markers",
+    "A peg of 10 partridges per gun (can be delivered plucked)",
+    "Bungalow Suite with breakfast, field snack, lunch and dinner"
+  ],
+  "ojeoExtraTitle": "À la carte",
+  "ojeoExtra": [
+    "Compulsory licence and insurance",
+    "Cartridges",
+    "Shotgun hire",
+    "Secretary",
+    "Loader"
+  ],
+  "reserveNote": "A hunting booking is confirmed with a 50 % deposit.",
+  "seasonTitle": "Season {season}",
+  "seasonBody": "General shooting season: {start} to {end}.",
+  "seasonItems": [
+    "Cock-call: 10 January to 20 February 2027 below 800 m, or 23 January to 5 March 2027 in the other bands of the shooting order.",
+    "TODO_DATO: which altitude band applies to Villamanrique.",
+    "Shooting desk: info@loscolladosdesanmiguel.com · +34 608 543 681"
+  ],
+  "galleryTitle": "La Calerilla",
   "cta": {
-    "title": "Book your shooting day",
-    "text": "Ask about availability at La Calerilla, or about dates, formats and combining the day with a stay.",
-    "buttonLabel": "Request information"
+    "title": "Request the shooting dossier",
+    "text": "Give dates, number of pegs or guns, and whether you want to stay. We send you the season dossier with all the terms.",
+    "buttonLabel": "Request a dossier"
   },
   "form": {
-    "title": "Request your shooting day",
-    "intro": "Please give preferred dates, number of guns and whether you would like to combine the day with lodging or dining. Season dates are in high demand."
+    "title": "Request a dossier",
+    "intro": "Preferred dates, number of guns and whether you want a Bungalow Suite or dining. In-season dates should be requested early."
+  },
+  "jornada": {
+    "loopName": "La Calerilla · driven red-legged partridge",
+    "loopDescription": "A loop of a driven day at La Calerilla: holm oaks, beaters and coveys of red-legged partridge."
   }
 }

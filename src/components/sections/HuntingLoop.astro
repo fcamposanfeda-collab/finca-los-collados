@@ -1,0 +1,106 @@
+---
+interface Props {
+  src: string;
+  poster: string;
+  title: string;
+  text: string;
+  credit: string;
+}
+
+const { src, poster, title, text, credit } = Astro.props;
+---
+
+<section class="section hunting-loop" aria-labelledby="hunting-loop-title">
+  <div class="container hunting-loop__inner">
+    <h2 id="hunting-loop-title" class="section__title">{title}</h2>
+    <p class="hunting-loop__lead">{text}</p>
+    <figure class="hunting-loop__figure">
+      <video
+        class="hunting-loop__video"
+        muted
+        loop
+        playsinline
+        preload="none"
+        poster={poster}
+        width="640"
+        height="480"
+        data-src={src}
+      ></video>
+      <figcaption class="hunting-loop__credit">{credit}</figcaption>
+    </figure>
+  </div>
+</section>
+
+<style>
+  .hunting-loop {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .hunting-loop {
+      display: block;
+    }
+  }
+
+  .hunting-loop__inner {
+    max-width: 52rem;
+  }
+
+  .hunting-loop__lead {
+    margin: 0 0 1.5rem;
+    max-width: var(--measure);
+    color: var(--color-muted);
+  }
+
+  .hunting-loop__figure {
+    margin: 0 auto;
+    max-width: 848px;
+    width: fit-content;
+  }
+
+  .hunting-loop__video {
+    display: block;
+    width: 640px;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 640 / 480;
+    object-fit: cover;
+    object-position: center;
+    background: var(--color-footer-bg) no-repeat center / cover;
+    background-repeat: no-repeat;
+    border-radius: var(--radius);
+  }
+
+  .hunting-loop__credit {
+    margin: 0.75rem 0 0;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: var(--color-muted);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hunting-loop__video {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const desktop = window.matchMedia('(min-width: 1024px)');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function loadLoop() {
+    if (!desktop.matches || reduced.matches) return;
+    document.querySelectorAll<HTMLVideoElement>('.hunting-loop__video[data-src]').forEach((video) => {
+      if (video.dataset.ready === 'true') return;
+      const src = video.dataset.src;
+      if (!src) return;
+      video.dataset.ready = 'true';
+      video.src = src;
+      video.play().catch(() => {});
+    });
+  }
+
+  loadLoop();
+  desktop.addEventListener('change', loadLoop);
+</script>

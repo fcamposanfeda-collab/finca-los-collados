@@ -1,28 +1,35 @@
 ---
 import { contact } from '../../data/contact';
 import { bookingComPropertyUrl, buildPageWhatsAppUrl } from '../../data/booking';
+import { isHuntingPage } from '../../data/hunting';
 import { useI18n } from '../../i18n';
 
 const { locale, pageKey, href, copy } = useI18n(Astro);
 const conv = copy.conversion as {
   fabAria: string;
   barAria: string;
+  barHuntingAria: string;
   barReserve: string;
+  barDossier: string;
   barWhatsapp: string;
   barCall: string;
 };
+const huntingPage = isHuntingPage(pageKey);
 const whatsappUrl = buildPageWhatsAppUrl(pageKey, locale);
 const bookingUrl = bookingComPropertyUrl(locale);
-const reserveHref = pageKey === 'alojamiento' || pageKey === 'packs' || pageKey === 'home' || pageKey === 'reservas-online'
-  ? bookingUrl
-  : href('contacto') + '?motivo=' + (
-      pageKey === 'la-calerilla' ? 'caza'
-        : pageKey === 'eventos' ? 'eventos'
+const reserveHref = huntingPage
+  ? '#solicitud-caza'
+  : pageKey === 'alojamiento' || pageKey === 'packs' || pageKey === 'home' || pageKey === 'reservas-online'
+    ? bookingUrl
+    : href('contacto') + '?motivo=' + (
+        pageKey === 'eventos' ? 'eventos'
           : pageKey === 'empresas' ? 'empresas'
             : pageKey === 'la-finca' ? 'finca-completa'
               : 'general'
-    );
+      );
 const reserveExternal = reserveHref.startsWith('http');
+const barAria = huntingPage ? conv.barHuntingAria : conv.barAria;
+const barPrimaryLabel = huntingPage ? conv.barDossier : conv.barReserve;
 ---
 
 <a
@@ -42,16 +49,16 @@ const reserveExternal = reserveHref.startsWith('http');
   </svg>
 </a>
 
-<nav class="reserve-bar" aria-label={conv.barAria}>
+<nav class="reserve-bar" aria-label={barAria}>
   <a
     href={reserveHref}
     class="reserve-bar__btn"
-    data-track={reserveExternal ? 'booking' : 'form'}
+    data-track={huntingPage ? 'dossier' : reserveExternal ? 'booking' : 'form'}
     data-track-source="bar"
     target={reserveExternal ? '_blank' : undefined}
     rel={reserveExternal ? 'noopener noreferrer' : undefined}
   >
-    {conv.barReserve}
+    {barPrimaryLabel}
   </a>
   <a
     href={whatsappUrl}
@@ -82,7 +89,7 @@ const reserveExternal = reserveHref.startsWith('http');
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1px;
-    background: var(--color-secondary);
+    background: var(--color-primary);
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 
@@ -93,11 +100,11 @@ const reserveExternal = reserveHref.startsWith('http');
     min-height: 3.25rem;
     padding: 0.5rem 0.35rem;
     font-size: 0.75rem;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: var(--color-on-primary);
-    background: var(--color-secondary);
+    background: var(--color-primary);
   }
 
   .reserve-bar__btn:hover,
@@ -128,7 +135,7 @@ const reserveExternal = reserveHref.startsWith('http');
       border-radius: 50%;
       color: #fff;
       background: #128c7e;
-      box-shadow: 0 8px 20px rgba(18, 140, 126, 0.35);
+      box-shadow: none;
     }
 
     .wa-fab:hover {

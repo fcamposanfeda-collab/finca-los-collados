@@ -1,0 +1,108 @@
+---
+import ContentPage from '../../components/ui/ContentPage.astro';
+import HuntingJornada from '../../components/sections/HuntingJornada.astro';
+import TrustBlock from '../../components/conversion/TrustBlock.astro';
+import ContactForm from '../../components/forms/ContactForm.astro';
+import { getPageMeta } from '../../data/pages-meta';
+import { images } from '../../data/images';
+import { getHuntingJornada } from '../../data/media';
+import { visibleLines } from '../../data/hunting';
+import { buildPageWhatsAppUrl } from '../../data/booking';
+import { useI18n } from '../../i18n';
+
+const { locale, copy, t } = useI18n(Astro);
+const meta = getPageMeta('caza-ojeo-perdiz', locale);
+const jornadaVideo = getHuntingJornada();
+const page = copy['caza-ojeo-perdiz'] as {
+  hero: { eyebrow: string; title: string; subtitle: string };
+  intro: string;
+  includesTitle: string;
+  includes: string[];
+  extraTitle: string;
+  extra: string[];
+  notes: string[];
+  jornada: {
+    title: string;
+    text: string;
+    aria: string;
+    transcriptLabel: string;
+    transcript: string;
+  };
+  cta: { title: string; text: string; buttonLabel: string };
+};
+const notes = visibleLines(page.notes);
+---
+
+<ContentPage
+  title={meta.title}
+  description={meta.description}
+  heroTitle={page.hero.title}
+  heroSubtitle={page.hero.subtitle}
+  heroEyebrow={page.hero.eyebrow}
+  heroImage={images.laCalerilla.hero}
+  heroImageAlt={t('images.calerillaDesktop')}
+  heroCtaLabel={t('common.requestDossier')}
+  heroCtaHref="#solicitud-caza"
+  heroCtaTrack="dossier"
+  heroSecondaryLabel={t('common.whatsapp')}
+  heroSecondaryHref={buildPageWhatsAppUrl('caza-ojeo-perdiz', locale)}
+  heroSecondaryTrack="whatsapp"
+  ctaTitle={page.cta.title}
+  ctaText={page.cta.text}
+  ctaButtonLabel={t('common.whatsapp')}
+  ctaButtonHref={buildPageWhatsAppUrl('caza-ojeo-perdiz', locale)}
+  ctaPrimaryTrack="whatsapp"
+  extraLabel={page.cta.buttonLabel}
+  extraHref="#solicitud-caza"
+  extraTrack="dossier"
+>
+  <section class="page-content">
+    <div class="container page-content__inner">
+      <p class="page-content__lead">{page.intro}</p>
+      <h2>{page.includesTitle}</h2>
+      <ul class="capacity-list">
+        {page.includes.map((item) => <li>{item}</li>)}
+      </ul>
+      <h2>{page.extraTitle}</h2>
+      <ul class="capacity-list">
+        {page.extra.map((item) => <li>{item}</li>)}
+      </ul>
+      {
+        notes.length > 0 && (
+          <ul class="capacity-list">
+            {notes.map((item) => <li>{item}</li>)}
+          </ul>
+        )
+      }
+    </div>
+  </section>
+
+  {
+    jornadaVideo.src && (
+      <HuntingJornada
+        src={jornadaVideo.src}
+        poster={images.laCalerilla.jornadaPoster}
+        title={page.jornada.title}
+        text={page.jornada.text}
+        aria={page.jornada.aria}
+        transcriptLabel={page.jornada.transcriptLabel}
+        transcript={page.jornada.transcript}
+        credit={t('conversion.videoCredit')}
+      />
+    )
+  }
+
+  <TrustBlock variant="hunting" />
+  <div id="solicitud-caza">
+    <ContactForm
+      title={page.cta.title}
+      intro={page.cta.text}
+      showPhone={true}
+      showDates={true}
+      showGuests={true}
+      defaultSubject="caza"
+      formId="caza"
+      defaultModality="ojeo"
+    />
+  </div>
+</ContentPage>

@@ -27,33 +27,137 @@
     },
     {
       "q": "À quelle distance est Madrid ?",
-      "a": "Le domaine se trouve à Villamanrique, Ciudad Real. Environ 247 km et 3 h 25 min en voiture depuis Madrid (OSRM / OpenStreetMap, 19/10/2026, depuis le village de Villamanrique)."
+      "a": "Le domaine se trouve à Villamanrique, Ciudad Real. Environ 247 km et 3 h 25 min en voiture depuis Madrid."
     }
   ],
   "la-calerilla": [
     {
       "q": "Quelle est la saison de chasse à la perdrix ?",
-      "a": "La saison habituelle va d’octobre à février. Il convient de demander les dates à l’avance, la demande étant forte."
+      "a": "La saison générale 2026-27 va du 8 octobre 2026 au 8 février 2027. Les dates se demandent à l’avance."
     },
     {
-      "q": "Quelles modalités de chasse sont proposées ?",
-      "a": "La modalité principale est la chasse devant soi à la perdrix rouge. Il existe aussi des battues de perdrix. TODO_DATO : autres modalités le cas échéant."
+      "q": "Quelles modalités sont proposées ?",
+      "a": "Battue de perdreaux, chasse devant soi, chasse au poste et lâchers."
     },
     {
-      "q": "Qui organise les journées de chasse ?",
-      "a": "Les journées de chasse sont organisées par Alectoris Ibérica SL."
+      "q": "Comment se passe la battue ?",
+      "a": "Minimum 6 postes. Tableaux de 250, 400 ou 600 pièces, trois coups par perdrix. Poste de groupe ou individuel."
     },
     {
-      "q": "Peut-on combiner avec l’hébergement ?",
-      "a": "Oui. Vous pouvez associer la journée à des bungalows et à la restauration de Finca Los Collados de San Miguel."
+      "q": "Que comprend une battue ?",
+      "a": "Rabatteurs, matériel de chasse (perches, écrans et postes), perche de 10 perdreaux par chasseur (peuvent être livrées plumées) et Bungalow Suite avec petit-déjeuner, taco, déjeuner et dîner. À la carte : permis et assurance obligatoires, cartouches, location de fusils, secrétaire et chargeur."
     },
     {
-      "q": "Comment réserver une journée de chasse ?",
-      "a": "Par WhatsApp ou via le formulaire de La Calerilla, en indiquant les dates et le nombre de fusils."
+      "q": "Qu’est-ce que la chasse devant soi ?",
+      "a": "Six pièces par fusil, lapin ou perdrix."
+    },
+    {
+      "q": "Qui organise les journées ?",
+      "a": "Alectoris Ibérica SL."
+    },
+    {
+      "q": "Peut-on loger au domaine ?",
+      "a": "La battue comprend déjà la Bungalow Suite avec petit-déjeuner, taco, déjeuner et dîner. Des nuits supplémentaires peuvent être demandées. La chasse au poste se propose sans hébergement ni taco."
+    },
+    {
+      "q": "Comment réserver ?",
+      "a": "Demandez un dossier par WhatsApp ou formulaire. La réservation de chasse se confirme avec un acompte de 50 %."
+    },
+    {
+      "q": "À quelle distance est Madrid ?",
+      "a": "Villamanrique, Ciudad Real. Environ 247 km et 3 h 25 min en voiture."
+    },
+    {
+      "q": "Publiez-vous les prix ?",
+      "a": "Nous vous envoyons le dossier de la saison avec toutes les conditions."
+    },
+    {
+      "q": "Faut-il un permis ?",
+      "a": "Permis de chasse de Castille-La Manche et assurance obligatoire. Liens officiels à la page Accès. Vous pouvez louer un fusil au domaine."
+    },
+    {
+      "q": "Et les chasseurs étrangers ?",
+      "a": "Carte européenne d’armes à feu, ou location de fusil au domaine. Voir Accès."
+    },
+    {
+      "q": "Les accompagnants non chasseurs sont-ils les bienvenus ?",
+      "a": "Oui. La battue comprend la Bungalow Suite. Ils peuvent profiter de la table, des expériences et des alentours."
+    },
+    {
+      "q": "Comment se passent la chasse au poste et les lâchers ?",
+      "a": "Chasse au poste : journée de coq, sans hébergement ni taco. Lâchers : minimum 100 oiseaux, taco compris."
     },
     {
       "q": "Les chiens de chasse sont-ils acceptés ?",
-      "a": "TODO_DATO : conditions pour les chiens d’arrêt sur le territoire et dans les bungalows."
+      "a": "Oui. Les chiens sont les bienvenus sur le territoire et dans les bungalows."
+    }
+  ],
+  "caza-ojeo-perdiz": [
+    {
+      "q": "Combien de postes faut-il ?",
+      "a": "Minimum 6 postes."
+    },
+    {
+      "q": "Quels tableaux sont proposés ?",
+      "a": "250, 400 ou 600 pièces, trois coups par perdrix."
+    },
+    {
+      "q": "Le poste est-il individuel ?",
+      "a": "Il peut être de groupe ou individuel."
+    },
+    {
+      "q": "Qu’est-ce qui n’est pas compris ?",
+      "a": "Permis et assurance obligatoires, cartouches, location de fusils, secrétaire et chargeur."
+    }
+  ],
+  "caza-en-mano": [
+    {
+      "q": "Quel est le tableau en chasse devant soi ?",
+      "a": "Six pièces par fusil, lapin ou perdrix."
+    },
+    {
+      "q": "Peut-on la combiner avec une battue ?",
+      "a": "Ce sont des modalités distinctes. Le dossier peut couvrir les deux."
+    },
+    {
+      "q": "La chasse au poste comprend-elle l’hébergement ?",
+      "a": "Non. La journée de coq est sans hébergement ni taco."
+    },
+    {
+      "q": "Que comprennent les lâchers ?",
+      "a": "Minimum 100 oiseaux. Le taco est compris."
+    }
+  ],
+  "caza-estancia": [
+    {
+      "q": "Le bungalow est-il compris en battue ?",
+      "a": "Oui : Bungalow Suite avec petit-déjeuner, taco, déjeuner et dîner."
+    },
+    {
+      "q": "Combien de personnes pouvez-vous loger ?",
+      "a": "8 bungalows, jusqu’à 16 adultes."
+    }
+  ],
+  "caza-como-llegar": [
+    {
+      "q": "Où se trouve le territoire ?",
+      "a": "Villamanrique, Ciudad Real, Campo de Montiel."
+    },
+    {
+      "q": "Combien de temps depuis Madrid ?",
+      "a": "Environ 247 km et 3 h 25 min en voiture."
+    },
+    {
+      "q": "Y a-t-il une prise en charge à Madrid ?",
+      "a": "Oui. Prise en charge à l’aéroport Adolfo Suárez Madrid-Barajas, à Atocha ou à l’hôtel, sur demande."
+    },
+    {
+      "q": "Peut-on arriver en avion privé ou en hélicoptère ?",
+      "a": "Oui, sur demande. Nous coordonnons l’arrivée et le transfert au domaine. Nous ne nommons aucun aérodrome."
+    },
+    {
+      "q": "Quels documents faut-il ?",
+      "a": "Permis de Castille-La Manche, assurance obligatoire et, si vous apportez une arme, la carte européenne d’armes à feu. Liens officiels sur cette page. Vous pouvez aussi louer un fusil au domaine."
     }
   ],
   "eventos": [

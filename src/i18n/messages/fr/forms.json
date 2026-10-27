@@ -24,7 +24,53 @@
     "checkOut": "Fecha salida",
     "guests": "Invitados/adultos",
     "language": "Idioma",
+    "country": "País",
+    "contactLanguage": "Idioma de contacto",
+    "modality": "Modalidad",
+    "datesFlexible": "Fechas flexibles",
+    "pegs": "Puestos o cazadores",
+    "companions": "Acompañantes no cazadores",
+    "pickup": "Recogida en Madrid",
+    "arrival": "Avión o helicóptero",
+    "dossier": "Dossier de temporada",
     "subjectPrefix": "[Web Los Collados]"
+  },
+  "hunting": {
+    "country": "Pays",
+    "language": "Langue de contact",
+    "languages": {
+      "es": "Español",
+      "en": "English",
+      "fr": "Français"
+    },
+    "modality": "Modalité",
+    "modalityPlaceholder": "Sélectionnez",
+    "modalities": {
+      "ojeo": "Battue de perdreaux",
+      "en-mano": "Chasse devant soi",
+      "reclamo": "Chasse au poste",
+      "sueltas": "Lâchers",
+      "unknown": "Je ne sais pas"
+    },
+    "checkIn": "Date d’arrivée souhaitée",
+    "checkOut": "Date de départ (facultatif)",
+    "datesFlexible": "Dates flexibles",
+    "pegs": "Nombre de postes ou de chasseurs",
+    "companions": "Accompagnants non chasseurs",
+    "pickup": "Avez-vous besoin d’une prise en charge à Madrid ?",
+    "pickupOptions": {
+      "yes": "Oui",
+      "no": "Non",
+      "unsure": "Pas encore"
+    },
+    "arrival": "Arrivez-vous en avion privé ou en hélicoptère ?",
+    "arrivalOptions": {
+      "no": "Non",
+      "plane": "Avion privé",
+      "helicopter": "Hélicoptère",
+      "unsure": "Pas encore"
+    },
+    "dossier": "Je souhaite recevoir le dossier de la saison"
   },
   "subjects": {
     "general": "Demande générale",
