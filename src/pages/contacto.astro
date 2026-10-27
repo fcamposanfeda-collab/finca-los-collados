@@ -62,7 +62,8 @@ const defaultSubject = inquirySubjectIds.includes(motivo as (typeof inquirySubje
     showDates={true}
     showGuests={true}
     defaultSubject={defaultSubject}
-    formId="presupuesto"
+    formId={defaultSubject === 'caza' ? 'caza' : 'presupuesto'}
+    variant={defaultSubject === 'caza' ? 'hunting' : 'default'}
   />
 </ContentPage>
 

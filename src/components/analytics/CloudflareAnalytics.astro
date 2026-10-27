@@ -44,6 +44,8 @@ const { locale, pageKey } = Astro.props;
   function umamiProps(payload) {
     const props = { locale: payload.locale, page: payload.page };
     if (payload.source) props.source = payload.source;
+    if (payload.motivo) props.motivo = payload.motivo;
+    if (payload.modalidad) props.modalidad = payload.modalidad;
     return props;
   }
 

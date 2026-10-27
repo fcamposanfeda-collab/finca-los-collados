@@ -6,7 +6,6 @@ import { getPageMeta } from '../../data/pages-meta';
 import { images } from '../../data/images';
 import { visibleLines } from '../../data/hunting';
 import { buildPageWhatsAppUrl } from '../../data/booking';
-import { contactFormUrl } from '../../data/forms';
 import { useI18n } from '../../i18n';
 
 const { locale, copy, t, href } = useI18n(Astro);
@@ -31,8 +30,8 @@ const notes = visibleLines(page.notes);
   heroEyebrow={page.hero.eyebrow}
   heroImage={images.hero.alojamiento}
   heroCtaLabel={t('common.requestDossier')}
-  heroCtaHref={contactFormUrl(locale, 'caza')}
-  heroCtaTrack="form"
+  heroCtaHref="#solicitud-caza"
+  heroCtaTrack="dossier"
   heroSecondaryLabel={t('common.whatsapp')}
   heroSecondaryHref={buildPageWhatsAppUrl('caza-estancia', locale)}
   heroSecondaryTrack="whatsapp"
@@ -43,7 +42,7 @@ const notes = visibleLines(page.notes);
   ctaPrimaryTrack="whatsapp"
   extraLabel={page.cta.buttonLabel}
   extraHref="#solicitud-caza"
-  extraTrack="form"
+  extraTrack="dossier"
 >
   <section class="page-content">
     <div class="container page-content__inner">

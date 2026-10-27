@@ -12,6 +12,8 @@ interface Props {
   showGuests?: boolean;
   defaultSubject?: string;
   formId?: string;
+  variant?: 'default' | 'hunting';
+  defaultModality?: string;
 }
 
 const { locale, copy, t, href } = useI18n(Astro);
@@ -40,6 +42,22 @@ const formCopy = copy.forms as {
   privacyError: string;
   requiredError: string;
   emailError: string;
+  hunting: {
+    country: string;
+    language: string;
+    languages: Record<string, string>;
+    modality: string;
+    modalityPlaceholder: string;
+    modalities: Record<string, string>;
+    datesFlexible: string;
+    pegs: string;
+    companions: string;
+    pickup: string;
+    pickupOptions: Record<string, string>;
+    arrival: string;
+    arrivalOptions: Record<string, string>;
+    dossier: string;
+  };
 };
 
 const {
@@ -50,7 +68,16 @@ const {
   showGuests = false,
   defaultSubject = 'general',
   formId = 'contact',
+  variant = 'default',
+  defaultModality = '',
 } = Astro.props;
+
+const huntingForm = variant === 'hunting' || formId === 'caza';
+const huntingCopy = formCopy.hunting;
+const modalityIds = ['ojeo', 'en-mano', 'reclamo', 'sueltas', 'unknown'] as const;
+const pickupIds = ['unsure', 'yes', 'no'] as const;
+const arrivalIds = ['no', 'plane', 'helicopter', 'unsure'] as const;
+const languageIds = ['es', 'en', 'fr'] as const;
 
 const urlMotivo = resolveInquirySubject(Astro.url.searchParams.get('motivo'));
 const selectedSubject = urlMotivo ?? defaultSubject;
@@ -88,7 +115,7 @@ const [layerBeforePolicy, layerAfterPolicy] = formCopy.privacyLayer
       data-default-subject={selectedSubject}
       lang={localeMeta[locale].htmlLang}
     >
-      <input type="hidden" name="idioma" value={languageField} />
+      {!huntingForm && <input type="hidden" name="idioma" value={languageField} />}
       <div class="contact-form__hp" aria-hidden="true">
         <label>
           Leave this field empty
@@ -130,23 +157,43 @@ const [layerBeforePolicy, layerAfterPolicy] = formCopy.privacyLayer
             </div>
           )
         }
-        <div class="contact-form__field">
-          <label for={`${idPrefix}-motivo`}>
-            {formCopy.subject} <span class="contact-form__req">({formCopy.required})</span>
-          </label>
-          <select id={`${idPrefix}-motivo`} name="subject" required aria-required="true">
-            {
-              options.map((item) => (
-                <option value={item.value} data-package-id={item.value} selected={item.value === selectedSubject}>
-                  {item.label}
-                </option>
-              ))
-            }
-          </select>
-        </div>
         {
-          showDates && (
+          huntingForm ? (
             <>
+              <input type="hidden" name="subject" value="caza" />
+              <div class="contact-form__field">
+                <label for={`${idPrefix}-pais`}>{huntingCopy.country}</label>
+                <input id={`${idPrefix}-pais`} name="country" type="text" autocomplete="country-name" />
+              </div>
+              <div class="contact-form__field">
+                <label for={`${idPrefix}-idioma`}>
+                  {huntingCopy.language} <span class="contact-form__req">({formCopy.required})</span>
+                </label>
+                <select id={`${idPrefix}-idioma`} name="idioma" required aria-required="true">
+                  {
+                    languageIds.map((id) => (
+                      <option value={id.toUpperCase()} selected={id === locale}>
+                        {huntingCopy.languages[id]}
+                      </option>
+                    ))
+                  }
+                </select>
+              </div>
+              <div class="contact-form__field">
+                <label for={`${idPrefix}-modalidad`}>
+                  {huntingCopy.modality} <span class="contact-form__req">({formCopy.required})</span>
+                </label>
+                <select id={`${idPrefix}-modalidad`} name="modality" required aria-required="true">
+                  <option value="">{huntingCopy.modalityPlaceholder}</option>
+                  {
+                    modalityIds.map((id) => (
+                      <option value={id} selected={id === defaultModality}>
+                        {huntingCopy.modalities[id]}
+                      </option>
+                    ))
+                  }
+                </select>
+              </div>
               <div class="contact-form__field">
                 <label for={`${idPrefix}-entrada`}>{formCopy.checkIn}</label>
                 <input id={`${idPrefix}-entrada`} name="checkIn" type="date" lang={localeMeta[locale].htmlLang} />
@@ -155,25 +202,108 @@ const [layerBeforePolicy, layerAfterPolicy] = formCopy.privacyLayer
                 <label for={`${idPrefix}-salida`}>{formCopy.checkOut}</label>
                 <input id={`${idPrefix}-salida`} name="checkOut" type="date" lang={localeMeta[locale].htmlLang} />
               </div>
+              <div class="contact-form__field contact-form__field--check">
+                <label class="contact-form__consent" for={`${idPrefix}-flexible`}>
+                  <input id={`${idPrefix}-flexible`} name="datesFlexible" type="checkbox" value="yes" />
+                  <span>{huntingCopy.datesFlexible}</span>
+                </label>
+              </div>
+              <div class="contact-form__field">
+                <label for={`${idPrefix}-puestos`}>{huntingCopy.pegs}</label>
+                <input id={`${idPrefix}-puestos`} name="pegs" type="number" min="1" max="50" inputmode="numeric" />
+              </div>
+              <div class="contact-form__field">
+                <label for={`${idPrefix}-acompanantes`}>{huntingCopy.companions}</label>
+                <input id={`${idPrefix}-acompanantes`} name="companions" type="number" min="0" max="50" inputmode="numeric" />
+              </div>
+              <div class="contact-form__field">
+                <label for={`${idPrefix}-recogida`}>{huntingCopy.pickup}</label>
+                <select id={`${idPrefix}-recogida`} name="pickup">
+                  {
+                    pickupIds.map((id) => (
+                      <option value={id}>{huntingCopy.pickupOptions[id]}</option>
+                    ))
+                  }
+                </select>
+              </div>
+              <div class="contact-form__field">
+                <label for={`${idPrefix}-llegada`}>{huntingCopy.arrival}</label>
+                <select id={`${idPrefix}-llegada`} name="arrival">
+                  {
+                    arrivalIds.map((id) => (
+                      <option value={id}>{huntingCopy.arrivalOptions[id]}</option>
+                    ))
+                  }
+                </select>
+              </div>
             </>
-          )
-        }
-        {
-          showGuests && (
-            <div class="contact-form__field">
-              <label for={`${idPrefix}-invitados`}>{formCopy.guests}</label>
-              <input id={`${idPrefix}-invitados`} name="guests" type="number" min="1" max="50" />
-            </div>
+          ) : (
+            <>
+              <div class="contact-form__field">
+                <label for={`${idPrefix}-motivo`}>
+                  {formCopy.subject} <span class="contact-form__req">({formCopy.required})</span>
+                </label>
+                <select id={`${idPrefix}-motivo`} name="subject" required aria-required="true">
+                  {
+                    options.map((item) => (
+                      <option value={item.value} data-package-id={item.value} selected={item.value === selectedSubject}>
+                        {item.label}
+                      </option>
+                    ))
+                  }
+                </select>
+              </div>
+              {
+                showDates && (
+                  <>
+                    <div class="contact-form__field">
+                      <label for={`${idPrefix}-entrada`}>{formCopy.checkIn}</label>
+                      <input id={`${idPrefix}-entrada`} name="checkIn" type="date" lang={localeMeta[locale].htmlLang} />
+                    </div>
+                    <div class="contact-form__field">
+                      <label for={`${idPrefix}-salida`}>{formCopy.checkOut}</label>
+                      <input id={`${idPrefix}-salida`} name="checkOut" type="date" lang={localeMeta[locale].htmlLang} />
+                    </div>
+                  </>
+                )
+              }
+              {
+                showGuests && (
+                  <div class="contact-form__field">
+                    <label for={`${idPrefix}-invitados`}>{formCopy.guests}</label>
+                    <input id={`${idPrefix}-invitados`} name="guests" type="number" min="1" max="50" />
+                  </div>
+                )
+              }
+            </>
           )
         }
       </div>
 
       <div class="contact-form__field">
         <label for={`${idPrefix}-mensaje`}>
-          {formCopy.message} <span class="contact-form__req">({formCopy.required})</span>
+          {formCopy.message}
+          {!huntingForm && <span class="contact-form__req"> ({formCopy.required})</span>}
         </label>
-        <textarea id={`${idPrefix}-mensaje`} name="message" rows="5" required aria-required="true" />
+        <textarea
+          id={`${idPrefix}-mensaje`}
+          name="message"
+          rows={huntingForm ? 3 : 5}
+          required={!huntingForm}
+          aria-required={huntingForm ? undefined : 'true'}
+        />
       </div>
+
+      {
+        huntingForm && (
+          <div class="contact-form__privacy">
+            <label class="contact-form__consent" for={`${idPrefix}-dossier`}>
+              <input id={`${idPrefix}-dossier`} name="dossier" type="checkbox" value="yes" checked />
+              <span>{huntingCopy.dossier}</span>
+            </label>
+          </div>
+        )
+      }
 
       <div class="contact-form__privacy">
         <label class="contact-form__consent" for={`${idPrefix}-privacy`}>
@@ -233,6 +363,7 @@ const [layerBeforePolicy, layerAfterPolicy] = formCopy.privacyLayer
 
 <script define:vars={{
   formId,
+  huntingForm,
   endpoint: forms.endpoint,
   accessKey: forms.web3formsAccessKey,
   recipientEmail: forms.recipientEmail,
@@ -247,6 +378,15 @@ const [layerBeforePolicy, layerAfterPolicy] = formCopy.privacyLayer
   spanishSubjects: Object.fromEntries(
     (['general','alojamiento','finca-espacios','finca-completa','finca-fin-semana','sesiones-fotograficas','evento','empresa','pack','caza'] as const).map((id) => [id, spanishSubjectLabel(id)]),
   ),
+  spanishModalities: {
+    ojeo: 'Ojeo',
+    'en-mano': 'En mano',
+    reclamo: 'Reclamo',
+    sueltas: 'Sueltas',
+    unknown: 'Sin modalidad',
+  },
+  spanishPickup: { yes: 'Sí', no: 'No', unsure: 'Aún no lo sé' },
+  spanishArrival: { no: 'No', plane: 'Avión privado', helicopter: 'Helicóptero', unsure: 'Aún no lo sé' },
   subjectPrefix: spanishEmailLabels.subjectPrefix,
   requiredError: formCopy.requiredError,
   emailError: formCopy.emailError,
@@ -334,19 +474,52 @@ const [layerBeforePolicy, layerAfterPolicy] = formCopy.privacyLayer
       return;
     }
 
-    const subjectId = String(data.get('subject') ?? 'general');
+    const subjectId = String(data.get('subject') ?? (huntingForm ? 'caza' : 'general'));
     const spanishSubject = spanishSubjects[subjectId] ?? subjectId;
+    const modality = String(data.get('modality') ?? '');
+    const datesFlexible = data.get('datesFlexible') === 'yes';
+    const checkIn = String(data.get('checkIn') ?? '');
+    const checkOut = String(data.get('checkOut') ?? '');
+    const datesLabel = datesFlexible
+      ? 'fechas flexibles'
+      : checkIn && checkOut
+        ? `${checkIn} – ${checkOut}`
+        : checkIn || checkOut || 'sin fechas';
+    const huntingSubject = `Solicitud dossier caza – ${spanishModalities[modality] ?? 'Sin modalidad'} – ${datesLabel}`;
+    const emailSubject = huntingForm ? huntingSubject : `${subjectPrefix} ${spanishSubject}`;
     const payload = {
       name: String(data.get('name') ?? ''),
       email: String(data.get('email') ?? ''),
       phone: String(data.get('phone') ?? ''),
       subjectId,
       message: String(data.get('message') ?? ''),
-      checkIn: String(data.get('checkIn') ?? ''),
-      checkOut: String(data.get('checkOut') ?? ''),
+      checkIn,
+      checkOut,
       guests: String(data.get('guests') ?? ''),
       idioma: String(data.get('idioma') ?? languageField),
+      country: String(data.get('country') ?? ''),
+      modality,
+      datesFlexible,
+      pegs: String(data.get('pegs') ?? ''),
+      companions: String(data.get('companions') ?? ''),
+      pickup: String(data.get('pickup') ?? ''),
+      arrival: String(data.get('arrival') ?? ''),
+      dossier: data.get('dossier') === 'yes',
     };
+
+    const huntingLines = huntingForm
+      ? [
+          payload.country ? `${emailLabels.country}: ${payload.country}` : '',
+          `${emailLabels.contactLanguage}: ${payload.idioma}`,
+          `${emailLabels.modality}: ${spanishModalities[payload.modality] ?? payload.modality}`,
+          payload.datesFlexible ? `${emailLabels.datesFlexible}: Sí` : '',
+          payload.pegs ? `${emailLabels.pegs}: ${payload.pegs}` : '',
+          payload.companions !== '' ? `${emailLabels.companions}: ${payload.companions}` : '',
+          payload.pickup ? `${emailLabels.pickup}: ${spanishPickup[payload.pickup] ?? payload.pickup}` : '',
+          payload.arrival ? `${emailLabels.arrival}: ${spanishArrival[payload.arrival] ?? payload.arrival}` : '',
+          `${emailLabels.dossier}: ${payload.dossier ? 'Sí' : 'No'}`,
+        ]
+      : [];
 
     const fullMessage = [
       `${emailLabels.name}: ${payload.name}`,
@@ -355,7 +528,8 @@ const [layerBeforePolicy, layerAfterPolicy] = formCopy.privacyLayer
       payload.checkIn ? `${emailLabels.checkIn}: ${payload.checkIn}` : '',
       payload.checkOut ? `${emailLabels.checkOut}: ${payload.checkOut}` : '',
       payload.guests ? `${emailLabels.guests}: ${payload.guests}` : '',
-      `${emailLabels.language}: ${payload.idioma}`,
+      huntingForm ? '' : `${emailLabels.language}: ${payload.idioma}`,
+      ...huntingLines,
       '',
       payload.message,
     ]
@@ -372,11 +546,19 @@ const [layerBeforePolicy, layerAfterPolicy] = formCopy.privacyLayer
       submitBtn.disabled = true;
     }
 
-    window.trackConversion?.('form_submit', { locale, motivo: subjectId });
+    window.trackConversion?.('form_submit', { locale, motivo: subjectId, source: 'form' });
+    if (huntingForm) {
+      window.trackConversion?.('dossier_request', {
+        locale,
+        motivo: 'caza',
+        modalidad: payload.modality || 'unknown',
+        source: 'form',
+      });
+    }
 
     if (!configured) {
       const params = new URLSearchParams({
-        subject: spanishSubject,
+        subject: emailSubject,
         body: fullMessage,
       });
       window.location.href = `mailto:${recipientEmail}?${params.toString()}`;
@@ -397,7 +579,7 @@ const [layerBeforePolicy, layerAfterPolicy] = formCopy.privacyLayer
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
           access_key: accessKey,
-          subject: `${subjectPrefix} ${spanishSubject}`,
+          subject: emailSubject,
           name: payload.name,
           email: payload.email,
           message: fullMessage,
@@ -487,6 +669,11 @@ const [layerBeforePolicy, layerAfterPolicy] = formCopy.privacyLayer
     color: var(--color-text);
   }
 
+  .contact-form__field--check .contact-form__consent {
+    margin: 0.25rem 0 0;
+    font-weight: 400;
+  }
+
   .contact-form__privacy {
     display: flex;
     flex-direction: column;
@@ -548,7 +735,8 @@ const [layerBeforePolicy, layerAfterPolicy] = formCopy.privacyLayer
       grid-template-columns: repeat(2, 1fr);
     }
 
-    .contact-form__field:last-child:nth-child(odd) {
+    .contact-form__field:last-child:nth-child(odd),
+    .contact-form__field--check {
       grid-column: 1 / -1;
     }
   }

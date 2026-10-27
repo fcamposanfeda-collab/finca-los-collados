@@ -1,7 +1,6 @@
 ---
 import { contact } from '../../data/contact';
 import { bookingComPropertyUrl, buildPageWhatsAppUrl } from '../../data/booking';
-import { contactFormUrl } from '../../data/forms';
 import { isHuntingPage } from '../../data/hunting';
 import { useI18n } from '../../i18n';
 
@@ -19,7 +18,7 @@ const huntingPage = isHuntingPage(pageKey);
 const whatsappUrl = buildPageWhatsAppUrl(pageKey, locale);
 const bookingUrl = bookingComPropertyUrl(locale);
 const reserveHref = huntingPage
-  ? contactFormUrl(locale, 'caza')
+  ? '#solicitud-caza'
   : pageKey === 'alojamiento' || pageKey === 'packs' || pageKey === 'home' || pageKey === 'reservas-online'
     ? bookingUrl
     : href('contacto') + '?motivo=' + (
@@ -54,7 +53,7 @@ const barPrimaryLabel = huntingPage ? conv.barDossier : conv.barReserve;
   <a
     href={reserveHref}
     class="reserve-bar__btn"
-    data-track={reserveExternal ? 'booking' : 'form'}
+    data-track={huntingPage ? 'dossier' : reserveExternal ? 'booking' : 'form'}
     data-track-source="bar"
     target={reserveExternal ? '_blank' : undefined}
     rel={reserveExternal ? 'noopener noreferrer' : undefined}

@@ -8,7 +8,6 @@ import { images } from '../../data/images';
 import { getHuntingJornada } from '../../data/media';
 import { visibleLines } from '../../data/hunting';
 import { buildPageWhatsAppUrl } from '../../data/booking';
-import { contactFormUrl } from '../../data/forms';
 import { useI18n } from '../../i18n';
 
 const { locale, copy, t } = useI18n(Astro);
@@ -43,8 +42,8 @@ const notes = visibleLines(page.notes);
   heroImage={images.laCalerilla.hero}
   heroImageAlt={t('images.calerillaDesktop')}
   heroCtaLabel={t('common.requestDossier')}
-  heroCtaHref={contactFormUrl(locale, 'caza')}
-  heroCtaTrack="form"
+  heroCtaHref="#solicitud-caza"
+  heroCtaTrack="dossier"
   heroSecondaryLabel={t('common.whatsapp')}
   heroSecondaryHref={buildPageWhatsAppUrl('caza-ojeo-perdiz', locale)}
   heroSecondaryTrack="whatsapp"
@@ -55,7 +54,7 @@ const notes = visibleLines(page.notes);
   ctaPrimaryTrack="whatsapp"
   extraLabel={page.cta.buttonLabel}
   extraHref="#solicitud-caza"
-  extraTrack="form"
+  extraTrack="dossier"
 >
   <section class="page-content">
     <div class="container page-content__inner">
@@ -103,6 +102,7 @@ const notes = visibleLines(page.notes);
       showGuests={true}
       defaultSubject="caza"
       formId="caza"
+      defaultModality="ojeo"
     />
   </div>
 </ContentPage>

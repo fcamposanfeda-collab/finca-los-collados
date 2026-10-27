@@ -6,7 +6,6 @@ import { getPageMeta } from '../../data/pages-meta';
 import { images } from '../../data/images';
 import { hunting, formatHuntingDay, visibleLines } from '../../data/hunting';
 import { buildPageWhatsAppUrl } from '../../data/booking';
-import { contactFormUrl } from '../../data/forms';
 import { useI18n } from '../../i18n';
 
 const { locale, copy, t, meta: localeMeta } = useI18n(Astro);
@@ -38,8 +37,8 @@ const reclamo = page.reclamo
   heroEyebrow={page.hero.eyebrow}
   heroImage={images.laCalerilla.campo}
   heroCtaLabel={t('common.requestDossier')}
-  heroCtaHref={contactFormUrl(locale, 'caza')}
-  heroCtaTrack="form"
+  heroCtaHref="#solicitud-caza"
+  heroCtaTrack="dossier"
   heroSecondaryLabel={t('common.whatsapp')}
   heroSecondaryHref={buildPageWhatsAppUrl('caza-en-mano', locale)}
   heroSecondaryTrack="whatsapp"
@@ -50,7 +49,7 @@ const reclamo = page.reclamo
   ctaPrimaryTrack="whatsapp"
   extraLabel={page.cta.buttonLabel}
   extraHref="#solicitud-caza"
-  extraTrack="form"
+  extraTrack="dossier"
 >
   <section class="page-content">
     <div class="container page-content__inner">
@@ -81,6 +80,7 @@ const reclamo = page.reclamo
       showGuests={true}
       defaultSubject="caza"
       formId="caza"
+      defaultModality="en-mano"
     />
   </div>
 </ContentPage>

@@ -127,8 +127,11 @@ export function resolveInquirySubject(value: string | null | undefined): Inquiry
 }
 
 export function contactFormUrl(locale: Locale, motivo?: string): string {
-  const path = localizePath('contacto', locale);
   const resolved = resolveInquirySubject(motivo);
+  if (resolved === 'caza') {
+    return `${localizePath('la-calerilla', locale)}#solicitud-caza`;
+  }
+  const path = localizePath('contacto', locale);
   if (!resolved) return path;
   return `${path}?motivo=${encodeURIComponent(resolved)}`;
 }
