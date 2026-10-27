@@ -20,14 +20,12 @@ const { src, poster, title, text, credit } = Astro.props;
         muted
         loop
         playsinline
-        autoplay
-        preload="metadata"
+        preload="none"
         poster={poster}
         width="640"
         height="480"
-      >
-        <source src={src} type="video/mp4" />
-      </video>
+        data-src={src}
+      ></video>
       <figcaption class="hunting-loop__credit">{credit}</figcaption>
     </figure>
   </div>
@@ -86,3 +84,23 @@ const { src, poster, title, text, credit } = Astro.props;
     }
   }
 </style>
+
+<script>
+  const desktop = window.matchMedia('(min-width: 1024px)');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function loadLoop() {
+    if (!desktop.matches || reduced.matches) return;
+    document.querySelectorAll<HTMLVideoElement>('.hunting-loop__video[data-src]').forEach((video) => {
+      if (video.dataset.ready === 'true') return;
+      const src = video.dataset.src;
+      if (!src) return;
+      video.dataset.ready = 'true';
+      video.src = src;
+      video.play().catch(() => {});
+    });
+  }
+
+  loadLoop();
+  desktop.addEventListener('change', loadLoop);
+</script>

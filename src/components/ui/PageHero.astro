@@ -1,5 +1,7 @@
 ---
 import OptimizedImage from './OptimizedImage.astro';
+import { getImageVariant, srcset } from '../../data/media';
+import { withBase } from '../../utils/paths';
 
 interface Props {
   title: string;
@@ -53,6 +55,9 @@ const mobilePoster = imageSrcMobile ?? imageSrc;
 const desktopStill = imageSrc;
 const hasLoop = Boolean(videoDesktop || videoMobile);
 const mobileAlt = imageAltMobile || imageAlt;
+const desktopVariant = stillOnDesktop && desktopStill ? getImageVariant(desktopStill) : null;
+const mobileVariant = stillOnDesktop && mobilePoster ? getImageVariant(mobilePoster) : null;
+const artDirected = Boolean(desktopVariant && mobileVariant && desktopStill !== mobilePoster);
 
 function isHttp(url?: string) {
   return Boolean(url && url.startsWith('http'));
@@ -73,31 +78,59 @@ function isHttp(url?: string) {
   data-still-desktop={stillOnDesktop ? '' : undefined}
 >
   {
-    stillOnDesktop && desktopStill && (
-      <OptimizedImage
-        class="page-hero__img page-hero__img--desktop"
-        src={desktopStill}
-        alt={imageAlt}
-        width={1536}
-        height={1024}
-        loading="eager"
-        fetchpriority="high"
-        sizes="100vw"
-      />
-    )
-  }
-  {
-    mobilePoster && (
-      <OptimizedImage
-        class:list={['page-hero__img', { 'page-hero__img--mobile': stillOnDesktop }]}
-        src={mobilePoster}
-        alt={stillOnDesktop ? mobileAlt : imageAlt}
-        width={1600}
-        height={900}
-        loading="eager"
-        fetchpriority="high"
-        sizes="100vw"
-      />
+    artDirected && desktopVariant && mobileVariant ? (
+      <picture class="page-hero__img">
+        <source
+          media="(min-width: 1024px)"
+          type="image/avif"
+          srcset={srcset(desktopVariant.avif)}
+          sizes="100vw"
+        />
+        <source
+          media="(min-width: 1024px)"
+          type="image/webp"
+          srcset={srcset(desktopVariant.webp)}
+          sizes="100vw"
+        />
+        <source type="image/avif" srcset={srcset(mobileVariant.avif)} sizes="100vw" />
+        <source type="image/webp" srcset={srcset(mobileVariant.webp)} sizes="100vw" />
+        <img
+          src={withBase(mobileVariant.fallback)}
+          alt={mobileAlt}
+          width={mobileVariant.width}
+          height={mobileVariant.height}
+          loading="eager"
+          decoding="sync"
+          fetchpriority="high"
+        />
+      </picture>
+    ) : (
+      <>
+        {stillOnDesktop && desktopStill && (
+          <OptimizedImage
+            class="page-hero__img page-hero__img--desktop"
+            src={desktopStill}
+            alt={imageAlt}
+            width={1536}
+            height={1024}
+            loading="eager"
+            fetchpriority="high"
+            sizes="100vw"
+          />
+        )}
+        {mobilePoster && (
+          <OptimizedImage
+            class:list={['page-hero__img', { 'page-hero__img--mobile': stillOnDesktop }]}
+            src={mobilePoster}
+            alt={stillOnDesktop ? mobileAlt : imageAlt}
+            width={1600}
+            height={900}
+            loading="eager"
+            fetchpriority="high"
+            sizes="100vw"
+          />
+        )}
+      </>
     )
   }
   {

@@ -71,6 +71,12 @@
   color: var(--color-text);
 }
 
+.feature-grid__card h3 a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.5rem;
+}
+
 .feature-grid__card p {
   margin: 0;
   font-size: 0.9375rem;
