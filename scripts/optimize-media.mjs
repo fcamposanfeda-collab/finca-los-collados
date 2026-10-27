@@ -26,6 +26,7 @@ const imageFiles = [
   'bungalow-detalle.jpg',
   'calerilla-temporada.jpg',
   'calerilla-perdiz.png',
+  'perdiz-web.png',
   'finca-paisaje.jpg',
   'salon-biblioteca.jpg',
   'hero-finca.jpg',

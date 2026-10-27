@@ -37,6 +37,7 @@ const imagesRaw = {
     jornadaPoster: '/images/calerilla-jornada-poster.jpg',
     campo: '/images/calerilla-temporada.jpg',
     perdiz: '/images/calerilla-perdiz.png',
+    perdizRoja: '/images/perdiz-web.png',
     gastronomia: '/images/gastronomia.jpg',
     gallery: [
       '/images/calerilla-hero.jpg',

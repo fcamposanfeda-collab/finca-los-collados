@@ -14,8 +14,8 @@ const eyebrow = inSeason ? t('home.seasonBlock.inEyebrow') : t('home.seasonBlock
 ---
 
 <section class="section section--alt home-season" aria-label={t('home.seasonBlock.aria')}>
-  <div class="container text-image">
-    <div class="page-content__inner">
+  <div class="container home-season__grid">
+    <div class="home-season__copy">
       <p class="home-season__eyebrow">{eyebrow}</p>
       <h2 class="section__title">{title}</h2>
       <p class="home-season__text">{text}</p>
@@ -28,10 +28,10 @@ const eyebrow = inSeason ? t('home.seasonBlock.inEyebrow') : t('home.seasonBlock
         {t('home.seasonBlock.cta')}
       </a>
     </div>
-    <div class="text-image__media">
+    <div class="home-season__media">
       <ContentImage
-        src={images.hero.laCalerillaLoop}
-        alt={t('images.calerillaLoop')}
+        src={images.laCalerilla.perdizRoja}
+        alt={t('images.calerillaPerdiz')}
         aspect="wide"
       />
     </div>
@@ -39,6 +39,12 @@ const eyebrow = inSeason ? t('home.seasonBlock.inEyebrow') : t('home.seasonBlock
 </section>
 
 <style>
+  .home-season__grid {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+  }
+
   .home-season__eyebrow {
     margin: 0 0 0.75rem;
     font-size: 0.75rem;
@@ -58,12 +64,18 @@ const eyebrow = inSeason ? t('home.seasonBlock.inEyebrow') : t('home.seasonBlock
     color: var(--color-muted);
   }
 
-  .home-season .text-image__media :global(.content-image),
-  .home-season .text-image__media :global(picture),
-  .home-season .text-image__media :global(img) {
-    width: 100%;
-    height: 100%;
-    min-height: 18rem;
-    object-fit: cover;
+  .home-season__media :global(.content-image) {
+    min-height: 0;
+  }
+
+  .home-season__media :global(img) {
+    object-position: 72% 60%;
+  }
+
+  @media (min-width: 768px) {
+    .home-season__grid {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 3rem;
+    }
   }
 </style>

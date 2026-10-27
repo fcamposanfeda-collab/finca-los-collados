@@ -535,6 +535,55 @@
       }
     ]
   },
+  "/images/perdiz-web.png": {
+    "width": 1920,
+    "height": 1080,
+    "fallback": "/images/opt/perdiz-web/1100.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/perdiz-web/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/perdiz-web/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/perdiz-web/1100.avif"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/perdiz-web/1536.avif"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/perdiz-web/1600.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/perdiz-web/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/perdiz-web/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/perdiz-web/1100.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/perdiz-web/1536.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/perdiz-web/1600.webp"
+      }
+    ]
+  },
   "/images/finca-paisaje.jpg": {
     "width": 1600,
     "height": 1067,
