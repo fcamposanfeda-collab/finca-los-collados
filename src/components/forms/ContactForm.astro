@@ -49,6 +49,8 @@ const formCopy = copy.forms as {
     modality: string;
     modalityPlaceholder: string;
     modalities: Record<string, string>;
+    checkIn: string;
+    checkOut: string;
     datesFlexible: string;
     pegs: string;
     companions: string;
@@ -195,11 +197,11 @@ const [layerBeforePolicy, layerAfterPolicy] = formCopy.privacyLayer
                 </select>
               </div>
               <div class="contact-form__field">
-                <label for={`${idPrefix}-entrada`}>{formCopy.checkIn}</label>
+                <label for={`${idPrefix}-entrada`}>{huntingCopy.checkIn}</label>
                 <input id={`${idPrefix}-entrada`} name="checkIn" type="date" lang={localeMeta[locale].htmlLang} />
               </div>
               <div class="contact-form__field">
-                <label for={`${idPrefix}-salida`}>{formCopy.checkOut}</label>
+                <label for={`${idPrefix}-salida`}>{huntingCopy.checkOut}</label>
                 <input id={`${idPrefix}-salida`} name="checkOut" type="date" lang={localeMeta[locale].htmlLang} />
               </div>
               <div class="contact-form__field contact-form__field--check">

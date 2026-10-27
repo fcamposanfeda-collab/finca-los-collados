@@ -52,6 +52,8 @@
       "sueltas": "Releases",
       "unknown": "Not sure"
     },
+    "checkIn": "Preferred arrival date",
+    "checkOut": "Departure date (optional)",
     "datesFlexible": "Flexible dates",
     "pegs": "Number of pegs or guns",
     "companions": "Non-shooting guests",

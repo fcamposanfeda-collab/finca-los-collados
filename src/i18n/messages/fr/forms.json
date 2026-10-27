@@ -52,6 +52,8 @@
       "sueltas": "Lâchers",
       "unknown": "Je ne sais pas"
     },
+    "checkIn": "Date d’arrivée souhaitée",
+    "checkOut": "Date de départ (facultatif)",
     "datesFlexible": "Dates flexibles",
     "pegs": "Nombre de postes ou de chasseurs",
     "companions": "Accompagnants non chasseurs",

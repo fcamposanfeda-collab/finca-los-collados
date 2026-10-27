@@ -52,6 +52,8 @@
       "sueltas": "Sueltas",
       "unknown": "No lo sé"
     },
+    "checkIn": "Fecha preferida de llegada",
+    "checkOut": "Fecha de salida (opcional)",
     "datesFlexible": "Fechas flexibles",
     "pegs": "Número de puestos o cazadores",
     "companions": "Acompañantes no cazadores",
