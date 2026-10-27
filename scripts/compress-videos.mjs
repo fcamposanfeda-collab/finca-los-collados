@@ -1,13 +1,15 @@
 import { execFileSync } from 'child_process';
-import { readdirSync, statSync, unlinkSync } from 'fs';
+import { existsSync, readdirSync, statSync, unlinkSync } from 'fs';
 import { join } from 'path';
 import ffmpeg from 'ffmpeg-static';
 
-const dir = 'public/videos';
-const files = readdirSync(dir).filter((file) => file.toLowerCase().endsWith('.mov'));
+const dir = 'media-src/videos';
+const files = existsSync(dir)
+  ? readdirSync(dir).filter((file) => file.toLowerCase().endsWith('.mov'))
+  : [];
 
 if (files.length === 0) {
-  console.log('No .mov files found in public/videos');
+  console.log('No .mov files found in media-src/videos');
   process.exit(0);
 }
 

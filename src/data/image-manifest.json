@@ -1670,5 +1670,22 @@
         "src": "/images/opt/logo-cabecera/768.webp"
       }
     ]
+  },
+  "/images/logo-finca-los-collados.png": {
+    "width": 512,
+    "height": 512,
+    "fallback": "/images/opt/logo-finca-los-collados/512.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/logo-finca-los-collados/480.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/logo-finca-los-collados/480.webp"
+      }
+    ]
   }
 }
