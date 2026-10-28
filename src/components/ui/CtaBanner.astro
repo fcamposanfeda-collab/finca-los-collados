@@ -73,43 +73,50 @@ const extraIsExternal = extraHref
 
 <style>
   .cta-banner {
-    background: var(--color-bg-alt);
+    background: var(--color-bg);
+    padding-block: 2rem;
   }
 
   .cta-banner__inner {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.25rem;
     align-items: flex-start;
-    padding: 2rem 0;
+    padding-block: 0;
     border: 0;
-    border-top: 1px solid var(--color-border);
     border-radius: 0;
     background: transparent;
   }
 
+  .cta-banner__text {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: 100%;
+  }
+
   .cta-banner__title {
-    margin: 0 0 0.5rem;
-    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    margin: 0 0 0.35rem;
+    font-size: clamp(1.35rem, 2.4vw, 1.85rem);
     font-weight: 400;
     color: var(--color-text);
   }
 
   .cta-banner__desc {
     margin: 0;
-    max-width: 40rem;
+    max-width: none;
     color: var(--color-muted);
+    white-space: pre-line;
   }
 
   .cta-banner__actions {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    width: 100%;
+    width: auto;
   }
 
   .cta-banner__actions .btn {
-    flex: 1 1 auto;
+    flex: 0 0 auto;
     width: auto;
     min-width: min-content;
     min-height: 3rem;
@@ -122,11 +129,20 @@ const extraIsExternal = extraHref
     border-color: var(--color-primary);
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
+    .cta-banner {
+      padding-block: 2.5rem;
+    }
+
     .cta-banner__inner {
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .cta-banner__text {
+      width: auto;
     }
 
     .cta-banner__actions {

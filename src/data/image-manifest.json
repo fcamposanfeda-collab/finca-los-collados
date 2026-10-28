@@ -25,9 +25,9 @@
     ]
   },
   "/images/hero-casa-panorama.png": {
-    "width": 1024,
-    "height": 291,
-    "fallback": "/images/opt/hero-casa-panorama/1024.jpg",
+    "width": 3631,
+    "height": 1033,
+    "fallback": "/images/opt/hero-casa-panorama/1100.jpg",
     "avif": [
       {
         "w": 480,
@@ -36,6 +36,22 @@
       {
         "w": 768,
         "src": "/images/opt/hero-casa-panorama/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/hero-casa-panorama/1100.avif"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/hero-casa-panorama/1536.avif"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/hero-casa-panorama/1600.avif"
+      },
+      {
+        "w": 2000,
+        "src": "/images/opt/hero-casa-panorama/2000.avif"
       }
     ],
     "webp": [
@@ -46,6 +62,22 @@
       {
         "w": 768,
         "src": "/images/opt/hero-casa-panorama/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/hero-casa-panorama/1100.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/hero-casa-panorama/1536.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/hero-casa-panorama/1600.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/opt/hero-casa-panorama/2000.webp"
       }
     ]
   },

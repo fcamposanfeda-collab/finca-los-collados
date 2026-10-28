@@ -38,6 +38,7 @@ interface Props {
   closingVideoPosition?: string;
   heroVideoDesktop?: string;
   heroVideoMobile?: string;
+  heroVideoLoop?: boolean;
   heroPauseLabel?: string;
   heroPlayLabel?: string;
   heroVideoCredit?: string;
@@ -75,6 +76,7 @@ const {
   closingVideoPosition,
   heroVideoDesktop,
   heroVideoMobile,
+  heroVideoLoop,
   heroPauseLabel,
   heroPlayLabel,
   heroVideoCredit,
@@ -107,6 +109,7 @@ const {
     secondaryTrack={heroSecondaryTrack}
     videoDesktop={heroVideoDesktop}
     videoMobile={heroVideoMobile}
+    videoLoop={heroVideoLoop}
     pauseLabel={heroPauseLabel}
     playLabel={heroPlayLabel}
     videoCredit={heroVideoCredit}

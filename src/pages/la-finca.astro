@@ -5,9 +5,11 @@ import ImageCarousel from '../components/ui/ImageCarousel.astro';
 import FullWidthVideo from '../components/ui/FullWidthVideo.astro';
 import { getPageMeta } from '../data/pages-meta';
 import { images } from '../data/images';
+import { getLaFincaHeroLoop } from '../data/media';
 import { useI18n } from '../i18n';
 
-const { locale, copy, href } = useI18n(Astro);
+const { locale, copy, href, t } = useI18n(Astro);
+const heroLoop = getLaFincaHeroLoop();
 const meta = getPageMeta('la-finca', locale);
 const page = copy['la-finca'] as {
   hero: { eyebrow: string; title: string; subtitle: string };
@@ -33,6 +35,12 @@ const slides = images.laFinca.gallery.map((src, index) => ({
   heroSubtitle={page.hero.subtitle}
   heroEyebrow={page.hero.eyebrow}
   heroImage={images.hero.laFinca}
+  heroImageAlt={t('images.heroLaFinca')}
+  heroVideoDesktop={heroLoop.desktop}
+  heroVideoMobile={heroLoop.mobile}
+  heroVideoLoop={false}
+  heroPauseLabel={t('conversion.pauseVideo')}
+  heroPlayLabel={t('conversion.playVideo')}
   ctaTitle={page.cta.title}
   ctaText={page.cta.text}
 >

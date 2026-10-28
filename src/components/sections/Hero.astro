@@ -1,6 +1,7 @@
 ---
 import { images } from '../../data/images';
 import { bookingComPropertyUrl, buildPageWhatsAppUrl } from '../../data/booking';
+import { getHomeHeroLoop } from '../../data/media';
 import OptimizedImage from '../ui/OptimizedImage.astro';
 import { useI18n } from '../../i18n';
 
@@ -16,9 +17,17 @@ const heroAlt = (copy.images as { heroHome: string }).heroHome;
 const bookingUrl = bookingComPropertyUrl(locale);
 const whatsappUrl = buildPageWhatsAppUrl('home', locale);
 const bookingLabel = (copy.booking as { bookingComLabel: string }).bookingComLabel;
+const loop = getHomeHeroLoop();
+const hasLoop = Boolean(loop.desktop || loop.mobile);
+const pauseLabel = t('conversion.pauseVideo');
+const playLabel = t('conversion.playVideo');
 ---
 
-<section class="hero hero--photo" aria-label={hero.aria}>
+<section
+  class="hero hero--photo"
+  aria-label={hero.aria}
+  data-home-hero-video={hasLoop ? '' : undefined}
+>
   <OptimizedImage
     class="hero__img"
     src={images.hero.home}
@@ -29,6 +38,19 @@ const bookingLabel = (copy.booking as { bookingComLabel: string }).bookingComLab
     fetchpriority="high"
     sizes="100vw"
   />
+  {
+    hasLoop && (
+      <video
+        class="hero__video"
+        muted
+        playsinline
+        preload="none"
+        aria-hidden="true"
+        data-src-desktop={loop.desktop}
+        data-src-mobile={loop.mobile}
+      ></video>
+    )
+  }
   <div class="hero__overlay"></div>
   <div class="container hero__content">
     <p class="hero__eyebrow">{hero.eyebrow}</p>
@@ -56,8 +78,97 @@ const bookingLabel = (copy.booking as { bookingComLabel: string }).bookingComLab
         {t('common.whatsapp')}
       </a>
     </div>
+    {
+      hasLoop && (
+        <button
+          type="button"
+          class="hero__pause"
+          data-hero-pause
+          data-pause-label={pauseLabel}
+          data-play-label={playLabel}
+        >
+          {pauseLabel}
+        </button>
+      )
+    }
   </div>
 </section>
+
+{
+  hasLoop && (
+    <script>
+      function prefersReducedMotion() {
+        return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      }
+
+      function saveData() {
+        const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
+        return Boolean(connection?.saveData);
+      }
+
+      function loopSrc(video: HTMLVideoElement) {
+        const narrow = window.matchMedia('(max-width: 767px)').matches;
+        const chosen = narrow ? video.dataset.srcMobile : video.dataset.srcDesktop;
+        return chosen || video.dataset.srcDesktop || video.dataset.srcMobile || '';
+      }
+
+      function bindPause(hero: HTMLElement, video: HTMLVideoElement) {
+        const button = hero.querySelector<HTMLButtonElement>('[data-hero-pause]');
+        if (!button) return;
+        const pauseText = button.dataset.pauseLabel ?? '';
+        const playText = button.dataset.playLabel ?? '';
+        const sync = () => {
+          button.textContent = video.paused ? playText : pauseText;
+        };
+        button.addEventListener('click', () => {
+          if (video.paused || video.ended) {
+            if (video.ended) video.currentTime = 0;
+            video.play().catch(() => {});
+          } else video.pause();
+          sync();
+        });
+        video.addEventListener('play', sync);
+        video.addEventListener('pause', sync);
+      }
+
+      function loadLoop(hero: HTMLElement) {
+        if (hero.dataset.heroVideoReady === 'true') return;
+        if (prefersReducedMotion() || saveData()) return;
+        const video = hero.querySelector<HTMLVideoElement>('.hero__video');
+        if (!video) return;
+        const src = loopSrc(video);
+        if (!src) return;
+        hero.dataset.heroVideoReady = 'true';
+        video.src = src;
+        bindPause(hero, video);
+        video.addEventListener(
+          'loadeddata',
+          () => {
+            video
+              .play()
+              .then(() => hero.classList.add('is-video-on'))
+              .catch(() => {});
+          },
+          { once: true },
+        );
+        video.load();
+      }
+
+      document.querySelectorAll<HTMLElement>('[data-home-hero-video]').forEach((hero) => {
+        const img = hero.querySelector('img');
+        const start = () =>
+          requestAnimationFrame(() => {
+            window.setTimeout(() => loadLoop(hero), 1600);
+          });
+        if (!img || img.complete) start();
+        else {
+          img.addEventListener('load', start, { once: true });
+          img.addEventListener('error', start, { once: true });
+        }
+      });
+    </script>
+  )
+}
 
 <style>
   .hero {
@@ -78,7 +189,8 @@ const bookingLabel = (copy.booking as { bookingComLabel: string }).bookingComLab
   }
 
   .hero :global(picture.hero__img),
-  .hero :global(img.hero__img) {
+  .hero :global(img.hero__img),
+  .hero__video {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -86,7 +198,8 @@ const bookingLabel = (copy.booking as { bookingComLabel: string }).bookingComLab
   }
 
   .hero :global(.hero__img img),
-  .hero :global(img.hero__img) {
+  .hero :global(img.hero__img),
+  .hero__video {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -94,16 +207,38 @@ const bookingLabel = (copy.booking as { bookingComLabel: string }).bookingComLab
     max-width: none;
   }
 
+  .hero__video {
+    z-index: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.9s ease;
+  }
+
+  .hero.is-video-on .hero__video {
+    opacity: 1;
+  }
+
+  .hero.is-video-on .hero__pause {
+    visibility: visible;
+  }
+
   .hero__overlay {
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: linear-gradient(
-      to top,
-      var(--color-hero-veil-strong) 0%,
-      var(--color-hero-veil) 45%,
-      rgb(28 25 20 / 0.22) 100%
-    );
+    background:
+      linear-gradient(
+        to right,
+        rgb(28 25 20 / 0.52) 0%,
+        rgb(28 25 20 / 0.22) 58%,
+        rgb(28 25 20 / 0.28) 100%
+      ),
+      linear-gradient(
+        to top,
+        rgb(28 25 20 / 0.86) 0%,
+        rgb(28 25 20 / 0.58) 42%,
+        rgb(28 25 20 / 0.34) 100%
+      );
   }
 
   .hero__content {
@@ -123,6 +258,7 @@ const bookingLabel = (copy.booking as { bookingComLabel: string }).bookingComLab
     letter-spacing: var(--letter-eyebrow);
     text-transform: uppercase;
     color: var(--color-accent);
+    text-shadow: 0 1px 16px rgb(28 25 20 / 0.55);
   }
 
   .hero__title {
@@ -132,14 +268,16 @@ const bookingLabel = (copy.booking as { bookingComLabel: string }).bookingComLab
     color: var(--color-on-dark);
     line-height: 1.1;
     letter-spacing: -0.02em;
+    text-shadow: 0 2px 28px rgb(28 25 20 / 0.5);
   }
 
   .hero__subtitle {
     margin: 0 0 2rem;
     max-width: 36rem;
     font-size: clamp(1.0625rem, 2vw, 1.2rem);
-    color: rgb(244 239 230 / 0.88);
+    color: rgb(244 239 230 / 0.94);
     line-height: 1.6;
+    text-shadow: 0 1px 18px rgb(28 25 20 / 0.55);
   }
 
   @media (min-width: 768px) {
@@ -161,14 +299,56 @@ const bookingLabel = (copy.booking as { bookingComLabel: string }).bookingComLab
     padding-inline: 1.35rem;
   }
 
+  .hero__actions .btn:not(.btn--outline) {
+    color: var(--color-primary);
+    background: var(--color-on-dark);
+    border-color: var(--color-on-dark);
+    box-shadow: 0 10px 28px rgb(28 25 20 / 0.35);
+  }
+
+  .hero__actions .btn:not(.btn--outline):hover {
+    color: var(--color-primary-dark);
+    background: var(--color-bg);
+    border-color: var(--color-bg);
+  }
+
   .hero__actions .btn--outline {
     color: var(--color-on-primary);
-    border-color: var(--color-on-primary);
+    border-color: rgb(244 239 230 / 0.78);
+    background: rgb(28 25 20 / 0.22);
   }
 
   .hero__actions .btn--outline:hover {
     color: var(--color-text);
     background: var(--color-on-primary);
     border-color: var(--color-on-primary);
+  }
+
+  .hero__pause {
+    visibility: hidden;
+    margin-top: 1.1rem;
+    padding: 0.4rem 0.7rem;
+    min-height: 1.5rem;
+    border: 1px solid rgb(244 239 230 / 0.55);
+    border-radius: var(--radius);
+    background: rgb(28 25 20 / 0.45);
+    color: var(--color-on-dark);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .hero__pause:hover,
+  .hero__pause:focus-visible {
+    border-color: var(--color-on-dark);
+    background: rgb(28 25 20 / 0.7);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero__video,
+    .hero__pause {
+      display: none;
+    }
   }
 </style>

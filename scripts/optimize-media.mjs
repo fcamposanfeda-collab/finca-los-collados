@@ -1,5 +1,5 @@
 import { mkdir, writeFile } from 'node:fs/promises';
-import { existsSync, mkdirSync, statSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { basename, dirname, extname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
@@ -115,63 +115,78 @@ function resolveSource(kind, file) {
   return join(root, 'public', kind, file);
 }
 
-async function optimizeImages() {
-  const manifest = {};
-  for (const file of imageFiles) {
-    const input = resolveSource('images', file);
-    if (!existsSync(input)) {
-      console.warn(`skip missing image ${file}`);
-      continue;
-    }
-    const meta = await sharp(input).metadata();
-    const origW = meta.width || 1600;
-    const origH = meta.height || 900;
-    const isHero = heroNames.has(file);
-    const isLogo = logoNames.has(file);
-    const isCalerilla = file === 'calerilla-hero.jpg';
-    const avifQuality = isCalerilla ? 38 : isHero ? 45 : 48;
-    const webpQuality = isCalerilla ? 58 : isHero ? 64 : 68;
-    const usedWidths = widths.filter((width) => width <= origW || width === 480);
-    const id = slugName(file);
-    const outDir = join(root, 'public', 'images', 'opt', id);
-    await mkdir(outDir, { recursive: true });
+async function writeImageDerivatives(file) {
+  const input = resolveSource('images', file);
+  if (!existsSync(input)) {
+    console.warn(`skip missing image ${file}`);
+    return null;
+  }
+  const meta = await sharp(input).metadata();
+  const origW = meta.width || 1600;
+  const origH = meta.height || 900;
+  const isHero = heroNames.has(file);
+  const isLogo = logoNames.has(file);
+  const isCalerilla = file === 'calerilla-hero.jpg';
+  const avifQuality = isCalerilla ? 38 : isHero ? 45 : 48;
+  const webpQuality = isCalerilla ? 58 : isHero ? 64 : 68;
+  const usedWidths = widths.filter((width) => width <= origW || width === 480);
+  const id = slugName(file);
+  const outDir = join(root, 'public', 'images', 'opt', id);
+  await mkdir(outDir, { recursive: true });
 
-    const sources = { avif: [], webp: [] };
-    for (const width of usedWidths) {
-      const resized = applyLook(
-        sharp(input).resize({ width, withoutEnlargement: true }),
-        isLogo,
-      );
-      const avifName = `${width}.avif`;
-      const webpName = `${width}.webp`;
-      await resized.clone().avif({ quality: avifQuality }).toFile(join(outDir, avifName));
-      await resized.clone().webp({ quality: webpQuality }).toFile(join(outDir, webpName));
-      sources.avif.push({ w: width, src: `/images/opt/${id}/${avifName}` });
-      sources.webp.push({ w: width, src: `/images/opt/${id}/${webpName}` });
-    }
-
-    const fallbackWidth = Math.min(1100, origW);
-    const fallbackName = `${fallbackWidth}.jpg`;
-    await applyLook(
-      sharp(input).resize({ width: fallbackWidth, withoutEnlargement: true }),
+  const sources = { avif: [], webp: [] };
+  for (const width of usedWidths) {
+    const resized = applyLook(
+      sharp(input).resize({ width, withoutEnlargement: true }),
       isLogo,
-    )
-      .jpeg({ quality: isCalerilla ? 62 : 72, mozjpeg: true })
-      .toFile(join(outDir, fallbackName));
+    );
+    const avifName = `${width}.avif`;
+    const webpName = `${width}.webp`;
+    await resized.clone().avif({ quality: avifQuality }).toFile(join(outDir, avifName));
+    await resized.clone().webp({ quality: webpQuality }).toFile(join(outDir, webpName));
+    sources.avif.push({ w: width, src: `/images/opt/${id}/${avifName}` });
+    sources.webp.push({ w: width, src: `/images/opt/${id}/${webpName}` });
+  }
 
-    const key = `/images/${file}`;
-    manifest[key] = {
+  const fallbackWidth = Math.min(1100, origW);
+  const fallbackName = `${fallbackWidth}.jpg`;
+  await applyLook(
+    sharp(input).resize({ width: fallbackWidth, withoutEnlargement: true }),
+    isLogo,
+  )
+    .jpeg({ quality: isCalerilla ? 62 : 72, mozjpeg: true })
+    .toFile(join(outDir, fallbackName));
+
+  console.log(`image ${file} → ${id} (${origW}×${origH})`);
+  return {
+    key: `/images/${file}`,
+    entry: {
       width: origW,
       height: origH,
       fallback: `/images/opt/${id}/${fallbackName}`,
       avif: sources.avif,
       webp: sources.webp,
-    };
-    console.log(`image ${file} → ${id} (${origW}×${origH})`);
+    },
+  };
+}
+
+async function optimizeImages() {
+  const manifest = {};
+  for (const file of imageFiles) {
+    const row = await writeImageDerivatives(file);
+    if (row) manifest[row.key] = row.entry;
   }
 
   await writeFile(join(root, 'src', 'data', 'image-manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`);
   return manifest;
+}
+
+async function patchImageManifest(file) {
+  const manifestPath = join(root, 'src', 'data', 'image-manifest.json');
+  const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
+  const row = await writeImageDerivatives(file);
+  if (row) manifest[row.key] = row.entry;
+  await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
 }
 
 function optimizeVideos() {
@@ -341,19 +356,190 @@ function encodeHuntingVideos() {
   writeFileSync(stamp, '2\n');
 }
 
+/**
+ * Slow Ken Burns loop from the home still. Almost-static footage compresses
+ * small; the still stays as LCP and this file is loaded after first paint.
+ */
+function encodeHomeHeroLoop() {
+  if (!ffmpeg) {
+    console.warn('ffmpeg-static not found; skipping home hero loop');
+    return;
+  }
+  const src = resolveSource('images', 'hero-entrada-atardecer.png');
+  if (!existsSync(src)) {
+    console.warn('skip home hero loop: still missing');
+    return;
+  }
+  const outDir = join(root, 'public', 'videos', 'opt');
+  mkdirSyncSafe(outDir);
+  const desktop = join(outDir, 'hero-entrada-loop.mp4');
+  const mobile = join(outDir, 'hero-entrada-loop-720.mp4');
+  const stamp = join(outDir, 'home-hero.v4');
+  if (existsSync(stamp) && existsSync(desktop) && existsSync(mobile)) {
+    console.log('skip home hero loop: derivatives already present');
+    return;
+  }
+
+  // One-way dolly toward the arched door (same approach as the owner's GIF,
+  // encoded from the still so the dusk sky keeps full colour). Upscale first
+  // so zoompan rounding does not jitter; trunc() keeps whole pixels.
+  const zoom =
+    "scale=4096:-1:flags=lanczos,zoompan=z='min(1+0.00243*on,1.7)':x='trunc(iw/2-(iw/zoom/2))':y='trunc(max(0\\,min(ih-ih/zoom\\,ih*0.44-ih/zoom/2)))':d=1:s=1024x848:fps=24";
+
+  console.log('home hero loop 1024');
+  runFfmpeg([
+    '-y',
+    '-loop',
+    '1',
+    '-i',
+    src,
+    '-t',
+    '12',
+    '-an',
+    '-c:v',
+    'libx264',
+    '-pix_fmt',
+    'yuv420p',
+    '-crf',
+    '26',
+    '-preset',
+    'medium',
+    '-movflags',
+    '+faststart',
+    '-vf',
+    zoom,
+    desktop,
+  ]);
+
+  console.log('home hero loop 768');
+  runFfmpeg([
+    '-y',
+    '-i',
+    desktop,
+    '-an',
+    '-c:v',
+    'libx264',
+    '-crf',
+    '30',
+    '-preset',
+    'medium',
+    '-vf',
+    'scale=768:-2',
+    '-movflags',
+    '+faststart',
+    mobile,
+  ]);
+
+  const deskMb = existsSync(desktop) ? statSync(desktop).size / (1024 * 1024) : 0;
+  const mobMb = existsSync(mobile) ? statSync(mobile).size / (1024 * 1024) : 0;
+  console.log(`home hero loop desktop=${deskMb.toFixed(2)}MB mobile=${mobMb.toFixed(2)}MB`);
+  writeFileSync(stamp, '4\n');
+}
+
+/**
+ * One-way left-to-right pan across the La Finca house panorama.
+ * Still remains LCP; this file loads after first paint. No loop: hold last frame.
+ */
+function encodeLaFincaHeroLoop() {
+  if (!ffmpeg) {
+    console.warn('ffmpeg-static not found; skipping la-finca hero loop');
+    return;
+  }
+  const src = resolveSource('images', 'hero-casa-panorama.png');
+  if (!existsSync(src)) {
+    console.warn('skip la-finca hero loop: still missing');
+    return;
+  }
+  const outDir = join(root, 'public', 'videos', 'opt');
+  mkdirSyncSafe(outDir);
+  const desktop = join(outDir, 'hero-casa-panorama-loop.mp4');
+  const mobile = join(outDir, 'hero-casa-panorama-loop-720.mp4');
+  const stamp = join(outDir, 'la-finca-hero.v1');
+  if (existsSync(stamp) && existsSync(desktop) && existsSync(mobile)) {
+    console.log('skip la-finca hero loop: derivatives already present');
+    return;
+  }
+
+  console.log('la-finca hero pan 1536');
+  runFfmpeg([
+    '-y',
+    '-loop',
+    '1',
+    '-i',
+    src,
+    '-t',
+    '14',
+    '-an',
+    '-c:v',
+    'libx264',
+    '-pix_fmt',
+    'yuv420p',
+    '-crf',
+    '26',
+    '-preset',
+    'medium',
+    '-movflags',
+    '+faststart',
+    '-vf',
+    "scale=-2:768:flags=lanczos,crop=1536:768:'min((iw-1536)*t/13.5,iw-1536)':0,format=yuv420p",
+    desktop,
+  ]);
+
+  console.log('la-finca hero pan 768');
+  runFfmpeg([
+    '-y',
+    '-loop',
+    '1',
+    '-i',
+    src,
+    '-t',
+    '14',
+    '-an',
+    '-c:v',
+    'libx264',
+    '-pix_fmt',
+    'yuv420p',
+    '-crf',
+    '30',
+    '-preset',
+    'medium',
+    '-movflags',
+    '+faststart',
+    '-vf',
+    "scale=-2:960:flags=lanczos,crop=768:960:'min((iw-768)*t/13.5,iw-768)':0,format=yuv420p",
+    mobile,
+  ]);
+
+  const deskMb = existsSync(desktop) ? statSync(desktop).size / (1024 * 1024) : 0;
+  const mobMb = existsSync(mobile) ? statSync(mobile).size / (1024 * 1024) : 0;
+  console.log(`la-finca hero loop desktop=${deskMb.toFixed(2)}MB mobile=${mobMb.toFixed(2)}MB`);
+  writeFileSync(stamp, '1\n');
+}
+
 await mkdir(join(root, 'public', 'images', 'opt'), { recursive: true });
 await mkdir(join(root, 'public', 'videos', 'opt'), { recursive: true });
 
 const huntingOnly = process.argv.includes('--hunting-only');
 const imagesOnly = process.argv.includes('--images-only');
+const homeHeroOnly = process.argv.includes('--home-hero-only');
+const laFincaHeroOnly = process.argv.includes('--la-finca-hero-only');
 
-if (!imagesOnly) {
-  encodeHuntingVideos();
-}
-if (!huntingOnly) {
-  await optimizeImages();
+if (laFincaHeroOnly) {
+  await patchImageManifest('hero-casa-panorama.png');
+  encodeLaFincaHeroLoop();
+} else if (homeHeroOnly) {
+  encodeHomeHeroLoop();
+} else {
   if (!imagesOnly) {
-    optimizeVideos();
+    encodeHuntingVideos();
+    encodeHomeHeroLoop();
+    encodeLaFincaHeroLoop();
+  }
+  if (!huntingOnly) {
+    await optimizeImages();
+    if (!imagesOnly) {
+      optimizeVideos();
+    }
   }
 }
 console.log('optimize-media done');
