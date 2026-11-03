@@ -107,23 +107,6 @@
       }
     ]
   },
-  "/images/calerilla-jornada-poster.jpg": {
-    "width": 640,
-    "height": 480,
-    "fallback": "/images/opt/calerilla-jornada-poster/640.jpg",
-    "avif": [
-      {
-        "w": 480,
-        "src": "/images/opt/calerilla-jornada-poster/480.avif"
-      }
-    ],
-    "webp": [
-      {
-        "w": 480,
-        "src": "/images/opt/calerilla-jornada-poster/480.webp"
-      }
-    ]
-  },
   "/images/bungalow-interior.jpg": {
     "width": 1600,
     "height": 1067,
@@ -1621,73 +1604,6 @@
       }
     ]
   },
-  "/images/gastronomia-postre.png": {
-    "width": 768,
-    "height": 1024,
-    "fallback": "/images/opt/gastronomia-postre/768.jpg",
-    "avif": [
-      {
-        "w": 480,
-        "src": "/images/opt/gastronomia-postre/480.avif"
-      },
-      {
-        "w": 768,
-        "src": "/images/opt/gastronomia-postre/768.avif"
-      }
-    ],
-    "webp": [
-      {
-        "w": 480,
-        "src": "/images/opt/gastronomia-postre/480.webp"
-      },
-      {
-        "w": 768,
-        "src": "/images/opt/gastronomia-postre/768.webp"
-      }
-    ]
-  },
-  "/images/logo-cabecera.png": {
-    "width": 1024,
-    "height": 455,
-    "fallback": "/images/opt/logo-cabecera/1024.jpg",
-    "avif": [
-      {
-        "w": 480,
-        "src": "/images/opt/logo-cabecera/480.avif"
-      },
-      {
-        "w": 768,
-        "src": "/images/opt/logo-cabecera/768.avif"
-      }
-    ],
-    "webp": [
-      {
-        "w": 480,
-        "src": "/images/opt/logo-cabecera/480.webp"
-      },
-      {
-        "w": 768,
-        "src": "/images/opt/logo-cabecera/768.webp"
-      }
-    ]
-  },
-  "/images/logo-finca-los-collados.png": {
-    "width": 512,
-    "height": 512,
-    "fallback": "/images/opt/logo-finca-los-collados/512.jpg",
-    "avif": [
-      {
-        "w": 480,
-        "src": "/images/opt/logo-finca-los-collados/480.avif"
-      }
-    ],
-    "webp": [
-      {
-        "w": 480,
-        "src": "/images/opt/logo-finca-los-collados/480.webp"
-      }
-    ]
-  },
   "/images/gastronomia-plato-01.webp": {
     "width": 771,
     "height": 1024,
@@ -2060,31 +1976,6 @@
       {
         "w": 768,
         "src": "/videos/opt/posters/img-0658/768.webp"
-      }
-    ]
-  },
-  "/videos/opt/la-finca-culturas.jpg": {
-    "width": 960,
-    "height": 1708,
-    "fallback": "/videos/opt/posters/la-finca-culturas/768.jpg",
-    "avif": [
-      {
-        "w": 480,
-        "src": "/videos/opt/posters/la-finca-culturas/480.avif"
-      },
-      {
-        "w": 768,
-        "src": "/videos/opt/posters/la-finca-culturas/768.avif"
-      }
-    ],
-    "webp": [
-      {
-        "w": 480,
-        "src": "/videos/opt/posters/la-finca-culturas/480.webp"
-      },
-      {
-        "w": 768,
-        "src": "/videos/opt/posters/la-finca-culturas/768.webp"
       }
     ]
   },
