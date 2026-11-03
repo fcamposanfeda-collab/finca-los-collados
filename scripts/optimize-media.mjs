@@ -1,5 +1,5 @@
 import { mkdir, writeFile } from 'node:fs/promises';
-import { existsSync, mkdirSync, readFileSync, rmSync, statSync, unlinkSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, unlinkSync, writeFileSync } from 'node:fs';
 import { basename, dirname, extname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
@@ -181,13 +181,19 @@ async function optimizeImages() {
   return manifest;
 }
 
+function posterSourceDir() {
+  return join(root, '.astro', 'posters-src');
+}
+
 function optimizeVideos() {
   if (!ffmpeg) {
     console.warn('ffmpeg-static not found; skipping videos');
     return;
   }
   const outDir = join(root, 'public', 'videos', 'opt');
+  const posterDir = posterSourceDir();
   mkdirSyncSafe(outDir);
+  mkdirSyncSafe(posterDir);
 
   for (const file of videoFiles) {
     const input = resolveSource('videos', file);
@@ -197,7 +203,7 @@ function optimizeVideos() {
     }
     const id = slugName(file);
     const output = join(outDir, `${id}.mp4`);
-    const poster = join(outDir, `${id}.jpg`);
+    const poster = join(posterDir, `${id}.jpg`);
     const before = statSync(input).size;
     const profile = videoProfile[file] ?? videoProfile.default;
     console.log(`video ${file} (${(before / 1024 / 1024).toFixed(1)} MB)`);
@@ -228,8 +234,6 @@ function optimizeVideos() {
         ['-y', '-i', input, '-ss', '00:00:01', '-frames:v', '1', '-vf', 'scale=960:-2', poster],
         { stdio: 'inherit' },
       );
-    } else if (existsSync(poster)) {
-      unlinkSync(poster);
     }
     const after = existsSync(output) ? statSync(output).size : 0;
     console.log(` → opt/${id}.mp4 ${(after / 1024 / 1024).toFixed(1)} MB`);
@@ -244,7 +248,7 @@ async function optimizeVideoPosters() {
   for (const file of videoFiles) {
     const id = slugName(file);
     if (id === 'la-finca-culturas') continue;
-    const jpg = join(root, 'public', 'videos', 'opt', `${id}.jpg`);
+    const jpg = join(posterSourceDir(), `${id}.jpg`);
     if (!existsSync(jpg)) continue;
     const meta = await sharp(jpg).metadata();
     const origW = meta.width || 960;
@@ -413,6 +417,12 @@ for (const leftover of [
   join(optVideos, 'la-finca-culturas.jpg'),
 ]) {
   if (existsSync(leftover)) unlinkSync(leftover);
+}
+if (existsSync(optVideos)) {
+  for (const name of readdirSync(optVideos)) {
+    if (!name.endsWith('.jpg')) continue;
+    unlinkSync(join(optVideos, name));
+  }
 }
 const unusedCulturasPosters = join(optVideos, 'posters', 'la-finca-culturas');
 if (existsSync(unusedCulturasPosters)) rmSync(unusedCulturasPosters, { recursive: true, force: true });
