@@ -1,5 +1,6 @@
 ---
-import { getOptimizedVideo } from '../../data/media';
+import { getOptimizedVideo, posterSrc } from '../../data/media';
+import OptimizedImage from './OptimizedImage.astro';
 import { useI18n } from '../../i18n';
 
 interface Props {
@@ -20,7 +21,8 @@ const {
   startTime = 0,
 } = Astro.props;
 const optimized = getOptimizedVideo(src);
-const posterSrc = poster ?? optimized.poster;
+const posterImage = poster ?? optimized.poster;
+const videoPoster = posterSrc(posterImage);
 const playLabel = (useI18n(Astro).copy.conversion as { playVideo: string }).playVideo;
 ---
 
@@ -31,14 +33,22 @@ const playLabel = (useI18n(Astro).copy.conversion as { playVideo: string }).play
   data-start-time={startTime > 0 ? startTime : undefined}
 >
   {
-    posterSrc && (
-      <img src={posterSrc} alt={alt} width="960" height="720" loading="lazy" decoding="async" class="content-video__poster" />
+    posterImage && (
+      <OptimizedImage
+        class="content-video__poster"
+        src={posterImage}
+        alt={alt}
+        width={960}
+        height={720}
+        loading="lazy"
+        sizes="(min-width: 768px) 50vw, 100vw"
+      />
     )
   }
   <button type="button" class="content-video__play" data-video-play>
     {playLabel}
   </button>
-  <video muted loop playsinline preload="none" poster={posterSrc} aria-label={alt}></video>
+  <video muted loop playsinline preload="none" poster={videoPoster} aria-label={alt}></video>
 </div>
 
 <style>
@@ -50,7 +60,15 @@ const playLabel = (useI18n(Astro).copy.conversion as { playVideo: string }).play
   }
 
   .content-video video,
+  .content-video :global(picture.content-video__poster),
   .content-video__poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .content-video :global(picture.content-video__poster img) {
     width: 100%;
     height: 100%;
     object-fit: cover;

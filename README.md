@@ -10,12 +10,14 @@ Migración desde [loscolladosdesanmiguel.com](https://loscolladosdesanmiguel.com
 
 ## Comandos
 
-| Comando           | Acción                                      |
-| ----------------- | ------------------------------------------- |
-| `npm install`     | Instalar dependencias                       |
-| `npm run dev`     | Servidor local en `http://localhost:4321`   |
-| `npm run build`   | Build de producción en `./dist/`            |
-| `npm run preview` | Previsualizar el build                      |
+| Comando               | Acción                                                          |
+| --------------------- | --------------------------------------------------------------- |
+| `npm install`         | Instalar dependencias                                           |
+| `npm run dev`         | Servidor local en `http://localhost:4321`                       |
+| `npm run build`       | Optimiza medios y genera el sitio estático en `./dist/`         |
+| `npm run preview`     | Previsualizar el build                                          |
+| `npm run check:i18n`  | Comprueba que las claves i18n coinciden en ES, EN y FR          |
+| `npm run optimize:media` | Regenera variantes de imagen y vídeo en `public/*/opt/`      |
 
 ## Estructura
 
@@ -38,6 +40,6 @@ Cada push a `main` publica la web automáticamente.
 2. Dominio: `loscolladosdesanmiguel.com` (archivo `public/CNAME`).
 3. DNS en Hostinger: registros **A** de `@` a las IPs de GitHub Pages y **CNAME** de `www` → `fcamposanfeda-collab.github.io`. No borrar MX/TXT del correo.
 
-## Próximos pasos
+## Estado
 
-Ver `docs/PLAN-DESARROLLO.md` para el plan completo de migración.
+Sitio estático Astro 6 en producción (GitHub Pages desde `main`): español sin prefijo, inglés en `/en/` y francés en `/fr/`.

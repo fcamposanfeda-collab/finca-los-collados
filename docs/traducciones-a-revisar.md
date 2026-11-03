@@ -2,12 +2,9 @@
 
 Lista para revisión humana antes de publicar EN/FR. No publicar en producción hasta OK.
 
-## Pendiente de texto original (no inventar)
+## Textos legales
 
-- **Legales** (`aviso-legal`, `politica-de-privacidad`, `politica-de-cookies`, `politica-de-reservas`).
-  - El español sigue siendo el placeholder de WordPress.
-  - EN/FR traducen solo ese placeholder y añaden un aviso: la versión española prevalece.
-  - Cuando lleguen los textos, sustituir el contenido real en `src/i18n/messages/es/legal.json` y traducir EN/FR. No hay texto legal definitivo aún.
+Los textos de `aviso-legal`, `politica-de-privacidad`, `politica-de-cookies` y `politica-de-reservas` están en `src/i18n/messages/{es,en,fr}/legal.json`, actualizados el 20 de octubre de 2026. Ya no son el placeholder de WordPress. EN/FR incluyen el aviso de que, en caso de discrepancia, prevalece la versión española.
 
 ## Términos de glosario (dejar sin traducir)
 
@@ -50,6 +47,8 @@ Lista para revisión humana antes de publicar EN/FR. No publicar en producción 
 - Booking.com: `lang=` está cableado; la ficha remota devolvió 403 al comprobarla por HTTP, así que conviene abrir a mano `/en/book-online` y `/fr/reserver-en-ligne` y confirmar el idioma de Booking.
 
 ## QA Fase 6 (19/10/2026)
+
+Informe de aquella rama, ya fusionada: `docs/archivo/informe-verificacion-i18n.md`. Cifras de entonces (54 páginas, 22 namespaces); el sitio en producción tiene más páginas y los legales ya no son placeholder.
 
 - `npm run check:i18n`: 22 namespaces × 3 locales, claves alineadas.
 - Build: 54 páginas (ES + EN + FR, incluidas `/en/request-sent` y `/fr/demande-envoyee`).
