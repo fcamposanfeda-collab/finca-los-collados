@@ -23,8 +23,19 @@ function slugName(file: string): string {
 
 export function publicImageKey(src: string): string {
   const clean = src.replace(/[?#].*$/, '');
-  const index = clean.lastIndexOf('/images/');
-  return index >= 0 ? clean.slice(index) : clean;
+  const imagesIndex = clean.lastIndexOf('/images/');
+  if (imagesIndex >= 0) return clean.slice(imagesIndex);
+  const videosIndex = clean.lastIndexOf('/videos/');
+  if (videosIndex >= 0) return clean.slice(videosIndex);
+  return clean;
+}
+
+export function posterSrc(src?: string): string | undefined {
+  if (!src) return undefined;
+  const variant = getImageVariant(src);
+  if (!variant) return src;
+  const webp768 = variant.webp.find((item) => item.w === 768) ?? variant.webp.at(-1);
+  return webp768 ? withBase(webp768.src) : withBase(variant.fallback);
 }
 
 export function getImageVariant(src: string): ImageVariant | null {

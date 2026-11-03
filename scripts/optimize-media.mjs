@@ -1,5 +1,5 @@
 import { mkdir, writeFile } from 'node:fs/promises';
-import { existsSync, mkdirSync, statSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
 import { basename, dirname, extname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
@@ -59,6 +59,16 @@ const imageFiles = [
   'gastronomia-postre.png',
   'logo-cabecera.png',
   'logo-finca-los-collados.png',
+  'gastronomia-plato-01.webp',
+  'gastronomia-plato-02.webp',
+  'gastronomia-plato-03.webp',
+  'gastronomia-plato-04.webp',
+  'gastronomia-plato-05.webp',
+  'gastronomia-plato-06.webp',
+  'gastronomia-plato-07.webp',
+  'gastronomia-plato-08.webp',
+  'gastronomia-plato-09.webp',
+  'gastronomia-plato-10.webp',
 ];
 
 const videoFiles = [
@@ -128,6 +138,7 @@ async function optimizeImages() {
     const origH = meta.height || 900;
     const isHero = heroNames.has(file);
     const isLogo = logoNames.has(file);
+    const skipLook = isLogo || file.startsWith('gastronomia-plato-');
     const isCalerilla = file === 'calerilla-hero.jpg';
     const avifQuality = isCalerilla ? 38 : isHero ? 45 : 48;
     const webpQuality = isCalerilla ? 58 : isHero ? 64 : 68;
@@ -140,7 +151,7 @@ async function optimizeImages() {
     for (const width of usedWidths) {
       const resized = applyLook(
         sharp(input).resize({ width, withoutEnlargement: true }),
-        isLogo,
+        skipLook,
       );
       const avifName = `${width}.avif`;
       const webpName = `${width}.webp`;
@@ -154,7 +165,7 @@ async function optimizeImages() {
     const fallbackName = `${fallbackWidth}.jpg`;
     await applyLook(
       sharp(input).resize({ width: fallbackWidth, withoutEnlargement: true }),
-      isLogo,
+      skipLook,
     )
       .jpeg({ quality: isCalerilla ? 62 : 72, mozjpeg: true })
       .toFile(join(outDir, fallbackName));
@@ -223,6 +234,45 @@ function optimizeVideos() {
     const after = existsSync(output) ? statSync(output).size : 0;
     console.log(` → opt/${id}.mp4 ${(after / 1024 / 1024).toFixed(1)} MB`);
   }
+}
+
+async function optimizeVideoPosters() {
+  const manifestPath = join(root, 'src', 'data', 'image-manifest.json');
+  const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
+  const posterWidths = [480, 768];
+
+  for (const file of videoFiles) {
+    const id = slugName(file);
+    const jpg = join(root, 'public', 'videos', 'opt', `${id}.jpg`);
+    if (!existsSync(jpg)) continue;
+    const meta = await sharp(jpg).metadata();
+    const origW = meta.width || 960;
+    const origH = meta.height || 720;
+    const outDir = join(root, 'public', 'videos', 'opt', 'posters', id);
+    await mkdir(outDir, { recursive: true });
+    const sources = { avif: [], webp: [] };
+    for (const width of posterWidths.filter((w) => w <= origW || w === 480)) {
+      const resized = sharp(jpg).resize({ width, withoutEnlargement: true });
+      await resized.clone().avif({ quality: 45 }).toFile(join(outDir, `${width}.avif`));
+      await resized.clone().webp({ quality: 64 }).toFile(join(outDir, `${width}.webp`));
+      sources.avif.push({ w: width, src: `/videos/opt/posters/${id}/${width}.avif` });
+      sources.webp.push({ w: width, src: `/videos/opt/posters/${id}/${width}.webp` });
+    }
+    await sharp(jpg)
+      .resize({ width: Math.min(768, origW), withoutEnlargement: true })
+      .jpeg({ quality: 72, mozjpeg: true })
+      .toFile(join(outDir, '768.jpg'));
+    manifest[`/videos/opt/${id}.jpg`] = {
+      width: origW,
+      height: origH,
+      fallback: `/videos/opt/posters/${id}/768.jpg`,
+      avif: sources.avif,
+      webp: sources.webp,
+    };
+    console.log(`poster ${id} → ${origW}×${origH}`);
+  }
+
+  await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
 }
 
 function mkdirSyncSafe(dir) {
@@ -354,6 +404,7 @@ if (!huntingOnly) {
   await optimizeImages();
   if (!imagesOnly) {
     optimizeVideos();
+    await optimizeVideoPosters();
   }
 }
 console.log('optimize-media done');

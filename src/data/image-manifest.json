@@ -1687,5 +1687,430 @@
         "src": "/images/opt/logo-finca-los-collados/480.webp"
       }
     ]
+  },
+  "/images/gastronomia-plato-01.webp": {
+    "width": 771,
+    "height": 1024,
+    "fallback": "/images/opt/gastronomia-plato-01/771.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-plato-01/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-plato-01/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-plato-01/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-plato-01/768.webp"
+      }
+    ]
+  },
+  "/images/gastronomia-plato-02.webp": {
+    "width": 1024,
+    "height": 771,
+    "fallback": "/images/opt/gastronomia-plato-02/1024.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-plato-02/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-plato-02/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-plato-02/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-plato-02/768.webp"
+      }
+    ]
+  },
+  "/images/gastronomia-plato-03.webp": {
+    "width": 771,
+    "height": 1024,
+    "fallback": "/images/opt/gastronomia-plato-03/771.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-plato-03/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-plato-03/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-plato-03/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-plato-03/768.webp"
+      }
+    ]
+  },
+  "/images/gastronomia-plato-04.webp": {
+    "width": 771,
+    "height": 1024,
+    "fallback": "/images/opt/gastronomia-plato-04/771.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-plato-04/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-plato-04/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-plato-04/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-plato-04/768.webp"
+      }
+    ]
+  },
+  "/images/gastronomia-plato-05.webp": {
+    "width": 1024,
+    "height": 768,
+    "fallback": "/images/opt/gastronomia-plato-05/1024.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-plato-05/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-plato-05/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-plato-05/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-plato-05/768.webp"
+      }
+    ]
+  },
+  "/images/gastronomia-plato-06.webp": {
+    "width": 771,
+    "height": 1024,
+    "fallback": "/images/opt/gastronomia-plato-06/771.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-plato-06/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-plato-06/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-plato-06/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-plato-06/768.webp"
+      }
+    ]
+  },
+  "/images/gastronomia-plato-07.webp": {
+    "width": 771,
+    "height": 1024,
+    "fallback": "/images/opt/gastronomia-plato-07/771.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-plato-07/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-plato-07/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-plato-07/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-plato-07/768.webp"
+      }
+    ]
+  },
+  "/images/gastronomia-plato-08.webp": {
+    "width": 771,
+    "height": 1024,
+    "fallback": "/images/opt/gastronomia-plato-08/771.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-plato-08/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-plato-08/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-plato-08/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-plato-08/768.webp"
+      }
+    ]
+  },
+  "/images/gastronomia-plato-09.webp": {
+    "width": 771,
+    "height": 1024,
+    "fallback": "/images/opt/gastronomia-plato-09/771.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-plato-09/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-plato-09/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-plato-09/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-plato-09/768.webp"
+      }
+    ]
+  },
+  "/images/gastronomia-plato-10.webp": {
+    "width": 771,
+    "height": 1024,
+    "fallback": "/images/opt/gastronomia-plato-10/771.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-plato-10/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-plato-10/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-plato-10/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-plato-10/768.webp"
+      }
+    ]
+  },
+  "/videos/opt/img-0728.jpg": {
+    "width": 960,
+    "height": 1706,
+    "fallback": "/videos/opt/posters/img-0728/768.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/videos/opt/posters/img-0728/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/videos/opt/posters/img-0728/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/videos/opt/posters/img-0728/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/videos/opt/posters/img-0728/768.webp"
+      }
+    ]
+  },
+  "/videos/opt/img-0736.jpg": {
+    "width": 960,
+    "height": 1706,
+    "fallback": "/videos/opt/posters/img-0736/768.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/videos/opt/posters/img-0736/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/videos/opt/posters/img-0736/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/videos/opt/posters/img-0736/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/videos/opt/posters/img-0736/768.webp"
+      }
+    ]
+  },
+  "/videos/opt/whatsapp-video-2026-07-08-at-11-36-47.jpg": {
+    "width": 960,
+    "height": 1722,
+    "fallback": "/videos/opt/posters/whatsapp-video-2026-07-08-at-11-36-47/768.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/videos/opt/posters/whatsapp-video-2026-07-08-at-11-36-47/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/videos/opt/posters/whatsapp-video-2026-07-08-at-11-36-47/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/videos/opt/posters/whatsapp-video-2026-07-08-at-11-36-47/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/videos/opt/posters/whatsapp-video-2026-07-08-at-11-36-47/768.webp"
+      }
+    ]
+  },
+  "/videos/opt/img-0717.jpg": {
+    "width": 960,
+    "height": 1706,
+    "fallback": "/videos/opt/posters/img-0717/768.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/videos/opt/posters/img-0717/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/videos/opt/posters/img-0717/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/videos/opt/posters/img-0717/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/videos/opt/posters/img-0717/768.webp"
+      }
+    ]
+  },
+  "/videos/opt/img-0658.jpg": {
+    "width": 960,
+    "height": 1706,
+    "fallback": "/videos/opt/posters/img-0658/768.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/videos/opt/posters/img-0658/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/videos/opt/posters/img-0658/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/videos/opt/posters/img-0658/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/videos/opt/posters/img-0658/768.webp"
+      }
+    ]
+  },
+  "/videos/opt/la-finca-culturas.jpg": {
+    "width": 960,
+    "height": 1708,
+    "fallback": "/videos/opt/posters/la-finca-culturas/768.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/videos/opt/posters/la-finca-culturas/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/videos/opt/posters/la-finca-culturas/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/videos/opt/posters/la-finca-culturas/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/videos/opt/posters/la-finca-culturas/768.webp"
+      }
+    ]
+  },
+  "/videos/opt/whatsapp-video-2026-07-07-at-13-35-28.jpg": {
+    "width": 960,
+    "height": 1722,
+    "fallback": "/videos/opt/posters/whatsapp-video-2026-07-07-at-13-35-28/768.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/videos/opt/posters/whatsapp-video-2026-07-07-at-13-35-28/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/videos/opt/posters/whatsapp-video-2026-07-07-at-13-35-28/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/videos/opt/posters/whatsapp-video-2026-07-07-at-13-35-28/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/videos/opt/posters/whatsapp-video-2026-07-07-at-13-35-28/768.webp"
+      }
+    ]
   }
 }
