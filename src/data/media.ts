@@ -66,12 +66,10 @@ export function getOptimizedVideo(src: string): { src: string; poster?: string }
   return { src };
 }
 
-export function getHuntingHeroLoop(): { desktop?: string; mobile?: string } {
+export function getHuntingHeroLoop(): { desktop?: string } {
   const desktopPath = join(root, 'public', 'videos', 'opt', 'calerilla-hero-loop-848.mp4');
-  const mobilePath = join(root, 'public', 'videos', 'opt', 'calerilla-hero-loop-720.mp4');
   return {
     desktop: existsSync(desktopPath) ? withBase('/videos/opt/calerilla-hero-loop-848.mp4') : undefined,
-    mobile: existsSync(mobilePath) ? withBase('/videos/opt/calerilla-hero-loop-720.mp4') : undefined,
   };
 }
 

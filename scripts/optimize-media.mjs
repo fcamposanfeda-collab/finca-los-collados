@@ -1,5 +1,5 @@
 import { mkdir, writeFile } from 'node:fs/promises';
-import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, rmSync, statSync, unlinkSync, writeFileSync } from 'node:fs';
 import { basename, dirname, extname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
@@ -14,7 +14,6 @@ const imageFiles = [
   'hero-casa-panorama.png',
   'calerilla-hero.jpg',
   'calerilla-hero-loop.jpg',
-  'calerilla-jornada-poster.jpg',
   'bungalow-interior.jpg',
   'gastronomia.jpg',
   'campo-montiel.png',
@@ -56,9 +55,6 @@ const imageFiles = [
   'evento-terraza-atardecer.png',
   'pet-friendly.jpg',
   'gastronomia-mesa-detalle.png',
-  'gastronomia-postre.png',
-  'logo-cabecera.png',
-  'logo-finca-los-collados.png',
   'gastronomia-plato-01.webp',
   'gastronomia-plato-02.webp',
   'gastronomia-plato-03.webp',
@@ -104,7 +100,7 @@ const heroNames = new Set([
   'hero-finca.jpg',
 ]);
 
-const logoNames = new Set(['logo-cabecera.png', 'logo-finca-los-collados.png']);
+const logoNames = new Set();
 
 /** Same warm grade for every photograph; logos stay untouched. Crop is CSS by block type. */
 function applyLook(pipeline, skip) {
@@ -226,11 +222,15 @@ function optimizeVideos() {
       output,
     );
     execFileSync(ffmpeg, args, { stdio: 'inherit' });
-    execFileSync(
-      ffmpeg,
-      ['-y', '-i', input, '-ss', '00:00:01', '-frames:v', '1', '-vf', 'scale=960:-2', poster],
-      { stdio: 'inherit' },
-    );
+    if (id !== 'la-finca-culturas') {
+      execFileSync(
+        ffmpeg,
+        ['-y', '-i', input, '-ss', '00:00:01', '-frames:v', '1', '-vf', 'scale=960:-2', poster],
+        { stdio: 'inherit' },
+      );
+    } else if (existsSync(poster)) {
+      unlinkSync(poster);
+    }
     const after = existsSync(output) ? statSync(output).size : 0;
     console.log(` → opt/${id}.mp4 ${(after / 1024 / 1024).toFixed(1)} MB`);
   }
@@ -243,6 +243,7 @@ async function optimizeVideoPosters() {
 
   for (const file of videoFiles) {
     const id = slugName(file);
+    if (id === 'la-finca-culturas') continue;
     const jpg = join(root, 'public', 'videos', 'opt', `${id}.jpg`);
     if (!existsSync(jpg)) continue;
     const meta = await sharp(jpg).metadata();
@@ -312,19 +313,19 @@ function encodeHuntingVideos() {
   mkdirSyncSafe(join(root, 'public', 'images'));
 
   const loop848 = join(outDir, 'calerilla-hero-loop-848.mp4');
-  const loop720 = join(outDir, 'calerilla-hero-loop-720.mp4');
   const jornada = join(outDir, 'calerilla-jornada.mp4');
   const posterStill = join(root, 'public', 'images', 'calerilla-hero-loop.jpg');
   const jornadaStill = join(root, 'public', 'images', 'calerilla-jornada-poster.jpg');
-  const stamp = join(outDir, 'hunting.v3');
+  const cacheDir = join(root, '.astro');
+  mkdirSyncSafe(cacheDir);
+  const stamp = join(cacheDir, 'hunting.v3');
   const sources = [v1, v2];
   const skipLoop848 = isFresh(loop848, sources);
-  const skipLoop720 = isFresh(loop720, [loop848]);
   const skipJornada = isFresh(jornada, sources);
   const skipHeroPoster = isFresh(posterStill, sources);
   const skipJornadaPoster = isFresh(jornadaStill, sources);
 
-  if (skipLoop848 && skipLoop720 && skipJornada && skipHeroPoster && skipJornadaPoster) {
+  if (skipLoop848 && skipJornada && skipHeroPoster && skipJornadaPoster) {
     console.log('skip hunting videos: derivatives already present');
     return;
   }
@@ -349,21 +350,6 @@ function encodeHuntingVideos() {
       '-preset', 'medium',
       '-movflags', '+faststart',
       loop848,
-    ]);
-  }
-
-  if (!isFresh(loop720, sources)) {
-    console.log('hunting hero loop 720');
-    runFfmpeg([
-      '-y',
-      '-i', loop848,
-      '-an',
-      '-c:v', 'libx264',
-      '-crf', '30',
-      '-preset', 'medium',
-      '-vf', 'scale=640:-2',
-      '-movflags', '+faststart',
-      loop720,
     ]);
   }
 
@@ -398,11 +384,8 @@ function encodeHuntingVideos() {
   }
 
   const loopSize = existsSync(loop848) ? statSync(loop848).size / (1024 * 1024) : 0;
-  const loop720Size = existsSync(loop720) ? statSync(loop720).size / (1024 * 1024) : 0;
   const jornadaSize = existsSync(jornada) ? statSync(jornada).size / (1024 * 1024) : 0;
-  console.log(
-    `hunting sizes loop848=${loopSize.toFixed(2)}MB loop720=${loop720Size.toFixed(2)}MB jornada=${jornadaSize.toFixed(2)}MB`,
-  );
+  console.log(`hunting sizes loop848=${loopSize.toFixed(2)}MB jornada=${jornadaSize.toFixed(2)}MB`);
   writeFileSync(stamp, '2\n');
 }
 
@@ -422,4 +405,16 @@ if (!huntingOnly) {
     await optimizeVideoPosters();
   }
 }
+
+const optVideos = join(root, 'public', 'videos', 'opt');
+for (const leftover of [
+  join(optVideos, 'calerilla-hero-loop-720.mp4'),
+  join(optVideos, 'hunting.v3'),
+  join(optVideos, 'la-finca-culturas.jpg'),
+]) {
+  if (existsSync(leftover)) unlinkSync(leftover);
+}
+const unusedCulturasPosters = join(optVideos, 'posters', 'la-finca-culturas');
+if (existsSync(unusedCulturasPosters)) rmSync(unusedCulturasPosters, { recursive: true, force: true });
+
 console.log('optimize-media done');
