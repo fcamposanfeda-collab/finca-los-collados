@@ -56,11 +56,15 @@ export function videoSlug(src: string): string {
 export function getOptimizedVideo(src: string): { src: string; poster?: string } {
   const id = videoSlug(src);
   const optSrc = join(root, 'public', 'videos', 'opt', `${id}.mp4`);
-  const optPoster = join(root, 'public', 'videos', 'opt', `${id}.jpg`);
+  const posterKey = `/videos/opt/${id}.jpg`;
+  const publishedPoster = join(root, 'public', 'videos', 'opt', 'posters', id, '768.webp');
+  const cachedPoster = join(root, '.astro', 'posters-src', `${id}.jpg`);
   if (existsSync(optSrc)) {
+    const hasPoster =
+      Boolean(getImageVariant(posterKey)) || existsSync(publishedPoster) || existsSync(cachedPoster);
     return {
       src: withBase(`/videos/opt/${id}.mp4`),
-      poster: existsSync(optPoster) ? withBase(`/videos/opt/${id}.jpg`) : undefined,
+      poster: hasPoster ? withBase(posterKey) : undefined,
     };
   }
   return { src };
