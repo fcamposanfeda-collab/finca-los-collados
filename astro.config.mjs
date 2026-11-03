@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import { hreflangLinks, pageKeyFromUrl } from './src/i18n/sitemap';
+import { hreflangLinks, lastmodForPage, pageKeyFromUrl } from './src/i18n/sitemap';
 
 export default defineConfig({
   site: 'https://loscolladosdesanmiguel.com',
@@ -60,11 +60,14 @@ export default defineConfig({
         try {
           const { pageKey } = pageKeyFromUrl(item.url);
           if (pageKey === '404' || pageKey === 'solicitud-enviada') return undefined;
-          return {
+          const lastmod = lastmodForPage(pageKey);
+          const next = {
             ...item,
-            lastmod: new Date().toISOString(),
             links: hreflangLinks(pageKey),
           };
+          if (lastmod) next.lastmod = lastmod;
+          else delete next.lastmod;
+          return next;
         } catch {
           return item;
         }

@@ -2,6 +2,7 @@
 import { locales, localeMeta, useI18n } from '../../i18n';
 
 const { locale, pageKey, href, t } = useI18n(Astro);
+const switcherPage = pageKey === '404' ? 'home' : pageKey;
 ---
 
 <nav class="language-switcher" aria-label={t('common.languageSwitcher')}>
@@ -19,7 +20,7 @@ const { locale, pageKey, href, t } = useI18n(Astro);
             )}
             <li>
               <a
-                href={href(pageKey, item)}
+                href={href(switcherPage, item)}
                 lang={meta.htmlLang}
                 hreflang={meta.htmlLang}
                 aria-current={current ? 'page' : undefined}

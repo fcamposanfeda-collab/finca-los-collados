@@ -279,6 +279,12 @@ function mkdirSyncSafe(dir) {
   mkdirSync(dir, { recursive: true });
 }
 
+function isFresh(output, sources) {
+  if (!existsSync(output)) return false;
+  const outputTime = statSync(output).mtimeMs;
+  return sources.every((source) => !existsSync(source) || statSync(source).mtimeMs <= outputTime);
+}
+
 function runFfmpeg(args) {
   if (!ffmpeg) throw new Error('ffmpeg-static not found');
   execFileSync(ffmpeg, args, { stdio: 'inherit' });
@@ -311,15 +317,14 @@ function encodeHuntingVideos() {
   const posterStill = join(root, 'public', 'images', 'calerilla-hero-loop.jpg');
   const jornadaStill = join(root, 'public', 'images', 'calerilla-jornada-poster.jpg');
   const stamp = join(outDir, 'hunting.v3');
+  const sources = [v1, v2];
+  const skipLoop848 = isFresh(loop848, sources);
+  const skipLoop720 = isFresh(loop720, [loop848]);
+  const skipJornada = isFresh(jornada, sources);
+  const skipHeroPoster = isFresh(posterStill, sources);
+  const skipJornadaPoster = isFresh(jornadaStill, sources);
 
-  if (
-    existsSync(stamp) &&
-    existsSync(loop848) &&
-    existsSync(loop720) &&
-    existsSync(jornada) &&
-    existsSync(posterStill) &&
-    existsSync(jornadaStill)
-  ) {
+  if (skipLoop848 && skipLoop720 && skipJornada && skipHeroPoster && skipJornadaPoster) {
     console.log('skip hunting videos: derivatives already present');
     return;
   }
@@ -327,60 +332,70 @@ function encodeHuntingVideos() {
   const trimPad = (label, start, duration) =>
     `[${label}:v]trim=start=${start}:duration=${duration},setpts=PTS-STARTPTS,scale=848:480:force_original_aspect_ratio=decrease,pad=848:480:(ow-iw)/2:(oh-ih)/2,fps=24,setsar=1[${label}o]`;
 
-  console.log('hunting hero loop 848');
-  runFfmpeg([
-    '-y',
-    '-i', v1,
-    '-i', v1,
-    '-i', v2,
-    '-i', v2,
-    '-filter_complex',
-    `${trimPad('0', 23, 3.5)};${trimPad('1', 47, 3.2)};${trimPad('2', 36.8, 3.3)};${trimPad('3', 50.5, 3.3)};[0o][1o][2o][3o]concat=n=4:v=1:a=0,crop=640:480:200:0,format=yuv420p[v]`,
-    '-map', '[v]',
-    '-an',
-    '-c:v', 'libx264',
-    '-crf', '28',
-    '-preset', 'medium',
-    '-movflags', '+faststart',
-    loop848,
-  ]);
+  if (!skipLoop848) {
+    console.log('hunting hero loop 848');
+    runFfmpeg([
+      '-y',
+      '-i', v1,
+      '-i', v1,
+      '-i', v2,
+      '-i', v2,
+      '-filter_complex',
+      `${trimPad('0', 23, 3.5)};${trimPad('1', 47, 3.2)};${trimPad('2', 36.8, 3.3)};${trimPad('3', 50.5, 3.3)};[0o][1o][2o][3o]concat=n=4:v=1:a=0,crop=640:480:200:0,format=yuv420p[v]`,
+      '-map', '[v]',
+      '-an',
+      '-c:v', 'libx264',
+      '-crf', '28',
+      '-preset', 'medium',
+      '-movflags', '+faststart',
+      loop848,
+    ]);
+  }
 
-  console.log('hunting hero loop 720');
-  runFfmpeg([
-    '-y',
-    '-i', loop848,
-    '-an',
-    '-c:v', 'libx264',
-    '-crf', '30',
-    '-preset', 'medium',
-    '-vf', 'scale=640:-2',
-    '-movflags', '+faststart',
-    loop720,
-  ]);
+  if (!isFresh(loop720, sources)) {
+    console.log('hunting hero loop 720');
+    runFfmpeg([
+      '-y',
+      '-i', loop848,
+      '-an',
+      '-c:v', 'libx264',
+      '-crf', '30',
+      '-preset', 'medium',
+      '-vf', 'scale=640:-2',
+      '-movflags', '+faststart',
+      loop720,
+    ]);
+  }
 
-  console.log('hunting hero poster');
-  runFfmpeg(['-y', '-i', loop848, '-ss', '4.8', '-frames:v', '1', '-q:v', '2', posterStill]);
+  if (!skipHeroPoster) {
+    console.log('hunting hero poster');
+    runFfmpeg(['-y', '-i', loop848, '-ss', '4.8', '-frames:v', '1', '-q:v', '2', posterStill]);
+  }
 
-  console.log('hunting jornada 848');
-  runFfmpeg([
-    '-y',
-    '-i', v1,
-    '-i', v2,
-    '-filter_complex',
-    '[0:v]trim=start=22:duration=38,setpts=PTS-STARTPTS,scale=848:480:force_original_aspect_ratio=decrease,pad=848:480:(ow-iw)/2:(oh-ih)/2,fps=24,setsar=1[v0];' +
-      '[1:v]trim=start=36:duration=22,setpts=PTS-STARTPTS,scale=848:480:force_original_aspect_ratio=decrease,pad=848:480:(ow-iw)/2:(oh-ih)/2,fps=24,setsar=1[v1];' +
-      '[v0][v1]concat=n=2:v=1:a=0,crop=640:480:200:0,format=yuv420p[v]',
-    '-map', '[v]',
-    '-an',
-    '-c:v', 'libx264',
-    '-crf', '28',
-    '-preset', 'medium',
-    '-movflags', '+faststart',
-    jornada,
-  ]);
+  if (!skipJornada) {
+    console.log('hunting jornada 848');
+    runFfmpeg([
+      '-y',
+      '-i', v1,
+      '-i', v2,
+      '-filter_complex',
+      '[0:v]trim=start=22:duration=38,setpts=PTS-STARTPTS,scale=848:480:force_original_aspect_ratio=decrease,pad=848:480:(ow-iw)/2:(oh-ih)/2,fps=24,setsar=1[v0];' +
+        '[1:v]trim=start=36:duration=22,setpts=PTS-STARTPTS,scale=848:480:force_original_aspect_ratio=decrease,pad=848:480:(ow-iw)/2:(oh-ih)/2,fps=24,setsar=1[v1];' +
+        '[v0][v1]concat=n=2:v=1:a=0,crop=640:480:200:0,format=yuv420p[v]',
+      '-map', '[v]',
+      '-an',
+      '-c:v', 'libx264',
+      '-crf', '28',
+      '-preset', 'medium',
+      '-movflags', '+faststart',
+      jornada,
+    ]);
+  }
 
-  console.log('hunting jornada poster');
-  runFfmpeg(['-y', '-i', jornada, '-ss', '2', '-frames:v', '1', '-q:v', '2', jornadaStill]);
+  if (!skipJornadaPoster) {
+    console.log('hunting jornada poster');
+    runFfmpeg(['-y', '-i', jornada, '-ss', '2', '-frames:v', '1', '-q:v', '2', jornadaStill]);
+  }
 
   const loopSize = existsSync(loop848) ? statSync(loop848).size / (1024 * 1024) : 0;
   const loop720Size = existsSync(loop720) ? statSync(loop720).size / (1024 * 1024) : 0;

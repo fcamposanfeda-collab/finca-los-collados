@@ -64,13 +64,16 @@
   background: var(--color-bg-alt);
 }
 
-.feature-grid__card h3 {
+.feature-grid__card h2,
+.feature-grid__card h3,
+.page-content .feature-grid__card h2 {
   margin: 0 0 0.5rem;
   font-size: 1.125rem;
   font-weight: 500;
   color: var(--color-text);
 }
 
+.feature-grid__card h2 a,
 .feature-grid__card h3 a {
   display: inline-flex;
   align-items: center;
