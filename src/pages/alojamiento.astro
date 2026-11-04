@@ -52,18 +52,20 @@ const col2 = page.amenities.slice(mid);
 >
   <section class="page-content">
     <div class="container text-image text-image--portrait">
-      <div class="page-content__intro">
-        <p class="page-content__lead">{page.intro}</p>
-        <p>
-          {page.huntingLink.text}{' '}
-          <a href={href('la-calerilla')}>{page.huntingLink.label}</a>
-        </p>
-      </div>
-      <div class="page-content__inner">
-        <h2>{page.capacity.title}</h2>
-        <ul class="capacity-list">
-          {page.capacity.items.map((item) => <li>{item}</li>)}
-        </ul>
+      <div class="page-content__copy">
+        <div class="page-content__intro">
+          <p class="page-content__lead">{page.intro}</p>
+          <p>
+            {page.huntingLink.text}{' '}
+            <a href={href('la-calerilla')}>{page.huntingLink.label}</a>
+          </p>
+        </div>
+        <div class="page-content__inner">
+          <h2>{page.capacity.title}</h2>
+          <ul class="capacity-list">
+            {page.capacity.items.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
       </div>
       <TextImageMedia video={images.videos.bungalowInterior} alt={page.alts.exterior} aspect="portrait" />
     </div>

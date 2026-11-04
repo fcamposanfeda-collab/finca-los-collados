@@ -23,10 +23,9 @@
   text-align: left;
 }
 
-.text-image--portrait .page-content__intro {
-  grid-column: 1 / -1;
-  width: 100%;
-  max-width: none;
+.text-image--portrait .page-content__copy {
+  display: flex;
+  flex-direction: column;
 }
 
 .text-image--portrait .page-content__intro .page-content__lead,
@@ -132,10 +131,6 @@
 .text-image--portrait .text-image__media,
 .text-image--portrait .text-image__media .content-video {
   min-height: 0;
-}
-
-.text-image--portrait .page-content__inner {
-  padding-top: 1.25rem;
 }
 
 .text-image__media :global(.content-image),
@@ -373,49 +368,55 @@
   }
 
   .text-image--portrait {
-    align-items: start;
-    gap: 2rem 0;
-    grid-template-areas:
-      'intro intro'
-      'capacity media';
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .text-image--portrait .page-content__copy {
+    min-height: 100%;
+    padding: 0 clamp(1.5rem, 6vw, 5rem);
   }
 
   .text-image--portrait .page-content__intro {
-    grid-area: intro;
-    grid-column: 1 / -1;
-    padding-inline: clamp(1.5rem, 6vw, 5rem);
+    flex: 0 0 auto;
   }
 
   .text-image--portrait .page-content__inner {
-    grid-area: capacity;
-    padding-top: 1.25rem;
-    padding-bottom: 0;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    max-width: none;
+    width: 100%;
+    margin-inline: 0;
+    padding: 1.5rem 0 0;
   }
 
   .text-image--portrait .capacity-list {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin-top: 1.1rem;
   }
 
   .text-image--portrait .capacity-list li {
-    margin-bottom: 1rem;
-  }
-
-  .text-image--portrait .capacity-list li:last-child {
     margin-bottom: 0;
   }
 
-  .text-image--portrait .text-image__media,
-  .text-image--portrait .text-image__media .content-video {
+  .text-image--portrait .text-image__media {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
     min-height: 0;
     height: auto;
-  }
-
-  .text-image--portrait .text-image__media {
-    grid-area: media;
     padding: 0 clamp(1.5rem, 6vw, 5rem);
   }
 
   .text-image--portrait .text-image__media .content-video {
+    width: min(100%, 36rem);
+    height: auto;
+    min-height: 100%;
+    aspect-ratio: 4 / 5;
     border-radius: var(--radius);
   }
 
