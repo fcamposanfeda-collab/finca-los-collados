@@ -73,7 +73,7 @@ const extraIsExternal = extraHref
 
 <style>
   .cta-banner {
-    background: var(--color-bg-alt);
+    background: var(--color-bg);
   }
 
   .cta-banner__inner {
@@ -81,7 +81,8 @@ const extraIsExternal = extraHref
     flex-direction: column;
     gap: 1.5rem;
     align-items: flex-start;
-    padding: 2rem 0;
+    padding-block: 2rem;
+    padding-inline: clamp(1.5rem, 6vw, 5rem);
     border: 0;
     border-top: 1px solid var(--color-border);
     border-radius: 0;

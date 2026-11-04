@@ -31,6 +31,11 @@ const imagesRaw = {
     reservas: '/images/bungalow-detalle.jpg',
   },
 
+  alojamiento: {
+    habitacion: '/images/bungalow-habitacion.jpg',
+    fachada: '/images/finca-exterior-principal.jpg',
+  },
+
   laCalerilla: {
     hero: '/images/calerilla-hero.jpg',
     loopPoster: '/images/calerilla-hero-loop.jpg',
@@ -149,8 +154,7 @@ const imagesRaw = {
   },
 
   videos: {
-    bungalowInterior: '/videos/IMG_0728.mp4',
-    bungalowAmenities: '/videos/IMG_0736.mp4',
+    bungalowInterior: '/videos/bungalow-exterior.mp4',
     bungalowClosing: '/videos/WhatsApp Video 2026-07-08 at 11.36.47.mp4',
     empresasShowcase: '/videos/IMG_0717.mp4',
     fincaShowcase: '/videos/IMG_0658.mp4',

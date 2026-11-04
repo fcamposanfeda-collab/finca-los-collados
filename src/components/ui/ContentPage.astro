@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from './PageHero.astro';
 import CtaBanner from './CtaBanner.astro';
 import FullWidthVideo from './FullWidthVideo.astro';
+import FullWidthImage from './FullWidthImage.astro';
 import Breadcrumbs from '../seo/Breadcrumbs.astro';
 import FaqSection from '../seo/FaqSection.astro';
 import RelatedPages from '../seo/RelatedPages.astro';
@@ -36,6 +37,9 @@ interface Props {
   closingVideo?: string;
   closingVideoAlt?: string;
   closingVideoPosition?: string;
+  closingImage?: string;
+  closingImageAlt?: string;
+  closingImagePosition?: string;
   heroVideoDesktop?: string;
   heroVideoMobile?: string;
   heroPauseLabel?: string;
@@ -73,6 +77,9 @@ const {
   closingVideo,
   closingVideoAlt,
   closingVideoPosition,
+  closingImage,
+  closingImageAlt,
+  closingImagePosition,
   heroVideoDesktop,
   heroVideoMobile,
   heroPauseLabel,
@@ -132,7 +139,10 @@ const {
         />
       )
     }
-    {closingVideo && closingVideoAlt && (
+    {closingImage && closingImageAlt && (
+      <FullWidthImage src={closingImage} alt={closingImageAlt} objectPosition={closingImagePosition} />
+    )}
+    {!closingImage && closingVideo && closingVideoAlt && (
       <FullWidthVideo src={closingVideo} alt={closingVideoAlt} objectPosition={closingVideoPosition} />
     )}
   </div>

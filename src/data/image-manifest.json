@@ -2003,5 +2003,80 @@
         "src": "/videos/opt/posters/whatsapp-video-2026-07-07-at-13-35-28/768.webp"
       }
     ]
+  },
+  "/videos/opt/bungalow-exterior.jpg": {
+    "width": 960,
+    "height": 1706,
+    "fallback": "/videos/opt/posters/bungalow-exterior/768.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/videos/opt/posters/bungalow-exterior/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/videos/opt/posters/bungalow-exterior/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/videos/opt/posters/bungalow-exterior/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/videos/opt/posters/bungalow-exterior/768.webp"
+      }
+    ]
+  },
+  "/images/bungalow-habitacion.jpg": {
+    "width": 1024,
+    "height": 780,
+    "fallback": "/images/opt/bungalow-habitacion/1024.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/bungalow-habitacion/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/bungalow-habitacion/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/bungalow-habitacion/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/bungalow-habitacion/768.webp"
+      }
+    ]
+  },
+  "/images/finca-exterior-principal.jpg": {
+    "width": 1024,
+    "height": 291,
+    "fallback": "/images/opt/finca-exterior-principal/1024.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/finca-exterior-principal/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/finca-exterior-principal/768.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/finca-exterior-principal/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/finca-exterior-principal/768.webp"
+      }
+    ]
   }
 }

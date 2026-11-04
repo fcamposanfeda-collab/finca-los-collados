@@ -7,7 +7,7 @@ interface Props {
   src: string;
   alt: string;
   class?: string;
-  aspect?: 'landscape' | 'square' | 'wide';
+  aspect?: 'landscape' | 'square' | 'wide' | 'portrait';
   poster?: string;
   startTime?: number;
 }
@@ -114,6 +114,11 @@ const playLabel = (useI18n(Astro).copy.conversion as { playVideo: string }).play
 
   .content-video--square {
     aspect-ratio: 1;
+  }
+
+  .content-video--portrait {
+    min-height: 0;
+    aspect-ratio: 4 / 5;
   }
 
   @media (min-width: 768px) {

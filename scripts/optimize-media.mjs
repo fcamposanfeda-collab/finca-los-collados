@@ -23,6 +23,8 @@ const imageFiles = [
   'entorno-hero.jpg',
   'porche-exterior.jpg',
   'bungalow-detalle.jpg',
+  'bungalow-habitacion.jpg',
+  'finca-exterior-principal.jpg',
   'calerilla-temporada.jpg',
   'calerilla-perdiz.png',
   'perdiz-web.png',
@@ -68,7 +70,7 @@ const imageFiles = [
 ];
 
 const videoFiles = [
-  'IMG_0728.mp4',
+  'bungalow-exterior.mp4',
   'IMG_0736.mp4',
   'WhatsApp Video 2026-07-08 at 11.36.47.mp4',
   'IMG_0717.mp4',
