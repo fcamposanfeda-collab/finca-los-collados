@@ -1,7 +1,7 @@
 {
   "hero": {
     "eyebrow": "8 bungalows · hasta 16 adultos",
-    "title": "Alojamiento rural en Villamanrique: 8 bungalows pet friendly",
+    "title": "Alojamiento rural en Villamanrique: 8 bungalows",
     "subtitle": "Bungalows diseñados para el descanso y la privacidad en plena naturaleza manchega. Pet friendly."
   },
   "intro": "Finca Los Collados de San Miguel es una casa rural con 8 bungalows pet friendly en Villamanrique, Ciudad Real, en Campo de Montiel. Alojamos hasta 16 adultos, con desayuno, Wi-Fi y piscina. Reserve en Booking.com o consúltenos por WhatsApp.",
@@ -9,17 +9,19 @@
     "title": "Capacidad",
     "items": [
       "Hasta 16 adultos en alojamiento (8 bungalows)",
+      "Bungalows independientes: 2 adultos por unidad",
       "Posibilidad de niños según configuración de la reserva",
       "Mascotas bienvenidas (pet friendly)",
-      "Ideal para grupos pequeños, familias y empresas"
+      "Ideal para grupos pequeños, familias y empresas",
+      "Opción de alquilar la finca completa"
     ]
   },
   "amenitiesTitle": "Servicios incluidos",
   "amenities": [
-    "Cama de matrimonio (extragrande)",
+    "Cama de matrimonio",
     "Amenities",
     "Smart TV",
-    "Escritorio",
+    "Chimenea en la habitación",
     "Wi-Fi gratuito",
     "Minibar",
     "Ducha efecto lluvia",
@@ -41,7 +43,8 @@
   },
   "alts": {
     "interior": "Interior de bungalow en Los Collados",
-    "amenities": "Detalle de alojamiento rural en Los Collados",
-    "closing": "Vistas del alojamiento rural en Los Collados de San Miguel"
+    "exterior": "Exterior de bungalow en Los Collados",
+    "amenities": "Habitación de bungalow en Los Collados",
+    "closing": "Fachada principal de Los Collados de San Miguel"
   }
 }

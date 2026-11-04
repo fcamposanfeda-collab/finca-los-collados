@@ -1,0 +1,36 @@
+---
+import OptimizedImage from './OptimizedImage.astro';
+
+interface Props {
+  src: string;
+  alt: string;
+  objectPosition?: string;
+}
+
+const { src, alt, objectPosition = 'center center' } = Astro.props;
+---
+
+<section class="full-width-image" aria-label={alt} style={`--still-pos: ${objectPosition}`}>
+  <OptimizedImage src={src} alt={alt} loading="lazy" sizes="100vw" />
+</section>
+
+<style>
+  .full-width-image {
+    width: 100%;
+    overflow: hidden;
+    background: var(--color-bg-alt);
+  }
+
+  .full-width-image :global(picture) {
+    display: block;
+    width: 100%;
+  }
+
+  .full-width-image :global(img) {
+    display: block;
+    width: 100%;
+    height: clamp(10rem, 24vw, 18rem);
+    object-fit: cover;
+    object-position: var(--still-pos);
+  }
+</style>

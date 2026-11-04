@@ -1,7 +1,7 @@
 {
   "hero": {
     "eyebrow": "8 bungalows · jusqu’à 16 adultes",
-    "title": "Bungalows ruraux à Villamanrique, animaux acceptés",
+    "title": "Bungalows ruraux à Villamanrique",
     "subtitle": "Des bungalows pensés pour le repos et l’intimité, en pleine nature de La Mancha. Animaux acceptés."
   },
   "intro": "Finca Los Collados de San Miguel est un gîte rural de 8 bungalows, animaux acceptés, à Villamanrique, Ciudad Real, dans le Campo de Montiel. Capacité de 16 adultes, avec petit-déjeuner, Wi-Fi et piscine. Réservez sur Booking.com ou écrivez-nous sur WhatsApp.",
@@ -9,17 +9,19 @@
     "title": "Capacité",
     "items": [
       "Jusqu’à 16 adultes en hébergement (8 bungalows)",
+      "Bungalows indépendants : 2 adultes par unité",
       "Enfants possibles selon la configuration de la réservation",
       "Animaux acceptés (pet friendly)",
-      "Idéal pour les petits groupes, les familles et les entreprises"
+      "Idéal pour les petits groupes, les familles et les entreprises",
+      "Possibilité de louer le domaine en entier"
     ]
   },
   "amenitiesTitle": "Prestations incluses",
   "amenities": [
-    "Lit double (très grand)",
+    "Lit double",
     "Nécessaire de toilette",
     "Smart TV",
-    "Bureau",
+    "Cheminée dans la chambre",
     "Wi-Fi gratuit",
     "Minibar",
     "Douche à effet pluie",
@@ -41,7 +43,8 @@
   },
   "alts": {
     "interior": "Intérieur d’un bungalow à Los Collados",
-    "amenities": "Détail de l’hébergement rural à Los Collados",
-    "closing": "Vues de l’hébergement rural à Los Collados de San Miguel"
+    "exterior": "Extérieur d’un bungalow à Los Collados",
+    "amenities": "Chambre d’un bungalow à Los Collados",
+    "closing": "Façade principale de Los Collados de San Miguel"
   }
 }

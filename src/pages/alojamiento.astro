@@ -17,7 +17,7 @@ const page = copy.alojamiento as {
   amenities: string[];
   huntingLink: { text: string; label: string };
   cta: { title: string; text: string };
-  alts: { interior: string; amenities: string; closing: string };
+  alts: { interior: string; exterior: string; amenities: string; closing: string };
 };
 const mid = Math.ceil(page.amenities.length / 2);
 const col1 = page.amenities.slice(0, mid);
@@ -46,30 +46,32 @@ const col2 = page.amenities.slice(mid);
   extraLabel={t('common.whatsapp')}
   extraHref={buildPageWhatsAppUrl('alojamiento', locale)}
   extraTrack="whatsapp"
-  closingVideo={images.videos.bungalowClosing}
-  closingVideoAlt={page.alts.closing}
-  closingVideoPosition="center 58%"
+  closingImage={images.alojamiento.fachada}
+  closingImageAlt={page.alts.closing}
+  closingImagePosition="center 62%"
 >
   <section class="page-content">
-    <div class="container text-image">
-      <div class="page-content__inner">
+    <div class="container text-image text-image--portrait">
+      <div class="page-content__intro">
         <p class="page-content__lead">{page.intro}</p>
         <p>
           {page.huntingLink.text}{' '}
           <a href={href('la-calerilla')}>{page.huntingLink.label}</a>
         </p>
+      </div>
+      <div class="page-content__inner">
         <h2>{page.capacity.title}</h2>
         <ul class="capacity-list">
           {page.capacity.items.map((item) => <li>{item}</li>)}
         </ul>
       </div>
-      <TextImageMedia video={images.videos.bungalowInterior} alt={page.alts.interior} />
+      <TextImageMedia video={images.videos.bungalowInterior} alt={page.alts.exterior} aspect="portrait" />
     </div>
   </section>
 
   <section class="page-content page-content--alt section--alt">
-    <div class="container text-image text-image--media-left">
-      <div>
+    <div class="container text-image text-image--media-left text-image--amenities">
+      <div class="page-content__inner">
         <h2 class="section__title">{page.amenitiesTitle}</h2>
         <div class="amenities-list">
           <ul>{col1.map((item) => <li>{item}</li>)}</ul>
@@ -77,9 +79,9 @@ const col2 = page.amenities.slice(mid);
         </div>
       </div>
       <TextImageMedia
-        video={images.videos.bungalowAmenities}
+        src={images.alojamiento.habitacion}
         alt={page.alts.amenities}
-        aspect="wide"
+        aspect="landscape"
       />
     </div>
   </section>

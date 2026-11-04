@@ -13,7 +13,7 @@ const related = conv.related[pageKey] ?? [];
 {
   related.length > 0 && (
     <section class="related-pages section" aria-labelledby="related-pages-title">
-      <div class="container">
+      <div class="related-pages__panel">
         <h2 id="related-pages-title" class="section__title">
           {conv.relatedTitle}
         </h2>
@@ -30,6 +30,24 @@ const related = conv.related[pageKey] ?? [];
 }
 
 <style>
+  .related-pages {
+    padding-block: 1.75rem;
+  }
+
+  .related-pages__panel {
+    width: calc(100% - 3rem);
+    max-width: 48rem;
+    margin-inline: auto;
+    padding: 1.75rem clamp(1.5rem, 4vw, 2.5rem) 1.85rem;
+    background: var(--color-bg-alt);
+    border-radius: var(--radius);
+  }
+
+  .related-pages__panel .section__title {
+    margin-bottom: 1rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+  }
+
   .related-pages__list {
     display: flex;
     flex-wrap: wrap;
@@ -48,11 +66,22 @@ const related = conv.related[pageKey] ?? [];
     text-transform: uppercase;
     color: var(--color-primary);
     background: transparent;
-    transition: border-color var(--transition-fast), color var(--transition-fast);
+    transition:
+      border-color var(--transition-fast),
+      color var(--transition-fast),
+      background var(--transition-fast);
   }
 
-  .related-pages__list a:hover {
+  .related-pages__list a:hover,
+  .related-pages__list a:focus-visible {
+    color: var(--color-on-primary);
+    background: var(--color-primary);
     border-color: var(--color-primary);
-    color: var(--color-text);
+  }
+
+  @media (min-width: 768px) {
+    .related-pages {
+      padding-block: 2.25rem;
+    }
   }
 </style>
