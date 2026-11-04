@@ -16,6 +16,7 @@ const imageFiles = [
   'calerilla-hero-loop.jpg',
   'bungalow-interior.jpg',
   'gastronomia.jpg',
+  'gastronomia-comedor.jpg',
   'campo-montiel.png',
   'empresa-teambuilding.jpg',
   'evento-celebracion.jpg',
@@ -25,6 +26,7 @@ const imageFiles = [
   'bungalow-detalle.jpg',
   'bungalow-habitacion.jpg',
   'finca-exterior-principal.jpg',
+  'finca-porche-cristal.jpg',
   'calerilla-temporada.jpg',
   'calerilla-perdiz.png',
   'perdiz-web.png',
@@ -92,6 +94,7 @@ const heroNames = new Set([
   'calerilla-hero-loop.jpg',
   'bungalow-interior.jpg',
   'gastronomia.jpg',
+  'gastronomia-comedor.jpg',
   'campo-montiel.png',
   'empresa-teambuilding.jpg',
   'evento-celebracion.jpg',
@@ -100,6 +103,7 @@ const heroNames = new Set([
   'porche-exterior.jpg',
   'bungalow-detalle.jpg',
   'hero-finca.jpg',
+  'finca-porche-cristal.jpg',
 ]);
 
 const logoNames = new Set();

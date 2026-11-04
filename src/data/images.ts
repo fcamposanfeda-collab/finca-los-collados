@@ -17,11 +17,11 @@ const imagesRaw = {
 
   hero: {
     home: '/images/hero-entrada-atardecer.png',
-    laFinca: '/images/hero-casa-panorama.png',
+    laFinca: '/images/finca-porche-cristal.jpg',
     laCalerilla: '/images/calerilla-hero.jpg',
     laCalerillaLoop: '/images/calerilla-hero-loop.jpg',
-    alojamiento: '/images/bungalow-interior.jpg',
-    gastronomia: '/images/gastronomia.jpg',
+    alojamiento: '/images/finca-porche-cristal.jpg',
+    gastronomia: '/images/gastronomia-comedor.jpg',
     experiencias: '/images/campo-montiel.png',
     empresas: '/images/empresa-teambuilding.jpg',
     eventos: '/images/evento-celebracion.jpg',

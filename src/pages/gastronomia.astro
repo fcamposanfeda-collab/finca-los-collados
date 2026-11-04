@@ -20,7 +20,7 @@ const page = copy.gastronomia as {
   features: { title: string; description: string }[];
   moments: { videoAlt: string };
   cta: { title: string; text: string };
-  alts: { banner: string };
+  alts: { hero: string; banner: string };
 };
 ---
 
@@ -31,6 +31,7 @@ const page = copy.gastronomia as {
   heroSubtitle={page.hero.subtitle}
   heroEyebrow={page.hero.eyebrow}
   heroImage={images.hero.gastronomia}
+  heroImageAlt={page.alts.hero}
   ctaTitle={page.cta.title}
   ctaText={page.cta.text}
 >

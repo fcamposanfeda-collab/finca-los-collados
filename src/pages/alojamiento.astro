@@ -17,7 +17,7 @@ const page = copy.alojamiento as {
   amenities: string[];
   huntingLink: { text: string; label: string };
   cta: { title: string; text: string };
-  alts: { interior: string; exterior: string; amenities: string; closing: string };
+  alts: { hero: string; interior: string; exterior: string; amenities: string; closing: string };
 };
 const mid = Math.ceil(page.amenities.length / 2);
 const col1 = page.amenities.slice(0, mid);
@@ -31,7 +31,7 @@ const col2 = page.amenities.slice(mid);
   heroSubtitle={page.hero.subtitle}
   heroEyebrow={page.hero.eyebrow}
   heroImage={images.hero.alojamiento}
-  heroImageAlt={page.alts.interior}
+  heroImageAlt={page.alts.hero}
   heroCtaLabel={(copy.booking as { bookingComLabel: string }).bookingComLabel}
   heroCtaHref={bookingComPropertyUrl(locale)}
   heroCtaTrack="booking"

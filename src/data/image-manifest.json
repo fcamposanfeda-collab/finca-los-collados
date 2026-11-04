@@ -494,9 +494,9 @@
     ]
   },
   "/images/finca-exterior-principal.jpg": {
-    "width": 1024,
-    "height": 291,
-    "fallback": "/images/opt/finca-exterior-principal/1024.jpg",
+    "width": 3631,
+    "height": 1033,
+    "fallback": "/images/opt/finca-exterior-principal/1100.jpg",
     "avif": [
       {
         "w": 480,
@@ -505,6 +505,22 @@
       {
         "w": 768,
         "src": "/images/opt/finca-exterior-principal/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/finca-exterior-principal/1100.avif"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/finca-exterior-principal/1536.avif"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/finca-exterior-principal/1600.avif"
+      },
+      {
+        "w": 2000,
+        "src": "/images/opt/finca-exterior-principal/2000.avif"
       }
     ],
     "webp": [
@@ -515,6 +531,22 @@
       {
         "w": 768,
         "src": "/images/opt/finca-exterior-principal/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/finca-exterior-principal/1100.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/finca-exterior-principal/1536.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/finca-exterior-principal/1600.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/opt/finca-exterior-principal/2000.webp"
       }
     ]
   },
@@ -2051,6 +2083,104 @@
       {
         "w": 768,
         "src": "/videos/opt/posters/whatsapp-video-2026-07-07-at-13-35-28/768.webp"
+      }
+    ]
+  },
+  "/images/finca-porche-cristal.jpg": {
+    "width": 1599,
+    "height": 1066,
+    "fallback": "/images/opt/finca-porche-cristal/1100.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/finca-porche-cristal/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/finca-porche-cristal/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/finca-porche-cristal/1100.avif"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/finca-porche-cristal/1536.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/finca-porche-cristal/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/finca-porche-cristal/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/finca-porche-cristal/1100.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/finca-porche-cristal/1536.webp"
+      }
+    ]
+  },
+  "/images/gastronomia-comedor.jpg": {
+    "width": 2000,
+    "height": 1333,
+    "fallback": "/images/opt/gastronomia-comedor/1100.jpg",
+    "avif": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-comedor/480.avif"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-comedor/768.avif"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/gastronomia-comedor/1100.avif"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/gastronomia-comedor/1536.avif"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/gastronomia-comedor/1600.avif"
+      },
+      {
+        "w": 2000,
+        "src": "/images/opt/gastronomia-comedor/2000.avif"
+      }
+    ],
+    "webp": [
+      {
+        "w": 480,
+        "src": "/images/opt/gastronomia-comedor/480.webp"
+      },
+      {
+        "w": 768,
+        "src": "/images/opt/gastronomia-comedor/768.webp"
+      },
+      {
+        "w": 1100,
+        "src": "/images/opt/gastronomia-comedor/1100.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/opt/gastronomia-comedor/1536.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/images/opt/gastronomia-comedor/1600.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/opt/gastronomia-comedor/2000.webp"
       }
     ]
   }

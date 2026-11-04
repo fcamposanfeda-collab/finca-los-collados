@@ -16,7 +16,7 @@ const page = copy['la-finca'] as {
   cta: { title: string; text: string };
   calerilla: { title: string; paragraphs: string[]; button: string };
   highlightsTitle: string;
-  alts: { culturas: string; calerilla: string; closing: string };
+  alts: { hero: string; culturas: string; calerilla: string; closing: string };
 };
 const galleryAlts = (copy.images as { gallery: Record<string, string> }).gallery;
 const galleryKeys = ['jardines', 'porche', 'salon', 'entrada', 'paisaje', 'edificaciones', 'olivar'] as const;
@@ -33,6 +33,7 @@ const slides = images.laFinca.gallery.map((src, index) => ({
   heroSubtitle={page.hero.subtitle}
   heroEyebrow={page.hero.eyebrow}
   heroImage={images.hero.laFinca}
+  heroImageAlt={page.alts.hero}
   ctaTitle={page.cta.title}
   ctaText={page.cta.text}
 >
