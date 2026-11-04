@@ -73,6 +73,15 @@ export function getHuntingHeroLoop(): { desktop?: string } {
   };
 }
 
+export function getHomeHeroLoop(): { desktop?: string; mobile?: string } {
+  const desktopPath = join(root, 'public', 'videos', 'opt', 'hero-entrada-loop.mp4');
+  const mobilePath = join(root, 'public', 'videos', 'opt', 'hero-entrada-loop-720.mp4');
+  return {
+    desktop: existsSync(desktopPath) ? withBase('/videos/opt/hero-entrada-loop.mp4') : undefined,
+    mobile: existsSync(mobilePath) ? withBase('/videos/opt/hero-entrada-loop-720.mp4') : undefined,
+  };
+}
+
 export function getHuntingJornada(): { src?: string } {
   const srcPath = join(root, 'public', 'videos', 'opt', 'calerilla-jornada.mp4');
   return {

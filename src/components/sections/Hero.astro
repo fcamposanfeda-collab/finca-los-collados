@@ -1,6 +1,7 @@
 ---
 import { images } from '../../data/images';
 import { bookingComPropertyUrl, buildPageWhatsAppUrl } from '../../data/booking';
+import { getHomeHeroLoop } from '../../data/media';
 import OptimizedImage from '../ui/OptimizedImage.astro';
 import { useI18n } from '../../i18n';
 
@@ -16,9 +17,11 @@ const heroAlt = (copy.images as { heroHome: string }).heroHome;
 const bookingUrl = bookingComPropertyUrl(locale);
 const whatsappUrl = buildPageWhatsAppUrl('home', locale);
 const bookingLabel = (copy.booking as { bookingComLabel: string }).bookingComLabel;
+const conv = copy.conversion as { playVideo: string; pauseVideo: string };
+const heroLoop = getHomeHeroLoop();
 ---
 
-<section class="hero hero--photo" aria-label={hero.aria}>
+<section class="hero hero--photo" aria-label={hero.aria} data-hero>
   <OptimizedImage
     class="hero__img"
     src={images.hero.home}
@@ -29,6 +32,20 @@ const bookingLabel = (copy.booking as { bookingComLabel: string }).bookingComLab
     fetchpriority="high"
     sizes="100vw"
   />
+  {
+    heroLoop.desktop && (
+      <video
+        class="hero__video"
+        muted
+        loop
+        playsinline
+        preload="none"
+        aria-hidden="true"
+        data-src-desktop={heroLoop.desktop}
+        data-src-mobile={heroLoop.mobile ?? heroLoop.desktop}
+      ></video>
+    )
+  }
   <div class="hero__overlay"></div>
   <div class="container hero__content">
     <p class="hero__eyebrow">{hero.eyebrow}</p>
@@ -57,6 +74,21 @@ const bookingLabel = (copy.booking as { bookingComLabel: string }).bookingComLab
       </a>
     </div>
   </div>
+  {
+    heroLoop.desktop && (
+      <button
+        type="button"
+        class="hero__video-toggle"
+        data-hero-video-toggle
+        hidden
+        aria-label={conv.pauseVideo}
+        data-label-pause={conv.pauseVideo}
+        data-label-play={conv.playVideo}
+      >
+        <span class="hero__video-toggle-icon" aria-hidden="true"></span>
+      </button>
+    )
+  }
 </section>
 
 <style>
@@ -81,6 +113,7 @@ const bookingLabel = (copy.booking as { bookingComLabel: string }).bookingComLab
   .hero :global(img.hero__img) {
     position: absolute;
     inset: 0;
+    z-index: 0;
     width: 100%;
     height: 100%;
   }
@@ -92,6 +125,75 @@ const bookingLabel = (copy.booking as { bookingComLabel: string }).bookingComLab
     object-fit: cover;
     object-position: 50% 40%;
     max-width: none;
+  }
+
+  .hero__video {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 40%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+
+  .hero__video.is-ready {
+    opacity: 1;
+  }
+
+  .hero__video-toggle[hidden] {
+    display: none;
+  }
+
+  .hero__video-toggle {
+    position: absolute;
+    top: calc(var(--header-height) + 0.65rem);
+    right: 0.75rem;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    color: #fff;
+    background: rgb(28 25 20 / 0.42);
+    cursor: pointer;
+  }
+
+  .hero__video-toggle:hover,
+  .hero__video-toggle:focus-visible {
+    background: rgb(28 25 20 / 0.62);
+  }
+
+  .hero__video-toggle-icon {
+    display: block;
+    width: 0.7rem;
+    height: 0.85rem;
+    border-inline: 0.18rem solid currentColor;
+  }
+
+  .hero__video-toggle.is-paused .hero__video-toggle-icon {
+    width: 0;
+    height: 0;
+    border: 0.42rem solid transparent;
+    border-left: 0.7rem solid currentColor;
+    border-inline: 0;
+    border-left-width: 0.7rem;
+    margin-left: 0.15rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero__video,
+    .hero__video-toggle {
+      display: none;
+    }
   }
 
   .hero__overlay {
@@ -172,3 +274,73 @@ const bookingLabel = (copy.booking as { bookingComLabel: string }).bookingComLab
     border-color: var(--color-on-primary);
   }
 </style>
+
+<script>
+  const hero = document.querySelector('[data-hero]');
+  const video = hero?.querySelector<HTMLVideoElement>('.hero__video');
+  const toggle = hero?.querySelector<HTMLButtonElement>('[data-hero-video-toggle]');
+
+  function prefersStatic(): boolean {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return true;
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
+    return Boolean(connection?.saveData);
+  }
+
+  function sourceForViewport(): string | undefined {
+    if (!video) return undefined;
+    const mobile = window.matchMedia('(max-width: 767px)').matches;
+    return mobile ? video.dataset.srcMobile : video.dataset.srcDesktop;
+  }
+
+  function syncToggle(): void {
+    if (!video || !toggle) return;
+    const paused = video.paused;
+    toggle.classList.toggle('is-paused', paused);
+    const label = paused ? toggle.dataset.labelPlay : toggle.dataset.labelPause;
+    if (label) toggle.setAttribute('aria-label', label);
+  }
+
+  function startVideo(): void {
+    if (!video || prefersStatic()) return;
+    const src = sourceForViewport();
+    if (!src) return;
+    const onPlaying = () => {
+      video.classList.add('is-ready');
+      if (toggle) {
+        toggle.hidden = false;
+        syncToggle();
+      }
+    };
+    video.addEventListener('playing', onPlaying, { once: true });
+    video.src = src;
+    video.play().then(syncToggle).catch(() => {
+      video.removeEventListener('playing', onPlaying);
+    });
+  }
+
+  function scheduleStart(): void {
+    const startedAt = performance.now();
+    const run = () => {
+      const wait = Math.max(0, 3000 - (performance.now() - startedAt));
+      window.setTimeout(startVideo, wait);
+    };
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(run, { timeout: 2000 });
+    } else {
+      run();
+    }
+  }
+
+  if (video) {
+    if (document.readyState === 'complete') scheduleStart();
+    else window.addEventListener('load', scheduleStart, { once: true });
+    toggle?.addEventListener('click', () => {
+      if (video.paused) {
+        video.play().then(syncToggle).catch(() => {});
+      } else {
+        video.pause();
+        syncToggle();
+      }
+    });
+  }
+</script>

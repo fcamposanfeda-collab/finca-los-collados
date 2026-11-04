@@ -389,6 +389,75 @@ function encodeHuntingVideos() {
   writeFileSync(stamp, '2\n');
 }
 
+function encodeHomeHeroLoop() {
+  if (!ffmpeg) {
+    console.warn('ffmpeg-static not found; skipping home hero loop');
+    return;
+  }
+  const master = join(root, 'media-src', 'videos', 'hero-entrada-loop.mp4');
+  if (!existsSync(master)) {
+    console.warn('skip home hero loop: master mp4 missing');
+    return;
+  }
+  const outDir = join(root, 'public', 'videos', 'opt');
+  mkdirSyncSafe(outDir);
+  const desktop = join(outDir, 'hero-entrada-loop.mp4');
+  const mobile = join(outDir, 'hero-entrada-loop-720.mp4');
+  const skipDesktop = isFresh(desktop, [master]);
+  const skipMobile = isFresh(mobile, [master]);
+  if (skipDesktop && skipMobile) {
+    console.log('skip home hero loop: derivatives already present');
+    return;
+  }
+  if (!skipDesktop) {
+    console.log('home hero loop 1280');
+    runFfmpeg([
+      '-y',
+      '-i',
+      master,
+      '-an',
+      '-c:v',
+      'libx264',
+      '-pix_fmt',
+      'yuv420p',
+      '-crf',
+      '26',
+      '-preset',
+      'medium',
+      '-vf',
+      'scale=1280:-2',
+      '-movflags',
+      '+faststart',
+      desktop,
+    ]);
+  }
+  if (!skipMobile) {
+    console.log('home hero loop 720');
+    runFfmpeg([
+      '-y',
+      '-i',
+      master,
+      '-an',
+      '-c:v',
+      'libx264',
+      '-pix_fmt',
+      'yuv420p',
+      '-crf',
+      '28',
+      '-preset',
+      'medium',
+      '-vf',
+      'scale=720:-2',
+      '-movflags',
+      '+faststart',
+      mobile,
+    ]);
+  }
+  const desktopMb = existsSync(desktop) ? statSync(desktop).size / (1024 * 1024) : 0;
+  const mobileMb = existsSync(mobile) ? statSync(mobile).size / (1024 * 1024) : 0;
+  console.log(`home hero loop sizes 1280=${desktopMb.toFixed(2)}MB 720=${mobileMb.toFixed(2)}MB`);
+}
+
 await mkdir(join(root, 'public', 'images', 'opt'), { recursive: true });
 await mkdir(join(root, 'public', 'videos', 'opt'), { recursive: true });
 
@@ -397,6 +466,7 @@ const imagesOnly = process.argv.includes('--images-only');
 
 if (!imagesOnly) {
   encodeHuntingVideos();
+  encodeHomeHeroLoop();
 }
 if (!huntingOnly) {
   await optimizeImages();
