@@ -26,6 +26,9 @@ export default defineConfig({
     '/en/ultimo-dia-de-temporada/': '/en/experiences/',
     '/manifestacion-mundo-rural/': '/experiencias/',
     '/en/manifestacion-mundo-rural/': '/en/experiences/',
+    // Export Search Console 16/11/2026: rastreada sin indexar y duplicada
+    '/en/fr/': '/fr/',
+    '/fr/reservation-en-ligne/': '/fr/reserver-en-ligne/',
   },
   build: {
     inlineStylesheets: 'always',
