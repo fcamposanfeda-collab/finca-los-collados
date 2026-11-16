@@ -9,7 +9,7 @@ import type { PageKey } from '../i18n';
  */
 export const hunting = {
   seasonLabel: '2026-27',
-  videoPublished: '2026-10-26',
+  videoPublished: '2026-10-26T12:00:00+01:00',
   videoCredit: 'Vídeo: Certeros Ballesteros · Huntser',
   loopDuration: 'PT13S',
   jornadaDuration: 'PT1M',
