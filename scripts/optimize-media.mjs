@@ -67,6 +67,9 @@ const imageFiles = [
   'gastronomia-plato-08.webp',
   'gastronomia-plato-09.webp',
   'gastronomia-plato-10.webp',
+  'finca-noche.jpg',
+  'salon-chimenea.jpg',
+  'suite-dormitorio.jpg',
 ];
 
 const videoFiles = [

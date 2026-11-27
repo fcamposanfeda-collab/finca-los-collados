@@ -98,21 +98,22 @@ const bookingUrl = bookingComPropertyUrl(locale);
 <style>
   .trust-block__grid {
     display: grid;
-    gap: 1.25rem;
+    gap: 2rem;
   }
 
   .trust-block__card {
-    padding: 1.5rem;
-    background: var(--color-bg-alt);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-accent);
   }
 
   .trust-block__card h3 {
     margin: 0 0 0.75rem;
-    font-size: 1.05rem;
-    font-weight: 500;
-    color: var(--color-text);
+    font-family: var(--font-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: var(--letter-eyebrow);
+    text-transform: uppercase;
+    color: var(--color-secondary);
   }
 
   .trust-block__card p,
@@ -133,6 +134,8 @@ const bookingUrl = bookingComPropertyUrl(locale);
     color: var(--color-primary);
     font-weight: 600;
     text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-underline-offset: 0.25em;
   }
 
   .trust-block__card a {
@@ -157,6 +160,7 @@ const bookingUrl = bookingComPropertyUrl(locale);
   @media (min-width: 768px) {
     .trust-block__grid {
       grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
     }
 
     .trust-block__hunting {

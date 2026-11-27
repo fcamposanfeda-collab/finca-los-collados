@@ -1,0 +1,151 @@
+---
+import { images } from '../../data/images';
+import ContentImage from '../ui/ContentImage.astro';
+import { useI18n } from '../../i18n';
+
+const { href, copy } = useI18n(Astro);
+const stay = copy.home.stay as {
+  aria: string;
+  eyebrow: string;
+  title: string;
+  text: string;
+  link: string;
+  mosaicAria: string;
+  alts: Record<string, string>;
+};
+---
+
+<section class="section section--alt home-stay" aria-label={stay.aria}>
+  <div class="container">
+    <div class="home-stay__feature">
+      <div class="home-stay__media">
+        <ContentImage src={images.home.estancia} alt={stay.alts.estancia} aspect="landscape" />
+      </div>
+      <div class="home-stay__copy">
+        <p class="eyebrow home-stay__eyebrow">{stay.eyebrow}</p>
+        <h2 class="home-stay__title">{stay.title}</h2>
+        <p class="home-stay__text">{stay.text}</p>
+        <a
+          href={href('alojamiento')}
+          class="home-stay__link"
+          data-track="nav"
+          data-track-source="home-stay"
+        >
+          {stay.link}
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+
+    <ul class="home-stay__mosaic" aria-label={stay.mosaicAria}>
+      {
+        images.home.mosaic.map((item, index) => (
+          <li class={`home-stay__tile home-stay__tile--${index + 1}`}>
+            <ContentImage src={item.src} alt={stay.alts[item.altKey]} aspect="natural" />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .home-stay__feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .home-stay__media :global(.content-image) {
+    min-height: 0;
+  }
+
+  .home-stay__eyebrow {
+    color: var(--color-secondary);
+  }
+
+  .home-stay__title {
+    margin: 0 0 1.25rem;
+    font-size: clamp(1.875rem, 3.6vw, 2.75rem);
+    font-weight: 400;
+    line-height: 1.15;
+  }
+
+  .home-stay__text {
+    margin: 0 0 1.75rem;
+    max-width: 30rem;
+    color: var(--color-muted);
+    line-height: 1.75;
+  }
+
+  .home-stay__link {
+    display: inline-flex;
+    gap: 0.6rem;
+    align-items: center;
+    padding-bottom: 0.35rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-primary);
+    border-bottom: 1px solid var(--color-accent);
+  }
+
+  .home-stay__link span {
+    transition: transform var(--transition-fast);
+  }
+
+  .home-stay__link:hover span {
+    transform: translateX(4px);
+  }
+
+  .home-stay__mosaic {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 9.5rem;
+    gap: 0.75rem;
+    margin: 3rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .home-stay__tile {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+  }
+
+  .home-stay__tile :global(.content-image),
+  .home-stay__tile :global(picture) {
+    position: absolute;
+    inset: 0;
+    min-height: 0;
+  }
+
+  .home-stay__mosaic .home-stay__tile :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .home-stay__tile--1 {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  @media (min-width: 900px) {
+    .home-stay__feature {
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+      gap: 4.5rem;
+    }
+
+    .home-stay__mosaic {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-auto-rows: 13rem;
+      gap: 1rem;
+      margin-top: 4.5rem;
+    }
+  }
+</style>
