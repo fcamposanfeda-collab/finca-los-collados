@@ -26,6 +26,7 @@ const common = copy.common as { copyright: string };
           decoding="async"
         />
       </a>
+      <p class="footer__motto">{t('common.motto')}</p>
       <p class="footer__tagline">{t('common.tagline')}</p>
       <address class="footer__address">
         {contact.address}
@@ -128,6 +129,14 @@ const common = copy.common as { copyright: string };
     letter-spacing: var(--letter-eyebrow);
     text-transform: uppercase;
     color: var(--color-on-dark);
+  }
+
+  .footer__motto {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-heading);
+    font-size: 1.375rem;
+    font-style: italic;
+    color: var(--color-accent);
   }
 
   .footer__tagline {
