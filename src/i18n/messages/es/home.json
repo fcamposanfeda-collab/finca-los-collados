@@ -2,39 +2,42 @@
   "hero": {
     "eyebrow": "Campo de Montiel · Ciudad Real",
     "title": "Finca Los Collados de San Miguel",
-    "subtitle": "Turismo rural, teambuilding, rodajes y eventos pequeños en un entorno único de Castilla-La Mancha. Pet friendly.",
+    "subtitle": "Ocho bungalows privados entre encinas y olivos, mesa manchega y cielos abiertos en el corazón del Campo de Montiel.",
     "cta": "Reservar",
-    "aria": "Presentación"
+    "aria": "Presentación",
+    "ctaPrimary": "Ver disponibilidad"
   },
-  "pillars": {
-    "title": "Una finca, muchas experiencias",
-    "aria": "Propuesta de valor",
-    "items": [
-      {
-        "id": "turismo",
-        "title": "Turismo rural",
-        "description": "Escapadas auténticas en bungalows con encanto manchego."
-      },
-      {
-        "id": "empresas",
-        "title": "Empresas",
-        "description": "Teambuilding, rodajes y producción en entorno privado."
-      },
-      {
-        "id": "eventos",
-        "title": "Eventos pequeños",
-        "description": "Celebraciones íntimas al aire libre o en interior."
-      },
-      {
-        "id": "pet-friendly",
-        "title": "Pet friendly",
-        "description": "Su mascota es bienvenida en la finca."
-      }
-    ]
+  "intro": {
+    "aria": "La finca",
+    "eyebrow": "La finca",
+    "title": "Un refugio discreto en La Mancha",
+    "text": "Los Collados de San Miguel es una finca privada de monte mediterráneo en Villamanrique. Pocas estancias, mucho espacio y el ritmo pausado del campo: desayunos sin prisa, tardes de piscina y chimenea, y noches de silencio bajo un cielo limpio.",
+    "facts": {
+      "rooms": "bungalows independientes",
+      "guests": "huéspedes como máximo",
+      "rating": "en Booking.com ({count} opiniones)"
+    }
+  },
+  "stay": {
+    "aria": "La estancia",
+    "eyebrow": "La estancia",
+    "title": "Bungalows pensados para el descanso",
+    "text": "Cama de matrimonio, chimenea, porche propio y vistas al campo. Desayuno incluido, piscina y zonas comunes a pocos pasos.",
+    "link": "Ver los bungalows",
+    "mosaicAria": "Espacios de la finca",
+    "alts": {
+      "intro": "Camino de entrada a la finca iluminado al anochecer",
+      "estancia": "Dormitorio de un bungalow con cama de matrimonio",
+      "salon": "Salón con chimenea y ventanales al campo",
+      "piscina": "Piscina con tumbonas y sombrillas",
+      "bungalow": "Exterior de un bungalow con porche",
+      "entrada": "Entrada principal de la casa",
+      "salonLamparas": "Salón con chimenea de piedra y lámparas"
+    }
   },
   "teasers": {
-    "title": "Descubre la Finca Los Collados de San Miguel",
-    "lead": "Cada área de la finca tiene su propia página con toda la información: alojamiento en bungalows, gastronomía con Azurea, celebraciones al aire libre, propuestas para empresas y mucho más. Elija por dónde empezar a planificar su visita.",
+    "title": "Descubra la finca",
+    "lead": "Estancias, mesa, caza y celebraciones en un mismo lugar.",
     "aria": "Descubra la finca",
     "items": [
       {
@@ -90,7 +93,7 @@
     "cta": "Ver La Calerilla"
   },
   "cta": {
-    "title": "¿Listo para su escapada rural?",
-    "text": "Reserve online o escríbanos para diseñar su estancia, evento íntimo o jornada de empresa en un entorno sin prisas."
+    "title": "Su estancia en el Campo de Montiel",
+    "text": "Consulte disponibilidad o escríbanos y prepararemos su visita, una celebración íntima o una jornada de empresa."
   }
 }

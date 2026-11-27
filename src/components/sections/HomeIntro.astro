@@ -1,0 +1,111 @@
+---
+import { images } from '../../data/images';
+import { business } from '../../data/business';
+import ContentImage from '../ui/ContentImage.astro';
+import { useI18n } from '../../i18n';
+
+const { locale, copy } = useI18n(Astro);
+const intro = copy.home.intro as {
+  aria: string;
+  eyebrow: string;
+  title: string;
+  text: string;
+  facts: { rooms: string; guests: string; rating: string };
+};
+const alts = (copy.home.stay as { alts: Record<string, string> }).alts;
+const rating =
+  locale === 'en' ? business.bookingRating.value : business.bookingRating.value.replace('.', ',');
+const facts = [
+  { value: String(business.numberOfRooms), label: intro.facts.rooms },
+  { value: String(business.maxAdults), label: intro.facts.guests },
+  { value: rating, label: intro.facts.rating.replace('{count}', business.bookingRating.count) },
+];
+---
+
+<section class="section home-intro" aria-label={intro.aria}>
+  <div class="container home-intro__grid">
+    <div class="home-intro__copy">
+      <p class="eyebrow home-intro__eyebrow">{intro.eyebrow}</p>
+      <h2 class="home-intro__title">{intro.title}</h2>
+      <p class="home-intro__text">{intro.text}</p>
+      <dl class="home-intro__facts">
+        {
+          facts.map((fact) => (
+            <div class="home-intro__fact">
+              <dt>{fact.value}</dt>
+              <dd>{fact.label}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+    <div class="home-intro__media">
+      <ContentImage src={images.home.intro} alt={alts.intro} aspect="portrait" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .home-intro__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .home-intro__eyebrow {
+    color: var(--color-secondary);
+  }
+
+  .home-intro__title {
+    margin: 0 0 1.5rem;
+    font-size: clamp(2rem, 4.2vw, 3.25rem);
+    font-weight: 400;
+    line-height: 1.12;
+    max-width: 16ch;
+  }
+
+  .home-intro__text {
+    max-width: 34rem;
+    margin: 0;
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: var(--color-muted);
+  }
+
+  .home-intro__facts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 2.5rem 0 0;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--color-border);
+    max-width: 34rem;
+  }
+
+  .home-intro__fact dt {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    line-height: 1;
+    color: var(--color-primary);
+  }
+
+  .home-intro__fact dd {
+    margin: 0.5rem 0 0;
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    letter-spacing: 0.02em;
+    color: var(--color-muted);
+  }
+
+  .home-intro__media :global(.content-image) {
+    max-height: 40rem;
+  }
+
+  @media (min-width: 900px) {
+    .home-intro__grid {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 5rem;
+    }
+  }
+</style>

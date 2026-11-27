@@ -11,6 +11,7 @@ const hero = copy.home.hero as {
   title: string;
   subtitle: string;
   cta: string;
+  ctaPrimary: string;
   aria: string;
 };
 const heroAlt = (copy.images as { heroHome: string }).heroHome;
@@ -59,8 +60,9 @@ const heroLoop = getHomeHeroLoop();
         data-track-source="hero"
         target="_blank"
         rel="noopener noreferrer"
+        title={bookingLabel}
       >
-        {bookingLabel}
+        {hero.ctaPrimary}
       </a>
       <a
         href={whatsappUrl}

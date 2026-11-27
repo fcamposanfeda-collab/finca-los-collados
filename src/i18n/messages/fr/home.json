@@ -2,39 +2,42 @@
   "hero": {
     "eyebrow": "Campo de Montiel · Ciudad Real",
     "title": "Finca Los Collados de San Miguel",
-    "subtitle": "Séjour à la campagne, team building, tournages et séances photo, et petits événements dans un cadre unique de Castille-La Manche. Animaux acceptés.",
+    "subtitle": "Huit bungalows privés entre chênes verts et oliviers, table manchega et grands ciels au cœur du Campo de Montiel.",
     "cta": "Réserver",
-    "aria": "Présentation"
+    "aria": "Présentation",
+    "ctaPrimary": "Voir les disponibilités"
   },
-  "pillars": {
-    "title": "Un domaine, bien des expériences",
-    "aria": "Notre proposition",
-    "items": [
-      {
-        "id": "turismo",
-        "title": "Séjour à la campagne",
-        "description": "Escapades authentiques dans des bungalows au charme de La Mancha."
-      },
-      {
-        "id": "empresas",
-        "title": "Entreprises",
-        "description": "Team building, tournages, séances photo et production dans un cadre privé."
-      },
-      {
-        "id": "eventos",
-        "title": "Petits événements",
-        "description": "Célébrations intimistes en extérieur ou en intérieur."
-      },
-      {
-        "id": "pet-friendly",
-        "title": "Animaux acceptés",
-        "description": "Votre compagnon est le bienvenu sur le domaine."
-      }
-    ]
+  "intro": {
+    "aria": "Le domaine",
+    "eyebrow": "Le domaine",
+    "title": "Un refuge discret en Manche",
+    "text": "Los Collados de San Miguel est un domaine privé de garrigue méditerranéenne à Villamanrique. Peu de séjours, beaucoup d’espace et le rythme paisible de la campagne : petits-déjeuners sans hâte, après-midi entre piscine et cheminée, nuits de silence sous un ciel limpide.",
+    "facts": {
+      "rooms": "bungalows indépendants",
+      "guests": "voyageurs au maximum",
+      "rating": "sur Booking.com ({count} avis)"
+    }
+  },
+  "stay": {
+    "aria": "Le séjour",
+    "eyebrow": "Le séjour",
+    "title": "Des bungalows pensés pour le repos",
+    "text": "Lit double, cheminée, porche privé et vue sur la campagne. Petit-déjeuner inclus, piscine et salons communs à quelques pas.",
+    "link": "Voir les bungalows",
+    "mosaicAria": "Espaces du domaine",
+    "alts": {
+      "intro": "Allée d’entrée du domaine éclairée à la tombée de la nuit",
+      "estancia": "Chambre d’un bungalow avec lit double",
+      "salon": "Salon avec cheminée et baies vitrées sur la campagne",
+      "piscina": "Piscine avec transats et parasols",
+      "bungalow": "Extérieur d’un bungalow avec porche",
+      "entrada": "Entrée principale de la maison",
+      "salonLamparas": "Salon avec cheminée en pierre et lampes"
+    }
   },
   "teasers": {
-    "title": "Découvrez Finca Los Collados de San Miguel",
-    "lead": "Chaque univers du domaine a sa page : hébergement en bungalows, gastronomie avec Azurea, célébrations en plein air, propositions pour les entreprises et bien plus. Choisissez par où commencer à organiser votre visite.",
+    "title": "Découvrez le domaine",
+    "lead": "Séjours, table, chasse et célébrations en un même lieu.",
     "aria": "Découvrir le domaine",
     "items": [
       {
@@ -90,7 +93,7 @@
     "cta": "Voir La Calerilla"
   },
   "cta": {
-    "title": "Prêt pour une escapade rurale ?",
-    "text": "Réservez en ligne ou écrivez-nous pour composer votre séjour, une célébration intimiste ou une journée d’entreprise, sans précipitation."
+    "title": "Votre séjour dans le Campo de Montiel",
+    "text": "Consultez les disponibilités ou écrivez-nous : nous préparerons votre visite, une célébration intime ou une journée d’entreprise."
   }
 }

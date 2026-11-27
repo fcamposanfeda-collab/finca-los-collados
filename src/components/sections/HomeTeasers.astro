@@ -3,7 +3,7 @@ import { images } from '../../data/images';
 import ContentImage from '../ui/ContentImage.astro';
 import { useI18n, type PageKey } from '../../i18n';
 
-const { href, copy, t } = useI18n(Astro);
+const { href, copy } = useI18n(Astro);
 const teasers = copy.home.teasers as {
   title: string;
   lead: string;
@@ -12,95 +12,133 @@ const teasers = copy.home.teasers as {
 };
 ---
 
-<section class="section section--alt home-teasers" aria-label={teasers.aria}>
+<section class="section home-teasers" aria-label={teasers.aria}>
   <div class="container">
-    <h2 class="section__title">{teasers.title}</h2>
-    <p class="section__lead">{teasers.lead}</p>
-    <div class="home-teasers__grid">
+    <div class="home-teasers__head">
+      <h2 class="section__title">{teasers.title}</h2>
+      <p class="home-teasers__lead">{teasers.lead}</p>
+    </div>
+    <ul class="home-teasers__grid">
       {
         teasers.items.map((item) => (
-          <a href={href(item.pageKey)} class="home-teasers__card">
-            <div class="card-media">
-              <ContentImage
-                src={images.teasers[item.pageKey as keyof typeof images.teasers]}
-                alt={item.title}
-                class={item.pageKey === 'empresas' ? 'content-image--teaser-empresas' : undefined}
-              />
-            </div>
-            <div class="card-body">
-              <h3>{item.title}</h3>
+          <li>
+            <a href={href(item.pageKey)} class="home-teasers__card" data-track="nav" data-track-source="home-teasers">
+              <div class="card-media">
+                <ContentImage
+                  src={images.teasers[item.pageKey as keyof typeof images.teasers]}
+                  alt=""
+                  aspect="natural"
+                  class={item.pageKey === 'empresas' ? 'content-image--teaser-empresas' : undefined}
+                />
+              </div>
+              <h3>
+                {item.title}
+                <span aria-hidden="true">→</span>
+              </h3>
               <p>{item.description}</p>
-              <span class="home-teasers__link">{t('common.seeMore')}</span>
-            </div>
-          </a>
+            </a>
+          </li>
         ))
       }
-    </div>
+    </ul>
   </div>
 </section>
 
 <style>
+  .home-teasers__head {
+    display: grid;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .home-teasers__head .section__title {
+    margin: 0;
+  }
+
+  .home-teasers__lead {
+    margin: 0;
+    max-width: 28rem;
+    color: var(--color-muted);
+  }
+
   .home-teasers__grid {
     display: grid;
-    gap: 1.25rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
   .home-teasers__card {
     display: block;
-    background: var(--color-bg);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    transition:
-      border-color var(--transition-fast),
-      opacity var(--transition-fast);
+    text-decoration: none;
+    color: inherit;
   }
 
   .home-teasers__card .card-media {
     overflow: hidden;
-    aspect-ratio: 3 / 2;
+    border-radius: var(--radius);
+  }
+
+  .home-teasers__card .card-media :global(img) {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    transition: transform 600ms ease;
+  }
+
+  .home-teasers__card:hover .card-media :global(img) {
+    transform: scale(1.04);
   }
 
   .home-teasers__card .card-media :global(.content-image--teaser-empresas img) {
     object-position: center 72%;
-    transform: scale(1.18);
-  }
-
-  .home-teasers__card:hover {
-    border-color: var(--color-primary);
-    opacity: 0.92;
   }
 
   .home-teasers__card h3 {
-    margin: 0 0 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin: 1rem 0 0.35rem;
     font-size: 1.125rem;
-    font-weight: 500;
+    font-weight: 400;
     color: var(--color-text);
   }
 
+  .home-teasers__card h3 span {
+    color: var(--color-accent);
+    transition: transform var(--transition-fast);
+  }
+
+  .home-teasers__card:hover h3 span {
+    transform: translateX(4px);
+  }
+
   .home-teasers__card p {
-    margin: 0 0 1rem;
-    font-size: 0.9375rem;
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
     color: var(--color-muted);
   }
 
-  .home-teasers__link {
-    font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--color-primary);
-  }
-
   @media (min-width: 768px) {
-    .home-teasers__grid {
-      grid-template-columns: repeat(2, 1fr);
+    .home-teasers__head {
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 2rem;
+    }
+
+    .home-teasers__head .home-teasers__lead {
+      text-align: right;
     }
   }
 
   @media (min-width: 1024px) {
     .home-teasers__grid {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 3rem 1.5rem;
     }
   }
 </style>

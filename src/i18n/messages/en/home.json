@@ -2,39 +2,42 @@
   "hero": {
     "eyebrow": "Campo de Montiel · Ciudad Real",
     "title": "Finca Los Collados de San Miguel",
-    "subtitle": "Rural tourism, team building, film and photo shoots and small events in a unique corner of Castilla-La Mancha. Pet-friendly.",
+    "subtitle": "Eight private bungalows among holm oaks and olive groves, Manchegan cooking and open skies in the heart of Campo de Montiel.",
     "cta": "Book now",
-    "aria": "Introduction"
+    "aria": "Introduction",
+    "ctaPrimary": "Check availability"
   },
-  "pillars": {
-    "title": "One estate, many experiences",
-    "aria": "What we offer",
-    "items": [
-      {
-        "id": "turismo",
-        "title": "Rural tourism",
-        "description": "Authentic stays in bungalows with the charm of La Mancha."
-      },
-      {
-        "id": "empresas",
-        "title": "Corporate",
-        "description": "Team building, film and photo shoots and production in a private setting."
-      },
-      {
-        "id": "eventos",
-        "title": "Small events",
-        "description": "Intimate celebrations outdoors or under cover."
-      },
-      {
-        "id": "pet-friendly",
-        "title": "Pet-friendly",
-        "description": "Your pet is welcome on the estate."
-      }
-    ]
+  "intro": {
+    "aria": "The estate",
+    "eyebrow": "The estate",
+    "title": "A quiet retreat in La Mancha",
+    "text": "Los Collados de San Miguel is a private estate of Mediterranean woodland in Villamanrique. Few guests, plenty of space and the unhurried pace of the countryside: slow breakfasts, afternoons by the pool or the fire, and silent nights under a clear sky.",
+    "facts": {
+      "rooms": "private bungalows",
+      "guests": "guests at most",
+      "rating": "on Booking.com ({count} reviews)"
+    }
+  },
+  "stay": {
+    "aria": "Your stay",
+    "eyebrow": "Your stay",
+    "title": "Bungalows designed for rest",
+    "text": "A double bed, a fireplace, your own porch and views over the countryside. Breakfast included, with the pool and shared lounges a few steps away.",
+    "link": "See the bungalows",
+    "mosaicAria": "Spaces at the estate",
+    "alts": {
+      "intro": "Entrance drive to the estate lit at dusk",
+      "estancia": "Bungalow bedroom with a double bed",
+      "salon": "Lounge with fireplace and windows onto the countryside",
+      "piscina": "Swimming pool with loungers and parasols",
+      "bungalow": "Bungalow exterior with porch",
+      "entrada": "Main entrance to the house",
+      "salonLamparas": "Lounge with stone fireplace and lamps"
+    }
   },
   "teasers": {
-    "title": "Discover Finca Los Collados de San Miguel",
-    "lead": "Each part of the estate has its own page: bungalow stays, dining with Azurea, open-air celebrations, corporate ideas and much more. Choose where to begin planning your visit.",
+    "title": "Discover the estate",
+    "lead": "Stays, dining, shooting and celebrations in one place.",
     "aria": "Discover the estate",
     "items": [
       {
@@ -90,7 +93,7 @@
     "cta": "See La Calerilla"
   },
   "cta": {
-    "title": "Ready for a countryside retreat?",
-    "text": "Book online or write to us to shape your stay, an intimate celebration or a corporate day at an unhurried pace."
+    "title": "Your stay in Campo de Montiel",
+    "text": "Check availability or write to us and we will plan your visit, an intimate celebration or a company day."
   }
 }

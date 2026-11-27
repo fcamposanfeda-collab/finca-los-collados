@@ -120,20 +120,25 @@ const imagesRaw = {
   teasers: {
     'la-finca': '/images/bungalow-interior.jpg',
     'la-calerilla': '/images/calerilla-hero.jpg',
-    alojamiento: '/images/finca-bungalow-exterior.png',
+    alojamiento: '/images/bungalow-exterior.png',
     gastronomia: '/images/gastronomia-tabla-quesos.png',
     experiencias: '/images/bicicleta.jpg',
     empresas: '/images/empresas-teambuilding-campo.png',
     eventos: '/images/eventos-celebracion-campo.png',
-    packs: '/images/evento-jardines.jpg',
+    packs: '/images/azurea-catering-2.jpg',
     entorno: '/images/campo-montiel.png',
   },
 
-  pillars: {
-    turismo: '/images/bungalow-exterior.png',
-    empresas: '/images/empresas-rodaje.png',
-    eventos: '/images/evento-terraza-atardecer.png',
-    'pet-friendly': '/images/pet-friendly.jpg',
+  home: {
+    intro: '/images/finca-noche.jpg',
+    estancia: '/images/suite-dormitorio.jpg',
+    mosaic: [
+      { src: '/images/salon-chimenea.jpg', altKey: 'salon' },
+      { src: '/images/bungalow-detalle.jpg', altKey: 'piscina' },
+      { src: '/images/finca-paisaje.jpg', altKey: 'salonLamparas' },
+      { src: '/images/hero-finca.jpg', altKey: 'entrada' },
+      { src: '/images/finca-bungalow-exterior.png', altKey: 'bungalow' },
+    ],
   },
 
   gastronomiaMoments: {
